@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap 2026 — Games</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f11;
+    --surface: #161a1f;
+    --surface-hover: #1c2127;
+    --border: #242a32;
+    --text: #e8e6e3;
+    --text-muted: #8b9098;
+    --accent: #7eb8da;
+    --accent-dim: #4a7a96;
+    --green: #6bcf7f;
+    --green-dim: rgba(107, 207, 127, 0.12);
+    --red: #e06c75;
+    --yellow: #e5c07b;
+    --tag-short: #2d4a3a;
+    --tag-short-text: #6bcf7f;
+    --tag-medium: #4a3d2d;
+    --tag-medium-text: #e5c07b;
+    --tag-long: #4a2d2d;
+    --tag-long-text: #e06c75;
+    --done-bg: rgba(107, 207, 127, 0.06);
+    --done-border: rgba(107, 207, 127, 0.2);
+    --playing-bg: rgba(126, 184, 218, 0.06);
+    --playing-border: rgba(126, 184, 218, 0.25);
+    --next-bg: rgba(229, 192, 123, 0.06);
+    --next-border: rgba(229, 192, 123, 0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  /* ——— Header ——— */
+  header {
+    margin-bottom: 56px;
+    text-align: center;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.4rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin-top: 4px;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ——— Summary Table ——— */
+  .summary-table {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+
+  .summary-table h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .summary-row {
+    display: grid;
+    grid-template-columns: 68px 1fr auto;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+    transition: background 0.15s;
+    cursor: default;
+  }
+
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row:hover { background: var(--surface-hover); }
+
+  .summary-month {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+
+  .summary-game {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .summary-row.done .summary-game {
+    color: var(--text-muted);
+    text-decoration: line-through;
+    text-decoration-color: var(--green);
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  .tag-short { background: var(--tag-short); color: var(--tag-short-text); }
+  .tag-medium { background: var(--tag-medium); color: var(--tag-medium-text); }
+  .tag-long { background: var(--tag-long); color: var(--tag-long-text); }
+
+  .status-pill {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-left: 8px;
+  }
+
+  .pill-done { background: var(--green-dim); color: var(--green); }
+  .pill-playing { background: rgba(126,184,218,0.12); color: var(--accent); }
+  .pill-next { background: rgba(229,192,123,0.12); color: var(--yellow); }
+
+  /* ——— Game Cards ——— */
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    margin-top: 56px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .game-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .game-card:hover { border-color: #3a424d; }
+
+  .game-card.status-done { border-left: 3px solid var(--green); }
+  .game-card.status-playing { border-left: 3px solid var(--accent); }
+  .game-card.status-next { border-left: 3px solid var(--yellow); }
+
+  .card-header {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  .card-cover {
+    width: 80px;
+    min-width: 80px;
+    height: 107px;
+    border-radius: 6px;
+    object-fit: cover;
+    background: var(--border);
+  }
+
+  .card-info { flex: 1; min-width: 0; }
+
+  .card-number {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .card-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .meta-chip strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .card-body {
+    padding: 0 20px 20px;
+    display: none;
+  }
+
+  .card-body.open { display: block; }
+
+  .card-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-top: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+    user-select: none;
+  }
+
+  .card-toggle:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+
+  .card-toggle .arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.2s;
+    font-size: 0.65rem;
+  }
+
+  .card-toggle.open .arrow { transform: rotate(180deg); }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 6px 12px;
+    font-size: 0.82rem;
+    margin-bottom: 16px;
+    padding: 14px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+  }
+
+  .info-grid dt {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .info-grid dd { color: var(--text); }
+
+  .card-section-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-dim);
+    margin: 16px 0 6px;
+  }
+
+  .card-section-title:first-of-type { margin-top: 0; }
+
+  .card-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .card-text strong { color: var(--text); font-weight: 500; }
+
+  .tip-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tip-list li {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    padding: 4px 0 4px 18px;
+    position: relative;
+  }
+
+  .tip-list li::before {
+    content: '›';
+    position: absolute;
+    left: 4px;
+    color: var(--accent-dim);
+    font-weight: 700;
+  }
+
+  .config-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    border-left: 2px solid var(--border);
+    margin-top: 12px;
+  }
+
+  .progress-bar-container {
+    margin: 12px 0;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    height: 6px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    transition: width 0.4s ease;
+  }
+
+  .progress-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* ——— Co-op Section ——— */
+  .coop-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 64px 0 32px;
+  }
+
+  .coop-divider::before,
+  .coop-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .coop-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 18px;
+    background: rgba(126, 184, 218, 0.08);
+    border: 1px solid rgba(126, 184, 218, 0.2);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+  }
+
+  /* ——— Footer ——— */
+  footer {
+    text-align: center;
+    padding-top: 48px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  footer a {
+    color: var(--accent-dim);
+    text-decoration: none;
+  }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.8rem; }
+    .card-header { flex-direction: column; align-items: center; text-align: center; }
+    .card-cover { width: 100px; height: 133px; }
+    .card-meta { justify-content: center; }
+    .info-grid { grid-template-columns: 1fr; }
+    .info-grid dt { margin-top: 6px; }
+    .stats-row { gap: 20px; }
+    .summary-row { grid-template-columns: 56px 1fr auto; font-size: 0.82rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <header>
+    <h1>🎮 Roadmap 2026</h1>
+    <p>Ordem recomendada · Solo + Co-op</p>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-value">14</div>
+        <div class="stat-label">Jogos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Concluído</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Jogando</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">~480h</div>
+        <div class="stat-label">Estimativa total</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SUMMARY TABLE -->
+  <div class="summary-table">
+    <h2>Resumo Visual</h2>
+
+    <div class="summary-row done">
+      <span class="summary-month">Fev</span>
+      <span class="summary-game">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ ok</span></span>
+      <span class="tag tag-short">~9h</span>
+    </div>
+    <div class="summary-row" style="background: var(--playing-bg);">
+      <span class="summary-month">Mar</span>
+      <span class="summary-game">Final Fantasy Tactics: The Ivalice Chronicles <span class="status-pill pill-playing">jogando</span></span>
+      <span class="tag tag-long">~15h restam</span>
+    </div>
+    <div class="summary-row" style="background: var(--next-bg);">
+      <span class="summary-month">Mar</span>
+      <span class="summary-game">Super Castlevania IV <span class="status-pill pill-next">próximo</span></span>
+      <span class="tag tag-short">~5h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Mar</span>
+      <span class="summary-game">Castlevania: Order of Ecclesia</span>
+      <span class="tag tag-short">~12h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Abr–Mai</span>
+      <span class="summary-game">Final Fantasy VI</span>
+      <span class="tag tag-long">~50h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Jun</span>
+      <span class="summary-game">Journey</span>
+      <span class="tag tag-short">~2h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Jul–Ago</span>
+      <span class="summary-game">Hollow Knight: Silksong</span>
+      <span class="tag tag-medium">~35h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Set</span>
+      <span class="summary-game">Papers, Please</span>
+      <span class="tag tag-short">~8h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Out–Nov</span>
+      <span class="summary-game">The Legend of Zelda: BotW</span>
+      <span class="tag tag-long">~100h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Nov</span>
+      <span class="summary-game">Shovel Knight</span>
+      <span class="tag tag-short">~10h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Dez</span>
+      <span class="summary-game">Fire Emblem: Awakening</span>
+      <span class="tag tag-long">~50h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Dez</span>
+      <span class="summary-game">Secret of Mana</span>
+      <span class="tag tag-medium">~25h</span>
+    </div>
+
+    <div class="summary-row" style="border-top: 2px solid var(--border);">
+      <span class="summary-month" style="color: var(--accent);">Co-op</span>
+      <span class="summary-game" style="color: var(--accent);">The Last of Us Part II · Diablo IV · Baldur's Gate 3</span>
+      <span class="tag" style="background: rgba(126,184,218,0.1); color: var(--accent);">paralelo</span>
+    </div>
+  </div>
+
+  <!-- ===================== GAME CARDS ===================== -->
+
+  <!-- 1. METAL GEAR RISING — DONE -->
+  <div class="section-label">Fevereiro — Concluído</div>
+  <div class="game-card status-done">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2l1t.webp" alt="Metal Gear Rising: Revengeance" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#1 · Fevereiro — Clube do Game</div>
+        <div class="card-title">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span></div>
+        <div class="card-subtitle">PlatinumGames / Konami · 2013 · Hack-and-slash</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>84</strong></span>
+          <span class="meta-chip">HLTB <strong>~9h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2013</dd>
+        <dt>Dev/Pub</dt><dd>PlatinumGames / Konami</dd>
+        <dt>Gênero</dt><dd>Hack-and-slash / Action</dd>
+        <dt>Metacritic</dt><dd>84 (crítica)</dd>
+        <dt>OpenCritic</dt><dd>84 — Mighty (94% rec.)</dd>
+        <dt>HLTB</dt><dd>~6h história / ~9h com extras</dd>
+        <dt>Steam Deck</dt><dd>Verificado — roda muito bem nativamente</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Originalmente um projeto de Kojima Productions que emperrou; a PlatinumGames assumiu e transformou em algo completamente diferente. É tecnicamente um spin-off da série Metal Gear, mas não exige nenhum conhecimento prévio dela.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O combate é um dos mais satisfatórios do gênero, com o sistema de corte livre <strong>Blade Mode</strong> sendo genuinamente único. Os boss fights são memoráveis e os momentos de clímax são absurdamente bem realizados — especialmente o final. A trilha sonora de Jamie Christopherson é lendária (Collective Consciousness, Rules of Nature, It Has to be This Way). A história é nonsense intencional e funciona exatamente por isso.</p>
+      <div class="card-section-title">Influências</div>
+      <p class="card-text">Devil May Cry como base do character action, mas com DNA único da PlatinumGames. Esteticamente, bebe de anime mecha, cyberpunk e política neoliberal americana satirizada.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>O parry é o sistema mais importante do jogo — pratique desde o início, é "ataque leve no timing certo" e não um botão separado.</li>
+        <li>Jogue em Normal na primeira run; o jogo abre modos mais difíceis depois.</li>
+        <li>Os codec calls têm diálogos extras que valem a pena ouvir.</li>
+        <li>Os dois DLCs gratuitos (Blade Wolf e Jetstream Sam) expandem a história e são curtos — jogue depois do jogo principal.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> 60fps estáveis em configurações altas. Sem ajustes necessários.</div>
+    </div>
+  </div>
+
+  <!-- 2. FFT — PLAYING -->
+  <div class="section-label">Março — Jogando agora</div>
+  <div class="game-card status-playing">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co9wwi.webp" alt="Final Fantasy Tactics: The Ivalice Chronicles" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#2 · Março</div>
+        <div class="card-title">Final Fantasy Tactics: The Ivalice Chronicles <span class="status-pill pill-playing">jogando</span></div>
+        <div class="card-subtitle">Square Enix · 2025 · SRPG / Tactical RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>90</strong> (WotL)</span>
+          <span class="meta-chip">HLTB <strong>~60h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+        <div class="progress-bar-container" style="margin-top: 12px;">
+          <div class="progress-bar" style="width: 75%;"></div>
+        </div>
+        <div class="progress-label">~75% concluído — Chapter IV, pré-Dycedarg · Restam ~15h (história + endgame: Deep Dungeon, personagens secretos, Zodiark)</div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1997 (JP) / 2025 (Ivalice Chronicles)</dd>
+        <dt>Dev/Pub</dt><dd>Square Enix</dd>
+        <dt>Gênero</dt><dd>SRPG / Tactical RPG</dd>
+        <dt>Metacritic</dt><dd>N/A (compilação 2025) — WotL: 90 (PSP)</dd>
+        <dt>HLTB</dt><dd>~40h história / ~60h+ completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado (versão PC/Steam)</dd>
+      </dl>
+      <div class="card-section-title">Progresso atual</div>
+      <p class="card-text">No <strong>Chapter IV</strong>, próximo da batalha contra Dycedarg/Adrammelech. A história principal está quase no fim — restam ~4-5 batalhas obrigatórias (Igros Castle → Murond Holy Place → Orbonne → Graveyard of Airships → final). O conteúdo endgame inclui o <strong>Deep Dungeon</strong> (Midlight's Deep, 10 andares), personagens secretos (Beowulf, Reis, Cloud, Byblos), caça de equipamentos raros via Treasure Hunter, e o superboss Elidibus/Zodiark. Estimativa: ~15h restantes.</p>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">The Ivalice Chronicles é a compilação de 2025 que reúne FFT: War of the Lions e FFT Advance. O FFT original é uma das obras mais densas e moralmente ambíguas da Square — uma tragédia política com guerra civil, conspirações eclesiásticas e um protagonista que a história oficial apaga. Escrito por Yasumi Matsuno (Vagrant Story, FFXII).</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O sistema de Jobs é um dos mais elaborados do SRPG japonês. A profundidade tática é real: posicionamento, diferença de altura, direção de ataque, clima e fase da lua afetam os combates. A narrativa é extraordinária — Ramza Beoulve é um protagonista raro, movido por convicção pessoal. Trilha sonora de Hitoshi Sakimoto e Masaharu Iwata.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Seja paciente com o Job System nas primeiras horas. A curva clica depois de ~5-8h.</li>
+        <li>Chemist é a classe mais subestimada no início e uma das mais poderosas no mid game.</li>
+        <li>Salve em múltiplos slots. O jogo tem situações sem retorno.</li>
+        <li>Ramza pode aprender habilidades inimigas via Squire — Guts/Fundaments é indispensável no late game.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Roda nativamente. Localização em inglês mais elaborada que a versão PS1.</div>
+    </div>
+  </div>
+
+  <!-- 3. SUPER CASTLEVANIA IV — NEXT -->
+  <div class="game-card status-next">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co20dc.webp" alt="Super Castlevania IV" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#3 · Março</div>
+        <div class="card-title">Super Castlevania IV <span class="status-pill pill-next">próximo</span></div>
+        <div class="card-subtitle">Konami · 1991 · Plataforma / Action</div>
+        <div class="card-meta">
+          <span class="meta-chip">Crítica <strong>90+</strong></span>
+          <span class="meta-chip">HLTB <strong>~5h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Emulação SNES</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1991</dd>
+        <dt>Dev/Pub</dt><dd>Konami</dd>
+        <dt>Gênero</dt><dd>Plataforma / Action</dd>
+        <dt>Metacritic</dt><dd>Não indexado (SNES) — crítica contemporânea 90+</dd>
+        <dt>HLTB</dt><dd>~3h história / ~4-5h com extras</dd>
+        <dt>Steam Deck</dt><dd>Via emulação (SNES) — NSO ou emulador</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Considerado por muitos o ponto alto da era clássica de Castlevania. É um reimagining do primeiro jogo para NES, com gráficos Mode 7 impressionantes para 1991 e controles muito mais responsivos que os predecessores.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">A estética gótica pesada ainda se sustenta — cada cenário parece um quadro de horror vitoriano. A trilha sonora é um marco absoluto do SNES. O Simon Belmont aqui tem controle de chicote em 8 direções, uma revolução na época. É um dos jogos mais atmosféricos do console.</p>
+      <div class="card-section-title">Influências</div>
+      <p class="card-text">Diretamente da tradição Hammer Horror e do horror gótico europeu clássico. Castlevania estabeleceu o "gothic horror game" como subgênero e influenciou tudo de Bloodborne a Blasphemous.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>O chicote pode ser balançado segurando o botão — use isso para atravessar pendulares. É mecânica central.</li>
+        <li>O jogo não tem save, são stages curtas. Perfeito para sessões rápidas.</li>
+        <li>Stage 4 (biblioteca) e Stage 8 (torre) são as mais difíceis — espere frustração nelas.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> NSO funciona bem; via RetroArch use Snes9x com shaders CRT para a experiência mais autêntica.</div>
+    </div>
+  </div>
+
+  <!-- 4. CASTLEVANIA: ORDER OF ECCLESIA — NEW -->
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob9ko.webp" alt="Castlevania: Order of Ecclesia" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#4 · Março</div>
+        <div class="card-title">Castlevania: Order of Ecclesia</div>
+        <div class="card-subtitle">Konami · 2008 / 2024 (Dominus Collection) · Metroidvania / Action RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>85</strong></span>
+          <span class="meta-chip">HLTB <strong>~12h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado (Dominus Collection)</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2008 (DS) / 2024 (Dominus Collection)</dd>
+        <dt>Dev/Pub</dt><dd>Konami</dd>
+        <dt>Gênero</dt><dd>Metroidvania / Action RPG</dd>
+        <dt>Metacritic</dt><dd>85 (DS)</dd>
+        <dt>OpenCritic</dt><dd>N/A (pré-indexação)</dd>
+        <dt>HLTB</dt><dd>~10h história / ~15h+ completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado (via Castlevania Dominus Collection)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Terceiro e último Castlevania de DS, dirigido por Akihiro Minakata e produzido por Koji Igarashi. Considerado por muitos o melhor da trilogia DS e o último grande Metroidvania clássico de Castlevania antes de a série mudar de direção. Shanoa é a primeira protagonista feminina da franquia em um título canônico. Relançado em 2024 como parte da Castlevania Dominus Collection junto com Dawn of Sorrow e Portrait of Ruin.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O sistema de Glyphs substitui o equipamento convencional e permite combinações criativas de ataques — cada braço pode equipar um glyph diferente, com uniões especiais entre pares. A dificuldade é notavelmente maior que os predecessores de DS, o que cria tensão real. A estética abandona o estilo anime dos jogos anteriores em favor de um gótico mais pesado e adulto. A trilha sonora de Michiru Yamane mantém o padrão altíssimo da série.</p>
+      <div class="card-section-title">Influências</div>
+      <p class="card-text">Symphony of the Night como base estrutural, Castlevania II: Simon's Quest na progressão por mapa do mundo. É simultaneamente um ponto de chegada para o estilo IGA-vania e uma despedida do formato.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>O jogo é mais difícil que Dawn of Sorrow e Portrait of Ruin — não subestime inimigos comuns, especialmente nas primeiras áreas.</li>
+        <li>Absorva todos os Glyphs que encontrar — muitos são situacionais mas indispensáveis em boss fights específicos.</li>
+        <li>As side quests dos moradores de Wygol Village destrancam itens essenciais na loja. Não ignore.</li>
+        <li>Para o bom final: colete todos os três Dominus Glyphs e não os use antes da hora.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Dominus Collection roda perfeitamente. Interface adaptada para tela única, sem necessidade de tela dupla do DS.</div>
+    </div>
+  </div>
+
+  <!-- 5. FINAL FANTASY VI -->
+  <div class="section-label">Abril – Maio</div>
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6ple.webp" alt="Final Fantasy VI" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#5 · Abril–Maio</div>
+        <div class="card-title">Final Fantasy VI</div>
+        <div class="card-subtitle">Square Enix · 1994 / 2022 (Pixel Remaster) · JRPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>94</strong></span>
+          <span class="meta-chip">HLTB <strong>~50h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1994 (SNES) / 2022 (Pixel Remaster)</dd>
+        <dt>Dev/Pub</dt><dd>Square Enix</dd>
+        <dt>Gênero</dt><dd>JRPG / Turn-based</dd>
+        <dt>Metacritic</dt><dd>94 (Pixel Remaster, PC)</dd>
+        <dt>OpenCritic</dt><dd>94 — Mighty</dd>
+        <dt>HLTB</dt><dd>~35h história / ~50h com extras</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Desenvolvido por Kitase e Sakaguchi, com trilha de Uematsu. Amplamente considerado o auge da era 16-bit dos JRPGs. A Pixel Remaster de 2022 é a versão recomendada — trilha remasterizada, visuais fiéis ao original.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">Um dos poucos JRPGs com elenco verdadeiramente coral — 14 personagens jogáveis com história e motivação próprias. A Opera House e o villain Kefka são marcos da história dos games. Sistema de Esper/Magicite dá enorme liberdade de customização.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Não negligencie o sistema de Esper. Equipar os certos nos personagens certos desde cedo tem impacto grande.</li>
+        <li>A segunda metade (Mundo das Ruínas) é semissandbox. Busque Terra/Celes antes de avançar.</li>
+        <li>Shadow: se o recrutou, espere ele no final da Floating Continent.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Roda perfeitamente. Suporte nativo a 16:9.</div>
+    </div>
+  </div>
+
+  <!-- 6. JOURNEY -->
+  <div class="section-label">Junho</div>
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1q8q.jpg" alt="Journey" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#6 · Junho</div>
+        <div class="card-title">Journey</div>
+        <div class="card-subtitle">Thatgamecompany · 2012 · Experimental / Aventura</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>92</strong></span>
+          <span class="meta-chip">HLTB <strong>~2h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2012 (PS3) / 2015 (PC)</dd>
+        <dt>Dev/Pub</dt><dd>Thatgamecompany</dd>
+        <dt>Gênero</dt><dd>Experimental / Aventura</dd>
+        <dt>Metacritic</dt><dd>92 (PS3)</dd>
+        <dt>HLTB</dt><dd>~2h história</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Criado por Jenova Chen. Um dos jogos mais estudados academicamente quando o assunto é game design emocional. Multiplayer online assíncrono único — sem chat, sem nomes.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">Trilha de Austin Wintory — primeira de jogo indicada ao Grammy. A curva emocional é meticulosamente projetada. É um dos melhores argumentos existentes para "games como arte".</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Não busque spoilers antes de jogar — a jornada é a experiência.</li>
+        <li>Se encontrar outro jogador, fique com ele.</li>
+        <li>Uma segunda jornada imediatamente após os créditos tem um significado diferente.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Perfeito. Belo em 800p.</div>
+    </div>
+  </div>
+
+  <!-- 7. HOLLOW KNIGHT: SILKSONG -->
+  <div class="section-label">Julho – Agosto</div>
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobebu.webp" alt="Hollow Knight: Silksong" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#7 · Julho–Agosto</div>
+        <div class="card-title">Hollow Knight: Silksong</div>
+        <div class="card-subtitle">Team Cherry · 2025 · Metroidvania</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>91</strong></span>
+          <span class="meta-chip">HLTB <strong>~35h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2025</dd>
+        <dt>Dev/Pub</dt><dd>Team Cherry</dd>
+        <dt>Gênero</dt><dd>Metroidvania / Action-platformer</dd>
+        <dt>Metacritic</dt><dd>91</dd>
+        <dt>OpenCritic</dt><dd>91 — Mighty</dd>
+        <dt>HLTB</dt><dd>~21h história / ~35h+ completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Sequência de Hollow Knight (2017), desenvolvida por apenas 3 pessoas ao longo de ~7 anos. Joga-se como Hornet, mais ágil e agressiva. O reino de Pharloom substitui Hallownest.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">Mais rápido e agressivo que o original, com o sistema de Blasón. Boss fights são o ponto alto — alguns entre os melhores do gênero. Visualmente mais rico, com biomas mais variados.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Se não jogou HK1, pode jogar direto — mas o impacto narrativo será diferente.</li>
+        <li>A curva de dificuldade é mais íngreme que o original.</li>
+        <li>Explore cada canto antes de avançar — o jogo recompensa quem vai devagar.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Otimizado para resolução baixa, fica ótimo na tela do Deck.</div>
+    </div>
+  </div>
+
+  <!-- 8. PAPERS, PLEASE -->
+  <div class="section-label">Setembro</div>
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1vep.webp" alt="Papers, Please" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#8 · Setembro</div>
+        <div class="card-title">Papers, Please</div>
+        <div class="card-subtitle">Lucas Pope · 2013 · Puzzle / Simulação / Dystopia</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>85</strong></span>
+          <span class="meta-chip">HLTB <strong>~8h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2013</dd>
+        <dt>Dev/Pub</dt><dd>Lucas Pope (solo)</dd>
+        <dt>Gênero</dt><dd>Puzzle / Simulação burocrática / Dystopia</dd>
+        <dt>Metacritic</dt><dd>85 (PC)</dd>
+        <dt>HLTB</dt><dd>~6h história / ~10h com múltiplos endings</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Criado inteiramente por Lucas Pope. Você é um inspetor de imigração numa ditadura fictícia (Arstotzka) durante a Guerra Fria. Predecessor direto do Return of the Obra Dinn.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O design de "trabalho real" cria tensão moral genuína — a mecânica é a narrativa. Os múltiplos endings refletem as decisões acumuladas. É um estudo de caso em game design minimalista.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Leia cada documento com calma no início — a pressa gera multas que comprometem sua família.</li>
+        <li>Não ignore as histórias dos imigrantes — elas constroem o quadro emocional.</li>
+        <li>Comece pelo modo história. O jogo tem 20 endings.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Funciona bem com o touchpad do Deck.</div>
+    </div>
+  </div>
+
+  <!-- 9. ZELDA: BOTW -->
+  <div class="section-label">Outubro – Novembro</div>
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg" alt="The Legend of Zelda: Breath of the Wild" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#9 · Outubro–Novembro</div>
+        <div class="card-title">The Legend of Zelda: Breath of the Wild</div>
+        <div class="card-subtitle">Nintendo EPD · 2017 / 2025 (Switch 2) · Open world</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>97</strong></span>
+          <span class="meta-chip">HLTB <strong>~100h</strong></span>
+          <span class="meta-chip"><strong>Switch 2</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2017 (original) / 2025 (Switch 2 Edition)</dd>
+        <dt>Dev/Pub</dt><dd>Nintendo EPD</dd>
+        <dt>Gênero</dt><dd>Action-adventure / Open world</dd>
+        <dt>Metacritic</dt><dd>97 (Switch)</dd>
+        <dt>OpenCritic</dt><dd>97 — Mighty</dd>
+        <dt>HLTB</dt><dd>~50h história / ~100h+ exploração completa</dd>
+        <dt>Plataforma</dt><dd>Nintendo Switch 2 (60fps, HDR)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Considerado por muitos o jogo mais influente dos anos 2010. Redefiniu o open world em termos de física, interatividade sistêmica e liberdade. A versão Switch 2 resolve os problemas técnicos do original — 60fps estáveis.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Não corra para os Divine Beasts — cada hora de exploração "aleatória" vai pagar dividendos.</li>
+        <li>O sistema de culinária é mais importante do que parece. Yellow Hearts são essenciais para boss fights.</li>
+        <li>Durabilidade de armas: não economize boas armas. Você sempre vai achar mais.</li>
+        <li>Os Santuários do Plateau de abertura ensinam os sistemas fundamentais — não pule nenhum.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 10. SHOVEL KNIGHT -->
+  <div class="section-label">Novembro</div>
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobaa7.webp" alt="Shovel Knight" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#10 · Novembro</div>
+        <div class="card-title">Shovel Knight</div>
+        <div class="card-subtitle">Yacht Club Games · 2014 · Plataforma / Action</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>90</strong></span>
+          <span class="meta-chip">HLTB <strong>~10h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2014</dd>
+        <dt>Dev/Pub</dt><dd>Yacht Club Games</dd>
+        <dt>Gênero</dt><dd>Plataforma / Action</dd>
+        <dt>Metacritic</dt><dd>90 (PC)</dd>
+        <dt>OpenCritic</dt><dd>90 — Mighty</dd>
+        <dt>HLTB</dt><dd>~7h história / ~10h+ com campanhas extras</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Treasure Trove inclui 4 campanhas com personagens diferentes. A campanha da Spectre Knight é considerada o melhor conteúdo do jogo.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Compre melhorias de pá e armadura antes de gastar no resto.</li>
+        <li>Ordem de dificuldade crescente: Shovel Knight → Plague Knight → Spectre Knight.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Perfeito. Roda sem ajustes.</div>
+    </div>
+  </div>
+
+  <!-- 11. FIRE EMBLEM: AWAKENING -->
+  <div class="section-label">Dezembro</div>
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobcko.webp" alt="Fire Emblem: Awakening" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#11 · Dezembro</div>
+        <div class="card-title">Fire Emblem: Awakening</div>
+        <div class="card-subtitle">Intelligent Systems / Nintendo · 2012 · SRPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>92</strong></span>
+          <span class="meta-chip">HLTB <strong>~50h</strong></span>
+          <span class="meta-chip"><strong>3DS / Citra</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2012 (JP) / 2013 (Ocidente)</dd>
+        <dt>Dev/Pub</dt><dd>Intelligent Systems / Nintendo</dd>
+        <dt>Gênero</dt><dd>SRPG / Tactical RPG</dd>
+        <dt>Metacritic</dt><dd>92 (3DS)</dd>
+        <dt>HLTB</dt><dd>~30h história / ~50h+ completionist</dd>
+        <dt>Plataforma</dt><dd>3DS (recomendado) ou Citra (Steam Deck)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">O jogo que salvou a franquia. A Nintendo deu um ultimato: se não vendesse 250k, Fire Emblem acabaria. Vendeu 2 milhões. Projetado como a porta de entrada perfeita.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Classic Mode (morte permanente) muda fundamentalmente como você toma decisões.</li>
+        <li>Frederick é útil, mas depender dele vai te prejudicar no mid game.</li>
+        <li>Não negligencie as paralogues — destrancam personagens importantes.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Sobre 3DS vs Deck:</strong> 3DS recomendado pela tela dupla. Via Citra no Deck funciona com ajustes.</div>
+    </div>
+  </div>
+
+  <!-- 12. SECRET OF MANA -->
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2u6w.webp" alt="Secret of Mana" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#12 · Dezembro — fechamento do ano</div>
+        <div class="card-title">Secret of Mana</div>
+        <div class="card-subtitle">Square · 1993 · Action RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">HLTB <strong>~25h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Emulação SNES</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1993 (SNES) / 2018 (Remake 3D)</dd>
+        <dt>Dev/Pub</dt><dd>Square</dd>
+        <dt>Gênero</dt><dd>Action RPG</dd>
+        <dt>Metacritic</dt><dd>N/A (SNES) — Remake 3D: 65</dd>
+        <dt>HLTB</dt><dd>~20h história / ~25h extras</dd>
+        <dt>Steam Deck</dt><dd>Via emulação (SNES) — recomendado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Criado por Koichi Ishii, pilar do Action RPG japonês. Recomendado o SNES original via emulação — o remake tem mudanças que dividem opiniões.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O Ring Command de menu radial foi revolucionário. Trilha de Hiroki Kikuta é um dos maiores trabalhos musicais do SNES. A cooperação entre três personagens é ahead of its time.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>A IA dos companheiros é básica. Use emulador com multijogador online se possível.</li>
+        <li>Use todas as armas com regularidade — cada uma tem nível de proficiência separado.</li>
+        <li>Bug: não use save state dentro de menus — pode corromper. Salve no mapa.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> RetroArch/Snes9x funciona perfeitamente.</div>
+    </div>
+  </div>
+
+  <!-- ===================== CO-OP SECTION ===================== -->
+
+  <div class="coop-divider">
+    <span class="coop-badge">🎲 Co-op — Paralelo ao longo de 2026</span>
+  </div>
+
+  <!-- CO-OP: THE LAST OF US PART II -->
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg" alt="The Last of Us Part II" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">Co-op · Ao longo de 2026</div>
+        <div class="card-title">The Last of Us Part II</div>
+        <div class="card-subtitle">Naughty Dog / Sony · 2020 / 2024 (Remastered PC) · Action-adventure</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>93</strong></span>
+          <span class="meta-chip">OpenCritic <strong>94</strong> — Mighty</span>
+          <span class="meta-chip">HLTB <strong>~25h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Jogável</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2020 (PS4) / 2024 (Remastered PC)</dd>
+        <dt>Dev/Pub</dt><dd>Naughty Dog / Sony Interactive Entertainment</dd>
+        <dt>Gênero</dt><dd>Action-adventure / Survival horror</dd>
+        <dt>Metacritic</dt><dd>93 (PS4)</dd>
+        <dt>OpenCritic</dt><dd>94 — Mighty</dd>
+        <dt>HLTB</dt><dd>~24h história / ~30h+ completionist</dd>
+        <dt>Steam Deck</dt><dd>Jogável (requer ajustes de performance)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Continuação direta do primeiro The Last of Us, com direção de Neil Druckmann. Uma das narrativas mais polarizantes e corajosas da história recente dos games — estruturalmente complexa, exige paciência e abertura emocional. Apesar de não ter co-op nativo, funciona perfeitamente como experiência compartilhada passando o controle ou jogando junto em sessões.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">A qualidade técnica e de atuação é referência absoluta da indústria. O combate é visceral e consequente — cada encontro tem peso real. A estrutura narrativa dual força o jogador a confrontar perspectivas opostas de forma que poucos jogos conseguem.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Joguem sem spoilers se possível — a estrutura narrativa é fundamental para o impacto.</li>
+        <li>Não ignorem a exploração. Os ambientes contam histórias paralelas riquíssimas.</li>
+        <li>Acessibilidade: o jogo tem opções extensivas para customizar dificuldade de combate, navegação e HUD separadamente.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Requer ajustes — low/medium settings para 30fps estáveis. A versão PC Remastered é mais exigente que a maioria.</div>
+    </div>
+  </div>
+
+  <!-- CO-OP: DIABLO IV -->
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co69sm.webp" alt="Diablo IV" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">Co-op · Ao longo de 2026</div>
+        <div class="card-title">Diablo IV</div>
+        <div class="card-subtitle">Blizzard Entertainment · 2023 · Action RPG / Loot</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>86</strong></span>
+          <span class="meta-chip">OpenCritic <strong>88</strong> — Mighty</span>
+          <span class="meta-chip">HLTB <strong>~35h+</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2023</dd>
+        <dt>Dev/Pub</dt><dd>Blizzard Entertainment</dd>
+        <dt>Gênero</dt><dd>Action RPG / Hack-and-slash / Loot</dd>
+        <dt>Metacritic</dt><dd>86 (PC)</dd>
+        <dt>OpenCritic</dt><dd>88 — Mighty</dd>
+        <dt>HLTB</dt><dd>~35h campanha / potencialmente ilimitado no endgame</dd>
+        <dt>Steam Deck</dt><dd>Verificado (via Battle.net)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">O retorno da franquia ao tom sombrio de Diablo II, com um mundo aberto contínuo e uma campanha substancial. O jogo evoluiu significativamente pós-lançamento com seasons, expansões e rebalanceamentos. O co-op nativo funciona excelentemente — tanto a campanha quanto o endgame escalam para 2 jogadores.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O loop de combate e loot é extremamente satisfatório, especialmente em dupla. A variedade de builds por classe é enorme. O mundo de Sanctuary tem uma direção de arte impressionante e atmosfera pesada. As Seasons renovam o conteúdo com regularidade.</p>
+      <div class="card-section-title">Dicas para co-op</div>
+      <ul class="tip-list">
+        <li>Escolham classes complementares — tank + DPS ou controle de crowd + burst damage funcionam bem.</li>
+        <li>A campanha pode ser feita inteira em co-op. Cutscenes tocam para o host.</li>
+        <li>O endgame real começa depois da campanha — Nightmare Dungeons, Helltides e The Pit são o conteúdo core.</li>
+        <li>Loot é individual — não precisam se preocupar em dividir drops.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Roda bem em medium settings. Recomendado sessões com monitor/TV para co-op prolongado.</div>
+    </div>
+  </div>
+
+  <!-- CO-OP: BG3 -->
+  <div class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg" alt="Baldur's Gate 3" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">Co-op · Ao longo de 2026</div>
+        <div class="card-title">Baldur's Gate 3</div>
+        <div class="card-subtitle">Larian Studios · 2023 · CRPG / Turn-based</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>96</strong></span>
+          <span class="meta-chip">OpenCritic <strong>95</strong> — Mighty</span>
+          <span class="meta-chip">HLTB <strong>~100h+</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2023</dd>
+        <dt>Dev/Pub</dt><dd>Larian Studios</dd>
+        <dt>Gênero</dt><dd>CRPG / Turn-based</dd>
+        <dt>Metacritic</dt><dd>96 (PC)</dd>
+        <dt>OpenCritic</dt><dd>95 — Mighty (98% rec.)</dd>
+        <dt>HLTB</dt><dd>~35h história / ~100h+ completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado — recomenda sessões em TV/monitor</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Larian Studios levou 6 anos para desenvolver. Adaptação de D&D 5e tão fiel que a WotC avaliou ação legal por ser "bom demais". O jogo com mais perfect scores acumulados na história do Metacritic.</p>
+      <div class="card-section-title">Dicas para co-op</div>
+      <ul class="tip-list">
+        <li>Decidam antes: decisões juntos ou cada um controla seu personagem e vota? O segundo é mais caótico e divertido.</li>
+        <li>Explorem separadamente dentro do mesmo mapa — coordenação em combate é essencial.</li>
+        <li>Não ignorem as Long Rests — ativam eventos de acampamento com os companions.</li>
+        <li>A história de um companion se abre mais se alguém jogar com ele como personagem principal.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Recomendado TV/monitor para co-op.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Roadmap 2026 · Atualizado em 1 de março de 2026</p>
+    <p>Dados de <a href="https://howlongtobeat.com" target="_blank">HowLongToBeat</a> · <a href="https://www.metacritic.com" target="_blank">Metacritic</a> · <a href="https://www.igdb.com" target="_blank">IGDB</a></p>
+  </footer>
+
+</div>
+
+<script>
+function toggleCard(el) {
+  const body = el.nextElementSibling;
+  body.classList.toggle('open');
+  el.classList.toggle('open');
+  el.querySelector('.arrow').style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
+  el.innerHTML = (body.classList.contains('open') ? 'Fechar' : 'Detalhes') + ' <span class="arrow" style="transform:' + (body.classList.contains('open') ? 'rotate(180deg)' : '') + '">▼</span>';
+}
+</script>
+
+</body>
+</html>
