@@ -327,6 +327,16 @@
 
   .card-toggle.open .arrow { transform: rotate(180deg); }
 
+  .spoiler-hint {
+    font-size: 0.7rem;
+    color: var(--yellow);
+    opacity: 0.7;
+    margin-left: 10px;
+    letter-spacing: 0.01em;
+  }
+
+  .card-toggle.open .spoiler-hint { display: none; }
+
   .info-grid {
     display: grid;
     grid-template-columns: 120px 1fr;
@@ -954,7 +964,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>MSQ 7.3 + 7.4 + 7.5</dt><dd>~7–9h (7.3 fecha Dawntrail; 7.4 é deliberadamente "slow" segundo devs; 7.5 é Part 1)</dd>
@@ -1053,7 +1063,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Nação</dt><dd>Snezhnaya — nação Cryo, sede dos Fatui e da Tsaritsa</dd>
@@ -1369,8 +1379,9 @@ function toggleCard(el) {
   const body = el.nextElementSibling;
   body.classList.toggle('open');
   el.classList.toggle('open');
-  el.querySelector('.arrow').style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
-  el.innerHTML = (body.classList.contains('open') ? 'Fechar' : 'Detalhes') + ' <span class="arrow" style="transform:' + (body.classList.contains('open') ? 'rotate(180deg)' : '') + '">▼</span>';
+  const isOpen = body.classList.contains('open');
+  const spoilerHint = el.dataset.spoiler ? ` <span class="spoiler-hint">· ⚠ contém spoilers</span>` : '';
+  el.innerHTML = (isOpen ? 'Fechar' : 'Detalhes') + spoilerHint + ' <span class="arrow" style="transform:' + (isOpen ? 'rotate(180deg)' : '') + '">▼</span>';
 }
 </script>
 
