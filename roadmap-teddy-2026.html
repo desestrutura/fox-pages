@@ -19,6 +19,7 @@
     --coop-accent: #6a9fb5;
     --long: #c45e3e;
     --medium: #c4963e;
+    --live: #7ab87a;
     --radius: 6px;
   }
 
@@ -146,6 +147,8 @@
   .badge-long { background: rgba(196, 94, 62, 0.15); color: var(--long); }
   .badge-medium { background: rgba(196, 150, 62, 0.15); color: var(--medium); }
   .badge-coop { background: rgba(106, 159, 181, 0.12); color: var(--coop-accent); }
+  .badge-live { background: rgba(122, 184, 122, 0.12); color: var(--live); }
+  .badge-mmo { background: rgba(180, 130, 200, 0.15); color: #b47fd4; }
   .now-playing {
     display: inline-block;
     width: 6px;
@@ -352,7 +355,7 @@
     <p class="header-eyebrow">🎮 Roadmap de jogos</p>
     <h1>Em 2026 vou ser<br>mais gamer</h1>
     <p class="header-note">
-      <strong>The Last of Us Part II</strong>, <strong>Diablo IV</strong> e <strong>Baldur's Gate 3</strong>
+      <strong>The Last of Us Part II</strong> e <strong>Baldur's Gate 3</strong>
       correm em paralelo ao longo do ano em sessões co-op, separados da lista principal.
     </p>
   </div>
@@ -367,14 +370,19 @@
       <table class="summary-table">
         <tbody>
           <tr>
-            <td><span class="now-playing"></span>Fev–Abr</td>
+            <td><span class="now-playing"></span>Abr–Mai</td>
             <td>Final Fantasy Tactics: The Ivalice Chronicles</td>
             <td><span class="badge badge-long">Longo ~35h</span></td>
           </tr>
           <tr>
-            <td>Maio</td>
-            <td>Phoenix Wright: Ace Attorney Trilogy</td>
-            <td><span class="badge badge-long">Longo ~45h</span></td>
+            <td><span class="now-playing"></span>Mai</td>
+            <td>Hollow Knight: Silksong</td>
+            <td><span class="badge badge-medium">Médio ~25h</span></td>
+          </tr>
+          <tr>
+            <td>Mai–Jul</td>
+            <td>Genshin Impact <em style="color:var(--live);font-size:12px;">(até conteúdo atual)</em></td>
+            <td><span class="badge badge-live">Live service</span></td>
           </tr>
           <tr>
             <td>Jun–Jul</td>
@@ -385,6 +393,11 @@
             <td>Agosto</td>
             <td>Control: Ultimate Edition</td>
             <td><span class="badge badge-medium">Médio ~20h</span></td>
+          </tr>
+          <tr>
+            <td>Set–Dez</td>
+            <td>Final Fantasy XIV <em style="color:#b47fd4;font-size:12px;">(7.0 → 7.5)</em></td>
+            <td><span class="badge badge-mmo">MMO — longa campanha</span></td>
           </tr>
           <tr>
             <td>Setembro</td>
@@ -402,11 +415,6 @@
             <td><span class="badge badge-long">Longo ~40h</span></td>
           </tr>
           <tr>
-            <td>Nov–Dez</td>
-            <td>Persona 3 Reload</td>
-            <td><span class="badge badge-long">Longo ~60h</span></td>
-          </tr>
-          <tr>
             <td>Dezembro</td>
             <td>Super Mario Odyssey</td>
             <td><span class="badge badge-medium">Médio ~15h</span></td>
@@ -415,11 +423,6 @@
             <td>Corrente</td>
             <td>The Last of Us Part II <em style="color:var(--coop-accent);font-size:12px;">(co-op)</em></td>
             <td><span class="badge badge-coop">Co-op ~25h</span></td>
-          </tr>
-          <tr>
-            <td>Corrente</td>
-            <td>Diablo IV <em style="color:var(--coop-accent);font-size:12px;">(co-op)</em></td>
-            <td><span class="badge badge-coop">Co-op contínuo</span></td>
           </tr>
           <tr>
             <td>Corrente</td>
@@ -439,9 +442,9 @@
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">01 — em andamento 🎯</p>
+            <p class="game-number">01 — finalizando 🎯</p>
             <h2 class="game-title">Final Fantasy Tactics:<br>The Ivalice Chronicles</h2>
-            <p class="game-period">Fevereiro – Abril</p>
+            <p class="game-period">Abril – Maio · Final do capítulo 3</p>
           </div>
           <span class="badge badge-long" style="white-space:nowrap;flex-shrink:0">Longo ~35h</span>
         </div>
@@ -470,45 +473,71 @@
         </ul>
       </article>
 
-      <!-- 2. Ace Attorney -->
+      <!-- 2. Silksong -->
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">02</p>
-            <h2 class="game-title">Phoenix Wright:<br>Ace Attorney Trilogy</h2>
-            <p class="game-period">Maio</p>
+            <p class="game-number">02 — em andamento 🎯</p>
+            <h2 class="game-title">Hollow Knight:<br>Silksong</h2>
+            <p class="game-period">Maio · Final do ato 2</p>
           </div>
-          <span class="badge badge-long" style="white-space:nowrap;flex-shrink:0">Longo ~45h</span>
+          <span class="badge badge-medium" style="white-space:nowrap;flex-shrink:0">Médio ~25h</span>
         </div>
         <div class="game-meta-grid">
-          <div class="meta-item"><p class="meta-label">Ano</p><p class="meta-value">2001–2004 / 2019 (HD)</p></div>
-          <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Capcom</p></div>
-          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">Visual Novel / Adventure</p></div>
-          <div class="meta-item"><p class="meta-label">Metacritic</p><p class="meta-value highlight">81</p></div>
-          <div class="meta-item"><p class="meta-label">OpenCritic</p><p class="meta-value highlight">82 — Strong</p></div>
-          <div class="meta-item"><p class="meta-label">HLTB</p><p class="meta-value">~70h total (3 jogos)</p></div>
+          <div class="meta-item"><p class="meta-label">Ano</p><p class="meta-value">2025</p></div>
+          <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Team Cherry</p></div>
+          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">Metroidvania / Action-platformer</p></div>
+          <div class="meta-item"><p class="meta-label">HLTB</p><p class="meta-value">~20h história / ~35h extras</p></div>
           <div class="meta-item"><p class="meta-label">Steam Deck</p><p class="meta-value">Verificado</p></div>
         </div>
         <p class="game-section-title">Contexto</p>
-        <p class="game-text">A trilogia original de Ace Attorney — <em>Ace Attorney</em>, <em>Justice for All</em> e <em>Trials and Tribulations</em> — com 14 casos no total. A versão HD de 2019 atualiza os sprites para resolução moderna mantendo toda a jogabilidade intacta.</p>
+        <p class="game-text">Sequência standalone de <em>Hollow Knight</em> (2017), um dos metroidvanias mais aclamados da geração. Silksong coloca você no papel de Hornet, a personagem secundária do primeiro jogo, em um reino completamente novo. O Team Cherry levou anos de desenvolvimento silencioso — o resultado é um jogo substancialmente diferente em ritmo e mecânicas do predecessor, com um sistema de combate mais agressivo e ágil.</p>
         <p class="game-section-title">Pontos fortes</p>
-        <p class="game-text">A estrutura de cada caso é meticulosamente construída — a sensação de encontrar a contradição perfeita na testemunha é singular. Os personagens têm arcos que crescem ao longo dos três jogos. <em>Trials and Tribulations</em> é amplamente considerado o pico da trilogia.</p>
-        <p class="game-section-title">Influências</p>
-        <p class="game-text">Literatura de mistério clássica (Sherlock Holmes, Agatha Christie) e dramas de tribunal japoneses. Influenciou diretamente a série Danganronpa e toda uma geração de visual novels com elementos de dedução.</p>
+        <p class="game-text">O movimento de Hornet é muito mais veloz e agressivo que o do Knight — o combate exige timing ofensivo em vez de posicionamento defensivo. O design de mundo mantém a identidade visual sombria e orgânica da série com ambientes completamente novos. A densidade de conteúdo opcional é enorme para quem quer explorar cada canto.</p>
         <p class="game-section-title">Dicas</p>
         <ul class="tips-list">
-          <li>Não pule o segundo jogo — o caso final <em>Farewell, My Turnabout</em> é um dos melhores de toda a série.</li>
-          <li>Quando travar num caso, tente apresentar evidências em posições diferentes do depoimento.</li>
-          <li>Leia cada documento com calma. O jogo não pune quem vai devagar, e metade do prazer é absorver os diálogos.</li>
-          <li>O impacto narrativo do terceiro jogo depende de ter jogado os anteriores.</li>
+          <li>Hornet recupera recursos ao atacar — o jogo recompensa agressividade, não espera. Jogue de forma mais ofensiva do que no primeiro.</li>
+          <li>As habilidades de seda têm usos tanto em combate quanto em navegação — experimente cada nova ferramenta nos ambientes ao redor.</li>
+          <li>O ato 3 escala bastante a dificuldade em relação ao ato 2 — aproveite o final do ato 2 para consolidar upgrades antes de avançar.</li>
+          <li>Os bosses opcionais são a parte mais desafiadora do jogo — deixe para quando tiver confiança no combate base.</li>
         </ul>
       </article>
 
-      <!-- 3. Tokyo Mirage -->
+      <!-- 3. Genshin Impact -->
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">03</p>
+            <p class="game-number">03 — em andamento 🎯</p>
+            <h2 class="game-title">Genshin Impact</h2>
+            <p class="game-period">Maio – Julho · Natlan → conteúdo atual</p>
+          </div>
+          <span class="badge badge-live" style="white-space:nowrap;flex-shrink:0">Live service</span>
+        </div>
+        <div class="game-meta-grid">
+          <div class="meta-item"><p class="meta-label">Desenvolvedora</p><p class="meta-value">HoYoverse</p></div>
+          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">Action-RPG / Open World</p></div>
+          <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">PC · Mobile · PS4/5</p></div>
+          <div class="meta-item"><p class="meta-label">Meta atual</p><p class="meta-value highlight">Natlan → patch atual</p></div>
+          <div class="meta-item"><p class="meta-label">Deadline</p><p class="meta-value">Antes de agosto</p></div>
+        </div>
+        <p class="game-section-title">Contexto</p>
+        <p class="game-text">Genshin Impact corre como projeto de longo prazo paralelo ao roadmap principal. O objetivo neste período é avançar da MSQ de Natlan — início da nação do fogo — até o conteúdo do patch atual (versão 6.x), fechando a lacuna entre o progresso atual e o ritmo dos updates regulares do jogo.</p>
+        <p class="game-section-title">Foco do período</p>
+        <p class="game-text">Natlan é uma das nações com mais conteúdo paralelo integrado à MSQ — os arquétipos de tribos e o sistema de Phlogiston mudam substancialmente como você navega o mundo. Após Natlan, o arco narrativo de Snezhnaya inicia o capítulo final do ciclo atual de Teyvat, tornando o alinhamento com o conteúdo atual relevante para acompanhar os banners de personagens e os eventos sazonais.</p>
+        <p class="game-section-title">Dicas</p>
+        <ul class="tips-list">
+          <li>Natlan tem navegação vertical intensa — o sistema de Phlogiston substitui o stamina em áreas específicas. Familiarize-se cedo.</li>
+          <li>As missões de tribos em Natlan são parte da MSQ principal, não side content — não pule.</li>
+          <li>Priorize world exploration de cada área antes de avançar para a próxima região: cofres e puzzles ficam mais fáceis no ritmo natural da progressão.</li>
+          <li>Acompanhe os banners com antecedência — o período mai–jul costuma ter personagens de Natlan e reruns relevantes.</li>
+        </ul>
+      </article>
+
+      <!-- 4. Tokyo Mirage -->
+      <article class="game-entry">
+        <div class="game-header">
+          <div>
+            <p class="game-number">04</p>
             <h2 class="game-title">Tokyo Mirage Sessions<br>#FE Encore</h2>
             <p class="game-period">Junho – Julho</p>
           </div>
@@ -538,11 +567,11 @@
         </ul>
       </article>
 
-      <!-- 4. Control -->
+      <!-- 5. Control -->
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">04</p>
+            <p class="game-number">05</p>
             <h2 class="game-title">Control:<br>Ultimate Edition</h2>
             <p class="game-period">Agosto</p>
           </div>
@@ -572,11 +601,43 @@
         </ul>
       </article>
 
-      <!-- 5. Hyrule Warriors -->
+      <!-- 6. FF14 -->
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">05</p>
+            <p class="game-number">06</p>
+            <h2 class="game-title">Final Fantasy XIV<br><em style="font-weight:400;font-size:0.8em">Dawntrail · 7.0 → 7.5</em></h2>
+            <p class="game-period">Setembro – Dezembro</p>
+          </div>
+          <span class="badge badge-mmo" style="white-space:nowrap;flex-shrink:0">MMO — longa campanha</span>
+        </div>
+        <div class="game-meta-grid">
+          <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Square Enix</p></div>
+          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">MMORPG</p></div>
+          <div class="meta-item"><p class="meta-label">Expansão atual</p><p class="meta-value highlight">Dawntrail (7.x)</p></div>
+          <div class="meta-item"><p class="meta-label">Meta</p><p class="meta-value">Patch 7.5 antes do ano acabar</p></div>
+          <div class="meta-item"><p class="meta-label">Progresso</p><p class="meta-value">Meio do 7.0 MSQ</p></div>
+          <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">PC · PlayStation</p></div>
+        </div>
+        <p class="game-section-title">Contexto</p>
+        <p class="game-text">Final Fantasy XIV: Dawntrail é a quinta expansão do MMORPG da Square Enix e marca o início de uma nova saga após a conclusão do arco de Endwalker. A expansão leva os aventureiros a Tural, um continente inspirado nas Américas pré-colombianas, em uma jornada com um tom deliberadamente mais leve e aventureiro que seu predecessor. Os patches 7.1 a 7.5 adicionam capítulos substanciais de conteúdo, incluindo raids, trials e continuações da MSQ.</p>
+        <p class="game-section-title">Estrutura do objetivo</p>
+        <p class="game-text">Do meio do 7.0 ao 7.5 são aproximadamente cinco patches de Main Scenario Quest — cada um com 2–4 horas de história principal além do conteúdo de endgame opcional. Quatro meses (setembro a dezembro) são suficientes para completar a MSQ de cada patch em ritmo confortável sem precisar maratonar o endgame de cada update.</p>
+        <p class="game-section-title">Dicas</p>
+        <ul class="tips-list">
+          <li>Foque na MSQ principal para avançar o patch — o conteúdo de endgame (Savage, Ultimate, Criterion) é opcional e pode ser deixado para depois.</li>
+          <li>Os patches menores (7.1, 7.2, etc.) têm requisitos de ilvl para os novos trials — mantenha o gear razoavelmente atualizado via roulettes semanais.</li>
+          <li>Side stories de Alliance Raids e Variant Dungeons adicionam lore importante — vale fazer no ritmo, não ignorar.</li>
+          <li>O Duty Finder é tolerante com jogadores casuais na MSQ — não se preocupe com otimização de rotação até o endgame.</li>
+          <li>Cada novo patch tem um período de honeymoon com filas mais rápidas — aproveitar as primeiras semanas de cada update facilita o progresso.</li>
+        </ul>
+      </article>
+
+      <!-- 7. Hyrule Warriors -->
+      <article class="game-entry">
+        <div class="game-header">
+          <div>
+            <p class="game-number">07</p>
             <h2 class="game-title">Hyrule Warriors:<br>Age of Imprisonment</h2>
             <p class="game-period">Setembro</p>
           </div>
@@ -606,11 +667,11 @@
         </ul>
       </article>
 
-      <!-- 6. Clair Obscur -->
+      <!-- 8. Clair Obscur -->
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">06</p>
+            <p class="game-number">08</p>
             <h2 class="game-title">Clair Obscur:<br>Expedition 33</h2>
             <p class="game-period">Outubro</p>
           </div>
@@ -640,11 +701,11 @@
         </ul>
       </article>
 
-      <!-- 7. FF7 Remake -->
+      <!-- 9. FF7 Remake -->
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">07</p>
+            <p class="game-number">09</p>
             <h2 class="game-title">Final Fantasy VII<br>Remake</h2>
             <p class="game-period">Novembro</p>
           </div>
@@ -674,48 +735,11 @@
         </ul>
       </article>
 
-      <!-- 8. Persona 3 -->
+      <!-- 10. Mario Odyssey -->
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">08</p>
-            <h2 class="game-title">Persona 3 Reload</h2>
-            <p class="game-period">Novembro – Dezembro</p>
-          </div>
-          <span class="badge badge-long" style="white-space:nowrap;flex-shrink:0">Longo ~60h</span>
-        </div>
-        <div class="game-meta-grid">
-          <div class="meta-item"><p class="meta-label">Ano</p><p class="meta-value">2024</p></div>
-          <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Atlus / Sega</p></div>
-          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">JRPG / Social sim / Dungeon</p></div>
-          <div class="meta-item"><p class="meta-label">Metacritic</p><p class="meta-value highlight">90</p></div>
-          <div class="meta-item"><p class="meta-label">OpenCritic</p><p class="meta-value highlight">90 — Mighty</p></div>
-          <div class="meta-item"><p class="meta-label">HLTB</p><p class="meta-value">~60h história / ~80h+ extras</p></div>
-          <div class="meta-item"><p class="meta-label">Steam Deck</p><p class="meta-value">Verificado</p></div>
-        </div>
-        <p class="game-section-title">Contexto</p>
-        <p class="game-text">Remake completo de Persona 3 (2006), o título que definiu a fórmula moderna da série — mesclando dungeon crawling com simulação social de "vida escolar". Reload não é um port: é uma reconstrução do zero com engine atual, novos visuais, voiceovers completos e diversas QoL improvements. É a forma definitiva de jogar P3.</p>
-        <p class="game-section-title">Pontos fortes</p>
-        <p class="game-text">A narrativa é a mais madura e filosoficamente densa de toda a série Persona — lida com temas de mortalidade, nihilismo e o que vale a pena viver de forma que P4 e P5 nunca abordam com a mesma seriedade. As novas Linked Episodes expandem substancialmente os companheiros. A trilha sonora é extraordinária.</p>
-        <p class="game-section-title">Pontos de atenção</p>
-        <div class="attention-box">É mais lento no início que P4/P5. O sistema de calendário e gestão de tempo pode ser frustrante para quem não está acostumado com a série.</div>
-        <p class="game-section-title">Influências</p>
-        <p class="game-text">SMT clássico (dungeon crawling e mecânicas de Persona), literatura existencialista, animação japonesa do início dos anos 2000.</p>
-        <p class="game-section-title">Dicas</p>
-        <ul class="tips-list">
-          <li>Não negligencie os Social Links — além do desenvolvimento narrativo, fornecem bônus de exp para Personas na Velvet Room.</li>
-          <li>Gestão de tempo é a habilidade central: cada noite tem valor. Priorize Social Links sobre dungeon grinding.</li>
-          <li>O Tartarus fica mais fácil conforme você avança nos Social Links e cria Personas melhores.</li>
-          <li>Jogue as Linked Episodes quando disponíveis: são exclusivas do Reload e adicionam contexto essencial aos companheiros.</li>
-          <li>É o jogo mais longo do roadmap solo — começar em novembro dá fôlego confortável para terminar sem correria.</li>
-        </ul>
-      </article>
-
-      <!-- 9. Mario Odyssey -->
-      <article class="game-entry">
-        <div class="game-header">
-          <div>
-            <p class="game-number">09</p>
+            <p class="game-number">10</p>
             <h2 class="game-title">Super Mario Odyssey</h2>
             <p class="game-period">Dezembro — fechamento do ano</p>
           </div>
@@ -785,37 +809,10 @@
         </ul>
       </article>
 
-      <!-- Diablo IV -->
-      <article class="coop-entry">
-        <div class="coop-game-header">
-          <p class="coop-queue">02 — ao longo de 2026</p>
-          <h3 class="coop-game-title">Diablo IV</h3>
-        </div>
-        <div class="game-meta-grid">
-          <div class="meta-item"><p class="meta-label">Ano</p><p class="meta-value">2023 + seasons contínuas</p></div>
-          <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Blizzard Entertainment</p></div>
-          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">Action RPG / Hack-and-slash</p></div>
-          <div class="meta-item"><p class="meta-label">Metacritic</p><p class="meta-value" style="color:var(--coop-accent)">86</p></div>
-          <div class="meta-item"><p class="meta-label">HLTB</p><p class="meta-value">~35h campanha / endgame ilimitado</p></div>
-          <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">PC · PlayStation · Xbox</p></div>
-        </div>
-        <p class="game-section-title">Contexto</p>
-        <p class="game-text">O quarto jogo da série Diablo retorna ao tom sombrio do Diablo 2. É live service com temporadas regulares que adicionam mecânicas e histórias novas — o conteúdo disponível em 2026 é substancialmente maior do que no lançamento.</p>
-        <p class="game-section-title">Pontos fortes para co-op</p>
-        <p class="game-text">D4 foi projetado com co-op em mente — até 4 jogadores em sessão, com escala automática e loot individual. Barb + Sorc é uma das combinações mais eficientes e divertidas: CC e burst de longe, sustain e tanking na linha de frente.</p>
-        <p class="game-section-title">Dicas para co-op</p>
-        <ul class="tips-list">
-          <li>Decidam a dificuldade juntos: World Tier escala para o grupo — ir na mais alta que ambos aguentam confortavelmente é mais eficiente.</li>
-          <li>No endgame, especializem as builds — Sorc de Blizzard + Barb de Whirlwind com Ground Stomp criam um loop de CC + AoE muito poderoso.</li>
-          <li>Nightmare Dungeons são a melhor fonte de XP e Glyphs — priorizem depois de terminar a campanha.</li>
-          <li>Se uma nova season começar, criem personagens sazonais juntos para aproveitar os conteúdos novos desde o início.</li>
-        </ul>
-      </article>
-
       <!-- BG3 -->
       <article class="coop-entry">
         <div class="coop-game-header">
-          <p class="coop-queue">03 — para o final</p>
+          <p class="coop-queue">02 — para o final</p>
           <h3 class="coop-game-title">Baldur's Gate 3</h3>
         </div>
         <div class="game-meta-grid">
