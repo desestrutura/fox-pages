@@ -175,6 +175,23 @@
   .pill-playing { background: rgba(126,184,218,0.12); color: var(--accent); }
   .pill-next { background: rgba(229,192,123,0.12); color: var(--yellow); }
 
+  .clube-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    background: rgba(180, 140, 255, 0.10);
+    color: #b48cff;
+    border: 1px solid rgba(180, 140, 255, 0.20);
+    white-space: nowrap;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
   /* ——— Game Cards ——— */
   .section-label {
     font-size: 0.72rem;
@@ -202,6 +219,8 @@
   .game-card.status-done { border-left: 3px solid var(--green); }
   .game-card.status-playing { border-left: 3px solid var(--accent); }
   .game-card.status-next { border-left: 3px solid var(--yellow); }
+  .game-card.status-clube { border-left: 3px solid #b48cff; background: rgba(180, 140, 255, 0.03); }
+  .game-card.status-clube:hover { border-color: #b48cff; }
 
   .card-header {
     display: flex;
@@ -485,7 +504,7 @@
 
     <div class="summary-row done">
       <span class="summary-month">Fev</span>
-      <span class="summary-game">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span></span>
+      <span class="summary-game">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span><span class="clube-badge">🎲 André</span></span>
       <span class="tag tag-short">~9h</span>
     </div>
     <div class="summary-row done">
@@ -500,7 +519,7 @@
     </div>
     <div class="summary-row done">
       <span class="summary-month">Mar</span>
-      <span class="summary-game">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span></span>
+      <span class="summary-game">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span><span class="clube-badge">🎲 você</span></span>
       <span class="tag tag-short">~12h</span>
     </div>
     <div class="summary-row" style="background: var(--playing-bg);">
@@ -510,12 +529,12 @@
     </div>
     <div class="summary-row done">
       <span class="summary-month">Abr</span>
-      <span class="summary-game">999: Nine Hours, Nine Persons, Nine Doors <span class="status-pill pill-done">✓ concluído</span></span>
-      <span class="tag tag-short">~10h</span>
+      <span class="summary-game">999: Nine Hours, Nine Persons, Nine Doors <span class="status-pill pill-done">✓ concluído</span><span class="clube-badge">🎲 Rés</span></span>
+      <span class="tag tag-medium">~20h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Mai</span>
-      <span class="summary-game">Outer Wilds</span>
+      <span class="summary-game">Outer Wilds<span class="clube-badge">🎲 Metal</span></span>
       <span class="tag tag-medium">~15h</span>
     </div>
     <div class="summary-row">
@@ -570,11 +589,11 @@
 
   <!-- 1. METAL GEAR RISING — DONE -->
   <div class="section-label">Fevereiro — Concluído</div>
-  <div class="game-card status-done">
+  <div class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2l1t.webp" alt="Metal Gear Rising: Revengeance" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#1 · Fevereiro — Clube do Game</div>
+        <div class="card-number">#1 · Fevereiro — Clube do Game <span class="clube-badge">🎲 indicado por André</span></div>
         <div class="card-title">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span></div>
         <div class="card-subtitle">PlatinumGames / Konami · 2013 · Hack-and-slash</div>
         <div class="card-meta">
@@ -695,11 +714,11 @@
   </div>
 
   <!-- 4. CASTLEVANIA: ORDER OF ECCLESIA — DONE -->
-  <div class="game-card status-done">
+  <div class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob9ko.webp" alt="Castlevania: Order of Ecclesia" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#4 · Março — Clube do Game</div>
+        <div class="card-number">#4 · Março — Clube do Game <span class="clube-badge">🎲 indicado por você</span></div>
         <div class="card-title">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span></div>
         <div class="card-subtitle">Konami · 2008 / 2024 (Dominus Collection) · Metroidvania / Action RPG</div>
         <div class="card-meta">
@@ -783,16 +802,16 @@
   </div>
 
   <!-- 6. 999 — DONE -->
-  <div class="game-card status-done">
+  <div class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co8xu9.webp" alt="999: Nine Hours, Nine Persons, Nine Doors" onerror="this.style.background='#242a32'">
       <div class="card-info">
-        <div class="card-number">#6 · Abril — Clube do Game</div>
+        <div class="card-number">#6 · Abril — Clube do Game <span class="clube-badge">🎲 indicado por Rés</span></div>
         <div class="card-title">999: Nine Hours, Nine Persons, Nine Doors <span class="status-pill pill-done">✓ concluído</span></div>
         <div class="card-subtitle">Chunsoft / Aksys Games · 2009 / 2017 (Nine Hours Collection) · Visual Novel / Puzzle</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>90</strong> (DS)</span>
-          <span class="meta-chip">HLTB <strong>~10h</strong></span>
+          <span class="meta-chip">HLTB <strong>~20h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
         </div>
       </div>
@@ -824,11 +843,11 @@
 
   <!-- 7. OUTER WILDS -->
   <div class="section-label">Maio — Clube do Game</div>
-  <div class="game-card">
+  <div class="game-card status-clube">
     <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1rqd.webp" alt="Outer Wilds" onerror="this.style.display='none'">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co65ac.webp" alt="Outer Wilds" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#7 · Maio — Clube do Game</div>
+        <div class="card-number">#7 · Maio — Clube do Game <span class="clube-badge">🎲 indicado por Metal</span></div>
         <div class="card-title">Outer Wilds</div>
         <div class="card-subtitle">Mobius Digital / Annapurna Interactive · 2019 · Exploração / Mistério</div>
         <div class="card-meta">
@@ -870,7 +889,7 @@
   <div class="section-label">Junho</div>
   <div class="game-card">
     <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1q8q.jpg" alt="Journey" onerror="this.style.display='none'">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobjbh.webp" alt="Journey" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#8 · Junho</div>
         <div class="card-title">Journey</div>
@@ -993,7 +1012,7 @@
   <div class="section-label">Agosto — Lançamento</div>
   <div class="game-card">
     <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp" alt="Genshin Impact" onerror="this.style.display='none'">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobxhn.webp" alt="Genshin Impact" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">Agosto · Genshin Impact — Versão 7.0 (Snezhnaya)</div>
         <div class="card-title">Genshin Impact — Snezhnaya</div>
