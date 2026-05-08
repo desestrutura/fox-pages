@@ -31,6 +31,8 @@
     --playing-border: rgba(126, 184, 218, 0.25);
     --next-bg: rgba(229, 192, 123, 0.06);
     --next-border: rgba(229, 192, 123, 0.2);
+    --paused-bg: rgba(229, 192, 123, 0.06);
+    --paused-border: rgba(229, 192, 123, 0.25);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -174,6 +176,7 @@
   .pill-done { background: var(--green-dim); color: var(--green); }
   .pill-playing { background: rgba(126,184,218,0.12); color: var(--accent); }
   .pill-next { background: rgba(229,192,123,0.12); color: var(--yellow); }
+  .pill-paused { background: rgba(229,192,123,0.12); color: var(--yellow); }
 
   .clube-badge {
     display: inline-flex;
@@ -219,6 +222,7 @@
   .game-card.status-done { border-left: 3px solid var(--green); }
   .game-card.status-playing { border-left: 3px solid var(--accent); }
   .game-card.status-next { border-left: 3px solid var(--yellow); }
+  .game-card.status-paused { border-left: 3px solid var(--yellow); background: var(--paused-bg); }
   .game-card.status-clube { border-left: 3px solid #b48cff; background: rgba(180, 140, 255, 0.03); }
   .game-card.status-clube:hover { border-color: #b48cff; }
 
@@ -492,6 +496,10 @@
         <div class="stat-label">Jogando</div>
       </div>
       <div class="stat">
+        <div class="stat-value">2</div>
+        <div class="stat-label">Pausados</div>
+      </div>
+      <div class="stat">
         <div class="stat-value">~540h</div>
         <div class="stat-label">Estimativa total</div>
       </div>
@@ -539,12 +547,17 @@
     </div>
     <div class="summary-row">
       <span class="summary-month">Jun</span>
-      <span class="summary-game">Journey + FFXIV Dawntrail (7.3–7.5)</span>
-      <span class="tag tag-short">~12h</span>
+      <span class="summary-game">Journey</span>
+      <span class="tag tag-short">~2h</span>
     </div>
-    <div class="summary-row">
+    <div class="summary-row" style="background: var(--paused-bg);">
+      <span class="summary-month">Jun</span>
+      <span class="summary-game">FFXIV: Dawntrail (patches 7.3–7.5) <span class="status-pill pill-paused">⏸ pausado</span></span>
+      <span class="tag tag-medium">~23h</span>
+    </div>
+    <div class="summary-row" style="background: var(--paused-bg);">
       <span class="summary-month">Jul–Ago</span>
-      <span class="summary-game">Hollow Knight: Silksong</span>
+      <span class="summary-game">Hollow Knight: Silksong <span class="status-pill pill-paused">⏸ pausado</span></span>
       <span class="tag tag-medium">~35h</span>
     </div>
     <div class="summary-row">
@@ -756,8 +769,8 @@
     </div>
   </div>
 
-  <!-- 5. FINAL FANTASY VI — PLAYING -->
-  <div class="section-label">Abril – Maio — Jogando agora</div>
+  <!-- 5. FINAL FANTASY VI — JOGANDO -->
+  <div class="section-label">Abril – Maio</div>
   <div class="game-card status-playing">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6ple.webp" alt="Final Fantasy VI" onerror="this.style.display='none'">
@@ -969,18 +982,22 @@
 
   <!-- 9. HOLLOW KNIGHT: SILKSONG -->
   <div class="section-label">Julho – Agosto</div>
-  <div class="game-card">
+  <div class="game-card status-paused">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobebu.webp" alt="Hollow Knight: Silksong" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#9 · Julho–Agosto</div>
-        <div class="card-title">Hollow Knight: Silksong</div>
+        <div class="card-title">Hollow Knight: Silksong <span class="status-pill pill-paused">⏸ pausado</span></div>
         <div class="card-subtitle">Team Cherry · 2025 · Metroidvania</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>91</strong></span>
           <span class="meta-chip">HLTB <strong>~35h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
         </div>
+        <div class="progress-bar-container" style="margin-top: 10px;">
+          <div class="progress-bar" style="width: 32%;"></div>
+        </div>
+        <div class="progress-label">~30–35% concluído · <strong>Início de Act 2</strong> — Widow derrotada, The Slab concluída · ~14–15h restantes</div>
       </div>
     </div>
     <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
