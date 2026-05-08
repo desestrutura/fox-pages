@@ -161,6 +161,7 @@
   .tag-short { background: var(--tag-short); color: var(--tag-short-text); }
   .tag-medium { background: var(--tag-medium); color: var(--tag-medium-text); }
   .tag-long { background: var(--tag-long); color: var(--tag-long-text); }
+  .tag-ongoing { background: rgba(126, 184, 218, 0.08); color: var(--accent); border: 1px solid rgba(126, 184, 218, 0.2); }
 
   .status-pill {
     display: inline-block;
@@ -553,17 +554,17 @@
     <div class="summary-row" style="background: var(--paused-bg);">
       <span class="summary-month">Jun</span>
       <span class="summary-game">FFXIV: Dawntrail (patches 7.3–7.5) <span class="status-pill pill-paused">⏸ pausado</span></span>
-      <span class="tag tag-medium">~23h</span>
+      <span class="tag tag-ongoing">∞ ongoing</span>
     </div>
     <div class="summary-row" style="background: var(--paused-bg);">
-      <span class="summary-month">Jul–Ago</span>
+      <span class="summary-month">Jul</span>
       <span class="summary-game">Hollow Knight: Silksong <span class="status-pill pill-paused">⏸ pausado</span></span>
       <span class="tag tag-medium">~35h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Ago</span>
       <span class="summary-game">Genshin Impact — Snezhnaya (7.0)</span>
-      <span class="tag tag-medium">~30h</span>
+      <span class="tag tag-ongoing">∞ ongoing</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Set</span>
@@ -949,6 +950,7 @@
         <div class="card-meta">
           <span class="meta-chip">Patches <strong>7.3 → 7.5</strong></span>
           <span class="meta-chip">Estimativa total <strong>~23–32h</strong></span>
+          <span class="tag tag-ongoing" style="margin-left: 2px;">∞ ongoing</span>
         </div>
       </div>
     </div>
@@ -957,36 +959,44 @@
       <dl class="info-grid">
         <dt>MSQ 7.3 + 7.4 + 7.5</dt><dd>~7–9h (7.3 fecha Dawntrail; 7.4 é deliberadamente "slow" segundo devs; 7.5 é Part 1)</dd>
         <dt>Normal Raids (Arcadion Heavyweight, tier final)</dt><dd>~3–4h (4 raids + quest chain + cutscenes)</dd>
-        <dt>Alliance Raids (as duas)</dt><dd>~3–4h (Jeuno: The First Walk + San d'Oria: The Second Walk)</dd>
+        <dt>Alliance Raids pendentes</dt><dd>~3–4h (San d'Oria: The Second Walk + Windurst: The Third Walk — Jeuno já concluído)</dd>
         <dt>Wachumeqimeqi Deliveries (Fisher)</dt><dd>~3–4h de tempo ativo na quest chain em si</dd>
         <dt>Fisher 90 → 100</dt><dd>~10–15h total (Deliveries + Ocean Fishing + collectables)</dd>
         <dt>Plataforma</dt><dd>PC (Steam ou client próprio)</dd>
       </dl>
       <div class="card-section-title">Contexto</div>
       <p class="card-text">Dawntrail é a quinta expansão de FFXIV, lançada em junho de 2024. O 7.0 foi completado — restam os patches de meio-expansão. O 7.3 ("The Promise of Tomorrow", agosto 2025) fecha o arco principal de Dawntrail e inclui a segunda Alliance Raid da série Echoes of Vana'diel. O 7.4 ("Into the Mist", dezembro 2025) introduz o tier final do Arcadion em Normal. O 7.5 ("Trail to the Heavens") abre o próximo arco narrativo em direção à Evercold (8.0).</p>
+      <div class="card-section-title">Recap: MSQ 7.2 — Seekers of Eternity</div>
+      <p class="card-text">Com o fim da Living Memory, a Sphene original — a humana, não a IA — é resgatada de seu casulo criogênico por Y'shtola e Shale. Enquanto ela tenta se adaptar a uma Alexandria que avançou séculos sem ela, emerge um novo antagonista: Calyx, um prodígio tecnológico do passado que sobreviveu como Endless. Seu objetivo é usar a chave interdimensional do Warrior of Light para transformar toda a humanidade em Endless — eliminando a mortalidade à força. O 7.2 é elogiado como uma virada de qualidade narrativa em Dawntrail, com a Sphene real funcionando como personagem genuinamente carismática, em contraste com sua cópia digital do 7.0.</p>
+      <div class="card-section-title">Recap: Arcadion Cruiserweight (7.2)</div>
+      <p class="card-text">O segundo tier do Arcadion, com quatro bosses: M5 Sugar Riot (artista pop que manipula tinta e cor), M6 Brute Abombinator (Brute Bomber fundido com múltiplas almas ferais, mais caótico), M7 Howling Blade (a luta final do campeonato do Cruiserweight), mais um quarto boss que escalona a narrativa interna da arena. Representa o mid-game da série do Arcadion antes do tier final no 7.4.</p>
+      <div class="card-section-title">Recap: Echoes of Vana'diel</div>
+      <p class="card-text">Série de Alliance Raids em colaboração com FFXI, seguindo o Warrior of Light e Bakool Ja Ja pelo Walk of Echoes — uma dimensão onde ecos de personagens e locais de Vana'diel ganham vida. <strong>Jeuno: The First Walk (7.1, concluído)</strong> — bosses: Prishe of the Distant Chains, Fafnir the Forgotten, Ark Angels e Shadow Lord. Bakool Ja Ja confronta o eco de Gulool Ja Ja e a figura de Prishe, que parece ter se voltado contra os aliados. <strong>San d'Oria: The Second Walk (7.3, pendente)</strong> — bosses: Faithbound Kirin, Kam'lanaut e Eald'narche. Sareel Ja convoca o Archduke de Jeuno como campeão. <strong>Windurst: The Third Walk (7.5, pendente)</strong> — bosses: Shantotto the Demon, Alexander Resurrected, Promathia e Shinryu Paradox / Hollow King. O clímax da série, com Prishe gravemente ferida e Bakool Ja Ja assumindo papel central contra a coroação do novo rei de Sareel Ja.</p>
       <div class="card-section-title">Breakdown de horas</div>
       <ul class="tip-list">
         <li><strong>MSQ 7.3–7.5: ~7–9h.</strong> Patches de meio-expansão são curtos por design — ~2-3h cada. O 7.3 é o maior dos três por ser fechamento de expansão.</li>
-        <li><strong>Arcadion Heavyweight (Normal, tier final): ~3–4h.</strong> 4 raids + quest chain de unlock. Cada run Normal leva ~25–35 min; com filas e cutscenes, conte ~45min por boss.</li>
-        <li><strong>Echoes of Vana'diel — ambas: ~3–4h.</strong> Jeuno: The First Walk (7.1) e San d'Oria: The Second Walk (7.3) têm quest chains de história próprias. Cada Alliance Raid dura ~45min em run normal.</li>
+        <li><strong>Arcadion Heavyweight (Normal, tier final): ~3–4h.</strong> 4 raids: M1 Vamp Fatale · M2 Red Hot &amp; Deep Blue · M3 The Tyrant · M4 Lindwurm. Cada run Normal ~25–35 min; com filas e cutscenes, ~45min por boss.</li>
+        <li><strong>Echoes of Vana'diel — pendente: ~3–4h.</strong> San d'Oria: The Second Walk (7.3) + Windurst: The Third Walk (7.5) com suas quest chains de história.</li>
         <li><strong>Fisher 90 → 100: ~10–15h total.</strong> As Wachumeqimeqi Deliveries são quest chain única (não weekly reset) — 5 quests com turn-ins de collectables. XP das Deliveries não chega no 100 sozinho; complementar com Ocean Fishing (o método mais eficiente e menos tedioso) ou grinding de collectables. A faixa varia muito por RNG de collectability.</li>
       </ul>
+      <div class="card-section-title">Allied Societies de Dawntrail</div>
+      <p class="card-text"><strong>Mamool Ja (7.25 — Gatherers):</strong> Para Botanist, Miner ou Fisher lv 90+. Unlock via sidequests em Yak T'el → "Cultivating Hope". 3 quests/dia, 89 no total para Bloodsworn — ~30 dias corridos. XP de gatherer + Nanooks para mount exclusivo. Excelente para levar o Fisher do 90 ao 100 em paralelo com as Wachumeqimeqi Deliveries. <strong>Yok Huy (7.35 — Crafters):</strong> Para qualquer DoH lv 90+. Unlock via sidequests em Urqopacha → "Frosty Neighbors". 3 quests/dia, 89 no total para Bloodsworn — ~30 dias corridos. Materiais de craft fornecidos pelo NPC (você só precisa dos catalisadores). Recompensas incluem XP de crafter e Yok Huy Wards para trocar por mount (Vurgur the Loyal) e minion. Completar as três Allied Societies de Dawntrail (Pelupelu + Mamool Ja + Yok Huy) deve desbloquear uma quest bônus de conclusão.</p>
       <div class="card-section-title">Dicas</div>
       <ul class="tip-list">
         <li>Focar no MSQ de cada patch antes dos raids para manter o fio narrativo — especialmente o 7.3, que tem peso emocional relevante.</li>
         <li>Para Fisher: Ocean Fishing sai a cada 2h em horários fixos — verificar horários no Lulu's Tools antes de começar a sessão.</li>
         <li>As Wachumeqimeqi Deliveries exigem Collectables com collectability mínima — equipar gear decente de gatherer antes de começar.</li>
+        <li>Mamool Ja e Fisher 90→100 são naturalmente paralelos — as dailies de gatherer e as Deliveries se complementam sem sobreposição.</li>
+        <li>As Yok Huy Deliveries têm materiais fornecidos, mas os catalisadores (cristais/clusters) precisam ser stockpilados com antecedência para não travar o ritmo.</li>
       </ul>
     </div>
   </div>
-
-  <!-- 9. HOLLOW KNIGHT: SILKSONG -->
-  <div class="section-label">Julho – Agosto</div>
+  <div class="section-label">Julho</div>
   <div class="game-card status-paused">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobebu.webp" alt="Hollow Knight: Silksong" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#9 · Julho–Agosto</div>
+        <div class="card-number">#9 · Julho</div>
         <div class="card-title">Hollow Knight: Silksong <span class="status-pill pill-paused">⏸ pausado</span></div>
         <div class="card-subtitle">Team Cherry · 2025 · Metroidvania</div>
         <div class="card-meta">
@@ -1037,7 +1047,9 @@
         <div class="card-meta">
           <span class="meta-chip">Versão <strong>7.0</strong></span>
           <span class="meta-chip">Lançamento <strong>12/08/2026 (estimado)</strong></span>
+          <span class="meta-chip">Archon Quest launch <strong>~10–15h</strong></span>
           <span class="meta-chip">Plataforma <strong>PC / Mobile</strong></span>
+          <span class="tag tag-ongoing" style="margin-left: 2px;">∞ ongoing</span>
         </div>
       </div>
     </div>
