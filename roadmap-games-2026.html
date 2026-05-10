@@ -196,6 +196,23 @@
     vertical-align: middle;
   }
 
+  .coop-badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    background: rgba(80, 200, 180, 0.10);
+    color: #50c8b4;
+    border: 1px solid rgba(80, 200, 180, 0.20);
+    white-space: nowrap;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
   /* ——— Game Cards ——— */
   .section-label {
     font-size: 0.72rem;
@@ -503,11 +520,11 @@
         <div class="stat-label">Concluídos</div>
       </div>
       <div class="stat">
-        <div class="stat-value">1</div>
+        <div class="stat-value">2</div>
         <div class="stat-label">Jogando</div>
       </div>
       <div class="stat">
-        <div class="stat-value">2</div>
+        <div class="stat-value">3</div>
         <div class="stat-label">Pausados</div>
       </div>
       <div class="stat">
@@ -523,7 +540,7 @@
 
     <div class="summary-row done">
       <span class="summary-month">Fev</span>
-      <span class="summary-game">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span><span class="clube-badge">🎲 André</span></span>
+      <span class="summary-game">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-short">~9h</span>
     </div>
     <div class="summary-row done">
@@ -538,7 +555,7 @@
     </div>
     <div class="summary-row done">
       <span class="summary-month">Mar</span>
-      <span class="summary-game">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span><span class="clube-badge">🎲 você</span></span>
+      <span class="summary-game">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-short">~12h</span>
     </div>
     <div class="summary-row" style="background: var(--playing-bg);">
@@ -548,12 +565,12 @@
     </div>
     <div class="summary-row done">
       <span class="summary-month">Abr</span>
-      <span class="summary-game">999: Nine Hours, Nine Persons, Nine Doors <span class="status-pill pill-done">✓ concluído</span><span class="clube-badge">🎲 Rés</span></span>
+      <span class="summary-game">999: Nine Hours, Nine Persons, Nine Doors <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-medium">~20h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Mai</span>
-      <span class="summary-game">Outer Wilds<span class="clube-badge">🎲 Metal</span></span>
+      <span class="summary-game">Outer Wilds</span>
       <span class="tag tag-medium">~15h</span>
     </div>
     <div class="summary-row">
@@ -604,8 +621,13 @@
 
     <div class="summary-row" style="border-top: 2px solid var(--border);">
       <span class="summary-month" style="color: var(--accent);">Co-op</span>
-      <span class="summary-game" style="color: var(--accent);">The Last of Us Part II · Baldur's Gate 3</span>
-      <span class="tag" style="background: rgba(126,184,218,0.1); color: var(--accent);">paralelo</span>
+      <span class="summary-game" style="color: var(--accent);">The Last of Us Part II <span class="status-pill pill-playing">jogando</span></span>
+      <span class="tag tag-medium">~25h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month" style="color: var(--accent);">Co-op</span>
+      <span class="summary-game" style="color: var(--accent);">Baldur's Gate 3 <span class="status-pill pill-paused">⏸ pausado</span></span>
+      <span class="tag tag-long">~100h</span>
     </div>
   </div>
 
@@ -742,7 +764,7 @@
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob9ko.webp" alt="Castlevania: Order of Ecclesia" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#4 · Março — Clube do Game <span class="clube-badge">🎲 indicado por você</span></div>
+        <div class="card-number">#4 · Março — Clube do Game <span class="clube-badge">🎲 indicado por Fox</span></div>
         <div class="card-title">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span></div>
         <div class="card-subtitle">Konami · 2008 / 2024 (Dominus Collection) · Metroidvania / Action RPG</div>
         <div class="card-meta">
@@ -1291,7 +1313,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg" alt="The Last of Us Part II" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">Co-op · Ao longo de 2026</div>
-        <div class="card-title">The Last of Us Part II</div>
+        <div class="card-title">The Last of Us Part II <span class="status-pill pill-playing">jogando</span> <span class="coop-badge-tag">🎮 Alex · Teddy</span></div>
         <div class="card-subtitle">Naughty Dog / Sony · 2020 / 2024 (Remastered PC) · Action-adventure</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>93</strong></span>
@@ -1299,9 +1321,13 @@
           <span class="meta-chip">HLTB <strong>~25h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Jogável</strong></span>
         </div>
+        <div class="progress-bar-container" style="margin-top: 10px;">
+          <div class="progress-bar" style="width: 38%;"></div>
+        </div>
+        <div class="progress-label">~38% concluído · <strong>Primeiro dia jogável com Abby</strong> · ~14–15h restantes</div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2020 (PS4) / 2024 (Remastered PC)</dd>
@@ -1327,12 +1353,12 @@
   </div>
 
   <!-- CO-OP: BG3 -->
-  <div class="game-card">
+  <div class="game-card status-paused">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg" alt="Baldur's Gate 3" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">Co-op · Ao longo de 2026</div>
-        <div class="card-title">Baldur's Gate 3</div>
+        <div class="card-title">Baldur's Gate 3 <span class="status-pill pill-paused">⏸ pausado</span> <span class="coop-badge-tag">🎮 Teddy</span></div>
         <div class="card-subtitle">Larian Studios · 2023 · CRPG / Turn-based</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>96</strong></span>
@@ -1340,6 +1366,10 @@
           <span class="meta-chip">HLTB <strong>~100h+</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
         </div>
+        <div class="progress-bar-container" style="margin-top: 10px;">
+          <div class="progress-bar" style="width: 17%;"></div>
+        </div>
+        <div class="progress-label">~15–20% concluído · <strong>Ato 1</strong> — Goblin Camp explorado, Halsin resgatado · ~80–85h restantes</div>
       </div>
     </div>
     <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
