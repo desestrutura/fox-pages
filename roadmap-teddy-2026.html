@@ -170,6 +170,30 @@
     border-bottom: 1px solid var(--border);
     animation: fadeIn 0.4s ease both;
   }
+  .game-entry.completed {
+    opacity: 0.72;
+  }
+  .game-entry.completed .game-title {
+    text-decoration: line-through;
+    text-decoration-color: rgba(122, 184, 122, 0.5);
+    text-decoration-thickness: 2px;
+  }
+  .badge-completed {
+    background: rgba(122, 184, 122, 0.12);
+    color: var(--live);
+    border: 1px solid rgba(122, 184, 122, 0.25);
+  }
+  .completed-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--live);
+    font-weight: 500;
+    margin-top: 6px;
+  }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
@@ -369,10 +393,10 @@
       <p class="section-label">Resumo visual</p>
       <table class="summary-table">
         <tbody>
-          <tr>
-            <td><span class="now-playing"></span>Abr–Mai</td>
-            <td>Final Fantasy Tactics: The Ivalice Chronicles</td>
-            <td><span class="badge badge-long">Longo ~35h</span></td>
+          <tr style="opacity:0.65;">
+            <td>Abr–Mai</td>
+            <td style="text-decoration:line-through;text-decoration-color:rgba(122,184,122,0.5);text-decoration-thickness:2px;">Final Fantasy Tactics: The Ivalice Chronicles</td>
+            <td><span class="badge badge-completed">✓ Concluído</span></td>
           </tr>
           <tr>
             <td><span class="now-playing"></span>Mai</td>
@@ -439,14 +463,15 @@
     <div class="container">
 
       <!-- 1. FFT -->
-      <article class="game-entry">
+      <article class="game-entry completed">
         <div class="game-header">
           <div>
-            <p class="game-number">01 — finalizando 🎯</p>
+            <p class="game-number">01 — concluído ✓</p>
             <h2 class="game-title">Final Fantasy Tactics:<br>The Ivalice Chronicles</h2>
-            <p class="game-period">Abril – Maio · Final do capítulo 3</p>
+            <p class="game-period">Abril – Maio · Concluído</p>
+            <p class="completed-stamp">✓ Zerado</p>
           </div>
-          <span class="badge badge-long" style="white-space:nowrap;flex-shrink:0">Longo ~35h</span>
+          <span class="badge badge-completed" style="white-space:nowrap;flex-shrink:0">✓ Concluído</span>
         </div>
         <div class="game-meta-grid">
           <div class="meta-item"><p class="meta-label">Ano</p><p class="meta-value">2025 (remaster 1997)</p></div>
