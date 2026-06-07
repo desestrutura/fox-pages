@@ -149,6 +149,7 @@
   .badge-coop { background: rgba(106, 159, 181, 0.12); color: var(--coop-accent); }
   .badge-live { background: rgba(122, 184, 122, 0.12); color: var(--live); }
   .badge-mmo { background: rgba(180, 130, 200, 0.15); color: #b47fd4; }
+  .badge-wishlist { background: rgba(100, 100, 110, 0.12); color: #6e6d6a; border: 1px solid rgba(100, 100, 110, 0.2); }
   .now-playing {
     display: inline-block;
     width: 6px;
@@ -355,6 +356,63 @@
     color: var(--text);
   }
 
+  /* WISHLIST SECTION */
+  .wishlist-section {
+    padding: 60px 0 80px;
+    border-top: 1px solid var(--border);
+  }
+  .wishlist-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .wishlist-badge {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  .wishlist-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 700;
+    color: var(--text);
+  }
+  .wishlist-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    padding-left: 2px;
+    line-height: 1.6;
+  }
+  .wishlist-entry {
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0.75;
+  }
+  .wishlist-entry:last-child { border-bottom: none; }
+  .wishlist-entry:hover { opacity: 1; transition: opacity 0.2s; }
+  .wishlist-game-header { margin-bottom: 24px; }
+  .wishlist-queue {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .wishlist-game-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 700;
+    color: var(--text);
+  }
+
   /* FOOTER */
   footer {
     padding: 40px 0;
@@ -430,8 +488,8 @@
           </tr>
           <tr>
             <td>Outubro</td>
-            <td>Clair Obscur: Expedition 33</td>
-            <td><span class="badge badge-long">Longo ~35h</span></td>
+            <td>Castlevania: Belmont's Curse</td>
+            <td><span class="badge badge-medium">Médio ~20h</span></td>
           </tr>
           <tr>
             <td>Novembro</td>
@@ -452,6 +510,17 @@
             <td>Corrente</td>
             <td>Baldur's Gate 3 <em style="color:var(--coop-accent);font-size:12px;">(co-op)</em></td>
             <td><span class="badge badge-coop">Co-op ilimitado</span></td>
+          </tr>
+          <tr>
+            <td colspan="3" style="padding: 6px 0; border-bottom: none;">
+              <div style="border-top: 1px dashed #2a2a30; margin: 6px 0 2px;"></div>
+              <span style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);font-weight:500;">Wishlist — sem prazo</span>
+            </td>
+          </tr>
+          <tr style="opacity: 0.5;">
+            <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
+            <td style="color: var(--text-dim);">Clair Obscur: Expedition 33</td>
+            <td><span class="badge badge-wishlist">Longo ~35h</span></td>
           </tr>
         </tbody>
       </table>
@@ -692,37 +761,33 @@
         </ul>
       </article>
 
-      <!-- 8. Clair Obscur -->
+      <!-- 8. Castlevania: Belmont's Curse -->
       <article class="game-entry">
         <div class="game-header">
           <div>
             <p class="game-number">08</p>
-            <h2 class="game-title">Clair Obscur:<br>Expedition 33</h2>
-            <p class="game-period">Outubro</p>
+            <h2 class="game-title">Castlevania:<br>Belmont's Curse</h2>
+            <p class="game-period">Outubro · Lançamento 15/10</p>
           </div>
-          <span class="badge badge-long" style="white-space:nowrap;flex-shrink:0">Longo ~35h</span>
+          <span class="badge badge-medium" style="white-space:nowrap;flex-shrink:0">Médio ~20h</span>
         </div>
         <div class="game-meta-grid">
-          <div class="meta-item"><p class="meta-label">Ano</p><p class="meta-value">2025</p></div>
-          <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Sandfall Interactive</p></div>
-          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">JRPG / Turn-based + ação</p></div>
-          <div class="meta-item"><p class="meta-label">Metacritic</p><p class="meta-value highlight">93 — GOTY 2025</p></div>
-          <div class="meta-item"><p class="meta-label">OpenCritic</p><p class="meta-value highlight">93 — Mighty</p></div>
-          <div class="meta-item"><p class="meta-label">HLTB</p><p class="meta-value">~26h história / ~38h extras</p></div>
-          <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">PC · PS5 · Xbox (Game Pass)</p></div>
+          <div class="meta-item"><p class="meta-label">Ano</p><p class="meta-value">2026</p></div>
+          <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Evil Empire / Konami</p></div>
+          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">2D Action-Exploration / Metroidvania</p></div>
+          <div class="meta-item"><p class="meta-label">Plataformas</p><p class="meta-value">PC · PS5 · Xbox · Switch</p></div>
+          <div class="meta-item"><p class="meta-label">Cenário</p><p class="meta-value">Paris, 1499</p></div>
+          <div class="meta-item"><p class="meta-label">Protagonista</p><p class="meta-value">Rose Belmont</p></div>
         </div>
         <p class="game-section-title">Contexto</p>
-        <p class="game-text">O jogo independente mais premiado de 2025, desenvolvido por um time de menos de 50 pessoas em Montpellier, França. GOTY de 2025 na maioria das premiações. Ambientado num mundo inspirado na Belle Époque francesa onde a "Pintora" acorda uma vez por ano e apaga todos os habitantes da idade que ela pinta — e a expedição 33 é a última tentativa de destruí-la.</p>
-        <p class="game-section-title">Pontos fortes</p>
-        <p class="game-text">Um dos sistemas de combate turn-based mais inovadores dos últimos anos — durante os ataques inimigos, você pode desviar ou aparar em tempo real com timing preciso, eliminando completamente o dano se bem-sucedido. A narrativa tem uma revelação no terceiro ato que redimensiona toda a experiência. A trilha sonora (com vários vocais) é considerada uma das melhores do ano.</p>
-        <p class="game-section-title">Influências</p>
-        <p class="game-text">Final Fantasy X e Lost Odyssey (estrutura narrativa), Dark Souls (mecânica de parry/dodge em tempo real), pintura impressionista e art nouveau francesa (estética visual).</p>
+        <p class="game-text">Parte das celebrações do <em>40º aniversário de Castlevania</em>, desenvolvido pela Evil Empire — o studio por trás de Dead Cells — com Motion Twin em papel consultivo. Ambientado 23 anos após <em>Castlevania III: Dracula's Curse</em>, o jogo coloca na mão do jogador Rose Belmont, sucessora de Trevor e última da linhagem, numa Paris medieval ameaçada pelas forças de Dracula. Anunciado em fevereiro de 2026 no State of Play, com data confirmada no Xbox Showcase de junho.</p>
+        <p class="game-section-title">Por que entrou no roadmap</p>
+        <p class="game-text">Evil Empire tem um histórico excepcional de suporte e qualidade pós-lançamento com Dead Cells. O DNA de Metroidvania aplicado a Castlevania é uma combinação natural — e o timing de outubro, no mês do Halloween, é perfeito para uma imersão no universo gótico da franquia.</p>
         <p class="game-section-title">Dicas</p>
         <ul class="tips-list">
-          <li>O sistema de parry/dodge é essencial, não opcional — aprenda desde o início. Dominar o timing transforma completamente a experiência.</li>
-          <li>Não rush a história: o Ato 3 tem conteúdo side que fica inacessível depois de certas escolhas.</li>
-          <li>As builds dos personagens têm profundidade real — vale entender as sinergias de equipamentos.</li>
-          <li>Vá sem spoilers — a revelação central do Ato 3 é muito mais impactante com zero contexto prévio.</li>
+          <li>Jogo novo — sem dicas estabelecidas ainda. Vale esperar primeiras impressões antes de confirmar a compra, mas o histórico da Evil Empire justifica otimismo.</li>
+          <li>É Xbox Play Anywhere: compra única cobre PC (Xbox Store) e Xbox Series. Steam tem licença separada.</li>
+          <li>Switch 2 não foi confirmado no trailer — possível port posterior, mas a versão Switch original está confirmada.</li>
         </ul>
       </article>
 
@@ -866,6 +931,47 @@
   </section>
 
 </main>
+
+  <!-- WISHLIST SECTION -->
+  <section class="wishlist-section">
+    <div class="container">
+      <div class="wishlist-header">
+        <span class="wishlist-badge">Wishlist</span>
+        <h2 class="wishlist-title">Ficou de fora — por enquanto</h2>
+      </div>
+      <p class="wishlist-subtitle">Jogos que saíram do roadmap ativo mas merecem atenção futura. Sem prazo, sem pressão — só quando o momento chegar.</p>
+
+      <!-- Clair Obscur -->
+      <article class="wishlist-entry">
+        <div class="wishlist-game-header">
+          <p class="wishlist-queue">Wishlist #01 — movido do roadmap</p>
+          <h3 class="wishlist-game-title">Clair Obscur: Expedition 33</h3>
+        </div>
+        <div class="game-meta-grid">
+          <div class="meta-item"><p class="meta-label">Ano</p><p class="meta-value">2025</p></div>
+          <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Sandfall Interactive</p></div>
+          <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">JRPG / Turn-based + ação</p></div>
+          <div class="meta-item"><p class="meta-label">Metacritic</p><p class="meta-value highlight">93 — GOTY 2025</p></div>
+          <div class="meta-item"><p class="meta-label">OpenCritic</p><p class="meta-value highlight">93 — Mighty</p></div>
+          <div class="meta-item"><p class="meta-label">HLTB</p><p class="meta-value">~26h história / ~38h extras</p></div>
+          <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">PC · PS5 · Xbox (Game Pass)</p></div>
+        </div>
+        <p class="game-section-title">Por que saiu do roadmap</p>
+        <p class="game-text">O Castlevania: Belmont's Curse entrou em outubro e o slot não comporta os dois. O Clair Obscur não foi descartado — muito pelo contrário: é o JRPG independente mais premiado de 2025 e continua sendo um dos mais recomendados do ano. É uma questão de tempo, não de interesse.</p>
+        <p class="game-section-title">Contexto</p>
+        <p class="game-text">Desenvolvido por um time de menos de 50 pessoas em Montpellier, França. Ambientado num mundo inspirado na Belle Époque francesa onde a "Pintora" acorda uma vez por ano e apaga todos os habitantes da idade que ela pinta — e a expedição 33 é a última tentativa de destruí-la.</p>
+        <p class="game-section-title">Pontos fortes</p>
+        <p class="game-text">Um dos sistemas de combate turn-based mais inovadores dos últimos anos — durante os ataques inimigos, você pode desviar ou aparar em tempo real com timing preciso, eliminando completamente o dano se bem-sucedido. A narrativa tem uma revelação no terceiro ato que redimensiona toda a experiência. A trilha sonora (com vários vocais) é considerada uma das melhores do ano.</p>
+        <p class="game-section-title">Dicas — para quando chegar a hora</p>
+        <ul class="tips-list">
+          <li>O sistema de parry/dodge é essencial, não opcional — aprenda desde o início. Dominar o timing transforma completamente a experiência.</li>
+          <li>Não rush a história: o Ato 3 tem conteúdo side que fica inacessível depois de certas escolhas.</li>
+          <li>Vá sem spoilers — a revelação central do Ato 3 é muito mais impactante com zero contexto prévio.</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
 
 <footer>
   <div class="container">
