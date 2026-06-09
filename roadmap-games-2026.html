@@ -489,6 +489,126 @@
     text-decoration: none;
   }
 
+  /* ——— Wishlist ——— */
+  .summary-separator {
+    padding: 10px 0 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .summary-separator::before {
+    content: '';
+    flex: 0 0 12px;
+    height: 1px;
+    background: var(--border);
+  }
+  .summary-separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    border-top: 1px dashed var(--border);
+  }
+  .summary-separator-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+    opacity: 0.6;
+  }
+  .summary-wishlist {
+    opacity: 0.45;
+  }
+  .summary-wishlist .summary-game {
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .tag-wishlist {
+    background: #1a1d22;
+    color: #4a4f58;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid #252930;
+  }
+  .wishlist-section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 64px 0 8px;
+    padding-top: 48px;
+    border-top: 1px dashed var(--border);
+  }
+  .wishlist-section-badge {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 4px 12px;
+    border-radius: 20px;
+    opacity: 0.7;
+  }
+  .wishlist-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 600;
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
+  .wishlist-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    opacity: 0.6;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+  .game-card.wishlist-card {
+    opacity: 0.4;
+    transition: opacity 0.2s;
+  }
+  .game-card.wishlist-card:hover {
+    opacity: 0.72;
+  }
+  .game-card.wishlist-card .card-title {
+    color: var(--text-muted);
+  }
+
+  .summary-game a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .summary-game a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  .stats-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 20px;
+  }
+  .stats-section-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+  }
+  .stats-divider {
+    width: 1px;
+    height: 32px;
+    background: var(--border);
+    align-self: center;
+    opacity: 0.5;
+  }
+
   /* ——— Responsive ——— */
   @media (max-width: 600px) {
     header h1 { font-size: 1.8rem; }
@@ -510,26 +630,56 @@
   <header>
     <h1>🎮 Roadmap 2026</h1>
     <p>Ordem recomendada · Solo + Co-op</p>
-    <div class="stats-row">
-      <div class="stat">
-        <div class="stat-value">17</div>
-        <div class="stat-label">Jogos</div>
+    <div class="stats-section">
+      <div class="stats-section-label">Jogos 2026</div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">19</div>
+          <div class="stat-label">Total</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">5</div>
+          <div class="stat-label">Concluídos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Jogando</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">2</div>
+          <div class="stat-label">Pausados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">9</div>
+          <div class="stat-label">Pendentes</div>
+        </div>
+        <div class="stats-divider"></div>
+        <div class="stat">
+          <div class="stat-value">10</div>
+          <div class="stat-label">Wishlist 2027</div>
+        </div>
       </div>
-      <div class="stat">
-        <div class="stat-value">5</div>
-        <div class="stat-label">Concluídos</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">3</div>
-        <div class="stat-label">Jogando</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">3</div>
-        <div class="stat-label">Pausados</div>
-      </div>
-      <div class="stat">
-        <div class="stat-value">~540h</div>
-        <div class="stat-label">Estimativa total</div>
+    </div>
+
+    <div class="stats-section">
+      <div class="stats-section-label">Horas estimadas — 2026</div>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value">~560h</div>
+          <div class="stat-label">Total do ano</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">~166h</div>
+          <div class="stat-label">Jogadas</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">~458h</div>
+          <div class="stat-label">Restantes</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">30%</div>
+          <div class="stat-label">Progresso</div>
+        </div>
       </div>
     </div>
   </header>
@@ -540,107 +690,162 @@
 
     <div class="summary-row done">
       <span class="summary-month">Fev</span>
-      <span class="summary-game">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span></span>
+      <span class="summary-game"><a href="#card-mgr">Metal Gear Rising: Revengeance</a> <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-short">~9h</span>
     </div>
     <div class="summary-row done">
       <span class="summary-month">Mar</span>
-      <span class="summary-game">Final Fantasy Tactics: The Ivalice Chronicles <span class="status-pill pill-done">✓ concluído</span></span>
+      <span class="summary-game"><a href="#card-fft">Final Fantasy Tactics: The Ivalice Chronicles</a> <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-long">~60h</span>
     </div>
     <div class="summary-row done">
       <span class="summary-month">Mar</span>
-      <span class="summary-game">Super Castlevania IV <span class="status-pill pill-done">✓ concluído</span></span>
+      <span class="summary-game"><a href="#card-sciv">Super Castlevania IV</a> <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-short">~5h</span>
     </div>
     <div class="summary-row done">
       <span class="summary-month">Mar</span>
-      <span class="summary-game">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span></span>
+      <span class="summary-game"><a href="#card-ecclesia">Castlevania: Order of Ecclesia</a> <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-short">~12h</span>
     </div>
     <div class="summary-row" style="background: var(--playing-bg);">
       <span class="summary-month">Abr–Mai</span>
-      <span class="summary-game">Final Fantasy VI <span class="status-pill pill-playing">jogando</span></span>
+      <span class="summary-game"><a href="#card-ff6">Final Fantasy VI</a> <span class="status-pill pill-playing">jogando</span></span>
       <span class="tag tag-long">~50h</span>
     </div>
     <div class="summary-row done">
       <span class="summary-month">Abr</span>
-      <span class="summary-game">999: Nine Hours, Nine Persons, Nine Doors <span class="status-pill pill-done">✓ concluído</span></span>
+      <span class="summary-game"><a href="#card-999">999: Nine Hours, Nine Persons, Nine Doors</a> <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-medium">~20h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Mai</span>
-      <span class="summary-game">Outer Wilds</span>
+      <span class="summary-game"><a href="#card-outer-wilds">Outer Wilds</a></span>
       <span class="tag tag-medium">~15h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Jun</span>
-      <span class="summary-game">Journey</span>
+      <span class="summary-game"><a href="#card-journey">Journey</a></span>
       <span class="tag tag-short">~2h</span>
     </div>
     <div class="summary-row" style="background: var(--playing-bg);">
       <span class="summary-month">Jun</span>
-      <span class="summary-game">FFXIV: Dawntrail (patches 7.3–7.5) <span class="status-pill pill-playing">jogando</span></span>
+      <span class="summary-game"><a href="#card-ffxiv">FFXIV: Dawntrail (patches 7.3–7.5)</a> <span class="status-pill pill-playing">jogando</span></span>
       <span class="tag tag-ongoing">∞ ongoing</span>
     </div>
     <div class="summary-row" style="background: var(--paused-bg);">
       <span class="summary-month">Jul</span>
-      <span class="summary-game">Hollow Knight: Silksong <span class="status-pill pill-paused">⏸ pausado</span></span>
+      <span class="summary-game"><a href="#card-silksong">Hollow Knight: Silksong</a> <span class="status-pill pill-paused">⏸ pausado</span></span>
       <span class="tag tag-medium">~35h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Ago</span>
-      <span class="summary-game">Genshin Impact — Snezhnaya (7.0)</span>
+      <span class="summary-game"><a href="#card-mina">Mina the Hollower</a></span>
+      <span class="tag tag-medium">~25h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Ago</span>
+      <span class="summary-game"><a href="#card-genshin">Genshin Impact — Snezhnaya (7.0)</a> <span class="status-pill pill-next">Lançamento</span></span>
       <span class="tag tag-ongoing">∞ ongoing</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Set</span>
-      <span class="summary-game">Papers, Please</span>
+      <span class="summary-game"><a href="#card-papers">Papers, Please</a></span>
       <span class="tag tag-short">~8h</span>
     </div>
     <div class="summary-row">
-      <span class="summary-month">Out–Nov</span>
-      <span class="summary-game">The Legend of Zelda: BotW</span>
-      <span class="tag tag-long">~100h</span>
-    </div>
-    <div class="summary-row">
-      <span class="summary-month">Out</span>
-      <span class="summary-game">Castlevania: Belmont's Curse</span>
-      <span class="tag tag-medium">~20h</span>
-    </div>
-    <div class="summary-row">
-      <span class="summary-month">Nov</span>
-      <span class="summary-game">Shovel Knight</span>
-      <span class="tag tag-short">~10h</span>
-    </div>
-    <div class="summary-row">
-      <span class="summary-month">Dez</span>
-      <span class="summary-game">Fire Emblem: Awakening</span>
+      <span class="summary-month">Set</span>
+      <span class="summary-game"><a href="#card-fe-fortunes">Fire Emblem: Fortune's Weave</a> <span class="status-pill pill-next">Lançamento</span></span>
       <span class="tag tag-long">~50h</span>
     </div>
     <div class="summary-row">
-      <span class="summary-month">Dez</span>
-      <span class="summary-game">Secret of Mana</span>
+      <span class="summary-month">Out</span>
+      <span class="summary-game"><a href="#card-secret-mana">Secret of Mana</a></span>
       <span class="tag tag-medium">~25h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Out</span>
+      <span class="summary-game"><a href="#card-belmonts-curse">Castlevania: Belmont's Curse</a> <span class="status-pill pill-next">Lançamento</span></span>
+      <span class="tag tag-medium">~20h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Nov–Dez</span>
+      <span class="summary-game"><a href="#card-botw">The Legend of Zelda: BotW</a></span>
+      <span class="tag tag-long">~100h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Dez</span>
+      <span class="summary-game"><a href="#card-shovel-knight">Shovel Knight</a></span>
+      <span class="tag tag-short">~10h</span>
     </div>
 
     <div class="summary-row" style="border-top: 2px solid var(--border);">
       <span class="summary-month" style="color: var(--accent);">Co-op</span>
-      <span class="summary-game" style="color: var(--accent);">The Last of Us Part II <span class="status-pill pill-playing">jogando</span></span>
+      <span class="summary-game" style="color: var(--accent);"><a href="#card-tlou2">The Last of Us Part II</a> <span class="status-pill pill-playing">jogando</span></span>
       <span class="tag tag-medium">~25h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month" style="color: var(--accent);">Co-op</span>
-      <span class="summary-game" style="color: var(--accent);">Baldur's Gate 3 <span class="status-pill pill-paused">⏸ pausado</span></span>
-      <span class="tag tag-long">~100h</span>
+      <span class="summary-game" style="color: var(--accent);"><a href="#card-witcher3">The Witcher 3: Wild Hunt — Complete Edition</a></span>
+      <span class="tag tag-long">~100h+</span>
     </div>
+
+    <div class="summary-separator">
+      <span class="summary-separator-label">Wishlist 2027 — sem prazo</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month">Jan 2027</span>
+      <span class="summary-game"><a href="#card-evercold">FFXIV: Evercold (expansão 8.0)</a></span>
+      <span class="tag tag-wishlist">∞ ongoing</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month">2027</span>
+      <span class="summary-game"><a href="#card-fe-awakening">Fire Emblem: Awakening</a></span>
+      <span class="tag tag-wishlist">~50h</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month" style="color: var(--coop-accent, #7eb8da);">Co-op</span>
+      <span class="summary-game"><a href="#card-bg3">Baldur's Gate 3</a></span>
+      <span class="tag tag-wishlist">~100h+</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month">2027</span>
+      <span class="summary-game"><a href="#card-nier">NieR: Automata</a></span>
+      <span class="tag tag-wishlist">~50h</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month">2027</span>
+      <span class="summary-game"><a href="#card-elden-ring">Elden Ring</a></span>
+      <span class="tag tag-wishlist">~100h+</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month">2027</span>
+      <span class="summary-game"><a href="#card-omori">Omori</a></span>
+      <span class="tag tag-wishlist">~15h</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month">2027</span>
+      <span class="summary-game"><a href="#card-transistor">Transistor</a></span>
+      <span class="tag tag-wishlist">~8h</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month">2027</span>
+      <span class="summary-game"><a href="#card-deltarune">Deltarune (caps 1–5)</a></span>
+      <span class="tag tag-wishlist">~25h</span>
+    </div>
+    <div class="summary-row summary-wishlist">
+      <span class="summary-month">2027</span>
+      <span class="summary-game"><a href="#card-sonic3">Sonic 3 &amp; Knuckles</a></span>
+      <span class="tag tag-wishlist">~4h</span>
+    </div>
+
   </div>
 
   <!-- ===================== GAME CARDS ===================== -->
 
   <!-- 1. METAL GEAR RISING — DONE -->
   <div class="section-label">Fevereiro — Concluído</div>
-  <div class="game-card status-done status-clube">
+  <div id="card-mgr" class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2l1t.webp" alt="Metal Gear Rising: Revengeance" onerror="this.style.display='none'">
       <div class="card-info">
@@ -684,7 +889,7 @@
 
   <!-- 2. FFT — DONE -->
   <div class="section-label">Março — Concluído</div>
-  <div class="game-card status-done">
+  <div id="card-fft" class="game-card status-done">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co9wwi.webp" alt="Final Fantasy Tactics: The Ivalice Chronicles" onerror="this.style.display='none'">
       <div class="card-info">
@@ -724,7 +929,7 @@
   </div>
 
   <!-- 3. SUPER CASTLEVANIA IV — DONE -->
-  <div class="game-card status-done">
+  <div id="card-sciv" class="game-card status-done">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co20dc.webp" alt="Super Castlevania IV" onerror="this.style.display='none'">
       <div class="card-info">
@@ -765,7 +970,7 @@
   </div>
 
   <!-- 4. CASTLEVANIA: ORDER OF ECCLESIA — DONE -->
-  <div class="game-card status-done status-clube">
+  <div id="card-ecclesia" class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob9ko.webp" alt="Castlevania: Order of Ecclesia" onerror="this.style.display='none'">
       <div class="card-info">
@@ -809,7 +1014,7 @@
 
   <!-- 5. FINAL FANTASY VI — JOGANDO -->
   <div class="section-label">Abril – Maio</div>
-  <div class="game-card status-playing">
+  <div id="card-ff6" class="game-card status-playing">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6ple.webp" alt="Final Fantasy VI" onerror="this.style.display='none'">
       <div class="card-info">
@@ -853,7 +1058,7 @@
   </div>
 
   <!-- 6. 999 — DONE -->
-  <div class="game-card status-done status-clube">
+  <div id="card-999" class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co8xu9.webp" alt="999: Nine Hours, Nine Persons, Nine Doors" onerror="this.style.background='#242a32'">
       <div class="card-info">
@@ -894,7 +1099,7 @@
 
   <!-- 7. OUTER WILDS -->
   <div class="section-label">Maio — Clube do Game</div>
-  <div class="game-card status-clube">
+  <div id="card-outer-wilds" class="game-card status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co65ac.webp" alt="Outer Wilds" onerror="this.style.display='none'">
       <div class="card-info">
@@ -938,7 +1143,7 @@
 
   <!-- 8. JOURNEY  -->
   <div class="section-label">Junho</div>
-  <div class="game-card">
+  <div id="card-journey" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob9lk.webp" alt="Journey" onerror="this.style.display='none'">
       <div class="card-info">
@@ -977,33 +1182,32 @@
   </div>
 
   <!-- FFXIV DAWNTRAIL (patches 7.3-7.5) -->
-  <div class="game-card status-playing">
+  <div id="card-ffxiv" class="game-card status-playing">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobjbh.webp" alt="Final Fantasy XIV: Dawntrail" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">Junho · FFXIV — Dawntrail patches 7.3–7.5</div>
+        <div class="card-number">#9 · Junho · FFXIV — Dawntrail patches 7.3–7.5</div>
         <div class="card-title">Final Fantasy XIV: Dawntrail <span class="status-pill pill-playing">jogando</span></div>
         <div class="card-subtitle">Square Enix · 2024 · MMORPG (conteúdo de patch em andamento)</div>
         <div class="card-meta">
           <span class="meta-chip">Patches <strong>7.3 → 7.5</strong></span>
-          <span class="meta-chip">Restante estimado <strong>~11–17h</strong></span>
+          <span class="meta-chip">Restante estimado <strong>~3–5h</strong></span>
           <span class="tag tag-ongoing" style="margin-left: 2px;">∞ ongoing</span>
         </div>
         <div class="progress-bar-container" style="margin-top: 10px;">
-          <div class="progress-bar" style="width: 42%;"></div>
+          <div class="progress-bar" style="width: 82%;"></div>
         </div>
-        <div class="progress-label">~40–45% do conteúdo pendente concluído · <strong>MSQ 7.3 + 7.4 feitos · Arcadion Heavyweight concluído · 2ª Alliance Raid concluída · Society Quests nível 7 (Yok Huy + Mamool Ja)</strong></div>
+        <div class="progress-label">~82% concluído · <strong>MSQ 7.3 + 7.4 + 7.5 feitos · Arcadion Heavyweight concluído · 2ª Alliance Raid concluída · Falta: Windurst (3ª Alliance Raid) + Society Quests (nível atual)</strong></div>
       </div>
     </div>
     <div class="card-toggle" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
-        <dt>MSQ 7.3 + 7.4</dt><dd>✓ Concluído</dd>
-        <dt>MSQ 7.5</dt><dd>⏳ Pendente (~2–3h)</dd>
+        <dt>MSQ 7.3 + 7.4 + 7.5</dt><dd>✓ Concluídos</dd>
         <dt>Arcadion Heavyweight (tier final)</dt><dd>✓ Concluído (M1–M4)</dd>
         <dt>2ª Alliance Raid (San d'Oria: The Second Walk)</dt><dd>✓ Concluída</dd>
-        <dt>3ª Alliance Raid (Windurst: The Third Walk)</dt><dd>⏳ Pendente, abre no 7.5 (~1–2h)</dd>
-        <dt>Society Quests (Yok Huy + Mamool Ja)</dt><dd>⏳ Nível 7 — ~8 dias restantes de dailies</dd>
+        <dt>3ª Alliance Raid (Windurst: The Third Walk)</dt><dd>⏳ Pendente (~1–2h)</dd>
+        <dt>Society Quests (Yok Huy + Mamool Ja)</dt><dd>⏳ Em andamento — dias restantes a confirmar</dd>
         <dt>Plataforma</dt><dd>PC (Steam ou client próprio)</dd>
       </dl>
       <div class="card-section-title">Contexto</div>
@@ -1016,11 +1220,10 @@
       <p class="card-text">Série de Alliance Raids em colaboração com FFXI, seguindo o Warrior of Light e Bakool Ja Ja pelo Walk of Echoes — uma dimensão onde ecos de personagens e locais de Vana'diel ganham vida. <strong>Jeuno: The First Walk (7.1, ✓ concluído)</strong> — bosses: Prishe of the Distant Chains, Fafnir the Forgotten, Ark Angels e Shadow Lord. <strong>San d'Oria: The Second Walk (7.3, ✓ concluída)</strong> — bosses: Faithbound Kirin, Kam'lanaut e Eald'narche. Sareel Ja convoca o Archduke de Jeuno como campeão. <strong>Windurst: The Third Walk (7.5, ⏳ pendente)</strong> — bosses: Shantotto the Demon, Alexander Resurrected, Promathia e Shinryu Paradox / Hollow King. O clímax da série, com Prishe gravemente ferida e Bakool Ja Ja assumindo papel central contra a coroação do novo rei de Sareel Ja.</p>
       <div class="card-section-title">Breakdown — O que resta</div>
       <ul class="tip-list">
-        <li><strong>MSQ 7.3 + 7.4: ✓ Concluídos.</strong> O 7.3 fechou o arco principal de Dawntrail; o 7.4 introduziu o Arcadion Heavyweight.</li>
-        <li><strong>MSQ 7.5: ~2–3h.</strong> "Trail to the Heavens" — abre o próximo arco narrativo em direção à Evercold e ao 8.0.</li>
+        <li><strong>MSQ 7.3 + 7.4 + 7.5: ✓ Concluídos.</strong> Dawntrail narrativo encerrado — o 7.5 abre o arco do Evercold (8.0).</li>
         <li><strong>Arcadion Heavyweight (Normal, tier final): ✓ Concluído.</strong> M1 Vamp Fatale · M2 Red Hot &amp; Deep Blue · M3 The Tyrant · M4 Lindwurm — todas derrubadas.</li>
-        <li><strong>Windurst: The Third Walk (7.5): ~1–2h.</strong> A terceira e última Alliance Raid da série Echoes of Vana'diel, desbloqueável após completar o MSQ 7.5.</li>
-        <li><strong>Society Quests (Yok Huy + Mamool Ja): ~8 dias restantes de dailies.</strong> Ambas no nível 7 — ~30 quests de distância do Bloodsworn. 3 quests/dia por faction.</li>
+        <li><strong>Windurst: The Third Walk: ⏳ ~1–2h.</strong> Terceira e última Alliance Raid da série Echoes of Vana'diel — já desbloqueável com o 7.5 feito. Bosses: Shantotto the Demon, Alexander Resurrected, Promathia, Shinryu Paradox.</li>
+        <li><strong>Society Quests (Yok Huy + Mamool Ja): ⏳ Em andamento.</strong> 3 quests/dia por faction até Bloodsworn. Completar as três Allied Societies de Dawntrail (Pelupelu + Mamool Ja + Yok Huy) deve desbloquear quest bônus de conclusão.</li>
       </ul>
       <div class="card-section-title">Allied Societies de Dawntrail</div>
       <p class="card-text"><strong>Mamool Ja (7.25 — Gatherers):</strong> Para Botanist, Miner ou Fisher lv 90+. Unlock via sidequests em Yak T'el → "Cultivating Hope". 3 quests/dia, 89 no total para Bloodsworn — ~30 dias corridos. XP de gatherer + Nanooks para mount exclusivo. Excelente para levar o Fisher do 90 ao 100 em paralelo com as Wachumeqimeqi Deliveries. <strong>Yok Huy (7.35 — Crafters):</strong> Para qualquer DoH lv 90+. Unlock via sidequests em Urqopacha → "Frosty Neighbors". 3 quests/dia, 89 no total para Bloodsworn — ~30 dias corridos. Materiais de craft fornecidos pelo NPC (você só precisa dos catalisadores). Recompensas incluem XP de crafter e Yok Huy Wards para trocar por mount (Vurgur the Loyal) e minion. Completar as três Allied Societies de Dawntrail (Pelupelu + Mamool Ja + Yok Huy) deve desbloquear uma quest bônus de conclusão.</p>
@@ -1035,11 +1238,11 @@
     </div>
   </div>
   <div class="section-label">Julho</div>
-  <div class="game-card status-paused">
+  <div id="card-silksong" class="game-card status-paused">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobebu.webp" alt="Hollow Knight: Silksong" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#9 · Julho</div>
+        <div class="card-number">#10 · Julho</div>
         <div class="card-title">Hollow Knight: Silksong <span class="status-pill pill-paused">⏸ pausado</span></div>
         <div class="card-subtitle">Team Cherry · 2025 · Metroidvania</div>
         <div class="card-meta">
@@ -1078,14 +1281,56 @@
     </div>
   </div>
 
+  <!-- MINA THE HOLLOWER -->
+  <div class="section-label">Agosto — com Genshin Impact 7.0 lançando no dia 12</div>
+  <div id="card-mina" class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co8p5p.webp" alt="Mina the Hollower" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#11 · Agosto</div>
+        <div class="card-title">Mina the Hollower</div>
+        <div class="card-subtitle">Yacht Club Games · 2026 · Action-adventure / Top-down</div>
+        <div class="card-meta">
+          <span class="meta-chip">OpenCritic <strong>98% rec.</strong></span>
+          <span class="meta-chip">HLTB <strong>~20–30h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2026 (lançado 29 de maio)</dd>
+        <dt>Dev/Pub</dt><dd>Yacht Club Games (criadores de Shovel Knight)</dd>
+        <dt>Gênero</dt><dd>Action-adventure top-down / Metroidvania leve</dd>
+        <dt>OpenCritic</dt><dd>98% de críticos recomendam</dd>
+        <dt>HLTB</dt><dd>~20h crítico / ~25–30h explorando / ~35h+ 100%</dd>
+        <dt>Plataformas</dt><dd>PC (Steam/GOG/Humble), PS5, Xbox Series, Switch, Switch 2</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Próximo grande projeto da Yacht Club após Shovel Knight — seis anos em desenvolvimento. Protagonista é Mina, uma mouse inventora e Hollower (caçadora de maldições) mandada investigar uma ilha amaldiçoada após um desastre misterioso. Estética fiel ao Game Boy Color por decisão deliberada de design, com paleta de quatro cores por tile. A inspiração declarada são Zelda: Link's Awakening e Castlevania — DNA exato do que você gosta.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">A mecânica central é o burrowing — Mina pode enterrar-se no chão para evitar ataques, reposicionar e contra-atacar em janelas de oportunidade, o que cria um sistema de timing similar a parry. O chicote Nightstar tem combos e cada arma desbloqueável muda o estilo de jogo. O mapa é interconectado à la Link's Awakening com gate de habilidades. Puzzles variados intercalados com combate, sem padding. Tem NG+7 para quem quiser escalar dificuldade.</p>
+      <div class="card-section-title">Por que em agosto</div>
+      <p class="card-text">Agosto tem o Genshin 7.0 como compromisso principal — Mina convive bem porque as sessões são discretas e o ritmo é do jogador. É também uma preparação temática natural: Mina é top-down gothic, Castlevania Belmont's Curse chega em outubro, e Shovel Knight fecha dezembro — a Yacht Club cria um fio condutor ao longo do segundo semestre.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>O burrowing não é só esquiva — é a mecânica central de combate. Dominar o timing de enterrar e emergir transforma completamente os boss fights.</li>
+        <li>Mais difícil que Shovel Knight por design — os modificadores de acessibilidade existem e não diminuem o jogo. Use se travar num boss.</li>
+        <li>Exploração compensa genuinamente — o mapa tem segredos bem escondidos que valem o desvio.</li>
+        <li>Jogar Shovel Knight antes não é obrigatório, mas aumenta o apreço pelo salto qualitativo da Yacht Club.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Pixel art em resolução nativa da tela do Deck fica excelente.</div>
+    </div>
+  </div>
+
   <!-- GENSHIN IMPACT — SNEZHNAYA 7.0 -->
-  <div class="section-label">Agosto — Lançamento</div>
-  <div class="game-card">
+  <div id="card-genshin" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobxhn.webp" alt="Genshin Impact" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">Agosto · Genshin Impact — Versão 7.0 (Snezhnaya)</div>
-        <div class="card-title">Genshin Impact — Snezhnaya</div>
+        <div class="card-number">#12 · Agosto</div>
+        <div class="card-title">Genshin Impact — Snezhnaya <span class="status-pill pill-next">Lançamento</span></div>
         <div class="card-subtitle">HoYoverse · 2020 (ongoing) · Action RPG / Live-service</div>
         <div class="card-meta">
           <span class="meta-chip">Versão <strong>7.0</strong></span>
@@ -1120,12 +1365,12 @@
   </div>
 
   <!-- 10. PAPERS, PLEASE -->
-  <div class="section-label">Setembro</div>
-  <div class="game-card">
+  <div class="section-label">Setembro — Lançamento 17 de setembro</div>
+  <div id="card-papers" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1vep.webp" alt="Papers, Please" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#10 · Setembro</div>
+        <div class="card-number">#13 · Setembro</div>
         <div class="card-title">Papers, Please</div>
         <div class="card-subtitle">Lucas Pope · 2013 · Puzzle / Simulação / Dystopia</div>
         <div class="card-meta">
@@ -1159,53 +1404,94 @@
     </div>
   </div>
 
-  <!-- 10. ZELDA: BOTW -->
-  <div class="section-label">Outubro – Novembro</div>
-  <div class="game-card">
+  <!-- #10b FIRE EMBLEM: FORTUNE'S WEAVE -->
+  <div id="card-fe-fortunes" class="game-card">
     <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg" alt="The Legend of Zelda: Breath of the Wild" onerror="this.style.display='none'">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co9wwi.webp" alt="Fire Emblem: Fortune's Weave" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#11 · Outubro–Novembro</div>
-        <div class="card-title">The Legend of Zelda: Breath of the Wild</div>
-        <div class="card-subtitle">Nintendo EPD · 2017 / 2025 (Switch 2) · Open world</div>
+        <div class="card-number">#14 · Setembro</div>
+        <div class="card-title">Fire Emblem: Fortune's Weave <span class="status-pill pill-next">Lançamento</span></div>
+        <div class="card-subtitle">Intelligent Systems / Nintendo · 2026 · SRPG / Tactical RPG</div>
         <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>97</strong></span>
-          <span class="meta-chip">HLTB <strong>~100h</strong></span>
-          <span class="meta-chip"><strong>Switch 2</strong></span>
+          <span class="meta-chip">Lançamento <strong>17 Set 2026</strong></span>
+          <span class="meta-chip">HLTB <strong>~50h est.</strong></span>
+          <span class="meta-chip"><strong>Switch 2 exclusivo</strong></span>
         </div>
       </div>
     </div>
     <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
-        <dt>Ano</dt><dd>2017 (original) / 2025 (Switch 2 Edition)</dd>
-        <dt>Dev/Pub</dt><dd>Nintendo EPD</dd>
-        <dt>Gênero</dt><dd>Action-adventure / Open world</dd>
-        <dt>Metacritic</dt><dd>97 (Switch)</dd>
-        <dt>OpenCritic</dt><dd>97 — Mighty</dd>
-        <dt>HLTB</dt><dd>~50h história / ~100h+ exploração completa</dd>
-        <dt>Plataforma</dt><dd>Nintendo Switch 2 (60fps, HDR)</dd>
+        <dt>Ano</dt><dd>2026 (lançamento 17 de setembro)</dd>
+        <dt>Dev/Pub</dt><dd>Intelligent Systems / Nintendo</dd>
+        <dt>Gênero</dt><dd>SRPG / Tactical RPG</dd>
+        <dt>Plataforma</dt><dd>Nintendo Switch 2 (exclusivo)</dd>
+        <dt>Cenário</dt><dd>Dagda, mesmo mundo de Three Houses — era anterior</dd>
+        <dt>Edição especial</dt><dd>Dagdan Collection — steelbook, artbook, art cards, mapa pôster</dd>
       </dl>
       <div class="card-section-title">Contexto</div>
-      <p class="card-text">Considerado por muitos o jogo mais influente dos anos 2010. Redefiniu o open world em termos de física, interatividade sistêmica e liberdade. A versão Switch 2 resolve os problemas técnicos do original — 60fps estáveis.</p>
+      <p class="card-text">18º jogo mainline da série Fire Emblem, anunciado em setembro de 2025 e com data revelada no Nintendo Direct de junho de 2026. Ambientado no Império Dagdan — o mesmo mundo de Fódlan de Three Houses, mas numa era distinta. A estrutura central é os <em>Heroic Games</em>, um torneio realizado numa arena romana presidido pelo Divine Sovereign, que promete conceder o desejo do vencedor. Quatro protagonistas jogáveis, cada um com motivações distintas: <strong>Cai</strong> quer salvar o pai da prisão; <strong>Theodora</strong> quer provar que tem força para liderar seu povo; <strong>Leda</strong>, uma performer, busca vingança; <strong>Dietrich</strong>, um espadachim, procura um adversário à sua altura. Ao final do trailer aparece Sothis, personagem conhecida de Three Houses.</p>
+      <div class="card-section-title">Estrutura de jogo</div>
+      <p class="card-text">O tempo livre entre batalhas é gerenciado pelo jogador — treinar nas arenas de prática, recrutar aliados, ou explorar além dos muros de Dagdan. O combate tático é expandido a partir de Three Houses, com técnicas únicas para cada protagonista e a escolha do herói principal influenciando quais histórias se desdobram.</p>
       <div class="card-section-title">Dicas</div>
       <ul class="tip-list">
-        <li>Não corra para os Divine Beasts — cada hora de exploração "aleatória" vai pagar dividendos.</li>
-        <li>O sistema de culinária é mais importante do que parece. Yellow Hearts são essenciais para boss fights.</li>
-        <li>Durabilidade de armas: não economize boas armas. Você sempre vai achar mais.</li>
-        <li>Os Santuários do Plateau de abertura ensinam os sistemas fundamentais — não pule nenhum.</li>
+        <li>Jogo novo — sem dados estabelecidos. Vale monitorar reviews na semana do lançamento antes de definir o protagonista inicial.</li>
+        <li>A escolha do protagonista principal muda a história — considerar jogar mais de uma vez ou pesquisar qual arco mais interessa antes de começar.</li>
+        <li>Se jogou Three Houses, o encontro com Sothis provavelmente vai ter peso narrativo — evitar spoilers sobre o contexto dela no trailer.</li>
       </ul>
+      <div class="config-note">⚙️ <strong>Plataforma:</strong> Switch 2 exclusivo. Dagdan Collection inclui steelbook + artbook + art cards + mapa pôster — vale considerar.</div>
+    </div>
+  </div>
+
+  <!-- #11 SECRET OF MANA + CASTLEVANIA -->
+  <div class="section-label">Outubro — com Castlevania: Belmont's Curse no dia 15</div>
+  <div id="card-secret-mana" class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2u6w.webp" alt="Secret of Mana" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#15 · Outubro</div>
+        <div class="card-title">Secret of Mana</div>
+        <div class="card-subtitle">Square · 1993 · Action RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">HLTB <strong>~25h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Emulação SNES</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1993 (SNES) / 2018 (Remake 3D)</dd>
+        <dt>Dev/Pub</dt><dd>Square</dd>
+        <dt>Gênero</dt><dd>Action RPG</dd>
+        <dt>Metacritic</dt><dd>N/A (SNES) — Remake 3D: 65</dd>
+        <dt>HLTB</dt><dd>~20h história / ~25h extras</dd>
+        <dt>Steam Deck</dt><dd>Via emulação (SNES) — recomendado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Criado por Koichi Ishii, pilar do Action RPG japonês. Recomendado o SNES original via emulação — o remake tem mudanças que dividem opiniões.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O Ring Command de menu radial foi revolucionário. Trilha de Hiroki Kikuta é um dos maiores trabalhos musicais do SNES. A cooperação entre três personagens é ahead of its time.</p>
+      <div class="card-section-title">Por que em outubro</div>
+      <p class="card-text">Outubro tem o Castlevania: Belmont's Curse chegando no dia 15 — o Secret of Mana convive bem por ser sessões abertas de action-RPG sem a intensidade de plataformer de precisão. Estilos diferentes que não competem por energia mental.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>A IA dos companheiros é básica. Use emulador com multijogador online se possível.</li>
+        <li>Use todas as armas com regularidade — cada uma tem nível de proficiência separado.</li>
+        <li>Bug: não use save state dentro de menus — pode corromper. Salve no mapa.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> RetroArch/Snes9x funciona perfeitamente.</div>
     </div>
   </div>
 
   <!-- CASTLEVANIA: BELMONT'S CURSE -->
   <div class="section-label">Outubro — Lançamento 15 de outubro de 2026</div>
-  <div class="game-card">
+  <div id="card-belmonts-curse" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobigs.webp" alt="Castlevania: Belmont's Curse" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#11b · Outubro — Lançamento</div>
-        <div class="card-title">Castlevania: Belmont's Curse <span class="status-pill pill-next">🩸 lançamento Out</span></div>
+        <div class="card-number">#16 · Outubro</div>
+        <div class="card-title">Castlevania: Belmont's Curse <span class="status-pill pill-next">Lançamento</span></div>
         <div class="card-subtitle">Konami / Evil Empire · 2026 · 2D Action-Exploration / Metroidvania</div>
         <div class="card-meta">
           <span class="meta-chip">Lançamento <strong>15 Out 2026</strong></span>
@@ -1244,13 +1530,52 @@
     </div>
   </div>
 
-  <!-- 12. SHOVEL KNIGHT -->
-  <div class="section-label">Novembro</div>
-  <div class="game-card">
+  <!-- #12 ZELDA: BOTW -->
+  <div class="section-label">Novembro – Dezembro</div>
+  <div id="card-botw" class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg" alt="The Legend of Zelda: Breath of the Wild" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#17 · Novembro–Dezembro</div>
+        <div class="card-title">The Legend of Zelda: Breath of the Wild</div>
+        <div class="card-subtitle">Nintendo EPD · 2017 / 2025 (Switch 2) · Open world</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>97</strong></span>
+          <span class="meta-chip">HLTB <strong>~100h</strong></span>
+          <span class="meta-chip"><strong>Switch 2</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2017 (original) / 2025 (Switch 2 Edition)</dd>
+        <dt>Dev/Pub</dt><dd>Nintendo EPD</dd>
+        <dt>Gênero</dt><dd>Action-adventure / Open world</dd>
+        <dt>Metacritic</dt><dd>97 (Switch)</dd>
+        <dt>OpenCritic</dt><dd>97 — Mighty</dd>
+        <dt>HLTB</dt><dd>~50h história / ~100h+ exploração completa</dd>
+        <dt>Plataforma</dt><dd>Nintendo Switch 2 (60fps, HDR)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Considerado por muitos o jogo mais influente dos anos 2010. Redefiniu o open world em termos de física, interatividade sistêmica e liberdade. A versão Switch 2 resolve os problemas técnicos do original — 60fps estáveis. Dois meses no roadmap porque ~100h é estimativa conservadora de exploração satisfatória, e há a viagem à Espanha/Itália em novembro para considerar — open world aguenta interrupções com zero custo.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Não corra para os Divine Beasts — cada hora de exploração "aleatória" vai pagar dividendos.</li>
+        <li>O sistema de culinária é mais importante do que parece. Yellow Hearts são essenciais para boss fights.</li>
+        <li>Durabilidade de armas: não economize boas armas. Você sempre vai achar mais.</li>
+        <li>Os Santuários do Plateau de abertura ensinam os sistemas fundamentais — não pule nenhum.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- #13 SHOVEL KNIGHT -->
+  <div class="section-label">Dezembro — fechamento do ano</div>
+  <div id="card-shovel-knight" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobaa7.webp" alt="Shovel Knight" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#12 · Novembro</div>
+        <div class="card-number">#18 · Dezembro</div>
         <div class="card-title">Shovel Knight</div>
         <div class="card-subtitle">Yacht Club Games · 2014 · Plataforma / Action</div>
         <div class="card-meta">
@@ -1282,90 +1607,14 @@
     </div>
   </div>
 
-  <!-- 13. FIRE EMBLEM: AWAKENING -->
-  <div class="section-label">Dezembro</div>
-  <div class="game-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobcko.webp" alt="Fire Emblem: Awakening" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">#13 · Dezembro</div>
-        <div class="card-title">Fire Emblem: Awakening</div>
-        <div class="card-subtitle">Intelligent Systems / Nintendo · 2012 · SRPG</div>
-        <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>92</strong></span>
-          <span class="meta-chip">HLTB <strong>~50h</strong></span>
-          <span class="meta-chip"><strong>3DS / Citra</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2012 (JP) / 2013 (Ocidente)</dd>
-        <dt>Dev/Pub</dt><dd>Intelligent Systems / Nintendo</dd>
-        <dt>Gênero</dt><dd>SRPG / Tactical RPG</dd>
-        <dt>Metacritic</dt><dd>92 (3DS)</dd>
-        <dt>HLTB</dt><dd>~30h história / ~50h+ completionist</dd>
-        <dt>Plataforma</dt><dd>3DS (recomendado) ou Citra (Steam Deck)</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">O jogo que salvou a franquia. A Nintendo deu um ultimato: se não vendesse 250k, Fire Emblem acabaria. Vendeu 2 milhões. Projetado como a porta de entrada perfeita.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Classic Mode (morte permanente) muda fundamentalmente como você toma decisões.</li>
-        <li>Frederick é útil, mas depender dele vai te prejudicar no mid game.</li>
-        <li>Não negligencie as paralogues — destrancam personagens importantes.</li>
-      </ul>
-      <div class="config-note">⚙️ <strong>Sobre 3DS vs Deck:</strong> 3DS recomendado pela tela dupla. Via Citra no Deck funciona com ajustes.</div>
-    </div>
-  </div>
-
-  <!-- 14. SECRET OF MANA -->
-  <div class="game-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2u6w.webp" alt="Secret of Mana" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">#14 · Dezembro — fechamento do ano</div>
-        <div class="card-title">Secret of Mana</div>
-        <div class="card-subtitle">Square · 1993 · Action RPG</div>
-        <div class="card-meta">
-          <span class="meta-chip">HLTB <strong>~25h</strong></span>
-          <span class="meta-chip">Steam Deck <strong>Emulação SNES</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>1993 (SNES) / 2018 (Remake 3D)</dd>
-        <dt>Dev/Pub</dt><dd>Square</dd>
-        <dt>Gênero</dt><dd>Action RPG</dd>
-        <dt>Metacritic</dt><dd>N/A (SNES) — Remake 3D: 65</dd>
-        <dt>HLTB</dt><dd>~20h história / ~25h extras</dd>
-        <dt>Steam Deck</dt><dd>Via emulação (SNES) — recomendado</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">Criado por Koichi Ishii, pilar do Action RPG japonês. Recomendado o SNES original via emulação — o remake tem mudanças que dividem opiniões.</p>
-      <div class="card-section-title">Pontos fortes</div>
-      <p class="card-text">O Ring Command de menu radial foi revolucionário. Trilha de Hiroki Kikuta é um dos maiores trabalhos musicais do SNES. A cooperação entre três personagens é ahead of its time.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>A IA dos companheiros é básica. Use emulador com multijogador online se possível.</li>
-        <li>Use todas as armas com regularidade — cada uma tem nível de proficiência separado.</li>
-        <li>Bug: não use save state dentro de menus — pode corromper. Salve no mapa.</li>
-      </ul>
-      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> RetroArch/Snes9x funciona perfeitamente.</div>
-    </div>
-  </div>
-
   <!-- ===================== CO-OP SECTION ===================== -->
 
   <div class="coop-divider">
-    <span class="coop-badge">🎲 Co-op — Paralelo ao longo de 2026</span>
+    <span class="coop-badge">🎲 Co-op — TLoU2 em andamento · Witcher 3 a seguir</span>
   </div>
 
   <!-- CO-OP: THE LAST OF US PART II -->
-  <div class="game-card">
+  <div id="card-tlou2" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg" alt="The Last of Us Part II" onerror="this.style.display='none'">
       <div class="card-info">
@@ -1379,9 +1628,9 @@
           <span class="meta-chip">Steam Deck <strong>Jogável</strong></span>
         </div>
         <div class="progress-bar-container" style="margin-top: 10px;">
-          <div class="progress-bar" style="width: 38%;"></div>
+          <div class="progress-bar" style="width: 53%;"></div>
         </div>
-        <div class="progress-label">~38% concluído · <strong>Primeiro dia jogável com Abby</strong> · ~14–15h restantes</div>
+        <div class="progress-label">~53% concluído · <strong>Início do segundo dia da Abby</strong> · ~11–12h restantes</div>
       </div>
     </div>
     <div class="card-toggle" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
@@ -1409,13 +1658,144 @@
     </div>
   </div>
 
-  <!-- CO-OP: BG3 -->
-  <div class="game-card status-paused">
+  <!-- CO-OP: THE WITCHER 3 -->
+  <div id="card-witcher3" class="game-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp" alt="The Witcher 3: Wild Hunt" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">Co-op · 2026–2027</div>
+        <div class="card-title">The Witcher 3: Wild Hunt — Complete Edition <span class="coop-badge-tag">🎮 Teddy</span></div>
+        <div class="card-subtitle">CD Projekt Red · 2015 / 2022 (Next-gen) · Open world RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>92</strong></span>
+          <span class="meta-chip">HLTB <strong>~100h+ completo</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2015 (original) / 2022 (Next-gen PS5/Xbox/PC)</dd>
+        <dt>Dev/Pub</dt><dd>CD Projekt Red</dd>
+        <dt>Gênero</dt><dd>Open world RPG / Action</dd>
+        <dt>Metacritic</dt><dd>92 (PC)</dd>
+        <dt>HLTB jogo base</dt><dd>~51h história / ~100h+ completionist</dd>
+        <dt>HLTB Hearts of Stone</dt><dd>~10h história / ~13h completionist</dd>
+        <dt>HLTB Blood and Wine</dt><dd>~15h história / ~23h completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+        <dt>DLC Songs of the Past</dt><dd>2027 — co-dev com Fool's Theory, detalhes em late summer 2026</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Um dos RPGs mais aclamados da história. Geralt de Rívia percorre o Velho Mundo em busca de Ciri enquanto o conflito entre o Império Nilfgaardiano e os Reinos do Norte devasta o continente. A versão Next-gen (2022) inclui ray tracing, novo sistema de câmera, melhorias de UI e conteúdo inspirado na série Netflix. <strong>Hearts of Stone</strong> e <strong>Blood and Wine</strong> são consideradas duas das melhores DLCs já feitas — Blood and Wine em particular tem escopo de expansão completa, com a região de Toussaint e ~20h de conteúdo.</p>
+      <div class="card-section-title">Por que agora</div>
+      <p class="card-text">Songs of the Past foi anunciada para 2027 — uma DLC inédita co-desenvolvida com a Fool's Theory, posicionada como ponte narrativa entre o W3 e The Witcher IV (onde Ciri é a protagonista). A ideia é chegar no lançamento da DLC com jogo base + Hearts of Stone + Blood and Wine já feitos. Com sessões regulares ao longo de 2026–2027, o ritmo é confortável mesmo num jogo desse porte.</p>
+      <div class="card-section-title">Ordem recomendada</div>
+      <ul class="tip-list">
+        <li><strong>Jogo base primeiro</strong>, completamente — as DLCs assumem que você terminou a história principal e têm spoilers implícitos.</li>
+        <li><strong>Hearts of Stone</strong> pode ser jogada a qualquer momento no endgame, mas narrativamente faz mais sentido depois do final.</li>
+        <li><strong>Blood and Wine</strong> por último — é o adeus do Geralt, funciona como epílogo emocional da trilogia.</li>
+        <li>Não tentem cobrir tudo no mapa. O W3 recompensa deixar algumas interrogações de lado e seguir os personagens.</li>
+        <li>A versão Next-gen tem modo de câmera over-the-shoulder opcional — considerar para uma experiência mais moderna.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Medium/High settings mantêm 40fps estáveis na tela do Deck.</div>
+    </div>
+  </div>
+
+  <!-- ===================== WISHLIST 2027 ===================== -->
+
+  <div class="wishlist-section-header">
+    <span class="wishlist-section-badge">Wishlist 2027</span>
+    <h2 class="wishlist-section-title">Para o ano que vem — sem prazo</h2>
+  </div>
+  <p class="wishlist-subtitle">Três tipos de jogo convivem aqui: os que saíram do roadmap 2026 por falta de espaço, não de interesse; os já anunciados para 2027 que entram por antecipação; e os muito desejados que vivem sendo esquecidos no backlog — registrados aqui para não sumirem mais. A lista pode crescer conforme novos títulos forem revelados ou resgatados.</p>
+
+  <!-- WISHLIST: FFXIV EVERCOLD -->
+  <div id="card-evercold" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6mts.webp" alt="Final Fantasy XIV: Evercold" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W1 · Lançamento Janeiro 2027</div>
+        <div class="card-title">Final Fantasy XIV: Evercold</div>
+        <div class="card-subtitle">Square Enix · 2027 · MMORPG — 6ª expansão / Patch 8.0</div>
+        <div class="card-meta">
+          <span class="meta-chip">Lançamento <strong>Janeiro 2027</strong></span>
+          <span class="meta-chip">Expansão <strong>8.0 — Godless Realms Saga</strong></span>
+          <span class="meta-chip"><strong>PC / PS5 / Xbox / Switch 2</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Lançamento</dt><dd>Janeiro 2027 (data exata não confirmada)</dd>
+        <dt>Dev/Pub</dt><dd>Square Enix CBU III</dd>
+        <dt>Saga</dt><dd>Godless Realms Saga — segunda após Hydaelyn-Zodiark</dd>
+        <dt>Cenário</dt><dd>The Fourth — um dos reflexos do universo, coberto por gelo eterno</dd>
+        <dt>Anunciado</dt><dd>Fan Festival 2026 em Anaheim (abril de 2026)</dd>
+        <dt>Plataformas</dt><dd>PC, PS5, PS4, Xbox Series X|S — Switch 2 também anunciado</dd>
+      </dl>
+      <div class="card-section-title">Tamanho esperado — referência Dawntrail</div>
+      <p class="card-text">Dawntrail 7.0 (só o MSQ base, sem patches) dura <strong>~30–35h</strong> — consistente com expansões anteriores de FFXIV. Uma nova expansão tende a ser um pouco maior que a anterior pelo tamanho crescente do mundo, mas a Square Enix mantém o ritmo de MSQ relativamente estável. Estimativa para o MSQ base do Evercold: <strong>~30–40h</strong>. Contando patches 8.1 a 8.5 (equivalente ao que você está fazendo agora no Dawntrail), a estimativa sobe para <strong>~70–90h</strong> de conteúdo principal ao longo do ciclo completo — sem contar endgame.</p>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Sexta expansão de FFXIV e início da Godless Realms Saga — a nova era do jogo após o encerramento do arco Hydaelyn-Zodiark. O trailer mostra uma avó narrando a história de um mundo congelado salvo pelo Warrior of Light, exibido como Reaper. O cenário é The Fourth, um reflexo do universo FFXIV assolado por gelo eterno e criaturas arcanas colossais.</p>
+      <div class="card-section-title">Destaques do anúncio</div>
+      <ul class="tip-list">
+        <li><strong>Evangelion × FFXIV — "Ghosts of Desire":</strong> série de Alliance Raids em colaboração com a khara (studio do Hideaki Anno). Três partes — provavelmente o crossover mais ambicioso da história do jogo.</li>
+        <li><strong>Lançamento em janeiro</strong> quebra o padrão histórico de expansões de verão — Yoshi-P sinalizou que querem manter momentum após o ciclo de Dawntrail.</li>
+        <li><strong>Switch 2:</strong> a versão para Switch 2 de FFXIV foi anunciada no mesmo evento — Evercold provavelmente vai coincidir com esse lançamento.</li>
+        <li>O patch 7.5 de Dawntrail serve como ponte narrativa direta para Evercold. A missão "Trail to the Heavens" é o setup direto para 8.0.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Pré-requisito:</strong> Completar MSQ de Dawntrail (até 7.5) antes de entrar no Evercold.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: FIRE EMBLEM AWAKENING -->
+  <div id="card-fe-awakening" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobcko.webp" alt="Fire Emblem: Awakening" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W2</div>
+        <div class="card-title">Fire Emblem: Awakening</div>
+        <div class="card-subtitle">Intelligent Systems / Nintendo · 2012 · SRPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>92</strong></span>
+          <span class="meta-chip">HLTB <strong>~50h</strong></span>
+          <span class="meta-chip"><strong>3DS / Citra</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2012 (JP) / 2013 (Ocidente)</dd>
+        <dt>Dev/Pub</dt><dd>Intelligent Systems / Nintendo</dd>
+        <dt>Gênero</dt><dd>SRPG / Tactical RPG</dd>
+        <dt>Metacritic</dt><dd>92 (3DS)</dd>
+        <dt>HLTB</dt><dd>~30h história / ~50h+ completionist</dd>
+        <dt>Plataforma</dt><dd>3DS (recomendado) ou Citra (Steam Deck)</dd>
+      </dl>
+      <div class="card-section-title">Por que saiu do roadmap 2026</div>
+      <p class="card-text">Fire Emblem: Fortune's Weave entra em setembro como lançamento de Switch 2, ocupando a janela de SRPG do segundo semestre. Awakening é longo (~50h) e merece atenção dedicada — não faz sentido comprimir os dois no mesmo ano com BotW e Castlevania ainda na fila. Depois de Fortune's Weave, vai ser uma experiência mais rica por ter contexto da franquia.</p>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">O jogo que salvou a franquia. A Nintendo deu um ultimato: se não vendesse 250k, Fire Emblem acabaria. Vendeu 2 milhões. Projetado como a porta de entrada perfeita.</p>
+      <div class="card-section-title">Dicas — para quando chegar a hora</div>
+      <ul class="tip-list">
+        <li>Classic Mode (morte permanente) muda fundamentalmente como você toma decisões.</li>
+        <li>Frederick é útil, mas depender dele vai te prejudicar no mid game.</li>
+        <li>Não negligencie as paralogues — destrancam personagens importantes.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Sobre 3DS vs Deck:</strong> 3DS recomendado pela tela dupla. Via Citra no Deck funciona com ajustes.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: BALDUR'S GATE 3 -->
+  <div id="card-bg3" class="game-card wishlist-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg" alt="Baldur's Gate 3" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">Co-op · Ao longo de 2026</div>
-        <div class="card-title">Baldur's Gate 3 <span class="status-pill pill-paused">⏸ pausado</span> <span class="coop-badge-tag">🎮 Teddy</span></div>
+        <div class="card-number">W3 · Co-op com Teddy — 2027</div>
+        <div class="card-title">Baldur's Gate 3 <span class="coop-badge-tag">🎮 Teddy</span></div>
         <div class="card-subtitle">Larian Studios · 2023 · CRPG / Turn-based</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>96</strong></span>
@@ -1440,6 +1820,8 @@
         <dt>HLTB</dt><dd>~35h história / ~100h+ completionist</dd>
         <dt>Steam Deck</dt><dd>Verificado — recomenda sessões em TV/monitor</dd>
       </dl>
+      <div class="card-section-title">Por que foi para 2027</div>
+      <p class="card-text">Com ~80–85h restantes e ritmo de co-op quinzenal, BG3 não fecharia em 2026 com conforto — e merece atenção dedicada, não um final apressado. O plano é terminar TLoU2 em 2026, começar o Witcher 3 na sequência, e retomar o BG3 quando o W3 estiver concluído — provavelmente meados ou final de 2027.</p>
       <div class="card-section-title">Contexto</div>
       <p class="card-text">Larian Studios levou 6 anos para desenvolver. Adaptação de D&D 5e tão fiel que a WotC avaliou ação legal por ser "bom demais". O jogo com mais perfect scores acumulados na história do Metacritic.</p>
       <div class="card-section-title">Dicas para co-op</div>
@@ -1453,9 +1835,227 @@
     </div>
   </div>
 
+  <!-- WISHLIST: NieR Automata -->
+  <div id="card-nier" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1mkz.webp" alt="NieR: Automata" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W4 · Prioridade alta</div>
+        <div class="card-title">NieR: Automata</div>
+        <div class="card-subtitle">PlatinumGames / Square Enix · 2017 · Action RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>88</strong></span>
+          <span class="meta-chip">OpenCritic <strong>88</strong> — Mighty</span>
+          <span class="meta-chip">HLTB <strong>~20h (rota A) / ~50h completo</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2017</dd>
+        <dt>Dev/Pub</dt><dd>PlatinumGames / Square Enix</dd>
+        <dt>Gênero</dt><dd>Action RPG / hack-and-slash / bullet hell</dd>
+        <dt>Metacritic</dt><dd>88 (PC)</dd>
+        <dt>HLTB</dt><dd>~20h rota A / ~35h rotas A+B / ~50h todas as rotas + endings</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Yoko Taro e PlatinumGames num crossover improvável que resultou num dos jogos mais originais da década. Androides 2B e 9S combatem máquinas alienígenas numa Terra pós-apocalíptica enquanto a humanidade sobrevive na Lua. A estrutura de múltiplas rotas não é repetição — cada uma recontextualiza completamente o que você pensava ter entendido. Os últimos endings mudam a experiência inteira retroativamente.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Não pare na rota A achando que terminou — o jogo começa de verdade na rota B e especialmente na C.</li>
+        <li>A trilha sonora de Keiichi Okabe é parte central da experiência — headphones recomendados.</li>
+        <li>Endings E em diante: deixe acontecer, não pesquise antes.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. FAR mod recomendado na versão PC para corrigir aspectos técnicos do port.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Elden Ring -->
+  <div id="card-elden-ring" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp" alt="Elden Ring" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W5 · Prioridade alta</div>
+        <div class="card-title">Elden Ring</div>
+        <div class="card-subtitle">FromSoftware / Bandai Namco · 2022 · Action RPG / Open world</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>96</strong></span>
+          <span class="meta-chip">OpenCritic <strong>96</strong> — Mighty</span>
+          <span class="meta-chip">HLTB <strong>~55h história / ~100h+ completo</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2022 (base) / 2024 (Shadow of the Erdtree DLC)</dd>
+        <dt>Dev/Pub</dt><dd>FromSoftware / Bandai Namco</dd>
+        <dt>Gênero</dt><dd>Action RPG / Soulsborne / Open world</dd>
+        <dt>Metacritic</dt><dd>96 (PC)</dd>
+        <dt>HLTB</dt><dd>~55h história / ~100h+ exploração completa / ~130h+ com Shadow of the Erdtree</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">FromSoftware em parceria com George R.R. Martin para o worldbuilding. O Soulsborne mais acessível por ser open world — permite contornar obstáculos, explorar em ordem livre e voltar quando estiver mais forte. Considerado por muitos o melhor jogo da geração, com densidade de conteúdo e qualidade de design de bosses sem precedentes. Shadow of the Erdtree (2024) é a DLC mais aclamada da história recente do gênero.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Se travar num boss, vá explorar outra região — o mundo é enorme e sempre tem algo acessível no momento atual de poder.</li>
+        <li>Build de início recomendada para iniciantes: Vagabond (Vigor e Strength como stats principais, escudo com 100% de bloqueio físico).</li>
+        <li>Torrent (o cavalo) muda completamente a mobilidade — use sempre em campo aberto.</li>
+        <li>Não faça Shadow of the Erdtree antes de terminar o jogo base — a DLC assume familiaridade completa com os sistemas.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Configurações médias mantêm performance estável. Considerar jogar em TV/monitor pela densidade visual.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Omori -->
+  <div id="card-omori" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co3d5o.webp" alt="Omori" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W6</div>
+        <div class="card-title">Omori</div>
+        <div class="card-subtitle">Omocat · 2020 · RPG / Horror psicológico</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>84</strong></span>
+          <span class="meta-chip">OpenCritic <strong>84</strong> — Strong</span>
+          <span class="meta-chip">HLTB <strong>~15h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2020</dd>
+        <dt>Dev/Pub</dt><dd>Omocat</dd>
+        <dt>Gênero</dt><dd>RPG maker / Horror psicológico / Coming-of-age</dd>
+        <dt>Metacritic</dt><dd>84 (PC)</dd>
+        <dt>HLTB</dt><dd>~13h história / ~20h completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">RPG indie sobre um garoto que vive numa realidade alternativa colorida para fugir de algo que não consegue enfrentar. A estética alternância entre o mundo onírico pastel e o mundo real tem um propósito narrativo que só se revela gradualmente. Lida com luto, culpa e depressão de forma que divide opiniões pela intensidade — mas quem conecta, conecta fundo. Trilha sonora muito elogiada.</p>
+      <div class="card-section-title">Aviso</div>
+      <p class="card-text">Contém temas pesados de saúde mental, luto e ideação suicida. Não é um jogo para qualquer estado emocional — escolher o momento certo faz diferença real na experiência.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Vá sem spoilers — a estrutura de revelação é central para o impacto.</li>
+        <li>O sistema de emoções em combate (Happy/Sad/Angry) tem mais profundidade do que parece no início.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Transistor -->
+  <div id="card-transistor" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1rs6.webp" alt="Transistor" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W7</div>
+        <div class="card-title">Transistor</div>
+        <div class="card-subtitle">Supergiant Games · 2014 · Action RPG isométrico</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>83</strong></span>
+          <span class="meta-chip">OpenCritic <strong>84</strong> — Strong</span>
+          <span class="meta-chip">HLTB <strong>~8h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2014</dd>
+        <dt>Dev/Pub</dt><dd>Supergiant Games</dd>
+        <dt>Gênero</dt><dd>Action RPG isométrico / sci-fi</dd>
+        <dt>Metacritic</dt><dd>83 (PC)</dd>
+        <dt>HLTB</dt><dd>~8h história / ~10h completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Supergiant Games (Bastion, Pyre, Hades) no seu segundo jogo. Uma cantora numa cidade futurista art-deco empunha uma espada viva após um atentado misterioso. O sistema de combate híbrido — pausar o tempo para planejar ações e executá-las em sequência — cria uma cadência única entre ação e estratégia. A trilha de Darren Korb é considerada uma das melhores da Supergiant.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Experimente combinações de Functions livremente — o sistema de modificação de habilidades tem profundidade surpreendente para um jogo curto.</li>
+        <li>O modo Recursion (New Game+) inverte o desafio de forma interessante se quiser explorar mais.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Deltarune -->
+  <div id="card-deltarune" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5s6x.webp" alt="Deltarune" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W8</div>
+        <div class="card-title">Deltarune</div>
+        <div class="card-subtitle">Toby Fox · 2018–2026 · RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Capítulos <strong>1–5 disponíveis</strong></span>
+          <span class="meta-chip">HLTB <strong>~25h (caps 1–5)</strong></span>
+          <span class="meta-chip">PC <strong>Gratuito (caps 1–2) / pago (3–5)</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Dev</dt><dd>Toby Fox (criador de Undertale)</dd>
+        <dt>Gênero</dt><dd>RPG / bullet hell / comédia-drama</dd>
+        <dt>Capítulos disponíveis</dt><dd>1–5 (caps 1 e 2 gratuitos, caps 3–5 pagos)</dd>
+        <dt>HLTB</dt><dd>~4–5h por capítulo</dd>
+        <dt>Plataformas</dt><dd>PC (gratuito/Steam), Switch</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Continuação espiritual de Undertale por Toby Fox. Kris, Susie e Ralsei exploram "Dark Worlds" que surgem em locais cotidianos da cidade de Hometown. Tematicamente mais complexo que Undertale, com personagens mais desenvolvidos e um mistério central que se aprofunda a cada capítulo. O Capítulo 5 foi anunciado e lançado no Nintendo Direct de junho de 2026. Jogar Undertale antes é recomendado mas não obrigatório.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Os capítulos 1 e 2 são gratuitos — boa forma de testar antes de comprar os seguintes.</li>
+        <li>Como em Undertale, há formas de resolver encontros sem violência — explorar isso muda o que você vê.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Sonic 3 & Knuckles -->
+  <div id="card-sonic3" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6si2.webp" alt="Sonic the Hedgehog 3 & Knuckles" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W9</div>
+        <div class="card-title">Sonic the Hedgehog 3 & Knuckles</div>
+        <div class="card-subtitle">Sonic Team / Sega · 1994 · Plataforma 2D</div>
+        <div class="card-meta">
+          <span class="meta-chip">HLTB <strong>~4h</strong></span>
+          <span class="meta-chip">PC <strong>Steam (Sonic Origins Plus)</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1994 (Mega Drive) — disponível via Sonic Origins Plus</dd>
+        <dt>Dev/Pub</dt><dd>Sonic Team / Sega</dd>
+        <dt>Gênero</dt><dd>Plataforma 2D</dd>
+        <dt>HLTB</dt><dd>~2h (Sonic) / ~3h (Knuckles) / ~4h explorando</dd>
+        <dt>Plataformas</dt><dd>PC via Sonic Origins Plus, Switch, PS4/5, Xbox</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Considerado o ápice do Sonic clássico — Sonic 3 e Sonic & Knuckles foram desenvolvidos como um jogo único e divididos por questões de prazo e custo de cartucho. Quando jogados combinados via lock-on (ou via Origins), entregam a experiência completa pretendida. Level design e trilha sonora (com contribuição de Michael Jackson em algumas faixas, embora nunca oficialmente confirmado) são o ponto alto da era 16-bit do personagem.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Jogar como Knuckles abre caminhos alternativos e uma perspectiva diferente nos mesmos estágios.</li>
+        <li>Sonic Origins Plus é a versão mais acessível atualmente — inclui animações extras e modo aniversário.</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
-    <p>Roadmap 2026 · Atualizado em 7 de junho de 2026</p>
+    <p>Roadmap 2026 · Atualizado em 9 de junho de 2026</p>
     <p>Dados de <a href="https://howlongtobeat.com" target="_blank">HowLongToBeat</a> · <a href="https://www.metacritic.com" target="_blank">Metacritic</a> · <a href="https://www.igdb.com" target="_blank">IGDB</a></p>
   </footer>
 
