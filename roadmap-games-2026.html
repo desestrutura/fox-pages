@@ -309,6 +309,59 @@
     font-weight: 600;
   }
 
+  /* ——— FoxScore ——— */
+  .card-personal-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .personal-period {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .personal-period svg { opacity: 0.5; }
+
+  .foxscore {
+    font-size: 0.85rem;
+    color: var(--yellow);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .foxscore-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .foxscore-tier {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin-left: 4px;
+  }
+  .tier-s { background: rgba(229, 192, 123, 0.18); color: var(--yellow); border: 1px solid rgba(229, 192, 123, 0.35); }
+  .tier-a { background: rgba(107, 207, 127, 0.12); color: var(--green); border: 1px solid rgba(107, 207, 127, 0.25); }
+  .tier-b { background: rgba(126, 184, 218, 0.12); color: var(--accent); border: 1px solid rgba(126, 184, 218, 0.25); }
+  .tier-c { background: rgba(224, 108, 117, 0.12); color: var(--red); border: 1px solid rgba(224, 108, 117, 0.25); }
+  .tier-d { background: rgba(100, 100, 110, 0.12); color: var(--text-muted); border: 1px solid rgba(100, 100, 110, 0.2); }
+
   .card-body {
     padding: 0 20px 20px;
     display: none;
@@ -867,6 +920,13 @@
           <span class="meta-chip">HLTB <strong>~9h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
         </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            14 Fev 2026 → 28 Fev 2026
+          </span>
+          <span class="foxscore"><span class="foxscore-label">FoxScore</span> 4.0 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
+        </div>
       </div>
     </div>
     <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
@@ -911,6 +971,13 @@
           <span class="meta-chip">HLTB <strong>~60h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
         </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            01 Out 2025 → 02 Abr 2026
+          </span>
+          <span class="foxscore"><span class="foxscore-label">FoxScore</span> 5.0 / 5 <span class="foxscore-tier tier-s">S · Visionário / Excelência</span></span>
+        </div>
       </div>
     </div>
     <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
@@ -950,6 +1017,13 @@
           <span class="meta-chip">Crítica <strong>90+</strong></span>
           <span class="meta-chip">HLTB <strong>~5h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Emulação SNES</strong></span>
+        </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            01 Mar 2026 → 07 Mar 2026
+          </span>
+          <span class="foxscore"><span class="foxscore-label">FoxScore</span> 3.5 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
@@ -991,6 +1065,13 @@
           <span class="meta-chip">Metacritic <strong>85</strong></span>
           <span class="meta-chip">HLTB <strong>~12h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado (Dominus Collection)</strong></span>
+        </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            08 Mar 2026 → 01 Abr 2026
+          </span>
+          <span class="foxscore"><span class="foxscore-label">FoxScore</span> 3.5 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
@@ -1036,6 +1117,12 @@
           <span class="meta-chip">HLTB <strong>~50h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
         </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Início: 03 Abr 2026
+          </span>
+        </div>
         <div class="progress-bar-container" style="margin-top: 10px;">
           <div class="progress-bar" style="width: 92%;"></div>
         </div>
@@ -1080,6 +1167,13 @@
           <span class="meta-chip">Metacritic <strong>90</strong> (DS)</span>
           <span class="meta-chip">HLTB <strong>~20h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            03 Abr 2026 → 30 Abr 2026
+          </span>
+          <span class="foxscore"><span class="foxscore-label">FoxScore</span> 4.5 / 5 <span class="foxscore-tier tier-s">S · Visionário / Excelência</span></span>
         </div>
       </div>
     </div>
@@ -1165,6 +1259,13 @@
           <span class="meta-chip">Metacritic <strong>92</strong></span>
           <span class="meta-chip">HLTB <strong>~2h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            14 Jun 2026 → 14 Jun 2026
+          </span>
+          <span class="foxscore"><span class="foxscore-label">FoxScore</span> 4.0 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
@@ -1639,6 +1740,12 @@
           <span class="meta-chip">OpenCritic <strong>94</strong> — Mighty</span>
           <span class="meta-chip">HLTB <strong>~25h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Jogável</strong></span>
+        </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Início: 17 Fev 2026
+          </span>
         </div>
         <div class="progress-bar-container" style="margin-top: 10px;">
           <div class="progress-bar" style="width: 53%;"></div>
@@ -2144,7 +2251,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>Roadmap 2026 · Atualizado em 9 de junho de 2026</p>
+    <p>Roadmap 2026 · Atualizado em 25 de junho de 2026</p>
     <p>Dados de <a href="https://howlongtobeat.com" target="_blank">HowLongToBeat</a> · <a href="https://www.metacritic.com" target="_blank">Metacritic</a> · <a href="https://www.igdb.com" target="_blank">IGDB</a></p>
   </footer>
 
