@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bucket List — Games | Roadmap 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f11;
+    --surface: #161a1f;
+    --surface-hover: #1c2127;
+    --border: #242a32;
+    --text: #e8e6e3;
+    --text-muted: #8b9098;
+    --accent: #7eb8da;
+    --accent-dim: #4a7a96;
+    --green: #6bcf7f;
+    --red: #e06c75;
+    --yellow: #e5c07b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  /* ——— Header ——— */
+  .crumbs {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .crumbs a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  .crumbs a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  header { margin-bottom: 40px; }
+
+  header h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  /* ——— Game Cards ——— */
+  .game-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    transition: border-color 0.2s;
+  }
+
+  .game-card:hover { border-color: #3a424d; }
+
+  .game-card.wishlist-card {
+    border-style: dashed;
+  }
+
+  .game-card.wishlist-card .card-cover {
+    opacity: 0.6;
+    filter: grayscale(25%);
+  }
+
+  .game-card.wishlist-card .card-title {
+    color: var(--text-muted);
+  }
+
+  .card-header {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  .card-cover {
+    width: 80px;
+    min-width: 80px;
+    height: 107px;
+    border-radius: 6px;
+    object-fit: cover;
+    background: var(--border);
+  }
+
+  .card-info { flex: 1; min-width: 0; }
+
+  .card-number {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 2px;
+  }
+
+  .card-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .card-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .meta-chip strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .coop-badge-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 9px;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    background: rgba(80, 200, 180, 0.10);
+    color: #50c8b4;
+    border: 1px solid rgba(80, 200, 180, 0.20);
+    white-space: nowrap;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .progress-bar-container {
+    margin: 12px 0;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    height: 6px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--accent), var(--green));
+    transition: width 0.4s ease;
+  }
+
+  .progress-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  .card-body {
+    padding: 0 20px 20px;
+    display: none;
+  }
+
+  .card-body.open { display: block; }
+
+  .card-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-top: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+    transition: background 0.15s, color 0.15s;
+    user-select: none;
+  }
+
+  .card-toggle:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+
+  .card-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+
+  .card-toggle .arrow {
+    display: inline-block;
+    margin-left: 6px;
+    transition: transform 0.2s;
+    font-size: 0.65rem;
+  }
+
+  .card-toggle.open .arrow { transform: rotate(180deg); }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 6px 12px;
+    font-size: 0.82rem;
+    margin-bottom: 16px;
+    padding: 14px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+  }
+
+  .info-grid dt {
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .info-grid dd { color: var(--text); }
+
+  .card-section-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-dim);
+    margin: 16px 0 6px;
+  }
+
+  .card-section-title:first-of-type { margin-top: 0; }
+
+  .card-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .card-text strong { color: var(--text); font-weight: 500; }
+
+  .tip-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tip-list li {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+    padding: 4px 0 4px 18px;
+    position: relative;
+  }
+
+  .tip-list li::before {
+    content: '›';
+    position: absolute;
+    left: 4px;
+    color: var(--accent-dim);
+    font-weight: 700;
+  }
+
+  .config-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    border-left: 2px solid var(--border);
+    margin-top: 12px;
+  }
+
+  /* ——— Footer ——— */
+  footer {
+    text-align: center;
+    padding-top: 48px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  footer a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 600px) {
+    header h1 { font-size: 1.6rem; }
+    .card-header { flex-direction: column; align-items: center; text-align: center; }
+    .card-cover { width: 100px; height: 133px; }
+    .card-meta { justify-content: center; }
+    .info-grid { grid-template-columns: 1fr; }
+    .info-grid dt { margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <p class="crumbs"><a href="index.html">fox-pages</a> · <a href="roadmap-games-2026.html">Roadmap 2026 — Games</a></p>
+
+  <header>
+    <h1>🗂️ Bucket List — sem prazo</h1>
+    <p>Três tipos de jogo convivem aqui: os que saíram do roadmap 2026 por falta de espaço, não de interesse; os já anunciados para 2027 que entram por antecipação; e os muito desejados que vivem sendo esquecidos no backlog — registrados aqui para não sumirem mais. A lista pode crescer conforme novos títulos forem revelados ou resgatados.</p>
+  </header>
+
+  <!-- WISHLIST: FFXIV EVERCOLD -->
+  <div id="card-evercold" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobz2c.webp" alt="Final Fantasy XIV: Evercold" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W1 · Lançamento Janeiro 2027</div>
+        <h2 class="card-title">Final Fantasy XIV: Evercold</h2>
+        <div class="card-subtitle">Square Enix · 2027 · MMORPG — 6ª expansão / Patch 8.0</div>
+        <div class="card-meta">
+          <span class="meta-chip">Lançamento <strong>Janeiro 2027</strong></span>
+          <span class="meta-chip">Expansão <strong>8.0 — Godless Realms Saga</strong></span>
+          <span class="meta-chip"><strong>PC / PS5 / Xbox / Switch 2</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Lançamento</dt><dd>Janeiro 2027 (data exata não confirmada)</dd>
+        <dt>Dev/Pub</dt><dd>Square Enix CBU III</dd>
+        <dt>Saga</dt><dd>Godless Realms Saga — segunda após Hydaelyn-Zodiark</dd>
+        <dt>Cenário</dt><dd>The Fourth — um dos reflexos do universo, coberto por gelo eterno</dd>
+        <dt>Anunciado</dt><dd>Fan Festival 2026 em Anaheim (abril de 2026)</dd>
+        <dt>Plataformas</dt><dd>PC, PS5, PS4, Xbox Series X|S — Switch 2 também anunciado</dd>
+      </dl>
+      <div class="card-section-title">Tamanho esperado — referência Dawntrail</div>
+      <p class="card-text">Dawntrail 7.0 (só o MSQ base, sem patches) dura <strong>~30–35h</strong> — consistente com expansões anteriores de FFXIV. Uma nova expansão tende a ser um pouco maior que a anterior pelo tamanho crescente do mundo, mas a Square Enix mantém o ritmo de MSQ relativamente estável. Estimativa para o MSQ base do Evercold: <strong>~30–40h</strong>. Contando patches 8.1 a 8.5 (equivalente ao que você está fazendo agora no Dawntrail), a estimativa sobe para <strong>~70–90h</strong> de conteúdo principal ao longo do ciclo completo — sem contar endgame.</p>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Sexta expansão de FFXIV e início da Godless Realms Saga — a nova era do jogo após o encerramento do arco Hydaelyn-Zodiark. O trailer mostra uma avó narrando a história de um mundo congelado salvo pelo Warrior of Light, exibido como Reaper. O cenário é The Fourth, um reflexo do universo FFXIV assolado por gelo eterno e criaturas arcanas colossais.</p>
+      <div class="card-section-title">Destaques do anúncio</div>
+      <ul class="tip-list">
+        <li><strong>Evangelion × FFXIV — "Ghosts of Desire":</strong> série de Alliance Raids em colaboração com a khara (studio do Hideaki Anno). Três partes — provavelmente o crossover mais ambicioso da história do jogo.</li>
+        <li><strong>Lançamento em janeiro</strong> quebra o padrão histórico de expansões de verão — Yoshi-P sinalizou que querem manter momentum após o ciclo de Dawntrail.</li>
+        <li><strong>Switch 2:</strong> a versão para Switch 2 de FFXIV foi anunciada no mesmo evento — Evercold provavelmente vai coincidir com esse lançamento.</li>
+        <li>O patch 7.5 de Dawntrail serve como ponte narrativa direta para Evercold. A missão "Trail to the Heavens" é o setup direto para 8.0.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Pré-requisito:</strong> Completar MSQ de Dawntrail (até 7.5) antes de entrar no Evercold.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: FIRE EMBLEM AWAKENING -->
+  <div id="card-fe-awakening" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobcko.webp" alt="Fire Emblem: Awakening" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W2</div>
+        <h2 class="card-title">Fire Emblem: Awakening</h2>
+        <div class="card-subtitle">Intelligent Systems / Nintendo · 2012 · SRPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>92</strong></span>
+          <span class="meta-chip">HLTB <strong>~50h</strong></span>
+          <span class="meta-chip"><strong>3DS / Citra</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2012 (JP) / 2013 (Ocidente)</dd>
+        <dt>Dev/Pub</dt><dd>Intelligent Systems / Nintendo</dd>
+        <dt>Gênero</dt><dd>SRPG / Tactical RPG</dd>
+        <dt>Metacritic</dt><dd>92 (3DS)</dd>
+        <dt>HLTB</dt><dd>~30h história / ~50h+ completionist</dd>
+        <dt>Plataforma</dt><dd>3DS (recomendado) ou Citra (Steam Deck)</dd>
+      </dl>
+      <div class="card-section-title">Por que saiu do roadmap 2026</div>
+      <p class="card-text">Fire Emblem: Fortune's Weave entra em setembro como lançamento de Switch 2, ocupando a janela de SRPG do segundo semestre. Awakening é longo (~50h) e merece atenção dedicada — não faz sentido comprimir os dois no mesmo ano com BotW e Castlevania ainda na fila. Depois de Fortune's Weave, vai ser uma experiência mais rica por ter contexto da franquia.</p>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">O jogo que salvou a franquia. A Nintendo deu um ultimato: se não vendesse 250k, Fire Emblem acabaria. Vendeu 2 milhões. Projetado como a porta de entrada perfeita.</p>
+      <div class="card-section-title">Dicas — para quando chegar a hora</div>
+      <ul class="tip-list">
+        <li>Classic Mode (morte permanente) muda fundamentalmente como você toma decisões.</li>
+        <li>Frederick é útil, mas depender dele vai te prejudicar no mid game.</li>
+        <li>Não negligencie as paralogues — destrancam personagens importantes.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Sobre 3DS vs Deck:</strong> 3DS recomendado pela tela dupla. Via Citra no Deck funciona com ajustes.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: BALDUR'S GATE 3 -->
+  <div id="card-bg3" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg" alt="Baldur's Gate 3" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W3 · Co-op com Teddy — 2027</div>
+        <h2 class="card-title">Baldur's Gate 3 <span class="coop-badge-tag">🎮 Teddy</span></h2>
+        <div class="card-subtitle">Larian Studios · 2023 · CRPG / Turn-based</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>96</strong></span>
+          <span class="meta-chip">OpenCritic <strong>95</strong> — Mighty</span>
+          <span class="meta-chip">HLTB <strong>~100h+</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+        <div class="progress-bar-container" style="margin-top: 10px;">
+          <div class="progress-bar" style="width: 17%;"></div>
+        </div>
+        <div class="progress-label">~15–20% concluído · <strong>Ato 1</strong> — Goblin Camp explorado, Halsin resgatado · ~80–85h restantes</div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2023</dd>
+        <dt>Dev/Pub</dt><dd>Larian Studios</dd>
+        <dt>Gênero</dt><dd>CRPG / Turn-based</dd>
+        <dt>Metacritic</dt><dd>96 (PC)</dd>
+        <dt>OpenCritic</dt><dd>95 — Mighty (98% rec.)</dd>
+        <dt>HLTB</dt><dd>~35h história / ~100h+ completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado — recomenda sessões em TV/monitor</dd>
+      </dl>
+      <div class="card-section-title">Por que foi para 2027</div>
+      <p class="card-text">Com ~80–85h restantes e ritmo de co-op quinzenal, BG3 não fecharia em 2026 com conforto — e merece atenção dedicada, não um final apressado. O plano é terminar TLoU2 em 2026, começar o Witcher 3 na sequência, e retomar o BG3 quando o W3 estiver concluído — provavelmente meados ou final de 2027.</p>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Larian Studios levou 6 anos para desenvolver. Adaptação de D&D 5e tão fiel que a WotC avaliou ação legal por ser "bom demais". O jogo com mais perfect scores acumulados na história do Metacritic.</p>
+      <div class="card-section-title">Dicas para co-op</div>
+      <ul class="tip-list">
+        <li>Decidam antes: decisões juntos ou cada um controla seu personagem e vota? O segundo é mais caótico e divertido.</li>
+        <li>Explorem separadamente dentro do mesmo mapa — coordenação em combate é essencial.</li>
+        <li>Não ignorem as Long Rests — ativam eventos de acampamento com os companions.</li>
+        <li>A história de um companion se abre mais se alguém jogar com ele como personagem principal.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Recomendado TV/monitor para co-op.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: NieR Automata -->
+  <div id="card-nier" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5pcj.webp" alt="NieR: Automata" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W4 · Prioridade alta</div>
+        <h2 class="card-title">NieR: Automata</h2>
+        <div class="card-subtitle">PlatinumGames / Square Enix · 2017 · Action RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>88</strong></span>
+          <span class="meta-chip">OpenCritic <strong>88</strong> — Mighty</span>
+          <span class="meta-chip">HLTB <strong>~20h (rota A) / ~50h completo</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2017</dd>
+        <dt>Dev/Pub</dt><dd>PlatinumGames / Square Enix</dd>
+        <dt>Gênero</dt><dd>Action RPG / hack-and-slash / bullet hell</dd>
+        <dt>Metacritic</dt><dd>88 (PC)</dd>
+        <dt>HLTB</dt><dd>~20h rota A / ~35h rotas A+B / ~50h todas as rotas + endings</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Yoko Taro e PlatinumGames num crossover improvável que resultou num dos jogos mais originais da década. Androides 2B e 9S combatem máquinas alienígenas numa Terra pós-apocalíptica enquanto a humanidade sobrevive na Lua. A estrutura de múltiplas rotas não é repetição — cada uma recontextualiza completamente o que você pensava ter entendido. Os últimos endings mudam a experiência inteira retroativamente.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Não pare na rota A achando que terminou — o jogo começa de verdade na rota B e especialmente na C.</li>
+        <li>A trilha sonora de Keiichi Okabe é parte central da experiência — headphones recomendados.</li>
+        <li>Endings E em diante: deixe acontecer, não pesquise antes.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. FAR mod recomendado na versão PC para corrigir aspectos técnicos do port.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Elden Ring -->
+  <div id="card-elden-ring" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp" alt="Elden Ring" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W5 · Prioridade alta</div>
+        <h2 class="card-title">Elden Ring</h2>
+        <div class="card-subtitle">FromSoftware / Bandai Namco · 2022 · Action RPG / Open world</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>96</strong></span>
+          <span class="meta-chip">OpenCritic <strong>96</strong> — Mighty</span>
+          <span class="meta-chip">HLTB <strong>~55h história / ~100h+ completo</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2022 (base) / 2024 (Shadow of the Erdtree DLC)</dd>
+        <dt>Dev/Pub</dt><dd>FromSoftware / Bandai Namco</dd>
+        <dt>Gênero</dt><dd>Action RPG / Soulsborne / Open world</dd>
+        <dt>Metacritic</dt><dd>96 (PC)</dd>
+        <dt>HLTB</dt><dd>~55h história / ~100h+ exploração completa / ~130h+ com Shadow of the Erdtree</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">FromSoftware em parceria com George R.R. Martin para o worldbuilding. O Soulsborne mais acessível por ser open world — permite contornar obstáculos, explorar em ordem livre e voltar quando estiver mais forte. Considerado por muitos o melhor jogo da geração, com densidade de conteúdo e qualidade de design de bosses sem precedentes. Shadow of the Erdtree (2024) é a DLC mais aclamada da história recente do gênero.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Se travar num boss, vá explorar outra região — o mundo é enorme e sempre tem algo acessível no momento atual de poder.</li>
+        <li>Build de início recomendada para iniciantes: Vagabond (Vigor e Strength como stats principais, escudo com 100% de bloqueio físico).</li>
+        <li>Torrent (o cavalo) muda completamente a mobilidade — use sempre em campo aberto.</li>
+        <li>Não faça Shadow of the Erdtree antes de terminar o jogo base — a DLC assume familiaridade completa com os sistemas.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Configurações médias mantêm performance estável. Considerar jogar em TV/monitor pela densidade visual.</div>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Omori -->
+  <div id="card-omori" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1xlp.webp" alt="Omori" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W6</div>
+        <h2 class="card-title">Omori</h2>
+        <div class="card-subtitle">Omocat · 2020 · RPG / Horror psicológico</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>84</strong></span>
+          <span class="meta-chip">OpenCritic <strong>84</strong> — Strong</span>
+          <span class="meta-chip">HLTB <strong>~15h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2020</dd>
+        <dt>Dev/Pub</dt><dd>Omocat</dd>
+        <dt>Gênero</dt><dd>RPG maker / Horror psicológico / Coming-of-age</dd>
+        <dt>Metacritic</dt><dd>84 (PC)</dd>
+        <dt>HLTB</dt><dd>~13h história / ~20h completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">RPG indie sobre um garoto que vive numa realidade alternativa colorida para fugir de algo que não consegue enfrentar. A estética alternância entre o mundo onírico pastel e o mundo real tem um propósito narrativo que só se revela gradualmente. Lida com luto, culpa e depressão de forma que divide opiniões pela intensidade — mas quem conecta, conecta fundo. Trilha sonora muito elogiada.</p>
+      <div class="card-section-title">Aviso</div>
+      <p class="card-text">Contém temas pesados de saúde mental, luto e ideação suicida. Não é um jogo para qualquer estado emocional — escolher o momento certo faz diferença real na experiência.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Vá sem spoilers — a estrutura de revelação é central para o impacto.</li>
+        <li>O sistema de emoções em combate (Happy/Sad/Angry) tem mais profundidade do que parece no início.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Transistor -->
+  <div id="card-transistor" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob23o.webp" alt="Transistor" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W7</div>
+        <h2 class="card-title">Transistor</h2>
+        <div class="card-subtitle">Supergiant Games · 2014 · Action RPG isométrico</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>83</strong></span>
+          <span class="meta-chip">OpenCritic <strong>84</strong> — Strong</span>
+          <span class="meta-chip">HLTB <strong>~8h</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2014</dd>
+        <dt>Dev/Pub</dt><dd>Supergiant Games</dd>
+        <dt>Gênero</dt><dd>Action RPG isométrico / sci-fi</dd>
+        <dt>Metacritic</dt><dd>83 (PC)</dd>
+        <dt>HLTB</dt><dd>~8h história / ~10h completionist</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Supergiant Games (Bastion, Pyre, Hades) no seu segundo jogo. Uma cantora numa cidade futurista art-deco empunha uma espada viva após um atentado misterioso. O sistema de combate híbrido — pausar o tempo para planejar ações e executá-las em sequência — cria uma cadência única entre ação e estratégia. A trilha de Darren Korb é considerada uma das melhores da Supergiant.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Experimente combinações de Functions livremente — o sistema de modificação de habilidades tem profundidade surpreendente para um jogo curto.</li>
+        <li>O modo Recursion (New Game+) inverte o desafio de forma interessante se quiser explorar mais.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Deltarune -->
+  <div id="card-deltarune" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co9m71.webp" alt="Deltarune" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W8</div>
+        <h2 class="card-title">Deltarune</h2>
+        <div class="card-subtitle">Toby Fox · 2018–2026 · RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Capítulos <strong>1–5 disponíveis</strong></span>
+          <span class="meta-chip">HLTB <strong>~25h (caps 1–5)</strong></span>
+          <span class="meta-chip">PC <strong>Gratuito (caps 1–2) / pago (3–5)</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Dev</dt><dd>Toby Fox (criador de Undertale)</dd>
+        <dt>Gênero</dt><dd>RPG / bullet hell / comédia-drama</dd>
+        <dt>Capítulos disponíveis</dt><dd>1–5 (caps 1 e 2 gratuitos, caps 3–5 pagos)</dd>
+        <dt>HLTB</dt><dd>~4–5h por capítulo</dd>
+        <dt>Plataformas</dt><dd>PC (gratuito/Steam), Switch</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Continuação espiritual de Undertale por Toby Fox. Kris, Susie e Ralsei exploram "Dark Worlds" que surgem em locais cotidianos da cidade de Hometown. Tematicamente mais complexo que Undertale, com personagens mais desenvolvidos e um mistério central que se aprofunda a cada capítulo. O Capítulo 5 foi anunciado e lançado no Nintendo Direct de junho de 2026. Jogar Undertale antes é recomendado mas não obrigatório.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Os capítulos 1 e 2 são gratuitos — boa forma de testar antes de comprar os seguintes.</li>
+        <li>Como em Undertale, há formas de resolver encontros sem violência — explorar isso muda o que você vê.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WISHLIST: Sonic 3 & Knuckles -->
+  <div id="card-sonic3" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7c0w.webp" alt="Sonic the Hedgehog 3 & Knuckles" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W9</div>
+        <h2 class="card-title">Sonic the Hedgehog 3 & Knuckles</h2>
+        <div class="card-subtitle">Sonic Team / Sega · 1994 · Plataforma 2D</div>
+        <div class="card-meta">
+          <span class="meta-chip">HLTB <strong>~4h</strong></span>
+          <span class="meta-chip">PC <strong>Steam (Sonic Origins Plus)</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1994 (Mega Drive) — disponível via Sonic Origins Plus</dd>
+        <dt>Dev/Pub</dt><dd>Sonic Team / Sega</dd>
+        <dt>Gênero</dt><dd>Plataforma 2D</dd>
+        <dt>HLTB</dt><dd>~2h (Sonic) / ~3h (Knuckles) / ~4h explorando</dd>
+        <dt>Plataformas</dt><dd>PC via Sonic Origins Plus, Switch, PS4/5, Xbox</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Considerado o ápice do Sonic clássico — Sonic 3 e Sonic & Knuckles foram desenvolvidos como um jogo único e divididos por questões de prazo e custo de cartucho. Quando jogados combinados via lock-on (ou via Origins), entregam a experiência completa pretendida. Level design e trilha sonora (com contribuição de Michael Jackson em algumas faixas, embora nunca oficialmente confirmado) são o ponto alto da era 16-bit do personagem.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Jogar como Knuckles abre caminhos alternativos e uma perspectiva diferente nos mesmos estágios.</li>
+        <li>Sonic Origins Plus é a versão mais acessível atualmente — inclui animações extras e modo aniversário.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BUCKET LIST: FINAL FANTASY XII -->
+  <div id="card-ff12" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://upload.wikimedia.org/wikipedia/en/2/27/Final_Fantasy_XII_Box_Art.png" alt="Final Fantasy XII: The Zodiac Age" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W10</div>
+        <h2 class="card-title">Final Fantasy XII: The Zodiac Age</h2>
+        <div class="card-subtitle">Square Enix · 2006 / 2017 (Zodiac Age) · JRPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>92</strong></span>
+          <span class="meta-chip">HLTB <strong>~60h história / ~100h+ completo</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2006 (PS2) / 2017 (Zodiac Age remaster — PC/PS4)</dd>
+        <dt>Dev/Pub</dt><dd>Square Enix</dd>
+        <dt>Gênero</dt><dd>JRPG / Real-time combat (Gambit System)</dd>
+        <dt>Metacritic</dt><dd>92 (PS2) / 86 (Zodiac Age PC)</dd>
+        <dt>HLTB</dt><dd>~60h história / ~100h+ completionist</dd>
+        <dt>Plataforma</dt><dd>PC (Steam), PS4/PS5, Xbox, Switch</dd>
+        <dt>Director</dt><dd>Yasumi Matsuno (Tactics Ogre, Final Fantasy Tactics)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Dirigido por Yasumi Matsuno — o mesmo criador de Final Fantasy Tactics — o XII é o mais politicamente sofisticado dos FFs, com um enredo inspirado em Star Wars / Guerra nas Estrelas (império opressor, reinos ocupados, resistência) e uma narrativa de protagonista que é deliberadamente secundário à trama maior. O Gambit System permite programar a IA dos personagens em combate, tornando o jogo quase um action-RPG com automação estratégica. The Zodiac Age adiciona o sistema de Job classes duplas, que o torna consideravelmente mais elegante que o original PS2.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Jogar FFT antes do FFXII aprofunda enormemente a apreciação pelo trabalho de Matsuno — você já fez isso.</li>
+        <li>O Gambit System parece complexo no início mas libera a experiência depois que o conceito clica — não tenha pressa em dominar.</li>
+        <li>A dupla de Jobs no Zodiac Age exige planejamento: pesquise brevemente antes de escolher para não se arrepender depois de muitas horas.</li>
+        <li>Ivalice — o mesmo mundo de FFT — aparece aqui com geografia e história expandidas.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BUCKET LIST: PERSONA 2: ETERNAL PUNISHMENT -->
+  <div id="card-persona2ep" class="game-card wishlist-card">
+    <div class="card-header">
+      <img class="card-cover" src="https://upload.wikimedia.org/wikipedia/en/a/a9/Persona_2_EP_cover.jpg" alt="Persona 2: Eternal Punishment" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">W11</div>
+        <h2 class="card-title">Persona 2: Eternal Punishment</h2>
+        <div class="card-subtitle">Atlus · 2000 · JRPG / Horror psicológico</div>
+        <div class="card-meta">
+          <span class="meta-chip">HLTB <strong>~35h história / ~45h completo</strong></span>
+          <span class="meta-chip">PS1 <strong>Emulação recomendada</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2000 (PS1 JP/USA) / 2012 (PSP remaster)</dd>
+        <dt>Dev/Pub</dt><dd>Atlus</dd>
+        <dt>Gênero</dt><dd>JRPG / Horror psicológico / Thriller urbano</dd>
+        <dt>Sequência</dt><dd>Continua diretamente de Innocent Sin (IS) — jogar IS antes é essencial</dd>
+        <dt>HLTB</dt><dd>~35h história / ~45h completionist</dd>
+        <dt>Plataformas</dt><dd>PS1 (original), PSP (remaster), emulação</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">A segunda parte da duologia Persona 2 — jogada obrigatoriamente depois de Innocent Sin. Enquanto IS acompanha Maya como NPC, EP é jogado com Maya como protagonista, recontando os eventos do jogo anterior de uma nova perspectiva que recontextualiza tudo. A narrativa envolve rumores urbanos que se tornam realidade, conspiração governamental, figuras arquetípicas jungianas e temas de culpa e memória que os Personas modernos raramente abordam com a mesma seriedade. Narrativamente o mais adulto e politicamente ousado dos jogos pré-P3.</p>
+      <div class="card-section-title">Por que está na Bucket List</div>
+      <p class="card-text">Dos jogos da franquia, o dueto do P2 é provavelmente o mais próximo da sua sensibilidade — narrativa sem condescendência, temas pesados tratados com seriedade, sem os problemas de representatividade do P4. IS vem antes mas os dois juntos formam uma experiência única no catálogo da Atlus.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Jogar Innocent Sin antes de EP não é opcional — EP revela e recontextualiza eventos de IS de forma que só funciona com essa base.</li>
+        <li>A versão PSP de IS tem tradução oficial em inglês; EP em PSP saiu só no Japão — a versão PS1 em inglês é o ponto de acesso mais prático para EP fora do Japão.</li>
+        <li>O sistema de Rumor (espalhar boatos pela cidade para mudar o mundo) é único na série e vale explorar com calma.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Ordem:</strong> Persona 2: Innocent Sin (PSP/emulação) → Persona 2: Eternal Punishment (PS1/emulação).</div>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="roadmap-games-2026.html">← Voltar para o Roadmap 2026</a></p>
+    <p>Dados de <a href="https://howlongtobeat.com" target="_blank">HowLongToBeat</a> · <a href="https://www.metacritic.com" target="_blank">Metacritic</a> · <a href="https://www.igdb.com" target="_blank">IGDB</a></p>
+  </footer>
+
+</div>
+
+<script>
+function toggleCard(el) {
+  const body = el.nextElementSibling;
+  body.classList.toggle('open');
+  el.classList.toggle('open');
+  const isOpen = body.classList.contains('open');
+  el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  el.innerHTML = (isOpen ? 'Fechar' : 'Detalhes') + ' <span class="arrow" style="transform:' + (isOpen ? 'rotate(180deg)' : '') + '">▼</span>';
+}
+
+document.querySelectorAll('.card-toggle').forEach(function (el) {
+  el.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault();
+      toggleCard(el);
+    }
+  });
+});
+</script>
+
+</body>
+</html>

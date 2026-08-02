@@ -23,7 +23,7 @@
     --tag-short-text: #6bcf7f;
     --tag-medium: #4a3d2d;
     --tag-medium-text: #e5c07b;
-    --tag-long: #4a2d2d;
+    --tag-long: #2d1c1c;
     --tag-long-text: #e06c75;
     --done-bg: rgba(107, 207, 127, 0.06);
     --done-border: rgba(107, 207, 127, 0.2);
@@ -388,6 +388,13 @@
     color: var(--text);
   }
 
+  .card-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+
   .card-toggle .arrow {
     display: inline-block;
     margin-left: 6px;
@@ -542,101 +549,15 @@
     text-decoration: none;
   }
 
-  /* ——— Wishlist ——— */
-  .summary-separator {
-    padding: 10px 0 4px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .summary-separator::before {
-    content: '';
-    flex: 0 0 12px;
-    height: 1px;
-    background: var(--border);
-  }
-  .summary-separator::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    border-top: 1px dashed var(--border);
-  }
-  .summary-separator-label {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    white-space: nowrap;
-    opacity: 0.6;
-  }
-  .summary-wishlist {
-    opacity: 0.45;
-  }
-  .summary-wishlist .summary-game {
-    color: var(--text-muted);
-    font-style: italic;
-  }
-  .tag-wishlist {
-    background: #1a1d22;
-    color: #4a4f58;
-    font-size: 0.72rem;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid #252930;
-  }
-  .wishlist-section-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin: 64px 0 8px;
-    padding-top: 48px;
-    border-top: 1px dashed var(--border);
-  }
-  .wishlist-section-badge {
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    border: 1px solid var(--border);
-    padding: 4px 12px;
-    border-radius: 20px;
-    opacity: 0.7;
-  }
-  .wishlist-section-title {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: clamp(20px, 3.5vw, 28px);
-    font-weight: 600;
-    color: var(--text-muted);
-    opacity: 0.7;
-  }
-  .wishlist-subtitle {
-    font-size: 13px;
-    color: var(--text-muted);
-    opacity: 0.6;
-    margin-bottom: 36px;
-    line-height: 1.6;
-  }
-  .game-card.wishlist-card {
-    opacity: 0.4;
-    transition: opacity 0.2s;
-  }
-  .game-card.wishlist-card:hover {
-    opacity: 0.72;
-  }
-  .game-card.wishlist-card .card-title {
-    color: var(--text-muted);
-  }
-
   .summary-game a {
     color: inherit;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 230, 227, 0.35);
+    text-underline-offset: 3px;
   }
   .summary-game a:hover {
     color: var(--accent);
-    text-decoration: underline;
-    text-decoration-color: rgba(126, 184, 218, 0.4);
-    text-underline-offset: 3px;
+    text-decoration-color: rgba(126, 184, 218, 0.6);
   }
 
   .stats-section {
@@ -853,77 +774,18 @@
       <span class="tag tag-long">~100h+</span>
     </div>
 
-    <div class="summary-separator">
-      <span class="summary-separator-label">Bucket List — sem prazo</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">Jan 2027</span>
-      <span class="summary-game"><a href="#card-evercold">FFXIV: Evercold (expansão 8.0)</a></span>
-      <span class="tag tag-wishlist">∞ ongoing</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">2027</span>
-      <span class="summary-game"><a href="#card-fe-awakening">Fire Emblem: Awakening</a></span>
-      <span class="tag tag-wishlist">~50h</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month" style="color: var(--coop-accent, #7eb8da);">Co-op</span>
-      <span class="summary-game"><a href="#card-bg3">Baldur's Gate 3</a></span>
-      <span class="tag tag-wishlist">~100h+</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">2027</span>
-      <span class="summary-game"><a href="#card-nier">NieR: Automata</a></span>
-      <span class="tag tag-wishlist">~50h</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">2027</span>
-      <span class="summary-game"><a href="#card-elden-ring">Elden Ring</a></span>
-      <span class="tag tag-wishlist">~100h+</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">2027</span>
-      <span class="summary-game"><a href="#card-omori">Omori</a></span>
-      <span class="tag tag-wishlist">~15h</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">2027</span>
-      <span class="summary-game"><a href="#card-transistor">Transistor</a></span>
-      <span class="tag tag-wishlist">~8h</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">2027</span>
-      <span class="summary-game"><a href="#card-deltarune">Deltarune (caps 1–5)</a></span>
-      <span class="tag tag-wishlist">~25h</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">2027</span>
-      <span class="summary-game"><a href="#card-sonic3">Sonic 3 &amp; Knuckles</a></span>
-      <span class="tag tag-wishlist">~4h</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">—</span>
-      <span class="summary-game"><a href="#card-ff12">Final Fantasy XII: The Zodiac Age</a></span>
-      <span class="tag tag-wishlist">~60h</span>
-    </div>
-    <div class="summary-row summary-wishlist">
-      <span class="summary-month">—</span>
-      <span class="summary-game"><a href="#card-persona2ep">Persona 2: Eternal Punishment</a></span>
-      <span class="tag tag-wishlist">~35h</span>
-    </div>
-
   </div>
 
   <!-- ===================== GAME CARDS ===================== -->
 
   <!-- 1. METAL GEAR RISING — DONE -->
-  <div class="section-label">Fevereiro — Concluído</div>
+  <h2 class="section-label">Fevereiro — Concluído</h2>
   <div id="card-mgr" class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2l1t.webp" alt="Metal Gear Rising: Revengeance" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#1 · Fevereiro — Clube do Game <span class="clube-badge">🎲 indicado por André</span></div>
-        <div class="card-title">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span></div>
+        <h3 class="card-title">Metal Gear Rising: Revengeance <span class="status-pill pill-done">✓ concluído</span></h3>
         <div class="card-subtitle">PlatinumGames / Konami · 2013 · Hack-and-slash</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>84</strong></span>
@@ -932,14 +794,14 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             14 Fev 2026 → 28 Fev 2026
           </span>
           <span class="foxscore"><span class="foxscore-label">FoxScore</span> 4.0 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2013</dd>
@@ -968,13 +830,13 @@
   </div>
 
   <!-- 2. FFT — DONE -->
-  <div class="section-label">Março — Concluído</div>
+  <h2 class="section-label">Março — Concluído</h2>
   <div id="card-fft" class="game-card status-done">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co9wwi.webp" alt="Final Fantasy Tactics: The Ivalice Chronicles" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#2 · Março</div>
-        <div class="card-title">Final Fantasy Tactics: The Ivalice Chronicles <span class="status-pill pill-done">✓ concluído</span></div>
+        <h3 class="card-title">Final Fantasy Tactics: The Ivalice Chronicles <span class="status-pill pill-done">✓ concluído</span></h3>
         <div class="card-subtitle">Square Enix · 2025 · SRPG / Tactical RPG</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>90</strong> (WotL)</span>
@@ -983,14 +845,14 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             01 Out 2025 → 02 Abr 2026
           </span>
           <span class="foxscore"><span class="foxscore-label">FoxScore</span> 5.0 / 5 <span class="foxscore-tier tier-s">S · Visionário / Excelência</span></span>
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>1997 (JP) / 2025 (Ivalice Chronicles)</dd>
@@ -1021,7 +883,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co20dc.webp" alt="Super Castlevania IV" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#3 · Março</div>
-        <div class="card-title">Super Castlevania IV <span class="status-pill pill-done">✓ concluído</span></div>
+        <h3 class="card-title">Super Castlevania IV <span class="status-pill pill-done">✓ concluído</span></h3>
         <div class="card-subtitle">Konami · 1991 · Plataforma / Action</div>
         <div class="card-meta">
           <span class="meta-chip">Crítica <strong>90+</strong></span>
@@ -1030,14 +892,14 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             01 Mar 2026 → 07 Mar 2026
           </span>
           <span class="foxscore"><span class="foxscore-label">FoxScore</span> 3.5 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>1991</dd>
@@ -1069,7 +931,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob9ko.webp" alt="Castlevania: Order of Ecclesia" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#4 · Março — Clube do Game <span class="clube-badge">🎲 indicado por Fox</span></div>
-        <div class="card-title">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span></div>
+        <h3 class="card-title">Castlevania: Order of Ecclesia <span class="status-pill pill-done">✓ concluído</span></h3>
         <div class="card-subtitle">Konami · 2008 / 2024 (Dominus Collection) · Metroidvania / Action RPG</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>85</strong></span>
@@ -1078,14 +940,14 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             08 Mar 2026 → 01 Abr 2026
           </span>
           <span class="foxscore"><span class="foxscore-label">FoxScore</span> 3.5 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2008 (DS) / 2024 (Dominus Collection)</dd>
@@ -1114,13 +976,13 @@
   </div>
 
   <!-- 5. FINAL FANTASY VI — JOGANDO -->
-  <div class="section-label">Abril – Maio</div>
+  <h2 class="section-label">Abril – Maio</h2>
   <div id="card-ff6" class="game-card status-playing">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6ple.webp" alt="Final Fantasy VI" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#5 · Abril–Maio</div>
-        <div class="card-title">Final Fantasy VI <span class="status-pill pill-playing">jogando</span></div>
+        <h3 class="card-title">Final Fantasy VI <span class="status-pill pill-playing">jogando</span></h3>
         <div class="card-subtitle">Square Enix · 1994 / 2022 (Pixel Remaster) · JRPG</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>94</strong></span>
@@ -1129,7 +991,7 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Início: 03 Abr 2026
           </span>
         </div>
@@ -1139,7 +1001,7 @@
         <div class="progress-label">~92% concluído · <strong>Mundo das Ruínas — reta final de sidequests</strong> · Terra recrutada (Mobliz, 2º Humbaba derrotado) · Umaro recrutado (Narshe) · Ice Dragon + Valigarmanda + Holy Dragon + Gold Dragon derrotados · Sidequests abertas: Cyan (Maranda→Zozo), Strago/Relm (Fanatics Tower→Jidoor), Deathgaze · ~1–3h restantes</div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>1994 (SNES) / 2022 (Pixel Remaster)</dd>
@@ -1171,7 +1033,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co8xu9.webp" alt="999: Nine Hours, Nine Persons, Nine Doors" onerror="this.style.background='#242a32'">
       <div class="card-info">
         <div class="card-number">#6 · Abril — Clube do Game <span class="clube-badge">🎲 indicado por Rés</span></div>
-        <div class="card-title">999: Nine Hours, Nine Persons, Nine Doors <span class="status-pill pill-done">✓ concluído</span></div>
+        <h3 class="card-title">999: Nine Hours, Nine Persons, Nine Doors <span class="status-pill pill-done">✓ concluído</span></h3>
         <div class="card-subtitle">Chunsoft / Aksys Games · 2009 / 2017 (Nine Hours Collection) · Visual Novel / Puzzle</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>90</strong> (DS)</span>
@@ -1180,14 +1042,14 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             03 Abr 2026 → 30 Abr 2026
           </span>
           <span class="foxscore"><span class="foxscore-label">FoxScore</span> 4.5 / 5 <span class="foxscore-tier tier-s">S · Visionário / Excelência</span></span>
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2009 (DS) / 2017 (PC, Nine Hours Collection)</dd>
@@ -1213,13 +1075,13 @@
   </div>
 
   <!-- 7. OUTER WILDS -->
-  <div class="section-label">Maio</div>
+  <h2 class="section-label">Maio</h2>
   <div id="card-outer-wilds" class="game-card status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co65ac.webp" alt="Outer Wilds" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#7 · Maio — Clube do Game <span class="clube-badge">🎲 indicado por Metal</span></div>
-        <div class="card-title">Outer Wilds</div>
+        <h3 class="card-title">Outer Wilds</h3>
         <div class="card-subtitle">Mobius Digital / Annapurna Interactive · 2019 · Exploração / Mistério</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>85</strong></span>
@@ -1229,7 +1091,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2019 (PC/Xbox) / 2021 (PS4) / 2023 (Switch)</dd>
@@ -1257,13 +1119,13 @@
   </div>
 
   <!-- 8. JOURNEY  -->
-  <div class="section-label">Junho</div>
+  <h2 class="section-label">Junho</h2>
   <div id="card-journey" class="game-card status-done">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob9lk.webp" alt="Journey" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#8 · Junho</div>
-        <div class="card-title">Journey <span class="status-pill pill-done">✓ concluído</span></div>
+        <h3 class="card-title">Journey <span class="status-pill pill-done">✓ concluído</span></h3>
         <div class="card-subtitle">Thatgamecompany · 2012 · Experimental / Aventura</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>92</strong></span>
@@ -1272,14 +1134,14 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             14 Jun 2026 → 14 Jun 2026
           </span>
           <span class="foxscore"><span class="foxscore-label">FoxScore</span> 4.0 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2012 (PS3) / 2015 (PC)</dd>
@@ -1309,7 +1171,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobjbh.webp" alt="Final Fantasy XIV: Dawntrail" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#9 · Junho · FFXIV — Dawntrail patches 7.3–7.5</div>
-        <div class="card-title">Final Fantasy XIV: Dawntrail <span class="status-pill pill-paused">⏳ aguardando patch 7.56</span></div>
+        <h3 class="card-title">Final Fantasy XIV: Dawntrail <span class="status-pill pill-paused">⏳ aguardando patch 7.56</span></h3>
         <div class="card-subtitle">Square Enix · 2024 · MMORPG (conteúdo de patch em andamento)</div>
         <div class="card-meta">
           <span class="meta-chip">Patches <strong>7.3 → 7.5</strong></span>
@@ -1322,7 +1184,7 @@
         <div class="progress-label">~97% concluído · <strong>MSQ 7.3–7.5 concluído · Echoes of Vana'diel (3 raids) concluído · Arcadion Heavyweight concluído · Society Quests e Custom Deliveries concluídos · Aguardando patch 7.56 (8 Set 2026) — conclusão da MSQ de Dawntrail + Beastmaster</strong></div>
       </div>
     </div>
-    <div class="card-toggle" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>MSQ 7.3 + 7.4 + 7.5</dt><dd>✓ Concluídos</dd>
@@ -1362,13 +1224,13 @@
     </div>
   </div>
   <!-- STANLEY PARABLE — CLUBE DO GAME JULHO -->
-  <div class="section-label">Julho</div>
+  <h2 class="section-label">Julho</h2>
   <div id="card-stanley" class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1x7d.webp" alt="The Stanley Parable" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#11 · Julho — Clube do Game <span class="clube-badge">🎲 indicado por Paulo</span></div>
-        <div class="card-title">The Stanley Parable <span class="status-pill pill-done">✓ concluído</span></div>
+        <h3 class="card-title">The Stanley Parable <span class="status-pill pill-done">✓ concluído</span></h3>
         <div class="card-subtitle">Galactic Cafe · 2013 · Walking Simulator / Meta-narrativa</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>90</strong></span>
@@ -1378,14 +1240,14 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             09 Jul 2026 → 09 Jul 2026
           </span>
           <span class="foxscore"><span class="foxscore-label">FoxScore</span> 3.5 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2013</dd>
@@ -1417,7 +1279,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobebu.webp" alt="Hollow Knight: Silksong" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#12 · Julho</div>
-        <div class="card-title">Hollow Knight: Silksong <span class="status-pill pill-paused">⏸ pausado</span></div>
+        <h3 class="card-title">Hollow Knight: Silksong <span class="status-pill pill-paused">⏸ pausado</span></h3>
         <div class="card-subtitle">Team Cherry · 2025 · Metroidvania</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>91</strong></span>
@@ -1430,7 +1292,7 @@
         <div class="progress-label">~30–35% concluído · <strong>Início de Act 2</strong> — Widow derrotada, The Slab concluída · ~14–15h restantes</div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2025</dd>
@@ -1457,13 +1319,13 @@
 
   <!-- MINA THE HOLLOWER -->
   <!-- MEGA MAN ZX — CLUBE DO GAME AGOSTO -->
-  <div class="section-label">Agosto</div>
+  <h2 class="section-label">Agosto</h2>
   <div id="card-megazx" class="game-card status-playing status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://upload.wikimedia.org/wikipedia/en/8/81/Mega_Man_ZX_Coverart.png" alt="Mega Man ZX" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#21 · Agosto — Clube do Game <span class="clube-badge">🎲 indicado por Rafão</span></div>
-        <div class="card-title">Mega Man ZX <span class="status-pill pill-playing">jogando</span></div>
+        <h3 class="card-title">Mega Man ZX <span class="status-pill pill-playing">jogando</span></h3>
         <div class="card-subtitle">Inti Creates / Capcom · 2006 (DS) / 2020 (Legacy Collection) · Action-platformer / Metroidvania</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>76</strong></span>
@@ -1472,7 +1334,7 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Início: 01 Ago 2026
           </span>
         </div>
@@ -1482,7 +1344,7 @@
         <div class="progress-label">~10% concluído · <strong>Tutorial concluído — boss Serpent derrotado</strong> · ~8h restantes</div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2006 (DS) / 2020 (Mega Man Zero/ZX Legacy Collection)</dd>
@@ -1514,7 +1376,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4g15.webp" alt="Mina the Hollower" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#13 · Agosto</div>
-        <div class="card-title">Mina the Hollower <span class="status-pill pill-playing">jogando</span></div>
+        <h3 class="card-title">Mina the Hollower <span class="status-pill pill-playing">jogando</span></h3>
         <div class="card-subtitle">Yacht Club Games · 2026 · Action-adventure / Top-down</div>
         <div class="card-meta">
           <span class="meta-chip">OpenCritic <strong>98% rec.</strong></span>
@@ -1523,7 +1385,7 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Início: 01 Ago 2026
           </span>
         </div>
@@ -1533,7 +1395,7 @@
         <div class="progress-label">~15% concluído · <strong>Primeiro boss derrotado — chegando em Ossex: City Center</strong> · ~20h restantes</div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2026 (lançado 29 de maio)</dd>
@@ -1563,10 +1425,10 @@
   <!-- GENSHIN IMPACT — SNEZHNAYA 7.0 -->
   <div id="card-genshin" class="game-card">
     <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobxhn.webp" alt="Genshin Impact" onerror="this.style.display='none'">
+      <img class="card-cover" src="https://fastcdn.hoyoverse.com/content-v2/hk4e/165481/50fc32c5afae8299b5fdf2666f1608ba_5416575525136350163.jpg" alt="Genshin Impact — Snezhnaya (Everwinter Without Mercy)" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#12 · Agosto</div>
-        <div class="card-title">Genshin Impact — Snezhnaya <span class="status-pill pill-next">Lançamento</span></div>
+        <h3 class="card-title">Genshin Impact — Snezhnaya <span class="status-pill pill-next">Lançamento</span></h3>
         <div class="card-subtitle">HoYoverse · 2020 (ongoing) · Action RPG / Live-service</div>
         <div class="card-meta">
           <span class="meta-chip">Versão <strong>7.0</strong></span>
@@ -1577,7 +1439,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Nação</dt><dd>Snezhnaya — nação Cryo, sede dos Fatui e da Tsaritsa</dd>
@@ -1601,13 +1463,13 @@
   </div>
 
   <!-- 10. PAPERS, PLEASE -->
-  <div class="section-label">Setembro — Lançamento 17 de setembro</div>
+  <h2 class="section-label">Setembro — Lançamento 17 de setembro</h2>
   <div id="card-papers" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1vep.webp" alt="Papers, Please" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#15 · Setembro</div>
-        <div class="card-title">Papers, Please</div>
+        <h3 class="card-title">Papers, Please</h3>
         <div class="card-subtitle">Lucas Pope · 2013 · Puzzle / Simulação / Dystopia</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>85</strong></span>
@@ -1616,7 +1478,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2013</dd>
@@ -1646,7 +1508,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/coc7ma.webp" alt="Fire Emblem: Fortune's Weave" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#14 · Setembro</div>
-        <div class="card-title">Fire Emblem: Fortune's Weave <span class="status-pill pill-next">Lançamento</span></div>
+        <h3 class="card-title">Fire Emblem: Fortune's Weave <span class="status-pill pill-next">Lançamento</span></h3>
         <div class="card-subtitle">Intelligent Systems / Nintendo · 2026 · SRPG / Tactical RPG</div>
         <div class="card-meta">
           <span class="meta-chip">Lançamento <strong>17 Set 2026</strong></span>
@@ -1655,7 +1517,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2026 (lançamento 17 de setembro)</dd>
@@ -1680,13 +1542,13 @@
   </div>
 
   <!-- #11 SECRET OF MANA + CASTLEVANIA -->
-  <div class="section-label">Outubro</div>
+  <h2 class="section-label">Outubro</h2>
   <div id="card-secret-mana" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2u6w.webp" alt="Secret of Mana" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#17 · Outubro</div>
-        <div class="card-title">Secret of Mana</div>
+        <h3 class="card-title">Secret of Mana</h3>
         <div class="card-subtitle">Square · 1993 · Action RPG</div>
         <div class="card-meta">
           <span class="meta-chip">HLTB <strong>~25h</strong></span>
@@ -1694,7 +1556,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>1993 (SNES) / 2018 (Remake 3D)</dd>
@@ -1726,7 +1588,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobigs.webp" alt="Castlevania: Belmont's Curse" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#16 · Outubro</div>
-        <div class="card-title">Castlevania: Belmont's Curse <span class="status-pill pill-next">Lançamento</span></div>
+        <h3 class="card-title">Castlevania: Belmont's Curse <span class="status-pill pill-next">Lançamento</span></h3>
         <div class="card-subtitle">Konami / Evil Empire · 2026 · 2D Action-Exploration / Metroidvania</div>
         <div class="card-meta">
           <span class="meta-chip">Lançamento <strong>15 Out 2026</strong></span>
@@ -1735,7 +1597,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2026 (lançamento 15 de outubro)</dd>
@@ -1766,13 +1628,13 @@
   </div>
 
   <!-- #12 ZELDA: BOTW -->
-  <div class="section-label">Novembro</div>
+  <h2 class="section-label">Novembro</h2>
   <div id="card-botw" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg" alt="The Legend of Zelda: Breath of the Wild" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#19 · Novembro–Dezembro</div>
-        <div class="card-title">The Legend of Zelda: Breath of the Wild</div>
+        <h3 class="card-title">The Legend of Zelda: Breath of the Wild</h3>
         <div class="card-subtitle">Nintendo EPD · 2017 / 2025 (Switch 2) · Open world</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>97</strong></span>
@@ -1781,7 +1643,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2017 (original) / 2025 (Switch 2 Edition)</dd>
@@ -1805,13 +1667,13 @@
   </div>
 
   <!-- #13 SHOVEL KNIGHT -->
-  <div class="section-label">Dezembro</div>
+  <h2 class="section-label">Dezembro</h2>
   <div id="card-shovel-knight" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobaa7.webp" alt="Shovel Knight" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#20 · Dezembro</div>
-        <div class="card-title">Shovel Knight</div>
+        <h3 class="card-title">Shovel Knight</h3>
         <div class="card-subtitle">Yacht Club Games · 2014 · Plataforma / Action</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>90</strong></span>
@@ -1820,7 +1682,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2014</dd>
@@ -1854,7 +1716,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5ziw.jpg" alt="The Last of Us Part II" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">Co-op · Ao longo de 2026</div>
-        <div class="card-title">The Last of Us Part II <span class="status-pill pill-playing">jogando</span> <span class="coop-badge-tag">🎮 Alex · Teddy</span></div>
+        <h3 class="card-title">The Last of Us Part II <span class="status-pill pill-playing">jogando</span> <span class="coop-badge-tag">🎮 Alex · Teddy</span></h3>
         <div class="card-subtitle">Naughty Dog / Sony · 2020 / 2024 (Remastered PC) · Action-adventure</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>93</strong></span>
@@ -1864,7 +1726,7 @@
         </div>
         <div class="card-personal-row">
           <span class="personal-period">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Início: 17 Fev 2026
           </span>
         </div>
@@ -1874,7 +1736,7 @@
         <div class="progress-label">~53% concluído · <strong>Início do segundo dia da Abby</strong> · ~11–12h restantes</div>
       </div>
     </div>
-    <div class="card-toggle" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2020 (PS4) / 2024 (Remastered PC)</dd>
@@ -1905,7 +1767,7 @@
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.webp" alt="The Witcher 3: Wild Hunt" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">Co-op · 2026–2027</div>
-        <div class="card-title">The Witcher 3: Wild Hunt — Complete Edition <span class="coop-badge-tag">🎮 Teddy</span></div>
+        <h3 class="card-title">The Witcher 3: Wild Hunt — Complete Edition <span class="coop-badge-tag">🎮 Teddy</span></h3>
         <div class="card-subtitle">CD Projekt Red · 2015 / 2022 (Next-gen) · Open world RPG</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>92</strong></span>
@@ -1914,7 +1776,7 @@
         </div>
       </div>
     </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Ano</dt><dd>2015 (original) / 2022 (Next-gen PS5/Xbox/PC)</dd>
@@ -1943,433 +1805,6 @@
     </div>
   </div>
 
-  <!-- ===================== WISHLIST 2027 ===================== -->
-
-  <div class="wishlist-section-header">
-    <span class="wishlist-section-badge">Bucket List</span>
-    <h2 class="wishlist-section-title">Bucket List — sem prazo</h2>
-  </div>
-  <p class="wishlist-subtitle">Três tipos de jogo convivem aqui: os que saíram do roadmap 2026 por falta de espaço, não de interesse; os já anunciados para 2027 que entram por antecipação; e os muito desejados que vivem sendo esquecidos no backlog — registrados aqui para não sumirem mais. A lista pode crescer conforme novos títulos forem revelados ou resgatados.</p>
-
-  <!-- WISHLIST: FFXIV EVERCOLD -->
-  <div id="card-evercold" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobz2c.webp" alt="Final Fantasy XIV: Evercold" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W1 · Lançamento Janeiro 2027</div>
-        <div class="card-title">Final Fantasy XIV: Evercold</div>
-        <div class="card-subtitle">Square Enix · 2027 · MMORPG — 6ª expansão / Patch 8.0</div>
-        <div class="card-meta">
-          <span class="meta-chip">Lançamento <strong>Janeiro 2027</strong></span>
-          <span class="meta-chip">Expansão <strong>8.0 — Godless Realms Saga</strong></span>
-          <span class="meta-chip"><strong>PC / PS5 / Xbox / Switch 2</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Lançamento</dt><dd>Janeiro 2027 (data exata não confirmada)</dd>
-        <dt>Dev/Pub</dt><dd>Square Enix CBU III</dd>
-        <dt>Saga</dt><dd>Godless Realms Saga — segunda após Hydaelyn-Zodiark</dd>
-        <dt>Cenário</dt><dd>The Fourth — um dos reflexos do universo, coberto por gelo eterno</dd>
-        <dt>Anunciado</dt><dd>Fan Festival 2026 em Anaheim (abril de 2026)</dd>
-        <dt>Plataformas</dt><dd>PC, PS5, PS4, Xbox Series X|S — Switch 2 também anunciado</dd>
-      </dl>
-      <div class="card-section-title">Tamanho esperado — referência Dawntrail</div>
-      <p class="card-text">Dawntrail 7.0 (só o MSQ base, sem patches) dura <strong>~30–35h</strong> — consistente com expansões anteriores de FFXIV. Uma nova expansão tende a ser um pouco maior que a anterior pelo tamanho crescente do mundo, mas a Square Enix mantém o ritmo de MSQ relativamente estável. Estimativa para o MSQ base do Evercold: <strong>~30–40h</strong>. Contando patches 8.1 a 8.5 (equivalente ao que você está fazendo agora no Dawntrail), a estimativa sobe para <strong>~70–90h</strong> de conteúdo principal ao longo do ciclo completo — sem contar endgame.</p>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">Sexta expansão de FFXIV e início da Godless Realms Saga — a nova era do jogo após o encerramento do arco Hydaelyn-Zodiark. O trailer mostra uma avó narrando a história de um mundo congelado salvo pelo Warrior of Light, exibido como Reaper. O cenário é The Fourth, um reflexo do universo FFXIV assolado por gelo eterno e criaturas arcanas colossais.</p>
-      <div class="card-section-title">Destaques do anúncio</div>
-      <ul class="tip-list">
-        <li><strong>Evangelion × FFXIV — "Ghosts of Desire":</strong> série de Alliance Raids em colaboração com a khara (studio do Hideaki Anno). Três partes — provavelmente o crossover mais ambicioso da história do jogo.</li>
-        <li><strong>Lançamento em janeiro</strong> quebra o padrão histórico de expansões de verão — Yoshi-P sinalizou que querem manter momentum após o ciclo de Dawntrail.</li>
-        <li><strong>Switch 2:</strong> a versão para Switch 2 de FFXIV foi anunciada no mesmo evento — Evercold provavelmente vai coincidir com esse lançamento.</li>
-        <li>O patch 7.5 de Dawntrail serve como ponte narrativa direta para Evercold. A missão "Trail to the Heavens" é o setup direto para 8.0.</li>
-      </ul>
-      <div class="config-note">⚙️ <strong>Pré-requisito:</strong> Completar MSQ de Dawntrail (até 7.5) antes de entrar no Evercold.</div>
-    </div>
-  </div>
-
-  <!-- WISHLIST: FIRE EMBLEM AWAKENING -->
-  <div id="card-fe-awakening" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobcko.webp" alt="Fire Emblem: Awakening" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W2</div>
-        <div class="card-title">Fire Emblem: Awakening</div>
-        <div class="card-subtitle">Intelligent Systems / Nintendo · 2012 · SRPG</div>
-        <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>92</strong></span>
-          <span class="meta-chip">HLTB <strong>~50h</strong></span>
-          <span class="meta-chip"><strong>3DS / Citra</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2012 (JP) / 2013 (Ocidente)</dd>
-        <dt>Dev/Pub</dt><dd>Intelligent Systems / Nintendo</dd>
-        <dt>Gênero</dt><dd>SRPG / Tactical RPG</dd>
-        <dt>Metacritic</dt><dd>92 (3DS)</dd>
-        <dt>HLTB</dt><dd>~30h história / ~50h+ completionist</dd>
-        <dt>Plataforma</dt><dd>3DS (recomendado) ou Citra (Steam Deck)</dd>
-      </dl>
-      <div class="card-section-title">Por que saiu do roadmap 2026</div>
-      <p class="card-text">Fire Emblem: Fortune's Weave entra em setembro como lançamento de Switch 2, ocupando a janela de SRPG do segundo semestre. Awakening é longo (~50h) e merece atenção dedicada — não faz sentido comprimir os dois no mesmo ano com BotW e Castlevania ainda na fila. Depois de Fortune's Weave, vai ser uma experiência mais rica por ter contexto da franquia.</p>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">O jogo que salvou a franquia. A Nintendo deu um ultimato: se não vendesse 250k, Fire Emblem acabaria. Vendeu 2 milhões. Projetado como a porta de entrada perfeita.</p>
-      <div class="card-section-title">Dicas — para quando chegar a hora</div>
-      <ul class="tip-list">
-        <li>Classic Mode (morte permanente) muda fundamentalmente como você toma decisões.</li>
-        <li>Frederick é útil, mas depender dele vai te prejudicar no mid game.</li>
-        <li>Não negligencie as paralogues — destrancam personagens importantes.</li>
-      </ul>
-      <div class="config-note">⚙️ <strong>Sobre 3DS vs Deck:</strong> 3DS recomendado pela tela dupla. Via Citra no Deck funciona com ajustes.</div>
-    </div>
-  </div>
-
-  <!-- WISHLIST: BALDUR'S GATE 3 -->
-  <div id="card-bg3" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg" alt="Baldur's Gate 3" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W3 · Co-op com Teddy — 2027</div>
-        <div class="card-title">Baldur's Gate 3 <span class="coop-badge-tag">🎮 Teddy</span></div>
-        <div class="card-subtitle">Larian Studios · 2023 · CRPG / Turn-based</div>
-        <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>96</strong></span>
-          <span class="meta-chip">OpenCritic <strong>95</strong> — Mighty</span>
-          <span class="meta-chip">HLTB <strong>~100h+</strong></span>
-          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
-        </div>
-        <div class="progress-bar-container" style="margin-top: 10px;">
-          <div class="progress-bar" style="width: 17%;"></div>
-        </div>
-        <div class="progress-label">~15–20% concluído · <strong>Ato 1</strong> — Goblin Camp explorado, Halsin resgatado · ~80–85h restantes</div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2023</dd>
-        <dt>Dev/Pub</dt><dd>Larian Studios</dd>
-        <dt>Gênero</dt><dd>CRPG / Turn-based</dd>
-        <dt>Metacritic</dt><dd>96 (PC)</dd>
-        <dt>OpenCritic</dt><dd>95 — Mighty (98% rec.)</dd>
-        <dt>HLTB</dt><dd>~35h história / ~100h+ completionist</dd>
-        <dt>Steam Deck</dt><dd>Verificado — recomenda sessões em TV/monitor</dd>
-      </dl>
-      <div class="card-section-title">Por que foi para 2027</div>
-      <p class="card-text">Com ~80–85h restantes e ritmo de co-op quinzenal, BG3 não fecharia em 2026 com conforto — e merece atenção dedicada, não um final apressado. O plano é terminar TLoU2 em 2026, começar o Witcher 3 na sequência, e retomar o BG3 quando o W3 estiver concluído — provavelmente meados ou final de 2027.</p>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">Larian Studios levou 6 anos para desenvolver. Adaptação de D&D 5e tão fiel que a WotC avaliou ação legal por ser "bom demais". O jogo com mais perfect scores acumulados na história do Metacritic.</p>
-      <div class="card-section-title">Dicas para co-op</div>
-      <ul class="tip-list">
-        <li>Decidam antes: decisões juntos ou cada um controla seu personagem e vota? O segundo é mais caótico e divertido.</li>
-        <li>Explorem separadamente dentro do mesmo mapa — coordenação em combate é essencial.</li>
-        <li>Não ignorem as Long Rests — ativam eventos de acampamento com os companions.</li>
-        <li>A história de um companion se abre mais se alguém jogar com ele como personagem principal.</li>
-      </ul>
-      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Recomendado TV/monitor para co-op.</div>
-    </div>
-  </div>
-
-  <!-- WISHLIST: NieR Automata -->
-  <div id="card-nier" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co5pcj.webp" alt="NieR: Automata" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W4 · Prioridade alta</div>
-        <div class="card-title">NieR: Automata</div>
-        <div class="card-subtitle">PlatinumGames / Square Enix · 2017 · Action RPG</div>
-        <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>88</strong></span>
-          <span class="meta-chip">OpenCritic <strong>88</strong> — Mighty</span>
-          <span class="meta-chip">HLTB <strong>~20h (rota A) / ~50h completo</strong></span>
-          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2017</dd>
-        <dt>Dev/Pub</dt><dd>PlatinumGames / Square Enix</dd>
-        <dt>Gênero</dt><dd>Action RPG / hack-and-slash / bullet hell</dd>
-        <dt>Metacritic</dt><dd>88 (PC)</dd>
-        <dt>HLTB</dt><dd>~20h rota A / ~35h rotas A+B / ~50h todas as rotas + endings</dd>
-        <dt>Steam Deck</dt><dd>Verificado</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">Yoko Taro e PlatinumGames num crossover improvável que resultou num dos jogos mais originais da década. Androides 2B e 9S combatem máquinas alienígenas numa Terra pós-apocalíptica enquanto a humanidade sobrevive na Lua. A estrutura de múltiplas rotas não é repetição — cada uma recontextualiza completamente o que você pensava ter entendido. Os últimos endings mudam a experiência inteira retroativamente.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Não pare na rota A achando que terminou — o jogo começa de verdade na rota B e especialmente na C.</li>
-        <li>A trilha sonora de Keiichi Okabe é parte central da experiência — headphones recomendados.</li>
-        <li>Endings E em diante: deixe acontecer, não pesquise antes.</li>
-      </ul>
-      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. FAR mod recomendado na versão PC para corrigir aspectos técnicos do port.</div>
-    </div>
-  </div>
-
-  <!-- WISHLIST: Elden Ring -->
-  <div id="card-elden-ring" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.webp" alt="Elden Ring" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W5 · Prioridade alta</div>
-        <div class="card-title">Elden Ring</div>
-        <div class="card-subtitle">FromSoftware / Bandai Namco · 2022 · Action RPG / Open world</div>
-        <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>96</strong></span>
-          <span class="meta-chip">OpenCritic <strong>96</strong> — Mighty</span>
-          <span class="meta-chip">HLTB <strong>~55h história / ~100h+ completo</strong></span>
-          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2022 (base) / 2024 (Shadow of the Erdtree DLC)</dd>
-        <dt>Dev/Pub</dt><dd>FromSoftware / Bandai Namco</dd>
-        <dt>Gênero</dt><dd>Action RPG / Soulsborne / Open world</dd>
-        <dt>Metacritic</dt><dd>96 (PC)</dd>
-        <dt>HLTB</dt><dd>~55h história / ~100h+ exploração completa / ~130h+ com Shadow of the Erdtree</dd>
-        <dt>Steam Deck</dt><dd>Verificado</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">FromSoftware em parceria com George R.R. Martin para o worldbuilding. O Soulsborne mais acessível por ser open world — permite contornar obstáculos, explorar em ordem livre e voltar quando estiver mais forte. Considerado por muitos o melhor jogo da geração, com densidade de conteúdo e qualidade de design de bosses sem precedentes. Shadow of the Erdtree (2024) é a DLC mais aclamada da história recente do gênero.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Se travar num boss, vá explorar outra região — o mundo é enorme e sempre tem algo acessível no momento atual de poder.</li>
-        <li>Build de início recomendada para iniciantes: Vagabond (Vigor e Strength como stats principais, escudo com 100% de bloqueio físico).</li>
-        <li>Torrent (o cavalo) muda completamente a mobilidade — use sempre em campo aberto.</li>
-        <li>Não faça Shadow of the Erdtree antes de terminar o jogo base — a DLC assume familiaridade completa com os sistemas.</li>
-      </ul>
-      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Configurações médias mantêm performance estável. Considerar jogar em TV/monitor pela densidade visual.</div>
-    </div>
-  </div>
-
-  <!-- WISHLIST: Omori -->
-  <div id="card-omori" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1xlp.webp" alt="Omori" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W6</div>
-        <div class="card-title">Omori</div>
-        <div class="card-subtitle">Omocat · 2020 · RPG / Horror psicológico</div>
-        <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>84</strong></span>
-          <span class="meta-chip">OpenCritic <strong>84</strong> — Strong</span>
-          <span class="meta-chip">HLTB <strong>~15h</strong></span>
-          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2020</dd>
-        <dt>Dev/Pub</dt><dd>Omocat</dd>
-        <dt>Gênero</dt><dd>RPG maker / Horror psicológico / Coming-of-age</dd>
-        <dt>Metacritic</dt><dd>84 (PC)</dd>
-        <dt>HLTB</dt><dd>~13h história / ~20h completionist</dd>
-        <dt>Steam Deck</dt><dd>Verificado</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">RPG indie sobre um garoto que vive numa realidade alternativa colorida para fugir de algo que não consegue enfrentar. A estética alternância entre o mundo onírico pastel e o mundo real tem um propósito narrativo que só se revela gradualmente. Lida com luto, culpa e depressão de forma que divide opiniões pela intensidade — mas quem conecta, conecta fundo. Trilha sonora muito elogiada.</p>
-      <div class="card-section-title">Aviso</div>
-      <p class="card-text">Contém temas pesados de saúde mental, luto e ideação suicida. Não é um jogo para qualquer estado emocional — escolher o momento certo faz diferença real na experiência.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Vá sem spoilers — a estrutura de revelação é central para o impacto.</li>
-        <li>O sistema de emoções em combate (Happy/Sad/Angry) tem mais profundidade do que parece no início.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- WISHLIST: Transistor -->
-  <div id="card-transistor" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob23o.webp" alt="Transistor" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W7</div>
-        <div class="card-title">Transistor</div>
-        <div class="card-subtitle">Supergiant Games · 2014 · Action RPG isométrico</div>
-        <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>83</strong></span>
-          <span class="meta-chip">OpenCritic <strong>84</strong> — Strong</span>
-          <span class="meta-chip">HLTB <strong>~8h</strong></span>
-          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2014</dd>
-        <dt>Dev/Pub</dt><dd>Supergiant Games</dd>
-        <dt>Gênero</dt><dd>Action RPG isométrico / sci-fi</dd>
-        <dt>Metacritic</dt><dd>83 (PC)</dd>
-        <dt>HLTB</dt><dd>~8h história / ~10h completionist</dd>
-        <dt>Steam Deck</dt><dd>Verificado</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">Supergiant Games (Bastion, Pyre, Hades) no seu segundo jogo. Uma cantora numa cidade futurista art-deco empunha uma espada viva após um atentado misterioso. O sistema de combate híbrido — pausar o tempo para planejar ações e executá-las em sequência — cria uma cadência única entre ação e estratégia. A trilha de Darren Korb é considerada uma das melhores da Supergiant.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Experimente combinações de Functions livremente — o sistema de modificação de habilidades tem profundidade surpreendente para um jogo curto.</li>
-        <li>O modo Recursion (New Game+) inverte o desafio de forma interessante se quiser explorar mais.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- WISHLIST: Deltarune -->
-  <div id="card-deltarune" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co9m71.webp" alt="Deltarune" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W8</div>
-        <div class="card-title">Deltarune</div>
-        <div class="card-subtitle">Toby Fox · 2018–2026 · RPG</div>
-        <div class="card-meta">
-          <span class="meta-chip">Capítulos <strong>1–5 disponíveis</strong></span>
-          <span class="meta-chip">HLTB <strong>~25h (caps 1–5)</strong></span>
-          <span class="meta-chip">PC <strong>Gratuito (caps 1–2) / pago (3–5)</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Dev</dt><dd>Toby Fox (criador de Undertale)</dd>
-        <dt>Gênero</dt><dd>RPG / bullet hell / comédia-drama</dd>
-        <dt>Capítulos disponíveis</dt><dd>1–5 (caps 1 e 2 gratuitos, caps 3–5 pagos)</dd>
-        <dt>HLTB</dt><dd>~4–5h por capítulo</dd>
-        <dt>Plataformas</dt><dd>PC (gratuito/Steam), Switch</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">Continuação espiritual de Undertale por Toby Fox. Kris, Susie e Ralsei exploram "Dark Worlds" que surgem em locais cotidianos da cidade de Hometown. Tematicamente mais complexo que Undertale, com personagens mais desenvolvidos e um mistério central que se aprofunda a cada capítulo. O Capítulo 5 foi anunciado e lançado no Nintendo Direct de junho de 2026. Jogar Undertale antes é recomendado mas não obrigatório.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Os capítulos 1 e 2 são gratuitos — boa forma de testar antes de comprar os seguintes.</li>
-        <li>Como em Undertale, há formas de resolver encontros sem violência — explorar isso muda o que você vê.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- WISHLIST: Sonic 3 & Knuckles -->
-  <div id="card-sonic3" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7c0w.webp" alt="Sonic the Hedgehog 3 & Knuckles" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W9</div>
-        <div class="card-title">Sonic the Hedgehog 3 & Knuckles</div>
-        <div class="card-subtitle">Sonic Team / Sega · 1994 · Plataforma 2D</div>
-        <div class="card-meta">
-          <span class="meta-chip">HLTB <strong>~4h</strong></span>
-          <span class="meta-chip">PC <strong>Steam (Sonic Origins Plus)</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>1994 (Mega Drive) — disponível via Sonic Origins Plus</dd>
-        <dt>Dev/Pub</dt><dd>Sonic Team / Sega</dd>
-        <dt>Gênero</dt><dd>Plataforma 2D</dd>
-        <dt>HLTB</dt><dd>~2h (Sonic) / ~3h (Knuckles) / ~4h explorando</dd>
-        <dt>Plataformas</dt><dd>PC via Sonic Origins Plus, Switch, PS4/5, Xbox</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">Considerado o ápice do Sonic clássico — Sonic 3 e Sonic & Knuckles foram desenvolvidos como um jogo único e divididos por questões de prazo e custo de cartucho. Quando jogados combinados via lock-on (ou via Origins), entregam a experiência completa pretendida. Level design e trilha sonora (com contribuição de Michael Jackson em algumas faixas, embora nunca oficialmente confirmado) são o ponto alto da era 16-bit do personagem.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Jogar como Knuckles abre caminhos alternativos e uma perspectiva diferente nos mesmos estágios.</li>
-        <li>Sonic Origins Plus é a versão mais acessível atualmente — inclui animações extras e modo aniversário.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- BUCKET LIST: FINAL FANTASY XII -->
-  <div id="card-ff12" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1thn.webp" alt="Final Fantasy XII: The Zodiac Age" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W10</div>
-        <div class="card-title">Final Fantasy XII: The Zodiac Age</div>
-        <div class="card-subtitle">Square Enix · 2006 / 2017 (Zodiac Age) · JRPG</div>
-        <div class="card-meta">
-          <span class="meta-chip">Metacritic <strong>92</strong></span>
-          <span class="meta-chip">HLTB <strong>~60h história / ~100h+ completo</strong></span>
-          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2006 (PS2) / 2017 (Zodiac Age remaster — PC/PS4)</dd>
-        <dt>Dev/Pub</dt><dd>Square Enix</dd>
-        <dt>Gênero</dt><dd>JRPG / Real-time combat (Gambit System)</dd>
-        <dt>Metacritic</dt><dd>92 (PS2) / 86 (Zodiac Age PC)</dd>
-        <dt>HLTB</dt><dd>~60h história / ~100h+ completionist</dd>
-        <dt>Plataforma</dt><dd>PC (Steam), PS4/PS5, Xbox, Switch</dd>
-        <dt>Director</dt><dd>Yasumi Matsuno (Tactics Ogre, Final Fantasy Tactics)</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">Dirigido por Yasumi Matsuno — o mesmo criador de Final Fantasy Tactics — o XII é o mais politicamente sofisticado dos FFs, com um enredo inspirado em Star Wars / Guerra nas Estrelas (império opressor, reinos ocupados, resistência) e uma narrativa de protagonista que é deliberadamente secundário à trama maior. O Gambit System permite programar a IA dos personagens em combate, tornando o jogo quase um action-RPG com automação estratégica. The Zodiac Age adiciona o sistema de Job classes duplas, que o torna consideravelmente mais elegante que o original PS2.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Jogar FFT antes do FFXII aprofunda enormemente a apreciação pelo trabalho de Matsuno — você já fez isso.</li>
-        <li>O Gambit System parece complexo no início mas libera a experiência depois que o conceito clica — não tenha pressa em dominar.</li>
-        <li>A dupla de Jobs no Zodiac Age exige planejamento: pesquise brevemente antes de escolher para não se arrepender depois de muitas horas.</li>
-        <li>Ivalice — o mesmo mundo de FFT — aparece aqui com geografia e história expandidas.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- BUCKET LIST: PERSONA 2: ETERNAL PUNISHMENT -->
-  <div id="card-persona2ep" class="game-card wishlist-card">
-    <div class="card-header">
-      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7cko.webp" alt="Persona 2: Eternal Punishment" onerror="this.style.display='none'">
-      <div class="card-info">
-        <div class="card-number">W11</div>
-        <div class="card-title">Persona 2: Eternal Punishment</div>
-        <div class="card-subtitle">Atlus · 2000 · JRPG / Horror psicológico</div>
-        <div class="card-meta">
-          <span class="meta-chip">HLTB <strong>~35h história / ~45h completo</strong></span>
-          <span class="meta-chip">PS1 <strong>Emulação recomendada</strong></span>
-        </div>
-      </div>
-    </div>
-    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
-    <div class="card-body">
-      <dl class="info-grid">
-        <dt>Ano</dt><dd>2000 (PS1 JP/USA) / 2012 (PSP remaster)</dd>
-        <dt>Dev/Pub</dt><dd>Atlus</dd>
-        <dt>Gênero</dt><dd>JRPG / Horror psicológico / Thriller urbano</dd>
-        <dt>Sequência</dt><dd>Continua diretamente de Innocent Sin (IS) — jogar IS antes é essencial</dd>
-        <dt>HLTB</dt><dd>~35h história / ~45h completionist</dd>
-        <dt>Plataformas</dt><dd>PS1 (original), PSP (remaster), emulação</dd>
-      </dl>
-      <div class="card-section-title">Contexto</div>
-      <p class="card-text">A segunda parte da duologia Persona 2 — jogada obrigatoriamente depois de Innocent Sin. Enquanto IS acompanha Maya como NPC, EP é jogado com Maya como protagonista, recontando os eventos do jogo anterior de uma nova perspectiva que recontextualiza tudo. A narrativa envolve rumores urbanos que se tornam realidade, conspiração governamental, figuras arquetípicas jungianas e temas de culpa e memória que os Personas modernos raramente abordam com a mesma seriedade. Narrativamente o mais adulto e politicamente ousado dos jogos pré-P3.</p>
-      <div class="card-section-title">Por que está na Bucket List</div>
-      <p class="card-text">Dos jogos da franquia, o dueto do P2 é provavelmente o mais próximo da sua sensibilidade — narrativa sem condescendência, temas pesados tratados com seriedade, sem os problemas de representatividade do P4. IS vem antes mas os dois juntos formam uma experiência única no catálogo da Atlus.</p>
-      <div class="card-section-title">Dicas</div>
-      <ul class="tip-list">
-        <li>Jogar Innocent Sin antes de EP não é opcional — EP revela e recontextualiza eventos de IS de forma que só funciona com essa base.</li>
-        <li>A versão PSP de IS tem tradução oficial em inglês; EP em PSP saiu só no Japão — a versão PS1 em inglês é o ponto de acesso mais prático para EP fora do Japão.</li>
-        <li>O sistema de Rumor (espalhar boatos pela cidade para mudar o mundo) é único na série e vale explorar com calma.</li>
-      </ul>
-      <div class="config-note">⚙️ <strong>Ordem:</strong> Persona 2: Innocent Sin (PSP/emulação) → Persona 2: Eternal Punishment (PS1/emulação).</div>
-    </div>
-  </div>
-
   <!-- FOOTER -->
   <footer>
     <p>Roadmap 2026 · Atualizado em 25 de junho de 2026</p>
@@ -2384,9 +1819,19 @@ function toggleCard(el) {
   body.classList.toggle('open');
   el.classList.toggle('open');
   const isOpen = body.classList.contains('open');
+  el.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   const spoilerHint = el.dataset.spoiler ? ` <span class="spoiler-hint">· ⚠ contém spoilers</span>` : '';
   el.innerHTML = (isOpen ? 'Fechar' : 'Detalhes') + spoilerHint + ' <span class="arrow" style="transform:' + (isOpen ? 'rotate(180deg)' : '') + '">▼</span>';
 }
+
+document.querySelectorAll('.card-toggle').forEach(function (el) {
+  el.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault();
+      toggleCard(el);
+    }
+  });
+});
 </script>
 
 </body>
