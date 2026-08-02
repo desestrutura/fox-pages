@@ -34,6 +34,24 @@
     font-size: 16px;
   }
 
+  /* BREADCRUMB */
+  .crumbs {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: left;
+    max-width: 860px;
+    margin: 0 auto 24px;
+    padding: 0 24px;
+    box-sizing: border-box;
+  }
+  .crumbs a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(232, 201, 122, 0.4);
+    text-underline-offset: 3px;
+  }
+  .crumbs a:hover { text-decoration-color: rgba(232, 201, 122, 0.8); }
+
   /* HEADER */
   .site-header {
     padding: 80px 0 60px;
@@ -440,6 +458,7 @@
 
 <header class="site-header">
   <div class="header-inner">
+    <p class="crumbs"><a href="index.html">fox-pages</a></p>
     <p class="header-eyebrow">🎮 Roadmap de jogos</p>
     <h1>Em 2026 vou ser<br>mais gamer</h1>
     <p class="header-note">
@@ -1177,7 +1196,7 @@
   </section>
   <footer>
     <div class="container">
-      <p>Roadmap 2026 · Atualizado em 9 de junho de 2026</p>
+      <p>Roadmap 2026 · Atualizado em 2 de agosto de 2026</p>
     </div>
   </footer>
 

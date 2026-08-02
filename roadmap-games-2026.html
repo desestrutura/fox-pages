@@ -51,6 +51,22 @@
     padding: 48px 24px 96px;
   }
 
+  /* ——— Breadcrumb ——— */
+  .crumbs {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .crumbs a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  .crumbs a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
   /* ——— Header ——— */
   header {
     margin-bottom: 56px;
@@ -593,6 +609,8 @@
 
 <div class="container">
 
+  <p class="crumbs"><a href="index.html">fox-pages</a></p>
+
   <!-- HEADER -->
   <header>
     <h1>🎮 Roadmap 2026</h1>
@@ -601,7 +619,7 @@
       <div class="stats-section-label">Jogos 2026</div>
       <div class="stats-row">
         <div class="stat">
-          <div class="stat-value">21</div>
+          <div class="stat-value">24</div>
           <div class="stat-label">Total</div>
         </div>
         <div class="stat">
@@ -617,7 +635,7 @@
           <div class="stat-label">Pausados</div>
         </div>
         <div class="stat">
-          <div class="stat-value">7</div>
+          <div class="stat-value">10</div>
           <div class="stat-label">Pendentes</div>
         </div>
       </div>
@@ -627,7 +645,7 @@
       <div class="stats-section-label">Horas estimadas — 2026</div>
       <div class="stats-row">
         <div class="stat">
-          <div class="stat-value">~569h</div>
+          <div class="stat-value">~584h</div>
           <div class="stat-label">Total do ano</div>
         </div>
         <div class="stat">
@@ -635,11 +653,11 @@
           <div class="stat-label">Jogadas</div>
         </div>
         <div class="stat">
-          <div class="stat-value">~452h</div>
+          <div class="stat-value">~467h</div>
           <div class="stat-label">Restantes</div>
         </div>
         <div class="stat">
-          <div class="stat-value">32%</div>
+          <div class="stat-value">31%</div>
           <div class="stat-label">Progresso</div>
         </div>
       </div>
@@ -722,6 +740,11 @@
     </div>
     <div class="summary-row">
       <span class="summary-month">Set</span>
+      <span class="summary-game"><a href="#card-katana-zero">Katana ZERO</a> <span class="clube-badge">🎲 Kajiro</span></span>
+      <span class="tag tag-short">~6h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Set</span>
       <span class="summary-game"><a href="#card-papers">Papers, Please</a></span>
       <span class="tag tag-short">~8h</span>
     </div>
@@ -729,6 +752,11 @@
       <span class="summary-month">Set</span>
       <span class="summary-game"><a href="#card-fe-fortunes">Fire Emblem: Fortune's Weave</a> <span class="status-pill pill-next">Lançamento</span></span>
       <span class="tag tag-long">~50h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Out</span>
+      <span class="summary-game"><a href="#card-starfox64">Star Fox 64</a> <span class="clube-badge">🎲 Danezi</span></span>
+      <span class="tag tag-short">~4h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Out</span>
@@ -744,6 +772,11 @@
       <span class="summary-month">Nov–Dez</span>
       <span class="summary-game"><a href="#card-botw">The Legend of Zelda: BotW</a></span>
       <span class="tag tag-long">~100h</span>
+    </div>
+    <div class="summary-row">
+      <span class="summary-month">Dez</span>
+      <span class="summary-game"><a href="#card-keen4">Commander Keen 4: Secret of the Oracle</a> <span class="clube-badge">🎲 Sent</span></span>
+      <span class="tag tag-short">~5h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Dez</span>
@@ -1310,7 +1343,7 @@
   <h2 class="section-label">Agosto</h2>
   <div id="card-megazx" class="game-card status-playing status-clube">
     <div class="card-header">
-      <img class="card-cover" src="https://upload.wikimedia.org/wikipedia/en/8/81/Mega_Man_ZX_Coverart.png" alt="Mega Man ZX" onerror="this.style.display='none'">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7ji9.webp" alt="Mega Man ZX" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#21 · Agosto — Clube do Game <span class="clube-badge">🎲 indicado por Rafão</span></div>
         <h3 class="card-title">Mega Man ZX <span class="status-pill pill-playing">jogando</span></h3>
@@ -1453,8 +1486,49 @@
     </div>
   </div>
 
-  <!-- 10. PAPERS, PLEASE -->
+  <!-- KATANA ZERO — CLUBE DO GAME SETEMBRO -->
   <h2 class="section-label">Setembro — Lançamento 17 de setembro</h2>
+  <div id="card-katana-zero" class="game-card status-clube">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1isp.webp" alt="Katana ZERO" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#22 · Setembro — Clube do Game <span class="clube-badge">🎲 indicado por Kajiro</span></div>
+        <h3 class="card-title">Katana ZERO</h3>
+        <div class="card-subtitle">Askiisoft · 2019 · Action-platformer / Neo-noir</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>83</strong></span>
+          <span class="meta-chip">HLTB <strong>~5h campanha / ~6h30 com extras</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2019</dd>
+        <dt>Dev/Pub</dt><dd>Askiisoft (autopublicado)</dd>
+        <dt>Gênero</dt><dd>Action-platformer / Precision platformer / Neo-noir</dd>
+        <dt>Metacritic</dt><dd>83</dd>
+        <dt>HLTB</dt><dd>~5h campanha / ~6h30 com extras / ~14h30 completionist</dd>
+        <dt>Plataforma</dt><dd>PC (Steam/GOG), Switch, Xbox One, PS4, mobile</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Desenvolvido quase inteiramente sozinho por Justin Stander (Askiisoft) ao longo de cerca de cinco anos. Você é um assassino que usa uma katana e uma droga experimental para desacelerar o tempo, executando contratos numa cidade dieselpunk decadente. Cada fase é resolvida com um só golpe — tanto você quanto os inimigos morrem instantaneamente ao serem atingidos.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O combate de morte instantânea nos dois lados transforma cada sala num quebra-cabeça de coreografia por tentativa e erro — sem grind, só leitura de padrão. A trilha synthwave de Bill Kiley é um dos pontos altos do jogo. O dispositivo narrativo das sessões de terapia entre fases, com escolhas de diálogo e uma pílula misteriosa, constrói uma ambiguidade genuína sobre o que é real.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>O jogo recompensa planejar a sala inteira antes de agir — observe o padrão dos inimigos antes de entrar atacando.</li>
+        <li>As escolhas de diálogo nas sessões de terapia não mudam a estrutura da fase, mas afetam o final — preste atenção.</li>
+        <li>O deflect em câmera lenta (parar o tempo e rebater projéteis) vira essencial mais pra frente no jogo.</li>
+        <li>Jogo curto (~5h) — dá pra fechar numa ou duas sessões do clube.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado, roda perfeitamente — jogo 2D leve.</div>
+    </div>
+  </div>
+
+  <!-- 10. PAPERS, PLEASE -->
   <div id="card-papers" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1vep.webp" alt="Papers, Please" onerror="this.style.display='none'">
@@ -1532,8 +1606,49 @@
     </div>
   </div>
 
-  <!-- #11 SECRET OF MANA + CASTLEVANIA -->
+  <!-- STAR FOX 64 — CLUBE DO GAME OUTUBRO -->
   <h2 class="section-label">Outubro</h2>
+  <div id="card-starfox64" class="game-card status-clube">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cob8pu.webp" alt="Star Fox 64" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#23 · Outubro — Clube do Game <span class="clube-badge">🎲 indicado por Danezi</span></div>
+        <h3 class="card-title">Star Fox 64</h3>
+        <div class="card-subtitle">Nintendo EAD · 1997 · Rail shooter / Arcade</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>90</strong></span>
+          <span class="meta-chip">HLTB <strong>~4h uma rota / ~40h+ completionist</strong></span>
+          <span class="meta-chip">Plataforma <strong>N64 / Switch Online</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1997</dd>
+        <dt>Dev/Pub</dt><dd>Nintendo EAD / Nintendo</dd>
+        <dt>Gênero</dt><dd>Rail shooter / Arcade</dd>
+        <dt>Metacritic</dt><dd>90 — Universal Acclaim</dd>
+        <dt>HLTB</dt><dd>~4h uma rota completa / ~40h+ completionist (todas as rotas + medalhas de ouro)</dd>
+        <dt>Plataforma</dt><dd>N64 original (com Rumble Pak) ou Nintendo Switch Online + Expansion Pack</dd>
+        <dt>Multiplayer</dt><dd>Até 4 jogadores local (Deathmatch)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Sequência do Star Fox original de SNES, dirigido por Shigeru Miyamoto e Katsuya Eguchi, com Dylan Cuthbert na programação. Foi o primeiro jogo de N64 a usar o Rumble Pak — vendido junto com o cartucho. Shooter sobre trilhos com narrativa mínima e diálogos totalmente dublados que se tornaram icônicos ("Do a barrel roll!").</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">A estrutura de rotas ramificadas (fácil/normal/difícil, desbloqueadas por objetivos secretos no meio das fases) dá replay value genuíno — cada run pode ser diferente. As fases de All-Range Mode quebram o trilho fixo para dogfighting livre. As falas dos personagens viraram cultura de meme décadas depois, mas o design de chefes ainda se sustenta hoje. Uma run completa dura só ~20 minutos, o que torna fácil jogar várias vezes na mesma sessão do clube.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Busque a rota mais difícil (via objetivos secretos no meio da fase) para os melhores chefes e o final "verdadeiro".</li>
+        <li>"Do a barrel roll" (duplo toque + gatilho) de fato deflete projéteis — não é só meme, é útil de verdade.</li>
+        <li>As fases de All-Range Mode liberam voo livre — use para posicionar tiros nos chefes.</li>
+        <li>Hoje em dia, Nintendo Switch Online + Expansion Pack é o acesso legal mais fácil; o N64 original precisa do Rumble Pak para a experiência completa.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Plataforma:</strong> Sem versão nativa Steam Deck. Melhor acesso hoje é via Nintendo Switch Online + Expansion Pack ou emulação.</div>
+    </div>
+  </div>
+
+  <!-- #11 SECRET OF MANA + CASTLEVANIA -->
   <div id="card-secret-mana" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2u6w.webp" alt="Secret of Mana" onerror="this.style.display='none'">
@@ -1661,8 +1776,49 @@
     </div>
   </div>
 
-  <!-- #13 SHOVEL KNIGHT -->
+  <!-- COMMANDER KEEN 4 — CLUBE DO GAME DEZEMBRO -->
   <h2 class="section-label">Dezembro</h2>
+  <div id="card-keen4" class="game-card status-clube">
+    <div class="card-header">
+      <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co25s3.webp" alt="Commander Keen 4: Secret of the Oracle" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#24 · Dezembro — Clube do Game <span class="clube-badge">🎲 indicado por Sent</span></div>
+        <h3 class="card-title">Commander Keen 4: Secret of the Oracle</h3>
+        <div class="card-subtitle">id Software / Apogee Software · 1991 · Plataforma 2D</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>N/A</strong> (pré-Metacritic)</span>
+          <span class="meta-chip">HLTB <strong>~4h campanha / ~6h explorando</strong></span>
+          <span class="meta-chip">Plataforma <strong>MS-DOS (emulação)</strong></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>1991 (15 de dezembro, shareware)</dd>
+        <dt>Dev/Pub</dt><dd>id Software / Apogee Software</dd>
+        <dt>Gênero</dt><dd>Plataforma 2D / Run-and-gun leve</dd>
+        <dt>Diretor</dt><dd>Tom Hall</dd>
+        <dt>Fases</dt><dd>18 fases principais</dd>
+        <dt>Plataforma</dt><dd>MS-DOS — via DOSBox/GOG hoje</dd>
+        <dt>HLTB</dt><dd>~4h campanha completa / ~6h explorando segredos</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Quarto episódio da série Commander Keen, primeira metade do pacote "Goodbye, Galaxy!" (episódios 4 e 5). Você é Billy Blaze, um garoto de 8 anos gênio que veste um capacete de futebol americano e usa peças de eletrodomésticos como arma e veículo para explorar o espaço. É considerado o pico técnico e de level design da era clássica de Commander Keen, com sprites maiores e mais detalhados que os episódios anteriores.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O level design é bem mais ambicioso e labiríntico que os episódios 1–3, com bastante conteúdo secreto escondido fora do caminho óbvio. A trilha AdLib é icônica da era shareware. É um dos primeiros jogos de plataforma da id Software antes de DOOM — já mostra o cuidado de design que definiria os clássicos posteriores do estúdio.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Sem checkpoints dentro das fases e morte em um hit — salve com frequência.</li>
+        <li>Vale jogar pela versão da GOG.com, que já vem com o DOSBox pré-configurado, em vez de tentar rodar DOS puro.</li>
+        <li>Mesmo curto, tem segredos genuínos escondidos — vale explorar antes de avançar de fase.</li>
+        <li>É o quarto episódio da série mas funciona standalone — não precisa dos episódios 1–3 pra aproveitar.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Como jogar hoje:</strong> GOG.com (DOSBox pré-configurado) é o caminho mais simples. Também roda bem via o port fã "Commander Genius".</div>
+    </div>
+  </div>
+
+  <!-- #13 SHOVEL KNIGHT -->
   <div id="card-shovel-knight" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobaa7.webp" alt="Shovel Knight" onerror="this.style.display='none'">
@@ -1802,7 +1958,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>Roadmap 2026 · Atualizado em 25 de junho de 2026</p>
+    <p>Roadmap 2026 · Atualizado em 2 de agosto de 2026</p>
     <p>Dados de <a href="https://howlongtobeat.com" target="_blank">HowLongToBeat</a> · <a href="https://www.metacritic.com" target="_blank">Metacritic</a> · <a href="https://www.igdb.com" target="_blank">IGDB</a></p>
   </footer>
 
