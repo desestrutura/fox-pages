@@ -687,15 +687,15 @@
       <div class="stats-section-label">Jogos 2026</div>
       <div class="stats-row">
         <div class="stat">
-          <div class="stat-value">20</div>
+          <div class="stat-value">21</div>
           <div class="stat-label">Total</div>
         </div>
         <div class="stat">
-          <div class="stat-value">6</div>
+          <div class="stat-value">7</div>
           <div class="stat-label">Concluídos</div>
         </div>
         <div class="stat">
-          <div class="stat-value">3</div>
+          <div class="stat-value">4</div>
           <div class="stat-label">Jogando</div>
         </div>
         <div class="stat">
@@ -703,7 +703,7 @@
           <div class="stat-label">Pausados</div>
         </div>
         <div class="stat">
-          <div class="stat-value">9</div>
+          <div class="stat-value">8</div>
           <div class="stat-label">Pendentes</div>
         </div>
         <div class="stats-divider"></div>
@@ -718,19 +718,19 @@
       <div class="stats-section-label">Horas estimadas — 2026</div>
       <div class="stats-row">
         <div class="stat">
-          <div class="stat-value">~560h</div>
+          <div class="stat-value">~569h</div>
           <div class="stat-label">Total do ano</div>
         </div>
         <div class="stat">
-          <div class="stat-value">~170h</div>
+          <div class="stat-value">~177h</div>
           <div class="stat-label">Jogadas</div>
         </div>
         <div class="stat">
-          <div class="stat-value">~454h</div>
+          <div class="stat-value">~456h</div>
           <div class="stat-label">Restantes</div>
         </div>
         <div class="stat">
-          <div class="stat-value">30%</div>
+          <div class="stat-value">31%</div>
           <div class="stat-label">Progresso</div>
         </div>
       </div>
@@ -786,15 +786,20 @@
       <span class="summary-game"><a href="#card-ffxiv">FFXIV: Dawntrail (patches 7.3–7.5)</a> <span class="status-pill pill-paused">⏳ aguardando 7.56</span></span>
       <span class="tag tag-ongoing">∞ ongoing</span>
     </div>
-    <div class="summary-row">
+    <div class="summary-row done">
       <span class="summary-month">Jul</span>
-      <span class="summary-game"><a href="#card-stanley">The Stanley Parable</a> <span class="clube-badge">🎲 Paulo</span></span>
+      <span class="summary-game"><a href="#card-stanley">The Stanley Parable</a> <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-short">~6h</span>
     </div>
     <div class="summary-row" style="background: var(--paused-bg);">
       <span class="summary-month">Jul</span>
       <span class="summary-game"><a href="#card-silksong">Hollow Knight: Silksong</a> <span class="status-pill pill-paused">⏸ pausado</span></span>
       <span class="tag tag-medium">~35h</span>
+    </div>
+    <div class="summary-row" style="background: var(--playing-bg);">
+      <span class="summary-month">Ago</span>
+      <span class="summary-game"><a href="#card-megazx">Mega Man ZX</a> <span class="status-pill pill-playing">jogando</span></span>
+      <span class="tag tag-short">~9h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Ago</span>
@@ -1357,19 +1362,26 @@
     </div>
   </div>
   <!-- STANLEY PARABLE — CLUBE DO GAME JULHO -->
-  <div class="section-label">Julho — Clube do Game</div>
-  <div id="card-stanley" class="game-card">
+  <div class="section-label">Julho — Concluído</div>
+  <div id="card-stanley" class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1x7d.webp" alt="The Stanley Parable" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#11 · Julho — Clube do Game <span class="clube-badge">🎲 indicado por Paulo</span></div>
-        <div class="card-title">The Stanley Parable</div>
+        <div class="card-title">The Stanley Parable <span class="status-pill pill-done">✓ concluído</span></div>
         <div class="card-subtitle">Galactic Cafe · 2013 · Walking Simulator / Meta-narrativa</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>90</strong></span>
           <span class="meta-chip">OpenCritic <strong>90</strong> — Mighty (98% rec.)</span>
           <span class="meta-chip">HLTB <strong>~2h por run / ~6h explorando</strong></span>
           <span class="meta-chip">Steam <strong>~R$12 (base ~R$25)</strong></span>
+        </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            09 Jul 2026 → 09 Jul 2026
+          </span>
+          <span class="foxscore"><span class="foxscore-label">FoxScore</span> 3.5 / 5 <span class="foxscore-tier tier-a">A · Inventivo / Refinado</span></span>
         </div>
       </div>
     </div>
@@ -1445,6 +1457,59 @@
   </div>
 
   <!-- MINA THE HOLLOWER -->
+  <!-- MEGA MAN ZX — CLUBE DO GAME AGOSTO -->
+  <div class="section-label">Agosto — Clube do Game</div>
+  <div id="card-megazx" class="game-card status-playing status-clube">
+    <div class="card-header">
+      <img class="card-cover" src="https://upload.wikimedia.org/wikipedia/en/8/81/Mega_Man_ZX_Coverart.png" alt="Mega Man ZX" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#21 · Agosto — Clube do Game <span class="clube-badge">🎲 indicado por Rafão</span></div>
+        <div class="card-title">Mega Man ZX <span class="status-pill pill-playing">jogando</span></div>
+        <div class="card-subtitle">Inti Creates / Capcom · 2006 (DS) / 2020 (Legacy Collection) · Action-platformer / Metroidvania</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>76</strong></span>
+          <span class="meta-chip">HLTB <strong>~9h campanha / ~17–18h 100%</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado (Legacy Collection)</strong></span>
+        </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Início: 01 Ago 2026
+          </span>
+        </div>
+        <div class="progress-bar-container" style="margin-top: 10px;">
+          <div class="progress-bar" style="width: 10%;"></div>
+        </div>
+        <div class="progress-label">~10% concluído · <strong>Tutorial concluído — boss Serpent derrotado</strong> · ~8h restantes</div>
+      </div>
+    </div>
+    <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2006 (DS) / 2020 (Mega Man Zero/ZX Legacy Collection)</dd>
+        <dt>Dev/Pub</dt><dd>Inti Creates / Capcom</dd>
+        <dt>Gênero</dt><dd>Action-platformer / Metroidvania</dd>
+        <dt>Metacritic</dt><dd>76 (DS)</dd>
+        <dt>OpenCritic</dt><dd>N/A (pré-indexação)</dd>
+        <dt>HLTB</dt><dd>~9h campanha / ~17–18h completionist</dd>
+        <dt>Plataforma</dt><dd>DS (original) · PC, PS4, Xbox One, Switch (via Legacy Collection)</dd>
+        <dt>Steam Deck</dt><dd>Verificado (via Mega Man Zero/ZX Legacy Collection)</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Se passa 200 anos após a série Mega Man Zero, num mundo onde Reploids e humanos convivem sob tensão crescente. Você joga como Vent ou Aile, um caçador de Mavericks comum até encontrar um Biometal — artefato que permite se transformar em um Mega Man de verdade. Desenvolvido pela Inti Creates, mesma equipe da série Zero, ZX abandona o formato de seleção de fases clássico da franquia em favor de um mapa aberto e interconectado, dividido em Areas A a N.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">O sistema de Biometals é o grande diferencial: Model X (equilibrado, tiro à distância), Model Z (melee agressivo, alto dano) e Model H/L (mobilidade, dash aquático, hookshot) podem ser trocados livremente em combate, cada um com sua própria barra de vida. A estrutura Metroidvania — com áreas que só se abrem com formas específicas — dá um motivo real para voltar a mapas antigos. A trilha sonora mistura a pegada eletrônica clássica da série X com temas mais sombrios herdados de Zero.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>A escolha entre Vent e Aile muda pouco na história principal — pequenas diferenças de diálogo e um chefe opcional. Não existe escolha "errada".</li>
+        <li>Cada Biometal tem barra de vida própria — trocar de forma no meio de um combate é uma tática de sobrevivência válida, não só de exploração.</li>
+        <li>Vale voltar a áreas já visitadas depois de obter novos Models — vários itens e Sub Tanks só ficam acessíveis com formas específicas.</li>
+        <li>A Legacy Collection traz Casual Scenario Mode e Save-Assist — ótimos para quem quer focar na história sem travar na dificuldade mais alta do DS original.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Preço:</strong> a Mega Man Zero/ZX Legacy Collection (que reúne Zero 1–4, ZX e ZX Advent) custa base ~R$129 na Steam BR, com descontos frequentes de até 67% para ~R$43.</div>
+    </div>
+  </div>
+
   <div class="section-label">Agosto — com Genshin Impact 7.0 lançando no dia 12</div>
   <div id="card-mina" class="game-card">
     <div class="card-header">
