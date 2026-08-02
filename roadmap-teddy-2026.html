@@ -14,10 +14,10 @@
     --accent: #e8c97a;
     --accent2: #c45e3e;
     --text: #e2e0d8;
-    --text-muted: #7a7870;
-    --text-dim: #4a4845;
+    --text-muted: #a39e96;
+    --text-dim: #8a8580;
     --coop-accent: #6a9fb5;
-    --long: #c45e3e;
+    --long: #d9805f;
     --medium: #c4963e;
     --live: #7ab87a;
     --radius: 6px;
@@ -134,6 +134,17 @@
     text-align: right;
     font-size: 12px;
   }
+  .summary-table th {
+    padding: 0 0 10px;
+    text-align: left;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-table th:last-child { text-align: right; }
   .badge {
     display: inline-flex;
     align-items: center;
@@ -149,7 +160,7 @@
   .badge-coop { background: rgba(106, 159, 181, 0.12); color: var(--coop-accent); }
   .badge-live { background: rgba(122, 184, 122, 0.12); color: var(--live); }
   .badge-mmo { background: rgba(180, 130, 200, 0.15); color: #b47fd4; }
-  .badge-wishlist { background: rgba(100, 100, 110, 0.12); color: #6e6d6a; border: 1px solid rgba(100, 100, 110, 0.2); }
+  .badge-wishlist { background: rgba(100, 100, 110, 0.12); color: #948f89; border: 1px solid rgba(100, 100, 110, 0.2); }
   .now-playing {
     display: inline-block;
     width: 6px;
@@ -170,9 +181,6 @@
     padding: 52px 0;
     border-bottom: 1px solid var(--border);
     animation: fadeIn 0.4s ease both;
-  }
-  .game-entry.completed {
-    opacity: 0.72;
   }
   .game-entry.completed .game-title {
     text-decoration: line-through;
@@ -393,10 +401,8 @@
   .wishlist-entry {
     padding: 40px 0;
     border-bottom: 1px solid var(--border);
-    opacity: 0.75;
   }
   .wishlist-entry:last-child { border-bottom: none; }
-  .wishlist-entry:hover { opacity: 1; transition: opacity 0.2s; }
   .wishlist-game-header { margin-bottom: 24px; }
   .wishlist-queue {
     font-size: 11px;
@@ -450,6 +456,13 @@
     <div class="container">
       <p class="section-label">Resumo visual</p>
       <table class="summary-table">
+        <thead>
+          <tr>
+            <th scope="col">Período</th>
+            <th scope="col">Jogo</th>
+            <th scope="col">Duração / status</th>
+          </tr>
+        </thead>
         <tbody>
           <tr style="opacity:0.65;">
             <td>Abr–Mai</td>
@@ -517,47 +530,47 @@
               <span style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);font-weight:500;">Wishlist — sem prazo</span>
             </td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">Clair Obscur: Expedition 33</td>
             <td><span class="badge badge-wishlist">Longo ~35h</span></td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">Fire Emblem: Fortune's Weave <span style="font-size:10px;color:var(--text-dim);">· 17 Set</span></td>
             <td><span class="badge badge-wishlist">~50h</span></td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">Zelda: Ocarina of Time Remake <span style="font-size:10px;color:var(--text-dim);">· 2026</span></td>
             <td><span class="badge badge-wishlist">~30h</span></td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">Kingdom Hearts Collection [I~III] + IV <span style="font-size:10px;color:var(--text-dim);">· 8 Out</span></td>
             <td><span class="badge badge-wishlist">~200h+</span></td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">Nintendo Switch Sports Resort <span style="font-size:10px;color:var(--text-dim);">· 22 Out</span></td>
             <td><span class="badge badge-wishlist">Party</span></td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">Rhythm Heaven Groove <span style="font-size:10px;color:var(--text-dim);">· 2 Jul</span></td>
             <td><span class="badge badge-wishlist">~15h</span></td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">Final Fantasy Resonance <span style="font-size:10px;color:var(--text-dim);">· 22 Out</span></td>
             <td><span class="badge badge-wishlist">~40h</span></td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">JJK Rumble: Survivaton <span style="font-size:10px;color:var(--text-dim);">· 2026</span></td>
             <td><span class="badge badge-wishlist">Multiplayer</span></td>
           </tr>
-          <tr style="opacity: 0.5;">
+          <tr>
             <td style="color: var(--text-dim); font-style: italic;">Wishlist</td>
             <td style="color: var(--text-dim);">Pokémon Pokopia — Expansion Pass <span style="font-size:10px;color:var(--text-dim);">· Ago 2026</span></td>
             <td><span class="badge badge-wishlist">DLC</span></td>
@@ -650,14 +663,14 @@
           <div class="meta-item"><p class="meta-label">Desenvolvedora</p><p class="meta-value">HoYoverse</p></div>
           <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">Action-RPG / Open World</p></div>
           <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">PC · Mobile · PS4/5</p></div>
-          <div class="meta-item"><p class="meta-label">Meta atual</p><p class="meta-value highlight">Natlan → patch atual</p></div>
-          <div class="meta-item"><p class="meta-label">Progresso</p><p class="meta-value">Natlan — Archon Quest Ato IV</p></div>
+          <div class="meta-item"><p class="meta-label">Meta atual</p><p class="meta-value highlight">Natlan → Nod-Krai (6.x, patch atual)</p></div>
+          <div class="meta-item"><p class="meta-label">Progresso</p><p class="meta-value">Natlan quase concluído — quest "A Space and Time for You" finalizada</p></div>
           <div class="meta-item"><p class="meta-label">Deadline</p><p class="meta-value">Antes de agosto</p></div>
         </div>
         <p class="game-section-title">Contexto</p>
-        <p class="game-text">Genshin Impact corre como projeto de longo prazo paralelo ao roadmap principal. O objetivo neste período é avançar da MSQ de Natlan — início da nação do fogo — até o conteúdo do patch atual (versão 6.x), fechando a lacuna entre o progresso atual e o ritmo dos updates regulares do jogo.</p>
+        <p class="game-text">Genshin Impact corre como projeto de longo prazo paralelo ao roadmap principal. O objetivo neste período é avançar da MSQ de Natlan — nação do fogo, governada pela Pyro Archon Mavuika — até o conteúdo do patch atual, fechando a lacuna entre o progresso atual e o ritmo dos updates regulares do jogo.</p>
         <p class="game-section-title">Foco do período</p>
-        <p class="game-text">Natlan é uma das nações com mais conteúdo paralelo integrado à MSQ — os arquétipos de tribos e o sistema de Phlogiston mudam substancialmente como você navega o mundo. O Ato IV da Archon Quest marca o ponto em que a tensão entre as tribos e a Pyro Archon Murata começa a se intensificar — os próximos atos costumam aprofundar as revelações sobre Abyss e a natureza dos Sabedores das Profundezas (Abyssal). Após Natlan, o arco narrativo de Snezhnaya inicia o capítulo final do ciclo atual de Teyvat, tornando o alinhamento com o conteúdo atual relevante para acompanhar os banners de personagens e os eventos sazonais.</p>
+        <p class="game-text">Natlan é uma das nações com mais conteúdo paralelo integrado à MSQ — os arquétipos de tribos e o sistema de Phlogiston mudam substancialmente como você navega o mundo. A quest "A Space and Time for You" fecha o Ato VI, o capítulo final da Archon Quest de Natlan, com as revelações sobre Abyss e a natureza dos Sabedores das Profundezas (Abyssal) se aprofundando ao longo do arco. Depois de Natlan, o jogo não vai direto para Snezhnaya: primeiro vem Nod-Krai, região autônoma na fronteira sul da nação Cryo, introduzida na versão 6.0 e desenvolvida ao longo dos patches 6.x — a versão 6.7 é a última antes do capítulo de Snezhnaya (7.0), que aí sim inicia o desfecho do ciclo atual de Teyvat. Alinhar-se com o conteúdo atual é relevante para acompanhar os banners de personagens e os eventos sazonais de Nod-Krai.</p>
         <p class="game-section-title">Dicas</p>
         <ul class="tips-list">
           <li>Natlan tem navegação vertical intensa — o sistema de Phlogiston substitui o stamina em áreas específicas. Familiarize-se cedo.</li>
@@ -671,7 +684,7 @@
       <article class="game-entry">
         <div class="game-header">
           <div>
-            <p class="game-number">04</p>
+            <p class="game-number">04 — em andamento 🎯</p>
             <h2 class="game-title">Tokyo Mirage Sessions<br>#FE Encore</h2>
             <p class="game-period">Junho – Julho</p>
           </div>
@@ -685,7 +698,7 @@
           <div class="meta-item"><p class="meta-label">OpenCritic</p><p class="meta-value highlight">82 — Strong</p></div>
           <div class="meta-item"><p class="meta-label">HLTB</p><p class="meta-value">~38h história / ~50h extras</p></div>
           <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">Nintendo Switch (exclusivo)</p></div>
-          <div class="meta-item"><p class="meta-label">Progresso</p><p class="meta-value highlight">Prólogo + Capítulo 1 concluídos</p></div>
+          <div class="meta-item"><p class="meta-label">Progresso</p><p class="meta-value highlight">Capítulo 4 em andamento</p></div>
         </div>
         <p class="game-section-title">Contexto</p>
         <p class="game-text">Anunciado como "Shin Megami Tensei × Fire Emblem", o jogo que chegou foi algo completamente diferente: um JRPG vibrante ambientado na indústria idol de Tóquio, usando personagens de Fire Emblem como parceiros de combate. É mais SMT na mecânica do que Fire Emblem. A versão Encore adiciona um capítulo extra e novas músicas.</p>
@@ -750,16 +763,16 @@
           <div class="meta-item"><p class="meta-label">Dev / Pub</p><p class="meta-value">Square Enix</p></div>
           <div class="meta-item"><p class="meta-label">Gênero</p><p class="meta-value">MMORPG</p></div>
           <div class="meta-item"><p class="meta-label">Expansão atual</p><p class="meta-value highlight">Dawntrail (7.x)</p></div>
-          <div class="meta-item"><p class="meta-label">Meta</p><p class="meta-value">Patch 7.5 antes do ano acabar</p></div>
+          <div class="meta-item"><p class="meta-label">Meta</p><p class="meta-value">Patch 7.5 "Trail to the Heavens" antes do ano acabar</p></div>
           <div class="meta-item"><p class="meta-label">Progresso</p><p class="meta-value">7.0 MSQ — Trial Everkeep concluída</p></div>
-          <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">PC · PlayStation</p></div>
+          <div class="meta-item"><p class="meta-label">Plataforma</p><p class="meta-value">PC · PlayStation · Switch 2 (disponível desde 4 Ago 2026)</p></div>
         </div>
         <p class="game-section-title">Contexto</p>
         <p class="game-text">Final Fantasy XIV: Dawntrail é a quinta expansão do MMORPG da Square Enix e marca o início de uma nova saga após a conclusão do arco de Endwalker. A expansão leva os aventureiros a Tural, um continente inspirado nas Américas pré-colombianas, em uma jornada com um tom deliberadamente mais leve e aventureiro que seu predecessor. Os patches 7.1 a 7.5 adicionam capítulos substanciais de conteúdo, incluindo raids, trials e continuações da MSQ.</p>
         <p class="game-section-title">Recap: Everkeep</p>
         <p class="game-text">Everkeep é o confronto climático do MSQ de 7.0, contra Zoraal Ja — o "Filho Resiliente" e Rei da Resolução de Alexandria, consumido pela obsessão de superar seu pai e devorando almas do próprio povo na busca por poder. Vencer essa trial fecha o arco principal de Tural do 7.0 e abre caminho para o pós-game e o início do 7.1.</p>
         <p class="game-section-title">Estrutura do objetivo</p>
-        <p class="game-text">Do meio do 7.0 ao 7.5 são aproximadamente cinco patches de Main Scenario Quest — cada um com 2–4 horas de história principal além do conteúdo de endgame opcional. Quatro meses (setembro a dezembro) são suficientes para completar a MSQ de cada patch em ritmo confortável sem precisar maratonar o endgame de cada update.</p>
+        <p class="game-text">Do meio do 7.0 ao 7.5 são aproximadamente cinco patches de Main Scenario Quest — cada um com 2–4 horas de história principal além do conteúdo de endgame opcional. Quatro meses (setembro a dezembro) são suficientes para completar a MSQ de cada patch em ritmo confortável sem precisar maratonar o endgame de cada update. O patch 7.5 chega em duas partes: a primeira em 28 de abril, batizada "Trail to the Heavens", e o fechamento definitivo de Dawntrail no patch 7.56 em 8 de setembro — que introduz o job limitado Beastmaster e encerra a série de Alliance Raids Echoes of Vana'diel.</p>
         <p class="game-section-title">Dicas</p>
         <ul class="tips-list">
           <li>Foque na MSQ principal para avançar o patch — o conteúdo de endgame (Savage, Ultimate, Criterion) é opcional e pode ser deixado para depois.</li>
@@ -821,6 +834,7 @@
           <div class="meta-item"><p class="meta-label">Plataformas</p><p class="meta-value">PC · PS5 · Xbox · Switch</p></div>
           <div class="meta-item"><p class="meta-label">Cenário</p><p class="meta-value">Paris, 1499</p></div>
           <div class="meta-item"><p class="meta-label">Protagonista</p><p class="meta-value">Rose Belmont</p></div>
+          <div class="meta-item"><p class="meta-label">Performance</p><p class="meta-value">PS5/Xbox/PC 60fps · Switch 30fps</p></div>
         </div>
         <p class="game-section-title">Contexto</p>
         <p class="game-text">Parte das celebrações do <em>40º aniversário de Castlevania</em>, desenvolvido pela Evil Empire — o studio por trás de Dead Cells — com Motion Twin em papel consultivo. Ambientado 23 anos após <em>Castlevania III: Dracula's Curse</em>, o jogo coloca na mão do jogador Rose Belmont, sucessora de Trevor e última da linhagem, numa Paris medieval ameaçada pelas forças de Dracula. Anunciado em fevereiro de 2026 no State of Play, com data confirmada no Xbox Showcase de junho.</p>
@@ -828,9 +842,10 @@
         <p class="game-text">Evil Empire tem um histórico excepcional de suporte e qualidade pós-lançamento com Dead Cells. O DNA de Metroidvania aplicado a Castlevania é uma combinação natural — e o timing de outubro, no mês do Halloween, é perfeito para uma imersão no universo gótico da franquia.</p>
         <p class="game-section-title">Dicas</p>
         <ul class="tips-list">
-          <li>Jogo novo — sem dicas estabelecidas ainda. Vale esperar primeiras impressões antes de confirmar a compra, mas o histórico da Evil Empire justifica otimismo.</li>
+          <li>Jogo novo — sem dicas estabelecidas ainda. Já saiu preview "hands-on" oficial (PlayStation Blog, 17/07) — vale ler antes do lançamento.</li>
           <li>É Xbox Play Anywhere: compra única cobre PC (Xbox Store) e Xbox Series. Steam tem licença separada.</li>
-          <li>Switch 2 não foi confirmado no trailer — possível port posterior, mas a versão Switch original está confirmada.</li>
+          <li>Switch 2 não foi confirmado no trailer — possível port posterior, mas a versão Switch original está confirmada (rodando a 30fps, contra 60fps nas outras plataformas).</li>
+          <li>Pré-venda física já aberta, incluindo a Midnight Edition com conteúdo bônus.</li>
         </ul>
       </article>
 
@@ -1160,10 +1175,11 @@
 
     </div>
   </section>
-  <div class="container">
-    <p>Roadmap 2026 · Atualizado em 9 de junho de 2026</p>
-  </div>
-</footer>
+  <footer>
+    <div class="container">
+      <p>Roadmap 2026 · Atualizado em 9 de junho de 2026</p>
+    </div>
+  </footer>
 
 </body>
 </html>
