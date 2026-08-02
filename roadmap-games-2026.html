@@ -695,7 +695,7 @@
           <div class="stat-label">Concluídos</div>
         </div>
         <div class="stat">
-          <div class="stat-value">4</div>
+          <div class="stat-value">5</div>
           <div class="stat-label">Jogando</div>
         </div>
         <div class="stat">
@@ -703,7 +703,7 @@
           <div class="stat-label">Pausados</div>
         </div>
         <div class="stat">
-          <div class="stat-value">8</div>
+          <div class="stat-value">7</div>
           <div class="stat-label">Pendentes</div>
         </div>
         <div class="stats-divider"></div>
@@ -722,15 +722,15 @@
           <div class="stat-label">Total do ano</div>
         </div>
         <div class="stat">
-          <div class="stat-value">~177h</div>
+          <div class="stat-value">~181h</div>
           <div class="stat-label">Jogadas</div>
         </div>
         <div class="stat">
-          <div class="stat-value">~456h</div>
+          <div class="stat-value">~452h</div>
           <div class="stat-label">Restantes</div>
         </div>
         <div class="stat">
-          <div class="stat-value">31%</div>
+          <div class="stat-value">32%</div>
           <div class="stat-label">Progresso</div>
         </div>
       </div>
@@ -801,9 +801,9 @@
       <span class="summary-game"><a href="#card-megazx">Mega Man ZX</a> <span class="status-pill pill-playing">jogando</span></span>
       <span class="tag tag-short">~9h</span>
     </div>
-    <div class="summary-row">
+    <div class="summary-row" style="background: var(--playing-bg);">
       <span class="summary-month">Ago</span>
-      <span class="summary-game"><a href="#card-mina">Mina the Hollower</a></span>
+      <span class="summary-game"><a href="#card-mina">Mina the Hollower</a> <span class="status-pill pill-playing">jogando</span></span>
       <span class="tag tag-medium">~25h</span>
     </div>
     <div class="summary-row">
@@ -1213,7 +1213,7 @@
   </div>
 
   <!-- 7. OUTER WILDS -->
-  <div class="section-label">Maio — Clube do Game</div>
+  <div class="section-label">Maio</div>
   <div id="card-outer-wilds" class="game-card status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co65ac.webp" alt="Outer Wilds" onerror="this.style.display='none'">
@@ -1362,7 +1362,7 @@
     </div>
   </div>
   <!-- STANLEY PARABLE — CLUBE DO GAME JULHO -->
-  <div class="section-label">Julho — Concluído</div>
+  <div class="section-label">Julho</div>
   <div id="card-stanley" class="game-card status-done status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1x7d.webp" alt="The Stanley Parable" onerror="this.style.display='none'">
@@ -1412,7 +1412,6 @@
     </div>
   </div>
 
-  <div class="section-label">Julho</div>
   <div id="card-silksong" class="game-card status-paused">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobebu.webp" alt="Hollow Knight: Silksong" onerror="this.style.display='none'">
@@ -1458,7 +1457,7 @@
 
   <!-- MINA THE HOLLOWER -->
   <!-- MEGA MAN ZX — CLUBE DO GAME AGOSTO -->
-  <div class="section-label">Agosto — Clube do Game</div>
+  <div class="section-label">Agosto</div>
   <div id="card-megazx" class="game-card status-playing status-clube">
     <div class="card-header">
       <img class="card-cover" src="https://upload.wikimedia.org/wikipedia/en/8/81/Mega_Man_ZX_Coverart.png" alt="Mega Man ZX" onerror="this.style.display='none'">
@@ -1510,19 +1509,28 @@
     </div>
   </div>
 
-  <div class="section-label">Agosto — com Genshin Impact 7.0 lançando no dia 12</div>
-  <div id="card-mina" class="game-card">
+  <div id="card-mina" class="game-card status-playing">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4g15.webp" alt="Mina the Hollower" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#13 · Agosto</div>
-        <div class="card-title">Mina the Hollower</div>
+        <div class="card-title">Mina the Hollower <span class="status-pill pill-playing">jogando</span></div>
         <div class="card-subtitle">Yacht Club Games · 2026 · Action-adventure / Top-down</div>
         <div class="card-meta">
           <span class="meta-chip">OpenCritic <strong>98% rec.</strong></span>
           <span class="meta-chip">HLTB <strong>~20–30h</strong></span>
           <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
         </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Início: 01 Ago 2026
+          </span>
+        </div>
+        <div class="progress-bar-container" style="margin-top: 10px;">
+          <div class="progress-bar" style="width: 15%;"></div>
+        </div>
+        <div class="progress-label">~15% concluído · <strong>Primeiro boss derrotado — chegando em Ossex: City Center</strong> · ~20h restantes</div>
       </div>
     </div>
     <div class="card-toggle" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
@@ -1672,7 +1680,7 @@
   </div>
 
   <!-- #11 SECRET OF MANA + CASTLEVANIA -->
-  <div class="section-label">Outubro — com Castlevania: Belmont's Curse no dia 15</div>
+  <div class="section-label">Outubro</div>
   <div id="card-secret-mana" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co2u6w.webp" alt="Secret of Mana" onerror="this.style.display='none'">
@@ -1713,7 +1721,6 @@
   </div>
 
   <!-- CASTLEVANIA: BELMONT'S CURSE -->
-  <div class="section-label">Outubro — Lançamento 15 de outubro de 2026</div>
   <div id="card-belmonts-curse" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobigs.webp" alt="Castlevania: Belmont's Curse" onerror="this.style.display='none'">
@@ -1759,7 +1766,7 @@
   </div>
 
   <!-- #12 ZELDA: BOTW -->
-  <div class="section-label">Novembro – Dezembro</div>
+  <div class="section-label">Novembro</div>
   <div id="card-botw" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg" alt="The Legend of Zelda: Breath of the Wild" onerror="this.style.display='none'">
@@ -1798,7 +1805,7 @@
   </div>
 
   <!-- #13 SHOVEL KNIGHT -->
-  <div class="section-label">Dezembro — fechamento do ano</div>
+  <div class="section-label">Dezembro</div>
   <div id="card-shovel-knight" class="game-card">
     <div class="card-header">
       <img class="card-cover" src="https://images.igdb.com/igdb/image/upload/t_cover_big/cobaa7.webp" alt="Shovel Knight" onerror="this.style.display='none'">
