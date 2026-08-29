@@ -11,6 +11,7 @@ Pages:
 - `roadmap-games-2026.html` — the main personal game roadmap for 2026 (large file).
 - `roadmap-teddy-2026.html` — a second person's separate game roadmap, same format, independent color palette.
 - `games-bucket-list.html` — "someday" games split out of the main roadmap; linked from both `index.html` and the roadmap's summary table.
+- `wishlist.html` — personal wishlist (purchases + concert tickets), grouped by category; linked from `index.html`.
 
 ## Editing workflow
 
@@ -30,3 +31,16 @@ These conventions aren't enforced by any tooling — they're just the pattern th
 - **Per-page color palette.** Each file defines its own `:root` CSS custom properties (`--bg`, `--surface`, `--accent`, `--text-muted`, etc.) — they are not shared across files. When copying a component (like the `.crumbs` breadcrumb) from one page to another, re-derive colors from that page's own `--accent`/`--text-muted`, don't hardcode the source page's hex values.
 - **Progress bars vs. static entries.** Games actively being played get `status-playing` on `.game-card`, plus a `.card-personal-row` (start date) and `.progress-bar-container` + `.progress-label`. Finished games get `status-done` and a `pill-done` status pill plus a FoxScore (`X.0 / 5` + tier `S/A/B/C/D`) instead of a progress bar. Keep the header stats block (`Total`, `Concluídos`, `Jogando`, `Pausados`, `Pendentes`, and the hours row) in sync when a game's status changes — these are hand-maintained counts, not computed.
 - **Accessibility baseline established in this repo:** all interactive toggles are keyboard-operable, month/game headings use real `<h2>`/`<h3>` (not styled `<div>`s), decorative SVG icons carry `aria-hidden="true"`, and text/background color pairs are chosen to clear ~4.5:1 contrast — don't reintroduce opacity-based "dimming" for de-emphasized text (e.g. wishlist/paused entries), since stacking `opacity` on top of an already-muted color is what broke contrast before. Prefer a dedicated lighter color, border style, or desaturated image instead.
+
+## wishlist.html conventions
+
+This page has a different shape than the roadmap pages (no accordions, no per-month sections) — its own patterns to match by hand:
+
+- **Product cards vs. list cards.** Each item under a category is an `.item-card` with a small `.item-thumb` product photo, *except* external "browse the whole list yourself" links (Steam wishlist, Amazon CD/book wishlists) — those use `.item-card.external` and never get a thumbnail, since there's no single product to photograph.
+- **Subgroups for sub-collections.** Categories that span sub-collections use `.subgroup` / `.subgroup-label` (an `<h3>`) inside the category section — by store in Vestuário (Flowy Signature / Levi's / Sound and Vision), by year in Ingressos (2026 / 2027). Only add subgroups where a flat list would actually be confusing.
+- **Product/artist photos must be verified before use**, same rule as the IGDB convention above — load the og:image or product photo and visually confirm it's the right item/band before embedding it. Product links go dead over time (a discontinued Flowy Signature item, a dead Artex URL) — when that happens, drop the item's photo and flag the dead link to the user rather than guessing a replacement.
+- **Amazon links get `(Amazon)` appended to the item title** so it's obvious at a glance which links route through Amazon.
+- **Ticket cards (`.ticket-card`) use the artist/band photo as the card's own `background-image`** (not a small thumbnail like product cards), with a dark `::before` overlay (`rgba(13,15,17,0.88)`) so text stays legible over the photo. Prefer Last.fm (`lastfm-img.freetls.fastly.net`) photos over Wikipedia when the user supplies them — still verify visually first. `background-position` needs per-card tuning so faces land in the visible strip; the direction is counterintuitive — a *higher* Y% shows more of the *bottom* of the photo, a *lower* Y% shows more of the *top*. Tune it live in the browser (adjust, screenshot, repeat) rather than estimating from the source image's proportions.
+- **The date badge (`.ticket-date`) is the only place the date appears** — don't repeat it in `.ticket-venue` (e.g. "📍 Palestra Itália", not "📍 Palestra Itália · 27/10/2026").
+- **Ticket status badges mean different things — ask, don't assume.** Already-bought tickets get `.resolved` (dashed border, strikethrough title, muted price) plus a `.resolved-badge` reading "✓ comprado". Tickets received as a gift use the same `.resolved` visual treatment but a `.gift-badge` ("🎁 presente", pink) instead of the comprado badge.
+- **No item counts, no summary/stats bar.** Category headers are just the icon + name (no "N itens" count), and there's no totals bar at the top of the page — both were removed per explicit preference, don't reintroduce them.

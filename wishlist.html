@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist | fox-pages</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f11;
+    --surface: #161a1f;
+    --surface-hover: #1c2127;
+    --border: #242a32;
+    --text: #e8e6e3;
+    --text-muted: #8b9098;
+    --accent: #7eb8da;
+    --accent-dim: #4a7a96;
+    --green: #6bcf7f;
+    --yellow: #e5c07b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  /* ——— Header ——— */
+  .crumbs {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .crumbs a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  .crumbs a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  header { margin-bottom: 44px; }
+
+  header h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  /* ——— Category sections ——— */
+  .category { margin-bottom: 44px; }
+
+  .category:last-child { margin-bottom: 0; }
+
+  .section-label {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--text);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label .icon { font-size: 1.05rem; }
+
+  .subgroup { margin-bottom: 20px; }
+
+  .subgroup:last-child { margin-bottom: 0; }
+
+  .subgroup-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+  }
+
+  /* ——— Product item cards ——— */
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 12px;
+  }
+
+  .item-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.2s, background 0.15s, transform 0.15s;
+  }
+
+  .item-card:hover {
+    border-color: #3a424d;
+    background: var(--surface-hover);
+    transform: translateY(-2px);
+  }
+
+  .item-thumb {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: var(--border);
+  }
+
+  .item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .item-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .item-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  .item-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+  }
+
+  .item-price {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--yellow);
+  }
+
+  .item-arrow {
+    color: var(--accent-dim);
+    font-size: 0.85rem;
+  }
+
+  .item-card.external {
+    border-style: dashed;
+  }
+
+  .item-card.external .item-price {
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ——— Ticket list ——— */
+  .ticket-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ticket-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    background-color: var(--surface);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text);
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .ticket-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 15, 17, 0.88);
+    transition: background 0.15s;
+  }
+
+  .ticket-card:hover::before {
+    background: rgba(13, 15, 17, 0.78);
+  }
+
+  .ticket-card:hover {
+    border-color: #3a424d;
+  }
+
+  .ticket-date {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    min-width: 60px;
+    padding: 8px 4px;
+    background: rgba(126, 184, 218, 0.12);
+    border: 1px solid rgba(126, 184, 218, 0.25);
+    border-radius: 8px;
+    backdrop-filter: blur(6px);
+  }
+
+  .ticket-date .day {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .ticket-date .month {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-top: 3px;
+  }
+
+  .ticket-info {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .ticket-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .ticket-venue {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .ticket-note {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  .ticket-price {
+    position: relative;
+    z-index: 1;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--yellow);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .resolved-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 500;
+    background: rgba(107, 207, 127, 0.1);
+    color: var(--green);
+    border: 1px solid rgba(107, 207, 127, 0.2);
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+
+  .gift-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.66rem;
+    font-weight: 500;
+    background: rgba(232, 150, 196, 0.12);
+    color: #e896c4;
+    border: 1px solid rgba(232, 150, 196, 0.25);
+    white-space: nowrap;
+    margin-left: 8px;
+  }
+
+  .ticket-card.resolved {
+    border-style: dashed;
+  }
+
+  .ticket-card.resolved .ticket-title {
+    text-decoration: line-through;
+    text-decoration-color: var(--text-muted);
+    color: var(--text-muted);
+  }
+
+  .ticket-card.resolved .ticket-price {
+    color: var(--text-muted);
+  }
+
+  .ticket-card.resolved .ticket-date {
+    background: rgba(107, 207, 127, 0.08);
+    border-color: rgba(107, 207, 127, 0.2);
+  }
+
+  .ticket-card.resolved .ticket-date .day {
+    color: var(--green);
+  }
+
+  footer {
+    margin-top: 56px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  footer p { margin-bottom: 6px; }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  footer a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  @media (max-width: 480px) {
+    .items-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="crumbs"><a href="index.html">fox-pages</a> / Wishlist</div>
+
+  <header>
+    <h1>Wishlist</h1>
+    <p>listinha de coisas eu desejei num breve vislumbre ou que eu estou querendo há anos! os preços são o que estava quando pesquisei e podem variar com promoções ou aumentos (infelizmente)</p>
+  </header>
+
+  <!-- Eletrônicos -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">🖥️</span> Eletrônicos</h2>
+    <div class="items-grid">
+      <a class="item-card" href="https://a.co/d/iWlQe1r" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://m.media-amazon.com/images/I/412NOO-aVRL._AC_SX679_.jpg" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">Dock station universal Dell (Amazon)</div>
+          <div class="item-note">Modelo UD22 — HDMI e 6 portas USB 3.0</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 1.360</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+      <a class="item-card" href="https://a.co/d/2k3DlzN" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://m.media-amazon.com/images/I/51XVpQn0xVL._AC_SX679_.jpg" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">Barra de luz para monitor Xiaomi (Amazon)</div>
+          <div class="item-note">LED com controle remoto, sem refletir na tela</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 620</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Vestuário -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">👕</span> Vestuário</h2>
+
+    <div class="subgroup">
+      <h3 class="subgroup-label">Flowy Signature</h3>
+      <div class="items-grid">
+        <a class="item-card" href="https://flowysignature.com/products/bermuda-fs-902?variant=40820150304953" target="_blank" rel="noopener">
+          <img class="item-thumb" src="https://flowysignature.com/cdn/shop/files/Bermuda_FS_902_FLOWY_SIGNATURE_5cc5e6f602db7bee.webp?v=1787143136" alt="" loading="lazy">
+          <div class="item-content">
+            <div class="item-title">Bermuda FS902</div>
+            <div class="item-note">Preta ou navy blue, tamanho L?</div>
+            <div class="item-card-footer">
+              <span class="item-price">~R$ 300</span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="item-card" href="https://flowysignature.com/products/calca-fs-228?variant=42739484918006" target="_blank" rel="noopener">
+          <img class="item-thumb" src="https://flowysignature.com/cdn/shop/products/Cal_a_FS_228_FLOWY_SIGNATURE_8a48b1db3ac14a69.jpg?v=1787143250" alt="" loading="lazy">
+          <div class="item-content">
+            <div class="item-title">Calça FS228</div>
+            <div class="item-note">Corte amplo plissado, veste do P ao G</div>
+            <div class="item-card-footer">
+              <span class="item-price">~R$ 390</span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="subgroup">
+      <h3 class="subgroup-label">Levi's</h3>
+      <div class="items-grid">
+        <a class="item-card" href="https://www.levi.com.br/calca-jeans-levis-501-original-preta-0050106600660/p" target="_blank" rel="noopener">
+          <img class="item-thumb" src="https://lojalevis.vtexassets.com/arquivos/ids/666935/005010660_1.jpg?v=639009150756500000" alt="" loading="lazy">
+          <div class="item-content">
+            <div class="item-title">Calça jeans 501 Original preta</div>
+            <div class="item-note">Tamanho 42BR</div>
+            <div class="item-card-footer">
+              <span class="item-price">~R$ 380</span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="item-card" href="https://www.levi.com.br/calca-jeans-501-levisoriginal-0050133663366/p" target="_blank" rel="noopener">
+          <img class="item-thumb" src="https://lojalevis.vtexassets.com/arquivos/ids/584752/005013366_1.jpg?v=638834494410930000" alt="" loading="lazy">
+          <div class="item-content">
+            <div class="item-title">Calça jeans 502 Original lavagem escura</div>
+            <div class="item-note">Tamanho 42BR</div>
+            <div class="item-card-footer">
+              <span class="item-price">~R$ 290</span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="subgroup">
+      <h3 class="subgroup-label">Sound and Vision</h3>
+      <div class="items-grid">
+        <a class="item-card" href="https://www.soundandvision.com.br/produtos/akira/" target="_blank" rel="noopener">
+          <img class="item-thumb" src="https://acdn-us.mitiendanube.com/stores/002/065/182/products/76f19f8a-7092-4d24-8c3c-e6c1c07da7bb1-f24fa341c53154190e16496503073207-640-0.jpg" alt="" loading="lazy">
+          <div class="item-content">
+            <div class="item-title">Camiseta Akira</div>
+            <div class="item-note">Tamanho M?</div>
+            <div class="item-card-footer">
+              <span class="item-price">~R$ 100</span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="item-card" href="https://www.soundandvision.com.br/produtos/dft-punks/?variant=664679691" target="_blank" rel="noopener">
+          <img class="item-thumb" src="https://acdn-us.mitiendanube.com/stores/002/065/182/products/img_21541-403797a60db6cd185416910134751345-640-0.jpg" alt="" loading="lazy">
+          <div class="item-content">
+            <div class="item-title">Camiseta Daft Punk</div>
+            <div class="item-note">Tamanho M?</div>
+            <div class="item-card-footer">
+              <span class="item-price">~R$ 100</span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="item-card" href="https://www.soundandvision.com.br/produtos/twin-peaks/" target="_blank" rel="noopener">
+          <img class="item-thumb" src="https://acdn-us.mitiendanube.com/stores/002/065/182/products/twin021-8d92714c5f5651bcc416478204869003-640-0.jpg" alt="" loading="lazy">
+          <div class="item-content">
+            <div class="item-title">Camiseta Twin Peaks preta</div>
+            <div class="item-note">Tamanho M?</div>
+            <div class="item-card-footer">
+              <span class="item-price">~R$ 100</span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </a>
+        <a class="item-card" href="https://www.soundandvision.com.br/produtos/cherry-pie-in-twin-peaks/" target="_blank" rel="noopener">
+          <img class="item-thumb" src="https://acdn-us.mitiendanube.com/stores/002/065/182/products/img_0917-2-45840f7818a71bdb3917454322178864-640-0.jpg" alt="" loading="lazy">
+          <div class="item-content">
+            <div class="item-title">Camiseta Cherry Pie in Twin Peaks</div>
+            <div class="item-note">Tamanho M?</div>
+            <div class="item-card-footer">
+              <span class="item-price">~R$ 105</span>
+              <span class="item-arrow" aria-hidden="true">↗</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academia -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">🏋️</span> Academia</h2>
+    <div class="items-grid">
+      <a class="item-card" href="https://www.adidas.com.br/shorts-malha-colorblock-aeroready/IP2573.html" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/71047d7d400744c49395a2fc62f1bb7a_9366/Shorts_Malha_Colorblock_Aeroready_Azul_IP2573_21_model.jpg" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">Shorts Adidas Aeroready colorblock</div>
+          <div class="item-note">Cor legend ink / wonder blue, tamanho M</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 149</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+      <a class="item-card" href="https://www.nike.com.br/jaqueta-nike-club-masculina-058795.html?cor=7T" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://imgnike-a.akamaihd.net/1300x1300/0587957TA2.jpg" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">Jaqueta Nike Club masculina</div>
+          <div class="item-note">Cinza, tamanho G</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 360</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+      <a class="item-card" href="https://www.nike.com.br/tenis-nike-flex-experience-run-12-masculino-028349.html?cor=IM" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://imgnike-a.akamaihd.net/1300x1300/028349IMA8.jpg" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">Tênis Nike Flex Experience Run 12</div>
+          <div class="item-note">Preto, tamanho 41</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 300</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Perfumes e cosméticos -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">🧴</span> Perfumes e cosméticos</h2>
+    <div class="items-grid">
+      <a class="item-card" href="https://www.sephora.com.br/perfume-dior-fahrenheit-masculino-eau-de-toilette-prd00197-PRD00197.html" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://www.sephora.com.br/dw/image/v2/BFJC_PRD/on/demandware.static/-/Sites-masterCatalog_Sephora/pt_BR/dw3ae9f5a6/images/hi-res-BR/Frag/Nova%20pasta/Quele/LANCOME/DIOR/1.%203348900012189_1000px.jpg?sw=556&sh=680&sm=fit" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">Fahrenheit, Dior</div>
+          <div class="item-note">50ml — pq nunca usei</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 640</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Lar e decoração -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">🏠</span> Lar e decoração</h2>
+    <div class="items-grid">
+      <a class="item-card" href="https://www.colchoesemma.com.br/kit-2-travesseiros-antiestresse/sku-EPWCP050070AAA/" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://eu-images.contentstack.com/v3/assets/blt167b24547e5b1906/blta2b62e3b6435b4db/6717ca76c4558a2d84e1bbca/Kit_2_Antistresse_BF.png" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">Kit 2 travesseiros Emma antiestresse</div>
+          <div class="item-note">Altura ajustável, respirável e hipoalergênico</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 700</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Música / audiofilia -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">🎧</span> Música / audiofilia</h2>
+    <div class="items-grid">
+      <a class="item-card" href="https://pt.aliexpress.com/item/1005008317894744.html" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://ae-pic-a1.aliexpress-media.com/kf/S110fb6b91d1141c4ab638cc184ff0d39E.jpg" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">DAP Fiio JM21</div>
+          <div class="item-note">Android, DAC USB, Bluetooth/Wi-Fi, 32GB</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 1.500</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+      <a class="item-card" href="https://a.co/d/08AVVX1o" target="_blank" rel="noopener">
+        <img class="item-thumb" src="https://m.media-amazon.com/images/I/51blB5QN6WL._AC_SX679_.jpg" alt="" loading="lazy">
+        <div class="item-content">
+          <div class="item-title">FiiO DM13 (Amazon)</div>
+          <div class="item-note">Leitor de CD portátil</div>
+          <div class="item-card-footer">
+            <span class="item-price">~R$ 1.469</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+      <a class="item-card external" href="https://www.amazon.com.br/hz/wishlist/dl/invite/AQICAHild4Vpadjqcz7bdgUf6Qu6-OaRt7P_FJRNNbyMlg-OQwHBNOmjCVwKB5J3u19WZ18qAAAAkTCBjgYJKoZIhvcNAQcGoIGAMH4CAQAweQYJKoZIhvcNAQcBMB4GCWCGSAFlAwQBLjARBAyPpuxkAbUVj8YFNz4CARCATJcRVdyjLDCpMwkhtNlILNKPjjrX5GgjbmzEYUZny-UyIa3mo3YdtSRfRRQJCa1WYPbHkpXw0F1th5bdcArjhyz7dIrxqdnFdlZENcg?ref_=wl_share" target="_blank" rel="noopener">
+        <div class="item-content">
+          <div class="item-title">Wishlist de CDs (Amazon)</div>
+          <div class="item-note">Não precisa ser pela Amazon, pode ser de qualquer loja! A lista é só uma base</div>
+          <div class="item-card-footer">
+            <span class="item-price">Ver lista completa</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Jogos -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">🎮</span> Jogos</h2>
+    <div class="items-grid">
+      <a class="item-card external" href="https://store.steampowered.com/wishlist/id/desestrutura/?sort=discount&min_discount=any" target="_blank" rel="noopener">
+        <div class="item-content">
+          <div class="item-title">Wishlist da Steam</div>
+          <div class="item-note">Preços variados</div>
+          <div class="item-card-footer">
+            <span class="item-price">Ver lista completa</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Livros -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">📚</span> Livros</h2>
+    <div class="items-grid">
+      <a class="item-card external" href="https://www.amazon.com.br/hz/wishlist/ls/3LGBX0CABA5NY?ref_=wl_share" target="_blank" rel="noopener">
+        <div class="item-content">
+          <div class="item-title">Lista de livros (Amazon)</div>
+          <div class="item-note">Entre R$ 30 e R$ 200 por item</div>
+          <div class="item-card-footer">
+            <span class="item-price">Ver lista completa</span>
+            <span class="item-arrow" aria-hidden="true">↗</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Ingressos -->
+  <section class="category">
+    <h2 class="section-label"><span class="icon" aria-hidden="true">🎫</span> Ingressos</h2>
+
+    <div class="subgroup">
+      <h3 class="subgroup-label">2026</h3>
+      <div class="ticket-list">
+        <a class="ticket-card" href="https://ingresse.com/balaclavafest2026/" target="_blank" rel="noopener" style="background-image: url('https://lastfm-img.freetls.fastly.net/i/u/ar0/ad1adba22020973b212e7573b66d977b'); background-position: center 65%;">
+          <div class="ticket-date"><span class="day">26</span><span class="month">Set</span></div>
+          <div class="ticket-info">
+            <div class="ticket-title">Balaclava Fest 2026</div>
+            <div class="ticket-venue">📍 Tokio Marine Hall</div>
+            <div class="ticket-note">Camarote, sábado · Blonde Redhead, Dry Cleaning, Pedro The Lion, Bar Italia, Liv.e, Wishy, Sharp Pins, Ludovic</div>
+          </div>
+          <div class="ticket-price">~R$ 530</div>
+        </a>
+        <a class="ticket-card resolved" href="https://fastix.com.br/events/between-the-buried-and-me-eua-em-sao-paulo" target="_blank" rel="noopener" style="background-image: url('https://lastfm-img.freetls.fastly.net/i/u/770x0/c21bd29b562318e6636d6e9d7eca3b2f.jpg'); background-position: center 36%;">
+          <div class="ticket-date"><span class="day">17</span><span class="month">Out</span></div>
+          <div class="ticket-info">
+            <div class="ticket-title">Between the Buried and Me <span class="resolved-badge">✓ comprado</span></div>
+            <div class="ticket-venue">📍 Hangar 110</div>
+            <div class="ticket-note">3º lote, meia solidária</div>
+          </div>
+          <div class="ticket-price">~R$ 190</div>
+        </a>
+        <a class="ticket-card" href="https://www.livepass.com.br/campaign/ironmaiden" target="_blank" rel="noopener" style="background-image: url('https://lastfm-img.freetls.fastly.net/i/u/770x0/548457179486d936657fd44c25962584.jpg'); background-position: center 35%;">
+          <div class="ticket-date"><span class="day">27</span><span class="month">Out</span></div>
+          <div class="ticket-info">
+            <div class="ticket-title">Iron Maiden</div>
+            <div class="ticket-venue">📍 Palestra Itália</div>
+            <div class="ticket-note">Cadeira nível 1 central, inteira</div>
+          </div>
+          <div class="ticket-price">~R$ 650</div>
+        </a>
+        <a class="ticket-card resolved" href="https://www.eventim.com.br/event/opeth-espaco-unimed-21247936/" target="_blank" rel="noopener" style="background-image: url('https://lastfm-img.freetls.fastly.net/i/u/770x0/0535aee2661d40ca97185152b9024999.jpg'); background-position: center 25%;">
+          <div class="ticket-date"><span class="day">06</span><span class="month">Nov</span></div>
+          <div class="ticket-info">
+            <div class="ticket-title">Opeth <span class="resolved-badge">✓ comprado</span></div>
+            <div class="ticket-venue">📍 Espaço Unimed</div>
+            <div class="ticket-note">Pista comum</div>
+          </div>
+          <div class="ticket-price">~R$ 350</div>
+        </a>
+        <a class="ticket-card" href="https://www.primaverasound.com/pt/sao-paulo" target="_blank" rel="noopener" style="background-image: url('https://lastfm-img.freetls.fastly.net/i/u/770x0/2e750b219308fa8393029467956a072f.jpg'); background-position: center 12%;">
+          <div class="ticket-date"><span class="day">05–06</span><span class="month">Dez</span></div>
+          <div class="ticket-info">
+            <div class="ticket-title">Primavera Sound SP 2026</div>
+            <div class="ticket-venue">📍 Autódromo de Interlagos</div>
+            <div class="ticket-note">Ingresso social, ambos os dias</div>
+            <div class="ticket-note">Sáb: The Strokes, FKA twigs, Lily Allen, CMAT, Courtney Barnett, Danny L Harle, Nation of Language, Cara Delevingne, Zé Ibarra, John Talabot, Los Thuthanaka, Mannequin Pussy, Model/Actriz, Nick León, Black Pantera, Gab Ferreira, Johnny Hooker, Josyara, LARINHX, Metrika</div>
+            <div class="ticket-note">Dom: Gorillaz, Arca, Yung Lean, underscores, Duquesa, Smerz, ATARASHII GAKKO!, Ecco2k, Gaby Amarantos, Ebony, Ana Frango Elétrico, Machine Girl, Sophia Stel, This Is Lorelei, Carlos do Complexo, DJ Ramon Sucesso, Juana Molina, Julia Mestre, Melly, Paulete Lindacelva</div>
+          </div>
+          <div class="ticket-price">~R$ 840</div>
+        </a>
+        <a class="ticket-card" href="https://www.livepass.com.br/campaign/slayer" target="_blank" rel="noopener" style="background-image: url('https://lastfm-img.freetls.fastly.net/i/u/770x0/0491899aeedf137fec3fb9f8492da5d7.jpg'); background-position: center 55%;">
+          <div class="ticket-date"><span class="day">17</span><span class="month">Dez</span></div>
+          <div class="ticket-info">
+            <div class="ticket-title">Slayer: Reign in Blood 40th Anniversary</div>
+            <div class="ticket-venue">📍 Palestra Itália</div>
+            <div class="ticket-note">Cadeira nível 1 central, inteira</div>
+          </div>
+          <div class="ticket-price">~R$ 600</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="subgroup">
+      <h3 class="subgroup-label">2027</h3>
+      <div class="ticket-list">
+        <a class="ticket-card resolved" href="https://www.clubedoingresso.com/evento/alcestemsaopaulo" target="_blank" rel="noopener" style="background-image: url('https://lastfm-img.freetls.fastly.net/i/u/770x0/b91bfac3b249a9233de6e09c9ac25cd2.jpg'); background-position: center 15%;">
+          <div class="ticket-date"><span class="day">20</span><span class="month">Fev</span></div>
+          <div class="ticket-info">
+            <div class="ticket-title">Alcest <span class="gift-badge">🎁 presente</span></div>
+            <div class="ticket-venue">📍 Carioca Club</div>
+            <div class="ticket-note">Camarote, meia solidária</div>
+          </div>
+          <div class="ticket-price">~R$ 290</div>
+        </a>
+        <a class="ticket-card resolved" href="https://101tickets.com.br/events/details/Mass-Of-The-Fermenting-Dregs-22-08" target="_blank" rel="noopener" style="background-image: url('https://lastfm-img.freetls.fastly.net/i/u/770x0/a1a75a23182540d5aab514fff058dd03.jpg'); background-position: center 45%;">
+          <div class="ticket-date"><span class="day">22</span><span class="month">Mai</span></div>
+          <div class="ticket-info">
+            <div class="ticket-title">Mass of the Fermenting Dregs <span class="resolved-badge">✓ comprado</span></div>
+            <div class="ticket-venue">📍 VIP Station</div>
+            <div class="ticket-note">Camarote, meia solidária</div>
+          </div>
+          <div class="ticket-price">~R$ 280</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Wishlist · Atualizado em 28 de agosto de 2026</p>
+    <p><a href="index.html">← Voltar para fox-pages</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
