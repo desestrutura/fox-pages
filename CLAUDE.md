@@ -18,6 +18,7 @@ Pages:
 - Edit the HTML file directly; there's nothing to compile. Verify visually in a browser before considering a change done (screenshot or open the file) — CSS/JS mistakes only show up visually, nothing will error at "build" time.
 - Git: this is a personal repo pushed straight to `main` for most edits. `gh` CLI is not installed — when a PR is needed, create it via the GitHub API using the token from `git credential fill` (see recent commit history for the exact curl pattern) rather than assuming `gh pr create` works.
 - Keep commit messages short: a one-line title plus 2-3 lines max. Double check the title actually matches the diff before committing.
+- Each page's footer has an "Atualizado em [data]" line. When you edit a page's content, update *that page's own* footer date to today — not the other pages' footers, only the one(s) you actually changed.
 
 ## Architecture conventions shared across the roadmap pages
 
