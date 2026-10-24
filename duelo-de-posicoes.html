@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duelo de Posições | fox-pages</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f11;
+    --surface: #161a1f;
+    --surface-hover: #1c2127;
+    --border: #242a32;
+    --text: #e8e6e3;
+    --text-muted: #8b9098;
+    --accent: #7eb8da;
+    --accent-dim: #4a7a96;
+    --accent-soft: rgba(126, 184, 218, 0.12);
+    --green: #6bcf7f;
+    --green-soft: rgba(107, 207, 127, 0.1);
+    --red: #e06c75;
+    --red-soft: rgba(224, 108, 117, 0.12);
+    --keep-soft: rgba(139, 144, 152, 0.12);
+    --heading: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  [hidden] { display: none !important; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .crumbs {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .crumbs a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  .crumbs a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  header h1 {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    max-width: 640px;
+  }
+
+  h2 {
+    font-family: var(--heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  label {
+    font-family: var(--heading);
+    font-weight: 600;
+    font-size: 0.88rem;
+  }
+
+  .hint {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 240px;
+    resize: vertical;
+    font: 0.88rem/1.7 var(--mono);
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  textarea:focus-visible,
+  button:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .spacer { flex: 1; }
+
+  button {
+    font: 500 0.88rem 'Roboto', sans-serif;
+    border-radius: 8px;
+    padding: 9px 16px;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    background: var(--surface-hover);
+    color: var(--text);
+    transition: border-color 0.2s, background 0.15s;
+  }
+
+  button:hover { border-color: #3a424d; }
+
+  button.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  button.primary:hover { filter: brightness(1.08); }
+
+  button:disabled {
+    cursor: not-allowed;
+    background: var(--surface);
+    border-color: var(--border);
+    border-style: dashed;
+    color: var(--text-muted);
+    filter: none;
+  }
+
+  select {
+    font: 0.88rem 'Roboto', sans-serif;
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .example-tag {
+    font: 500 0.66rem var(--mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid rgba(126, 184, 218, 0.25);
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+
+  /* Duelo */
+  .duel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .counter {
+    font: 500 0.78rem var(--mono);
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .bar > i {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    width: 0;
+    transition: width 0.25s ease;
+  }
+
+  .choices {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .choice {
+    min-height: 140px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font: 600 1.1rem/1.3 var(--heading);
+    text-align: center;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg);
+    min-width: 0;
+    overflow-wrap: anywhere;
+    transition: border-color 0.2s, background 0.15s, transform 0.15s;
+  }
+
+  .choice:hover {
+    border-color: var(--accent-dim);
+    background: var(--surface-hover);
+    transform: translateY(-2px);
+  }
+
+  .choice .orig {
+    font: 500 0.75rem var(--mono);
+    color: var(--text-muted);
+  }
+
+  .choice kbd {
+    font: 500 0.7rem var(--mono);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 6px;
+  }
+
+  .vs {
+    align-self: center;
+    font: 700 0.85rem var(--heading);
+    color: var(--text-muted);
+  }
+
+  /* Resultado */
+  .summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chip {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 2px 10px;
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+
+  .chip b {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .chip.keep { background: var(--keep-soft); color: var(--text-muted); border-color: rgba(139, 144, 152, 0.25); }
+  .chip.up { background: var(--green-soft); color: var(--green); border-color: rgba(107, 207, 127, 0.2); }
+  .chip.down { background: var(--red-soft); color: var(--red); border-color: rgba(224, 108, 117, 0.3); }
+
+  .table-wrap { overflow-x: auto; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    font-size: 0.88rem;
+  }
+
+  th {
+    text-align: left;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  th.num { text-align: right; }
+
+  td {
+    padding: 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  td.num {
+    font-family: var(--mono);
+    width: 1%;
+    white-space: nowrap;
+    text-align: right;
+    color: var(--text-muted);
+  }
+
+  td.name { font-weight: 500; min-width: 140px; }
+
+  td.delta {
+    font-family: var(--mono);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  td.delta.up { color: var(--green); }
+  td.delta.down { color: var(--red); }
+  td.delta.keep { color: var(--text-muted); }
+
+  .copy-out {
+    font: 0.8rem/1.6 var(--mono);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    white-space: pre-wrap;
+    max-height: 200px;
+    overflow: auto;
+  }
+
+  .toast {
+    font-size: 0.8rem;
+    color: var(--green);
+    min-height: 1em;
+  }
+
+  footer {
+    margin-top: 32px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  footer p { margin-bottom: 6px; }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  footer a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  @media (max-width: 520px) {
+    .choices { grid-template-columns: 1fr; }
+    .vs { justify-self: center; }
+    .choice { min-height: 96px; }
+    .choice kbd { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .choice, .bar > i { transition: none; }
+    .choice:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="crumbs"><a href="index.html">fox-pages</a> / Ferramentas / Duelo de Posições</div>
+
+  <header>
+    <h1>Duelo de Posições</h1>
+    <p>Cole sua lista na ordem em que ela está hoje. Você escolhe entre dois itens por vez, e no fim a ferramenta compara a ordem que saiu dos duelos com a original: mostra o que já estava no lugar certo, o que deveria subir e o que deveria descer.</p>
+  </header>
+
+  <!-- Tela 1: lista -->
+  <section class="panel" id="setup">
+    <div class="row">
+      <label for="items">Sua lista, um item por linha, do 1º para o último</label>
+      <span class="spacer"></span>
+      <span class="example-tag" id="exampleTag">Exemplo</span>
+    </div>
+    <textarea id="items" spellcheck="false"></textarea>
+    <div class="row">
+      <label for="question">Pergunta do duelo</label>
+      <select id="question">
+        <option value="Qual deve ficar mais acima?">Qual deve ficar mais acima?</option>
+        <option value="Qual você prefere?">Qual você prefere?</option>
+        <option value="Qual é mais importante?">Qual é mais importante?</option>
+        <option value="Qual é mais urgente?">Qual é mais urgente?</option>
+      </select>
+    </div>
+    <div class="row">
+      <label for="tolerance">Considerar "bem posicionado" se mudar até</label>
+      <select id="tolerance">
+        <option value="0">0 posições</option>
+        <option value="1" selected>1 posição</option>
+        <option value="2">2 posições</option>
+        <option value="3">3 posições</option>
+      </select>
+    </div>
+    <div class="row">
+      <span class="hint" id="estimate"></span>
+      <span class="spacer"></span>
+      <button class="primary" id="start">Começar duelos</button>
+    </div>
+  </section>
+
+  <!-- Tela 2: duelo -->
+  <section class="panel" id="duel" hidden>
+    <div class="duel-head">
+      <h2 id="duelQuestion">Qual deve ficar mais acima?</h2>
+      <span class="counter" id="counter"></span>
+    </div>
+    <div class="bar"><i id="progress"></i></div>
+    <div class="choices">
+      <button class="choice" id="left"><span class="txt"></span><span class="orig"></span><kbd>←</kbd></button>
+      <span class="vs">ou</span>
+      <button class="choice" id="right"><span class="txt"></span><span class="orig"></span><kbd>→</kbd></button>
+    </div>
+    <div class="row">
+      <button id="undo">Desfazer último</button>
+      <span class="spacer"></span>
+      <button id="cancel">Voltar para a lista</button>
+    </div>
+    <p class="hint">Atalhos: ← e → escolhem, Backspace desfaz.</p>
+  </section>
+
+  <!-- Tela 3: resultado -->
+  <section class="panel" id="result" hidden>
+    <div class="row">
+      <h2>Resultado</h2>
+      <span class="spacer"></span>
+      <span class="counter" id="doneCount"></span>
+    </div>
+    <div class="summary" id="summary"></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th class="num">Nova</th><th>Item</th><th class="num">Antes</th><th>Mudança</th><th>Situação</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <label>Nova ordem para copiar</label>
+      <div class="copy-out" id="copyOut"></div>
+    </div>
+    <div class="row">
+      <button class="primary" id="copy">Copiar nova ordem</button>
+      <button id="useNew">Usar nova ordem como lista</button>
+      <span class="spacer"></span>
+      <button id="redo">Refazer duelos</button>
+      <button id="back">Editar lista</button>
+    </div>
+    <p class="toast" id="toast" aria-live="polite"></p>
+  </section>
+
+  <footer>
+    <p>Duelo de Posições · Atualizado em 24 de outubro de 2026</p>
+    <p><a href="index.html">← Voltar para fox-pages</a></p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const EXAMPLE = [
+    "Pizza",
+    "Lasanha",
+    "Sushi",
+    "Feijoada",
+    "Hambúrguer",
+    "Strogonoff",
+    "Pastel",
+    "Moqueca"
+  ].join("\n");
+
+  const $ = (id) => document.getElementById(id);
+  const ta = $("items"), estimateEl = $("estimate"), exampleTag = $("exampleTag");
+  let items = [], answers = [], total = 0, current = null;
+
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+
+  const saved = load("duelo:list");
+  ta.value = saved && saved.trim() ? saved : EXAMPLE;
+  const savedQ = load("duelo:q"); if (savedQ) $("question").value = savedQ;
+  const savedT = load("duelo:tol"); if (savedT) $("tolerance").value = savedT;
+
+  function parse() {
+    const seen = new Set();
+    return ta.value.split("\n").map(s => s.replace(/^\s*(\d+[\.\)\-:]|[-*•])\s*/, "").trim())
+      .filter(s => s && !seen.has(s.toLowerCase()) && seen.add(s.toLowerCase()));
+  }
+  function estimate(n) { // pior caso do merge sort
+    return Math.max(0, Math.ceil(n * Math.log2(Math.max(n, 1)) - n + 1));
+  }
+  function updateEstimate() {
+    const n = parse().length;
+    exampleTag.hidden = ta.value !== EXAMPLE;
+    estimateEl.textContent = n < 2 ? "Coloque pelo menos 2 itens." : `${n} itens · até ~${estimate(n)} duelos`;
+    $("start").disabled = n < 2;
+  }
+  ta.addEventListener("input", () => { store("duelo:list", ta.value); updateEstimate(); });
+  $("question").addEventListener("change", e => store("duelo:q", e.target.value));
+  $("tolerance").addEventListener("change", e => store("duelo:tol", e.target.value));
+  updateEstimate();
+
+  // Merge sort que "reproduz" as respostas dadas; quando faltam, pede uma nova comparação.
+  function run() {
+    let i = 0;
+    const NEED = {};
+    function better(a, b) { // true se a deve ficar acima de b
+      if (i >= answers.length) { NEED.pair = [a, b]; throw NEED; }
+      return answers[i++] === 0;
+    }
+    function sort(arr) {
+      if (arr.length < 2) return arr;
+      const mid = arr.length >> 1, L = sort(arr.slice(0, mid)), R = sort(arr.slice(mid)), out = [];
+      let a = 0, b = 0;
+      while (a < L.length && b < R.length) out.push(better(L[a], R[b]) ? L[a++] : R[b++]);
+      return out.concat(L.slice(a), R.slice(b));
+    }
+    try { return { done: sort(items.map((_, k) => k)) }; }
+    catch (e) { if (e === NEED) return { pair: NEED.pair }; throw e; }
+  }
+
+  function show(id) { ["setup", "duel", "result"].forEach(s => $(s).hidden = s !== id); }
+
+  function step() {
+    const r = run();
+    if (r.done) return renderResult(r.done);
+    current = r.pair;
+    [["left", current[0]], ["right", current[1]]].forEach(([id, idx]) => {
+      $(id).querySelector(".txt").textContent = items[idx];
+      $(id).querySelector(".orig").textContent = `era #${idx + 1}`;
+    });
+    $("counter").textContent = `duelo ${answers.length + 1} · até ~${total}`;
+    $("progress").style.width = Math.min(96, answers.length / Math.max(total, 1) * 100) + "%";
+    $("undo").disabled = answers.length === 0;
+    $("duelQuestion").textContent = $("question").value;
+  }
+
+  function start() {
+    items = parse(); if (items.length < 2) return;
+    answers = []; total = estimate(items.length);
+    show("duel"); step(); $("left").focus();
+  }
+  function choose(side) { if ($("duel").hidden) return; answers.push(side); step(); }
+  function undo() { if (answers.length) { answers.pop(); step(); } }
+
+  $("start").onclick = start;
+  $("left").onclick = () => choose(0);
+  $("right").onclick = () => choose(1);
+  $("undo").onclick = undo;
+  $("cancel").onclick = () => show("setup");
+  $("redo").onclick = start;
+  $("back").onclick = () => show("setup");
+
+  document.addEventListener("keydown", e => {
+    if ($("duel").hidden) return;
+    if (e.key === "ArrowLeft") { e.preventDefault(); choose(0); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); choose(1); }
+    else if (e.key === "Backspace") { e.preventDefault(); undo(); }
+  });
+
+  let lastOrder = [];
+  function renderResult(order) {
+    lastOrder = order.map(k => items[k]);
+    const tol = +$("tolerance").value;
+    let up = 0, down = 0, keep = 0;
+    const tb = $("tbody"); tb.innerHTML = "";
+    order.forEach((orig, pos) => {
+      const d = orig - pos; // positivo = subiu
+      const st = Math.abs(d) <= tol ? "keep" : d > 0 ? "up" : "down";
+      st === "up" ? up++ : st === "down" ? down++ : keep++;
+      const tr = document.createElement("tr");
+      const label = st === "keep" ? "Bem posicionado" : st === "up" ? "Deveria subir" : "Deveria descer";
+      const delta = d === 0 ? "=" : d > 0 ? `▲ ${d}` : `▼ ${-d}`;
+      tr.innerHTML = `<td class="num">${pos + 1}</td><td class="name"></td><td class="num">${orig + 1}</td><td class="delta ${d === 0 ? "keep" : d > 0 ? "up" : "down"}">${delta}</td><td><span class="chip ${st}">${label}</span></td>`;
+      tr.querySelector(".name").textContent = items[orig];
+      tb.appendChild(tr);
+    });
+    $("summary").innerHTML = `<span class="chip keep">Bem posicionados <b>${keep}</b></span><span class="chip up">Deveriam subir <b>${up}</b></span><span class="chip down">Deveriam descer <b>${down}</b></span>`;
+    $("doneCount").textContent = `${answers.length} duelos`;
+    $("copyOut").textContent = lastOrder.map((s, i) => `${i + 1}. ${s}`).join("\n");
+    $("toast").textContent = "";
+    show("result");
+  }
+
+  $("copy").onclick = () => {
+    const text = lastOrder.join("\n");
+    const ok = () => $("toast").textContent = "Nova ordem copiada.";
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents($("copyOut")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("toast").textContent = "Texto selecionado. Use Ctrl+C / ⌘C para copiar."; };
+    try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
+  };
+  $("useNew").onclick = () => { ta.value = lastOrder.join("\n"); store("duelo:list", ta.value); updateEstimate(); show("setup"); };
+})();
+</script>
+
+</body>
+</html>

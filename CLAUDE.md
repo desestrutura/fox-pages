@@ -13,6 +13,7 @@ Pages:
 - `games-bucket-list.html` — "someday" games split out of the main roadmap; linked from both `index.html` and the roadmap's summary table.
 - `wishlist.html` — personal wishlist (purchases + concert tickets), grouped by category; linked from `index.html`.
 - `wishlist-cds-japoneses.html` — Japanese CDs wishlist, ranked by priority (the order is the user's, don't re-sort), each with a cover saved in `img/cds/` (originally sourced from the Cover Art Archive, iTunes, Bandcamp, RYM); linked from `wishlist.html` right after the Amazon CD wishlist card.
+- `duelo-de-posicoes.html` — interactive tool: re-rank a pasted list via pairwise "duels" (merge sort), then compare against the original order. Listed under the home page's "Ferramentas" section (separate from "Páginas"); new tools go there too, restyled to the site's dark palette rather than kept in their original look.
 
 ## Editing workflow
 
