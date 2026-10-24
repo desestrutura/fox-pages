@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDs japoneses | fox-pages</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f11;
+    --surface: #161a1f;
+    --surface-hover: #1c2127;
+    --border: #242a32;
+    --text: #e8e6e3;
+    --text-muted: #8b9098;
+    --accent: #7eb8da;
+    --accent-dim: #4a7a96;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .crumbs {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .crumbs a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  .crumbs a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  header { margin-bottom: 36px; }
+
+  header h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  .cd-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+
+  .cd-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.15s;
+  }
+
+  .cd-card:hover {
+    border-color: #3a424d;
+    background: var(--surface-hover);
+  }
+
+  .cd-cover-wrap {
+    position: relative;
+    aspect-ratio: 1;
+    background: var(--border);
+  }
+
+  .cd-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cd-rank {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(13, 15, 17, 0.82);
+    border: 1px solid rgba(126, 184, 218, 0.35);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  .cd-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px 12px;
+  }
+
+  .cd-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .cd-artist {
+    font-size: 0.78rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .cd-year {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  footer {
+    margin-top: 56px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  footer p { margin-bottom: 6px; }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  footer a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  @media (max-width: 480px) {
+    .cd-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="crumbs"><a href="index.html">fox-pages</a> / <a href="wishlist.html">Wishlist</a> / CDs japoneses</div>
+
+  <header>
+    <h1>CDs japoneses</h1>
+    <p>Discos de artistas japoneses que eu gostaria de ter em CD, em ordem de importância: quanto mais no topo, mais eu quero.</p>
+  </header>
+
+  <ol class="cd-grid">
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/4befd22f-bd0c-3cb4-8a3a-48ab0297ab13/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">1</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Submerge</h2>
+          <div class="cd-artist">Coaltar of the Deepers</div>
+          <div class="cd-year">1998</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/fc38cdba-ea52-328c-aa3d-41edf8811a0c/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">2</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Long Season</h2>
+          <div class="cd-artist">Fishmans</div>
+          <div class="cd-year">1996</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/a695e424-ab39-33e6-9fb9-8a5ef8282cb1/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">3</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">宇宙 日本 世田谷 [Uchu Nippon Setagaya]</h2>
+          <div class="cd-artist">Fishmans</div>
+          <div class="cd-year">1997</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/3a2e4685-550f-4b00-a233-4a7ac2957072/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">4</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">For Long Tomorrow</h2>
+          <div class="cd-artist">toe</div>
+          <div class="cd-year">2009</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/37465d98-1fe2-49bc-b1e1-3776a2062cd9/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">5</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Hallelujah</h2>
+          <div class="cd-artist">The Novembers</div>
+          <div class="cd-year">2016</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/70360ae4-d2a9-40c2-8ed7-062efd3eea21/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">6</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Misstopia</h2>
+          <div class="cd-artist">The Novembers</div>
+          <div class="cd-year">2010</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/7bde7e6d-07bb-39e3-ab3c-192b6229c740/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">7</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Come Over to the Deepend</h2>
+          <div class="cd-artist">Coaltar of the Deepers</div>
+          <div class="cd-year">2000</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/e1dd240c-7bf2-3216-82c2-5f2d5d7707a5/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">8</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">加爾基 精液 栗ノ花 [Kalk Samen Chestnut Flower]</h2>
+          <div class="cd-artist">椎名林檎 [Sheena Ringo]</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/610ecea8-5221-32b0-83d6-378a47202ec7/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">9</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Withering to Death.</h2>
+          <div class="cd-artist">Dir en Grey</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music6/v4/78/ad/fb/78adfbd3-a4ab-4b91-607f-8b679d3c60fb/05099969541254.jpg/600x600bb.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">10</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Nexus</h2>
+          <div class="cd-artist">Straightener</div>
+          <div class="cd-year">2009</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/f5f3db38-26d7-48dc-b786-883bd07bd4db/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">11</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Fourth Wall</h2>
+          <div class="cd-artist">The Novembers</div>
+          <div class="cd-year">2013</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/5bad8d10-be5d-43a0-ba21-46194c2c739c/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">12</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Still a Sigure Virgin?</h2>
+          <div class="cd-artist">凛として時雨 [Ling Tosite Sigure]</div>
+          <div class="cd-year">2010</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/4fb53064-968c-4822-ba3b-6a350c4d154e/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">13</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Eureka</h2>
+          <div class="cd-artist">きのこ帝国 [Kinoko Teikoku]</div>
+          <div class="cd-year">2013</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/311c313b-d577-4c63-a4ef-85793f85dde1/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">14</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Rhapsody in Beauty</h2>
+          <div class="cd-artist">The Novembers</div>
+          <div class="cd-year">2014</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/0ebb70ad-bee9-3dfa-93df-5ab35dc95c6c/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">15</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Gauze</h2>
+          <div class="cd-artist">Dir en Grey</div>
+          <div class="cd-year">1999</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/d9a3382a-401c-32dc-880c-2fca23292aa0/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">16</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Vulgar</h2>
+          <div class="cd-artist">Dir en Grey</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/2c4e49d2-4ea5-4c48-a5b8-38b10d8d2f6e/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">17</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">DocumentaLy</h2>
+          <div class="cd-artist">サカナクション [Sakanaction]</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/1ac233d7-9dfe-4727-a2d6-bd1eaa3376bb/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">18</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">T H E</h2>
+          <div class="cd-artist">tricot</div>
+          <div class="cd-year">2013</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/8c33d389-db5e-4cb4-97c9-ba81afb113ff/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">19</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">A N D</h2>
+          <div class="cd-artist">tricot</div>
+          <div class="cd-year">2015</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/f8234ebe-93a3-4a02-9ca7-c4d25a392743/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">20</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Zeitgeist</h2>
+          <div class="cd-artist">The Novembers</div>
+          <div class="cd-year">2013</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/486d289e-c52c-46b8-9865-1e959b0a4d07/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">21</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">I&#x27;mperfect</h2>
+          <div class="cd-artist">凛として時雨 [Ling Tosite Sigure]</div>
+          <div class="cd-year">2013</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/494d1bb5-6026-3140-a95c-bf015dc63fb7/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">22</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Yukari Telepath</h2>
+          <div class="cd-artist">Coaltar of the Deepers</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/afb6be74-2fe4-374d-bfb8-ef3bb6bc34f4/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">23</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">鬼葬 [Kisou]</h2>
+          <div class="cd-artist">Dir en Grey</div>
+          <div class="cd-year">2002</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/9e428628-81c6-37ef-9105-563e43c45192/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">24</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Paraphilia</h2>
+          <div class="cd-artist">The Novembers</div>
+          <div class="cd-year">2009</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/20a34d0d-43c8-3a0b-8d58-1635db0c889d/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">25</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Inspiration Is Dead</h2>
+          <div class="cd-artist">凛として時雨 [Ling Tosite Sigure]</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/015cabcc-0069-43ad-b070-73f5053d63a7/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">26</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Crystallize</h2>
+          <div class="cd-artist">東京酒吐座 [Tokyo Shoegazer]</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/f0/13/b5/f013b509-13b2-5e80-e903-eca675a75166/JK_IMMORTALIS_SFCD-0135.jpg/600x600bb.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">27</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Immortalis</h2>
+          <div class="cd-artist">Sukekiyo</div>
+          <div class="cd-year">2014</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/ba24af71-9a64-4e8f-b3a5-ffb8c5fd9f40/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">28</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Book About My Idle Plot on a Vague Anxiety</h2>
+          <div class="cd-artist">toe</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/ce8ffe39-0b0d-348c-a607-d40108725cf8/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">29</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">#4</h2>
+          <div class="cd-artist">凛として時雨 [Ling Tosite Sigure]</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/41/2a/6b/412a6bcb-68ac-e2f1-9598-198ffa36cdaf/00602567908593.rgb.jpg/600x600bb.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">30</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">空中キャンプ [Something in the Air]</h2>
+          <div class="cd-artist">Fishmans</div>
+          <div class="cd-year">1996</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/8d51bd70-a9ff-4f3b-8c22-e88f83129549/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">31</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">An Anxious Object</h2>
+          <div class="cd-artist">Mouse on the Keys</div>
+          <div class="cd-year">2009</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/b025cca9-fb6f-3b4a-9f9e-a7ad3e6e39cb/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">32</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Mother</h2>
+          <div class="cd-artist">LUNA SEA</div>
+          <div class="cd-year">1994</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/aeeba3c1-b0bd-3376-9787-04b1e80b6f85/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">33</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Mass of the Fermenting Dregs</h2>
+          <div class="cd-artist">Mass of the Fermenting Dregs</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/0315d2d1-884c-4acb-86c4-0c10e8eddd17/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">34</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">kikUUiki</h2>
+          <div class="cd-artist">サカナクション [Sakanaction]</div>
+          <div class="cd-year">2010</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/3026293b-2d02-31f6-a695-0d21fad16d8d/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">35</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Devils in Bedside</h2>
+          <div class="cd-artist">9GOATS BLACK OUT</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://is1-ssl.mzstatic.com/image/thumb/Music4/v4/ac/f8/38/acf838f3-b296-6cc6-4f62-5b38486b9f9d/05099962837859.jpg/600x600bb.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">36</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Creatures</h2>
+          <div class="cd-artist">Straightener</div>
+          <div class="cd-year">2010</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/dfe614f8-907c-3a3d-b254-d4c80dc8a60e/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">37</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">ファンクラブ [Fanclub]</h2>
+          <div class="cd-artist">ASIAN KUNG-FU GENERATION</div>
+          <div class="cd-year">2006</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/669114fb-544d-385a-be9f-63ddd0b514d5/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">38</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Phantasia</h2>
+          <div class="cd-artist">LITE</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/2e52bd6a-53e6-325c-925b-19eaa449db44/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">39</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Metaphorical Music</h2>
+          <div class="cd-artist">Nujabes</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/bd62a5df-6643-3aef-b129-9d4e6e296022/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">40</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Modal Soul</h2>
+          <div class="cd-artist">Nujabes</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/f5df2010-1ed9-352b-88a5-41862c4cc003/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">41</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">School Food Is Good Food</h2>
+          <div class="cd-artist">School Food Punishment</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/a8c8c32f-937f-386f-9db1-c09576ca233c/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">42</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">(Lust)</h2>
+          <div class="cd-artist">Rei Harakami</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/1391127b-cc83-4e7f-97c7-f115bffea75f/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">43</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">ロンググッドバイ [Long Goodbye]</h2>
+          <div class="cd-artist">きのこ帝国 [Kinoko Teikoku]</div>
+          <div class="cd-year">2013</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/32a376b5-2323-3782-88d2-5aba4bc11176/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">44</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Go to the Future</h2>
+          <div class="cd-artist">サカナクション [Sakanaction]</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/df100e25-4ffb-4e95-8462-25d7cff2119d/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">45</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">友達がいました [Tomodachi ga imashita]</h2>
+          <div class="cd-artist">Trooper Salute</div>
+          <div class="cd-year">2026</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/7a28680c-1e8e-4c13-985f-f8c810ddd3a0/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">46</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Erosio</h2>
+          <div class="cd-artist">Sukekiyo</div>
+          <div class="cd-year">2023</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/f06f0439-1801-3fa8-b0ad-290a8d5e9eef/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">47</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Answer</h2>
+          <div class="cd-artist">Supercar</div>
+          <div class="cd-year">2004</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/07c4a976-31a4-4af7-bbac-52fd1fafb06a/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">48</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Vitium</h2>
+          <div class="cd-artist">Sukekiyo</div>
+          <div class="cd-year">2015</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://cdn.sonemic.net/i/300/s/d9731b0bbbe781fac62985b438a98b37/3772175" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">49</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Straightener</h2>
+          <div class="cd-artist">Straightener</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/655bda65-5994-4396-9b1d-5da93c10eecf/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">50</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">一番はじめの出来事 [Ichiban hajime no dekigoto]</h2>
+          <div class="cd-artist">the cabs</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://f4.bcbits.com/img/a3951322779_10.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">51</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">LITE</h2>
+          <div class="cd-artist">LITE</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/6ef0d588-eaf5-4153-ab52-fd5918636318/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">52</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Communication, Cultural, Curiosity Quotient</h2>
+          <div class="cd-artist">CQ</div>
+          <div class="cd-year">2016</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/9a6e9679-914b-36ab-8017-434d205d1c4a/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">53</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">未だ見ぬ明日に [Into an Unseen Tomorrow]</h2>
+          <div class="cd-artist">ASIAN KUNG-FU GENERATION</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/572de7ed-1365-3fac-ac51-34a43ee5bbaf/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">54</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">ワールド ワールド ワールド [World World World]</h2>
+          <div class="cd-artist">ASIAN KUNG-FU GENERATION</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/9cf9739c-3e2a-36b1-82ad-d8e1772b7224/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">55</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">ソルファ [Sol-fa]</h2>
+          <div class="cd-artist">ASIAN KUNG-FU GENERATION</div>
+          <div class="cd-year">2004</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="https://coverartarchive.org/release-group/d68b32ab-f9d6-3b74-b2a3-f8957b5e2060/front-500" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">56</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">School Girl Distortional Addict</h2>
+          <div class="cd-artist">Number Girl</div>
+          <div class="cd-year">1999</div>
+        </div>
+      </li>
+  </ol>
+
+  <footer>
+    <p>CDs japoneses · Atualizado em 24 de outubro de 2026</p>
+    <p><a href="wishlist.html">← Voltar para a Wishlist</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>

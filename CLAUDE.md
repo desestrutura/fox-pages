@@ -12,6 +12,7 @@ Pages:
 - `roadmap-teddy-2026.html` — a second person's separate game roadmap, same format, independent color palette.
 - `games-bucket-list.html` — "someday" games split out of the main roadmap; linked from both `index.html` and the roadmap's summary table.
 - `wishlist.html` — personal wishlist (purchases + concert tickets), grouped by category; linked from `index.html`.
+- `wishlist-cds-japoneses.html` — Japanese CDs wishlist, ranked by priority (the order is the user's, don't re-sort), each with a cover from the Cover Art Archive (`coverartarchive.org/release-group/<mbid>/front-500`); linked from `wishlist.html` right after the Amazon CD wishlist card.
 
 ## Editing workflow
 
