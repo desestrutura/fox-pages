@@ -220,7 +220,15 @@
     align-items: stretch;
   }
 
+  .side {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+  }
+
   .choice {
+    flex: 1;
     min-height: 140px;
     padding: 20px;
     display: flex;
@@ -262,6 +270,21 @@
     font: 700 0.85rem var(--heading);
     color: var(--text-muted);
   }
+
+  .remove {
+    align-self: center;
+    font-size: 0.78rem;
+    padding: 5px 12px;
+    background: transparent;
+    color: var(--text-muted);
+  }
+
+  .remove:hover {
+    color: var(--red);
+    border-color: rgba(224, 108, 117, 0.4);
+  }
+
+  .removed-out { color: var(--text-muted); }
 
   /* Resultado */
   .summary {
@@ -440,16 +463,23 @@
     </div>
     <div class="bar"><i id="progress"></i></div>
     <div class="choices">
-      <button class="choice" id="left"><span class="txt"></span><span class="orig"></span><kbd>←</kbd></button>
+      <div class="side">
+        <button class="choice" id="left"><span class="txt"></span><span class="orig"></span><kbd>←</kbd></button>
+        <button class="remove" id="removeLeft">✕ Remover da lista</button>
+      </div>
       <span class="vs">ou</span>
-      <button class="choice" id="right"><span class="txt"></span><span class="orig"></span><kbd>→</kbd></button>
+      <div class="side">
+        <button class="choice" id="right"><span class="txt"></span><span class="orig"></span><kbd>→</kbd></button>
+        <button class="remove" id="removeRight">✕ Remover da lista</button>
+      </div>
     </div>
     <div class="row">
       <button id="undo">Desfazer último</button>
       <span class="spacer"></span>
       <button id="cancel">Voltar para a lista</button>
     </div>
-    <p class="hint">Atalhos: ← e → escolhem, Backspace desfaz.</p>
+    <p class="hint" id="removedNote" aria-live="polite"></p>
+    <p class="hint">Atalhos: ← e → escolhem, Shift+← e Shift+→ removem o item da lista, Backspace desfaz. Remover um item mantém os duelos já feitos entre os outros.</p>
   </section>
 
   <!-- Tela 3: resultado -->
@@ -470,6 +500,10 @@
       <label>Nova ordem para copiar</label>
       <div class="copy-out" id="copyOut"></div>
     </div>
+    <div style="display:flex;flex-direction:column;gap:8px" id="removedWrap" hidden>
+      <label id="removedLabel">Removidos durante os duelos</label>
+      <div class="copy-out removed-out" id="removedOut"></div>
+    </div>
     <div class="row">
       <button class="primary" id="copy">Copiar nova ordem</button>
       <button id="useNew">Usar nova ordem como lista</button>
@@ -481,7 +515,7 @@
   </section>
 
   <footer>
-    <p>Duelo de Posições · Atualizado em 24 de outubro de 2026</p>
+    <p>Duelo de Posições · Atualizado em 30 de outubro de 2026</p>
     <p><a href="index.html">← Voltar para fox-pages</a></p>
   </footer>
 
@@ -502,7 +536,8 @@
 
   const $ = (id) => document.getElementById(id);
   const ta = $("items"), estimateEl = $("estimate"), exampleTag = $("exampleTag");
-  let items = [], answers = [], total = 0, current = null;
+  // memo guarda o vencedor de cada par já duelado; history permite desfazer escolhas e remoções na ordem.
+  let items = [], removed = new Set(), memo = new Map(), history = [], total = 0, current = null;
 
   function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -531,13 +566,18 @@
   $("tolerance").addEventListener("change", e => store("duelo:tol", e.target.value));
   updateEstimate();
 
-  // Merge sort que "reproduz" as respostas dadas; quando faltam, pede uma nova comparação.
+  const pairKey = (a, b) => a < b ? `${a}|${b}` : `${b}|${a}`;
+  const active = () => items.map((_, k) => k).filter(k => !removed.has(k));
+  const picks = () => history.filter(h => h.pick).length;
+
+  // Merge sort que "reproduz" os pares já respondidos; quando falta um, pede uma nova comparação.
+  // Como as respostas ficam por par (e não em sequência), remover um item não perde os outros duelos.
   function run() {
-    let i = 0;
     const NEED = {};
     function better(a, b) { // true se a deve ficar acima de b
-      if (i >= answers.length) { NEED.pair = [a, b]; throw NEED; }
-      return answers[i++] === 0;
+      const k = pairKey(a, b);
+      if (!memo.has(k)) { NEED.pair = [a, b]; throw NEED; }
+      return memo.get(k) === a;
     }
     function sort(arr) {
       if (arr.length < 2) return arr;
@@ -546,7 +586,7 @@
       while (a < L.length && b < R.length) out.push(better(L[a], R[b]) ? L[a++] : R[b++]);
       return out.concat(L.slice(a), R.slice(b));
     }
-    try { return { done: sort(items.map((_, k) => k)) }; }
+    try { return { done: sort(active()) }; }
     catch (e) { if (e === NEED) return { pair: NEED.pair }; throw e; }
   }
 
@@ -556,27 +596,48 @@
     const r = run();
     if (r.done) return renderResult(r.done);
     current = r.pair;
-    [["left", current[0]], ["right", current[1]]].forEach(([id, idx]) => {
+    [["left", "removeLeft", current[0]], ["right", "removeRight", current[1]]].forEach(([id, rid, idx]) => {
       $(id).querySelector(".txt").textContent = items[idx];
       $(id).querySelector(".orig").textContent = `era #${idx + 1}`;
+      $(rid).setAttribute("aria-label", `Remover "${items[idx]}" da lista`);
     });
-    $("counter").textContent = `duelo ${answers.length + 1} · até ~${total}`;
-    $("progress").style.width = Math.min(96, answers.length / Math.max(total, 1) * 100) + "%";
-    $("undo").disabled = answers.length === 0;
+    const done = picks();
+    total = Math.max(estimate(active().length), done + 1);
+    $("counter").textContent = `duelo ${done + 1} · até ~${total}`;
+    $("progress").style.width = Math.min(96, done / total * 100) + "%";
+    $("undo").disabled = history.length === 0;
+    $("removedNote").textContent = removed.size
+      ? `${removed.size} removido${removed.size > 1 ? "s" : ""} · ${active().length} itens na disputa`
+      : "";
     $("duelQuestion").textContent = $("question").value;
   }
 
   function start() {
     items = parse(); if (items.length < 2) return;
-    answers = []; total = estimate(items.length);
+    removed = new Set(); memo = new Map(); history = [];
     show("duel"); step(); $("left").focus();
   }
-  function choose(side) { if ($("duel").hidden) return; answers.push(side); step(); }
-  function undo() { if (answers.length) { answers.pop(); step(); } }
+  function choose(side) {
+    if ($("duel").hidden) return;
+    const [a, b] = current, k = pairKey(a, b);
+    memo.set(k, side === 0 ? a : b); history.push({ pick: k }); step();
+  }
+  function remove(side) {
+    if ($("duel").hidden) return;
+    const id = current[side];
+    removed.add(id); history.push({ removed: id }); step();
+  }
+  function undo() {
+    const h = history.pop(); if (!h) return;
+    if (h.pick) memo.delete(h.pick); else removed.delete(h.removed);
+    show("duel"); step();
+  }
 
   $("start").onclick = start;
   $("left").onclick = () => choose(0);
   $("right").onclick = () => choose(1);
+  $("removeLeft").onclick = () => remove(0);
+  $("removeRight").onclick = () => remove(1);
   $("undo").onclick = undo;
   $("cancel").onclick = () => show("setup");
   $("redo").onclick = start;
@@ -584,8 +645,8 @@
 
   document.addEventListener("keydown", e => {
     if ($("duel").hidden) return;
-    if (e.key === "ArrowLeft") { e.preventDefault(); choose(0); }
-    else if (e.key === "ArrowRight") { e.preventDefault(); choose(1); }
+    if (e.key === "ArrowLeft") { e.preventDefault(); e.shiftKey ? remove(0) : choose(0); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); e.shiftKey ? remove(1) : choose(1); }
     else if (e.key === "Backspace") { e.preventDefault(); undo(); }
   });
 
@@ -593,9 +654,12 @@
   function renderResult(order) {
     lastOrder = order.map(k => items[k]);
     const tol = +$("tolerance").value;
+    // "Antes" é a posição entre os itens que sobraram, para os removidos não distorcerem a comparação.
+    const before = new Map(active().map((k, i) => [k, i]));
     let up = 0, down = 0, keep = 0;
     const tb = $("tbody"); tb.innerHTML = "";
-    order.forEach((orig, pos) => {
+    order.forEach((k, pos) => {
+      const orig = before.get(k);
       const d = orig - pos; // positivo = subiu
       const st = Math.abs(d) <= tol ? "keep" : d > 0 ? "up" : "down";
       st === "up" ? up++ : st === "down" ? down++ : keep++;
@@ -603,12 +667,16 @@
       const label = st === "keep" ? "Bem posicionado" : st === "up" ? "Deveria subir" : "Deveria descer";
       const delta = d === 0 ? "=" : d > 0 ? `▲ ${d}` : `▼ ${-d}`;
       tr.innerHTML = `<td class="num">${pos + 1}</td><td class="name"></td><td class="num">${orig + 1}</td><td class="delta ${d === 0 ? "keep" : d > 0 ? "up" : "down"}">${delta}</td><td><span class="chip ${st}">${label}</span></td>`;
-      tr.querySelector(".name").textContent = items[orig];
+      tr.querySelector(".name").textContent = items[k];
       tb.appendChild(tr);
     });
     $("summary").innerHTML = `<span class="chip keep">Bem posicionados <b>${keep}</b></span><span class="chip up">Deveriam subir <b>${up}</b></span><span class="chip down">Deveriam descer <b>${down}</b></span>`;
-    $("doneCount").textContent = `${answers.length} duelos`;
+    $("doneCount").textContent = `${picks()} duelos`;
     $("copyOut").textContent = lastOrder.map((s, i) => `${i + 1}. ${s}`).join("\n");
+    const gone = items.filter((_, k) => removed.has(k));
+    $("removedWrap").hidden = gone.length === 0;
+    $("removedLabel").textContent = `Removidos durante os duelos (${gone.length})`;
+    $("removedOut").textContent = gone.join("\n");
     $("toast").textContent = "";
     show("result");
   }
