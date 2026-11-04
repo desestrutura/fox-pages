@@ -452,6 +452,7 @@
       <span class="hint" id="estimate"></span>
       <span class="spacer"></span>
       <button class="primary" id="start">Começar duelos</button>
+      <button class="primary" id="resume" hidden>Continuar duelo</button>
     </div>
   </section>
 
@@ -515,7 +516,7 @@
   </section>
 
   <footer>
-    <p>Duelo de Posições · Atualizado em 30 de outubro de 2026</p>
+    <p>Duelo de Posições · Atualizado em 4 de novembro de 2026</p>
     <p><a href="index.html">← Voltar para fox-pages</a></p>
   </footer>
 
@@ -592,9 +593,32 @@
 
   function show(id) { ["setup", "duel", "result"].forEach(s => $(s).hidden = s !== id); }
 
+  // Duelo em andamento fica salvo a cada passo, para continuar depois de fechar a aba.
+  function saveSession() {
+    store("duelo:session", JSON.stringify({ items, memo: [...memo], removed: [...removed], history }));
+  }
+  function loadSession() {
+    try {
+      const s = JSON.parse(load("duelo:session"));
+      return s && Array.isArray(s.items) && s.items.length >= 2 ? s : null;
+    } catch (e) { return null; }
+  }
+  function clearSession() { try { localStorage.removeItem("duelo:session"); } catch (e) {} }
+  function updateResume() {
+    const s = loadSession();
+    $("resume").hidden = !s;
+    $("start").classList.toggle("primary", !s);
+    if (!s) return;
+    const done = s.history.filter(h => h.pick).length;
+    const left = s.items.length - s.removed.length;
+    $("resume").textContent = `Continuar duelo (${done} de ~${Math.max(estimate(left), done + 1)})`;
+  }
+  updateResume();
+
   function step() {
     const r = run();
-    if (r.done) return renderResult(r.done);
+    if (r.done) { clearSession(); return renderResult(r.done); }
+    saveSession();
     current = r.pair;
     [["left", "removeLeft", current[0]], ["right", "removeRight", current[1]]].forEach(([id, rid, idx]) => {
       $(id).querySelector(".txt").textContent = items[idx];
@@ -614,7 +638,14 @@
 
   function start() {
     items = parse(); if (items.length < 2) return;
+    const s = loadSession(), saved = s ? s.history.filter(h => h.pick).length : 0;
+    if (saved && !confirm(`Começar de novo descarta o duelo salvo (${saved} duelo${saved > 1 ? "s" : ""} feito${saved > 1 ? "s" : ""}). Continuar?`)) return;
     removed = new Set(); memo = new Map(); history = [];
+    show("duel"); step(); $("left").focus();
+  }
+  function resume() {
+    const s = loadSession(); if (!s) return;
+    items = s.items; memo = new Map(s.memo); removed = new Set(s.removed); history = s.history;
     show("duel"); step(); $("left").focus();
   }
   function choose(side) {
@@ -634,14 +665,15 @@
   }
 
   $("start").onclick = start;
+  $("resume").onclick = resume;
   $("left").onclick = () => choose(0);
   $("right").onclick = () => choose(1);
   $("removeLeft").onclick = () => remove(0);
   $("removeRight").onclick = () => remove(1);
   $("undo").onclick = undo;
-  $("cancel").onclick = () => show("setup");
+  $("cancel").onclick = () => { updateResume(); show("setup"); };
   $("redo").onclick = start;
-  $("back").onclick = () => show("setup");
+  $("back").onclick = () => { updateResume(); show("setup"); };
 
   document.addEventListener("keydown", e => {
     if ($("duel").hidden) return;
@@ -687,7 +719,7 @@
     const fallback = () => { const r = document.createRange(); r.selectNodeContents($("copyOut")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("toast").textContent = "Texto selecionado. Use Ctrl+C / ⌘C para copiar."; };
     try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
   };
-  $("useNew").onclick = () => { ta.value = lastOrder.join("\n"); store("duelo:list", ta.value); updateEstimate(); show("setup"); };
+  $("useNew").onclick = () => { ta.value = lastOrder.join("\n"); store("duelo:list", ta.value); updateEstimate(); updateResume(); show("setup"); };
 })();
 </script>
 
