@@ -632,7 +632,7 @@
           <div class="stat-label">Concluídos</div>
         </div>
         <div class="stat">
-          <div class="stat-value">3</div>
+          <div class="stat-value">5</div>
           <div class="stat-label">Jogando</div>
         </div>
         <div class="stat">
@@ -640,7 +640,7 @@
           <div class="stat-label">Pausados</div>
         </div>
         <div class="stat">
-          <div class="stat-value">8</div>
+          <div class="stat-value">7</div>
           <div class="stat-label">Pendentes</div>
         </div>
         <div class="stat">
@@ -741,10 +741,15 @@
       <span class="summary-game"><a href="#card-starfox64">Star Fox 64</a> <span class="clube-badge">🎲 Danezi</span></span>
       <span class="tag tag-short">~4h</span>
     </div>
-    <div class="summary-row">
+    <div class="summary-row" style="background: var(--playing-bg);">
       <span class="summary-month">Out</span>
-      <span class="summary-game"><a href="#card-belmonts-curse">Castlevania: Belmont's Curse</a> <span class="status-pill pill-next">Lançamento</span></span>
+      <span class="summary-game"><a href="#card-belmonts-curse">Castlevania: Belmont's Curse</a> <span class="status-pill pill-playing">jogando</span></span>
       <span class="tag tag-medium">~20h</span>
+    </div>
+    <div class="summary-row" style="background: var(--playing-bg);">
+      <span class="summary-month">Nov</span>
+      <span class="summary-game"><a href="#card-everhood">Everhood</a> <span class="status-pill pill-playing">jogando</span></span>
+      <span class="tag tag-short">~7h</span>
     </div>
     <div class="summary-row">
       <span class="summary-month">Nov</span>
@@ -1084,7 +1089,7 @@
     <div class="card-header">
       <img class="card-cover" src="img/games/outer-wilds.webp" alt="Outer Wilds" onerror="this.style.display='none'">
       <div class="card-info">
-        <div class="card-number">#7 · Maio — Clube do Game <span class="clube-badge">🎲 indicado por Metal</span></div>
+        <div class="card-number">#7 · Maio — Clube do Game · previsto para Dezembro <span class="clube-badge">🎲 indicado por Metal</span></div>
         <h3 class="card-title">Outer Wilds</h3>
         <div class="card-subtitle">Mobius Digital / Annapurna Interactive · 2019 · Exploração / Mistério</div>
         <div class="card-meta">
@@ -1621,18 +1626,28 @@
   </div>
 
   <!-- CASTLEVANIA: BELMONT'S CURSE -->
-  <div id="card-belmonts-curse" class="game-card">
+  <div id="card-belmonts-curse" class="game-card status-playing">
     <div class="card-header">
       <img class="card-cover" src="img/games/castlevania-belmonts-curse.webp" alt="Castlevania: Belmont's Curse" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#16 · Outubro</div>
-        <h3 class="card-title">Castlevania: Belmont's Curse <span class="status-pill pill-next">Lançamento</span></h3>
+        <h3 class="card-title">Castlevania: Belmont's Curse <span class="status-pill pill-playing">jogando</span></h3>
         <div class="card-subtitle">Konami / Evil Empire · 2026 · 2D Action-Exploration / Metroidvania</div>
         <div class="card-meta">
-          <span class="meta-chip">Lançamento <strong>15 Out 2026</strong></span>
-          <span class="meta-chip">HLTB <strong>~15–25h est.</strong></span>
+          <span class="meta-chip">Metacritic <strong>86</strong></span>
+          <span class="meta-chip">HLTB <strong>~12h história / ~20h+ 100%</strong></span>
           <span class="meta-chip"><strong>PC / PS5 / Xbox / Switch</strong></span>
         </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Início: Nov 2026
+          </span>
+        </div>
+        <div class="progress-bar-container" style="margin-top: 10px;">
+          <div class="progress-bar" style="width: 25%;"></div>
+        </div>
+        <div class="progress-label">~25% concluído · <strong>explorando as catacumbas</strong> · ~10h restantes</div>
       </div>
     </div>
     <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
@@ -1645,6 +1660,8 @@
         <dt>Cenário</dt><dd>Paris, 1499 — 23 anos após Castlevania III: Dracula's Curse</dd>
         <dt>Protagonista</dt><dd>Rose Belmont — sucessora de Trevor Belmont, última da linhagem</dd>
         <dt>Anunciado</dt><dd>Fevereiro 2026 (State of Play) · Data confirmada junho 2026 (Xbox Showcase)</dd>
+        <dt>Metacritic</dt><dd>86 · OpenCritic 85</dd>
+        <dt>HLTB</dt><dd>~12h final normal / ~20h+ 100%</dd>
         <dt>Performance</dt><dd>PS5/Xbox/PC a 60fps · Switch a 30fps</dd>
         <dt>Edição especial</dt><dd>Midnight Edition — pré-venda física já aberta</dd>
       </dl>
@@ -1665,12 +1682,61 @@
         <li>Se for jogar no Switch original, esperar 30fps (contra 60fps nas outras plataformas) — vale considerar PC/PS5/Xbox se tiver a opção.</li>
         <li>Já saiu preview "hands-on" oficial (PlayStation Blog, 17/07) — vale ler antes do lançamento para calibrar expectativa.</li>
       </ul>
-      <div class="config-note">⚙️ <strong>Status:</strong> Lançamento 15 de outubro. Verificar reviews antes de comprar — mas o histórico da Evil Empire justifica otimismo.</div>
+      <div class="config-note">⚙️ <strong>Status:</strong> Lançado em 15 de outubro com ótima recepção (Metacritic 86, entre os Castlevania mais bem avaliados) — o otimismo com a Evil Empire se confirmou.</div>
     </div>
   </div>
 
   <!-- NOVEMBRO — VIAGEM (16–30/11): jogos curtos no Steam Deck -->
   <h2 class="section-label">Novembro</h2>
+  <!-- EVERHOOD — CLUBE DO GAME NOVEMBRO -->
+  <div id="card-everhood" class="game-card status-playing status-clube">
+    <div class="card-header">
+      <img class="card-cover" src="img/games/everhood.webp" alt="Everhood" onerror="this.style.display='none'">
+      <div class="card-info">
+        <div class="card-number">#25 · Novembro — Clube do Game <span class="clube-badge">🎲 indicado por Rés</span></div>
+        <h3 class="card-title">Everhood <span class="status-pill pill-playing">jogando</span></h3>
+        <div class="card-subtitle">Foreign Gnomes · 2021 · Rhythm / Adventure / RPG</div>
+        <div class="card-meta">
+          <span class="meta-chip">Metacritic <strong>83</strong></span>
+          <span class="meta-chip">HLTB <strong>~7h história</strong></span>
+          <span class="meta-chip">Steam Deck <strong>Verificado</strong></span>
+        </div>
+        <div class="card-personal-row">
+          <span class="personal-period">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Início: Nov 2026
+          </span>
+        </div>
+        <div class="progress-bar-container" style="margin-top: 10px;">
+          <div class="progress-bar" style="width: 30%;"></div>
+        </div>
+        <div class="progress-label">~30% concluído · <strong>no Castelo Amaldiçoado</strong> · ~5h restantes</div>
+      </div>
+    </div>
+    <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
+    <div class="card-body">
+      <dl class="info-grid">
+        <dt>Ano</dt><dd>2021 (PC / Switch) · Eternity Edition depois, com modos extras</dd>
+        <dt>Dev/Pub</dt><dd>Foreign Gnomes (Chris Nordgren e Jordi Roca)</dd>
+        <dt>Gênero</dt><dd>Rhythm / Adventure / RPG</dd>
+        <dt>Metacritic</dt><dd>83 (PC) · 81 (Switch)</dd>
+        <dt>HLTB</dt><dd>~7h história / bem mais com segredos e finais alternativos</dd>
+        <dt>Steam Deck</dt><dd>Verificado</dd>
+      </dl>
+      <div class="card-section-title">Contexto</div>
+      <p class="card-text">Você controla Red, um boneco de madeira que teve o braço roubado e sai atrás dele por um mundo surreal e colorido. Toda batalha é um duelo musical: as notas descem pelas pistas como num jogo de ritmo, mas aqui você desvia delas (pulando ou trocando de pista) em vez de acertá-las. Criado por uma dupla pequena, muito influenciado por Undertale na escrita e no humor.</p>
+      <div class="card-section-title">Pontos fortes</div>
+      <p class="card-text">A trilha sonora é o coração do jogo — cada chefe tem seu próprio tema, de synthwave a rock, e o padrão de ataques é coreografado na música. A narrativa começa leve e absurda, mas vai ganhando peso e fica bem mais filosófica na segunda metade.</p>
+      <div class="card-section-title">Dicas</div>
+      <ul class="tip-list">
+        <li>Dá para trocar a dificuldade a qualquer momento — se uma luta travar o ritmo da história, baixar não tem penalidade.</li>
+        <li>Fones de ouvido ajudam muito: os ataques seguem a batida, e o áudio antecipa o padrão antes de ele aparecer na tela.</li>
+        <li>Converse com todo mundo nas áreas de exploração — os NPCs voltam com falas novas conforme a história avança.</li>
+      </ul>
+      <div class="config-note">⚙️ <strong>Config Steam Deck:</strong> Verificado. Roda sem ajustes.</div>
+    </div>
+  </div>
+
   <!-- PAPERS, PLEASE — VIAGEM -->
   <div id="card-papers" class="game-card">
     <div class="card-header">
@@ -1929,7 +1995,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>Roadmap 2026 · Atualizado em 24 de outubro de 2026</p>
+    <p>Roadmap 2026 · Atualizado em 8 de novembro de 2026</p>
     <p>Dados de <a href="https://howlongtobeat.com" target="_blank">HowLongToBeat</a> · <a href="https://www.metacritic.com" target="_blank">Metacritic</a> · <a href="https://www.igdb.com" target="_blank">IGDB</a></p>
   </footer>
 
