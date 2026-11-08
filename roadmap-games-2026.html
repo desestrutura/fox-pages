@@ -268,6 +268,8 @@
   .game-card.status-dropped .card-cover { filter: grayscale(0.85); }
   .game-card.status-clube { border-left: 3px solid #b48cff; background: rgba(180, 140, 255, 0.03); }
   .game-card.status-clube:hover { border-color: #b48cff; }
+  .game-card.status-clube.status-dropped,
+  .game-card.status-clube.status-dropped:hover { border-left: 3px dashed var(--red); }
 
   .card-header {
     display: flex;
@@ -632,19 +634,19 @@
           <div class="stat-label">Concluídos</div>
         </div>
         <div class="stat">
-          <div class="stat-value">5</div>
+          <div class="stat-value">3</div>
           <div class="stat-label">Jogando</div>
         </div>
         <div class="stat">
-          <div class="stat-value">2</div>
+          <div class="stat-value">4</div>
           <div class="stat-label">Pausados</div>
         </div>
         <div class="stat">
-          <div class="stat-value">7</div>
+          <div class="stat-value">6</div>
           <div class="stat-label">Pendentes</div>
         </div>
         <div class="stat">
-          <div class="stat-value">1</div>
+          <div class="stat-value">2</div>
           <div class="stat-label">Abandonados</div>
         </div>
       </div>
@@ -676,9 +678,9 @@
       <span class="summary-game"><a href="#card-ecclesia">Castlevania: Order of Ecclesia</a> <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-short">~12h</span>
     </div>
-    <div class="summary-row" style="background: var(--playing-bg);">
+    <div class="summary-row" style="background: var(--paused-bg);">
       <span class="summary-month">Abr–Mai</span>
-      <span class="summary-game"><a href="#card-ff6">Final Fantasy VI</a> <span class="status-pill pill-playing">jogando</span></span>
+      <span class="summary-game"><a href="#card-ff6">Final Fantasy VI</a> <span class="status-pill pill-paused">⏸ pausado</span></span>
       <span class="tag tag-long">~50h</span>
     </div>
     <div class="summary-row done">
@@ -711,9 +713,9 @@
       <span class="summary-game"><a href="#card-silksong">Hollow Knight: Silksong</a> <span class="status-pill pill-paused">⏸ pausado</span></span>
       <span class="tag tag-medium">~35h</span>
     </div>
-    <div class="summary-row" style="background: var(--playing-bg);">
+    <div class="summary-row" style="background: var(--paused-bg);">
       <span class="summary-month">Ago</span>
-      <span class="summary-game"><a href="#card-megazx">Mega Man ZX</a> <span class="status-pill pill-playing">jogando</span></span>
+      <span class="summary-game"><a href="#card-megazx">Mega Man ZX</a> <span class="status-pill pill-paused">⏸ pausado</span></span>
       <span class="tag tag-short">~9h</span>
     </div>
     <div class="summary-row dropped">
@@ -721,9 +723,9 @@
       <span class="summary-game"><a href="#card-mina">Mina the Hollower</a> <span class="status-pill pill-dropped">✕ abandonado</span></span>
       <span class="tag tag-medium">~25h</span>
     </div>
-    <div class="summary-row" style="background: var(--paused-bg);">
+    <div class="summary-row" style="background: var(--playing-bg);">
       <span class="summary-month">Ago</span>
-      <span class="summary-game"><a href="#card-genshin">Genshin Impact — Snezhnaya (7.0)</a> <span class="status-pill pill-paused">⏳ em dia</span></span>
+      <span class="summary-game"><a href="#card-genshin">Genshin Impact — Snezhnaya (7.2)</a> <span class="status-pill pill-playing">jogando</span></span>
       <span class="tag tag-ongoing">∞ ongoing</span>
     </div>
     <div class="summary-row done">
@@ -731,14 +733,14 @@
       <span class="summary-game"><a href="#card-katana-zero">Katana ZERO</a> <span class="status-pill pill-done">✓ concluído</span></span>
       <span class="tag tag-short">~6h</span>
     </div>
-    <div class="summary-row" style="background: var(--playing-bg);">
+    <div class="summary-row" style="background: var(--paused-bg);">
       <span class="summary-month">Set</span>
-      <span class="summary-game"><a href="#card-fe-fortunes">Fire Emblem: Fortune's Weave</a> <span class="status-pill pill-playing">jogando</span></span>
+      <span class="summary-game"><a href="#card-fe-fortunes">Fire Emblem: Fortune's Weave</a> <span class="status-pill pill-paused">⏸ pausado</span></span>
       <span class="tag tag-long">~150h</span>
     </div>
-    <div class="summary-row">
+    <div class="summary-row dropped">
       <span class="summary-month">Out</span>
-      <span class="summary-game"><a href="#card-starfox64">Star Fox 64</a> <span class="clube-badge">🎲 Danezi</span></span>
+      <span class="summary-game"><a href="#card-starfox64">Star Fox 64</a> <span class="status-pill pill-dropped">✕ abandonado</span></span>
       <span class="tag tag-short">~4h</span>
     </div>
     <div class="summary-row" style="background: var(--playing-bg);">
@@ -986,12 +988,12 @@
 
   <!-- 5. FINAL FANTASY VI — JOGANDO -->
   <h2 class="section-label">Abril – Maio</h2>
-  <div id="card-ff6" class="game-card status-playing">
+  <div id="card-ff6" class="game-card status-paused">
     <div class="card-header">
       <img class="card-cover" src="img/games/final-fantasy-vi.webp" alt="Final Fantasy VI" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#5 · Abril–Maio</div>
-        <h3 class="card-title">Final Fantasy VI <span class="status-pill pill-playing">jogando</span></h3>
+        <h3 class="card-title">Final Fantasy VI <span class="status-pill pill-paused">⏸ pausado</span></h3>
         <div class="card-subtitle">Square Enix · 1994 / 2022 (Pixel Remaster) · JRPG</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>94</strong></span>
@@ -1331,12 +1333,12 @@
   <!-- MINA THE HOLLOWER -->
   <!-- MEGA MAN ZX — CLUBE DO GAME AGOSTO -->
   <h2 class="section-label">Agosto</h2>
-  <div id="card-megazx" class="game-card status-playing status-clube">
+  <div id="card-megazx" class="game-card status-paused status-clube">
     <div class="card-header">
       <img class="card-cover" src="img/games/mega-man-zx.webp" alt="Mega Man ZX" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#21 · Agosto — Clube do Game <span class="clube-badge">🎲 indicado por Rafão</span></div>
-        <h3 class="card-title">Mega Man ZX <span class="status-pill pill-playing">jogando</span></h3>
+        <h3 class="card-title">Mega Man ZX <span class="status-pill pill-paused">⏸ pausado</span></h3>
         <div class="card-subtitle">Inti Creates / Capcom · 2006 (DS) / 2020 (Legacy Collection) · Action-platformer / Metroidvania</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>76</strong></span>
@@ -1430,17 +1432,17 @@
     </div>
   </div>
 
-  <!-- GENSHIN IMPACT — SNEZHNAYA 7.0 -->
-  <div id="card-genshin" class="game-card status-paused">
+  <!-- GENSHIN IMPACT — SNEZHNAYA (patch 7.2) -->
+  <div id="card-genshin" class="game-card status-playing">
     <div class="card-header">
       <img class="card-cover" src="img/games/genshin-impact-snezhnaya-everwinter-without-mercy.webp" alt="Genshin Impact — Snezhnaya (Everwinter Without Mercy)" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#12 · Agosto</div>
-        <h3 class="card-title">Genshin Impact — Snezhnaya <span class="status-pill pill-paused">⏳ em dia — aguardando próximo patch</span></h3>
+        <h3 class="card-title">Genshin Impact — Snezhnaya <span class="status-pill pill-playing">jogando — patch 7.2</span></h3>
         <div class="card-subtitle">HoYoverse · 2020 (ongoing) · Action RPG / Live-service</div>
         <div class="card-meta">
-          <span class="meta-chip">Versão <strong>7.0</strong></span>
-          <span class="meta-chip">Lançamento <strong>12/08 (11/08 NA)</strong></span>
+          <span class="meta-chip">Versão <strong>7.2 "Hour of Ruin"</strong></span>
+          <span class="meta-chip">Lançamento 7.2 <strong>04/11 (03/11 NA)</strong></span>
           <span class="meta-chip">Archon Quest launch <strong>~10–15h</strong></span>
           <span class="meta-chip">Plataforma <strong>PC / Mobile</strong></span>
           <span class="tag tag-ongoing" style="margin-left: 2px;">∞ ongoing</span>
@@ -1452,15 +1454,16 @@
           </span>
         </div>
         <div class="progress-bar-container" style="margin-top: 10px;">
-          <div class="progress-bar" style="width: 100%;"></div>
+          <div class="progress-bar" style="width: 35%;"></div>
         </div>
-        <div class="progress-label">100% · <strong>Em dia com o conteúdo atual</strong> · aguardando o próximo patch</div>
+        <div class="progress-label">~35% do patch 7.2 · <strong>Ato V concluído</strong> · faltam o Ato VI, as regiões novas e as world quests</div>
       </div>
     </div>
     <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" data-spoiler="1" onclick="toggleCard(this)">Detalhes <span class="spoiler-hint">· ⚠ contém spoilers</span> <span class="arrow">▼</span></div>
     <div class="card-body">
       <dl class="info-grid">
         <dt>Nação</dt><dd>Snezhnaya — nação Cryo, sede dos Fatui e da Tsaritsa</dd>
+        <dt>Patch atual</dt><dd>7.2 "Hour of Ruin" — 4 de novembro de 2026 · Archon Quest Cap. VII, Atos V e VI</dd>
         <dt>Lançamento confirmado</dt><dd>12 de agosto de 2026 (código "Snezhnaya20260812" revelado na livestream de 24/04/2026)</dd>
         <dt>Versão anterior</dt><dd>Vai direto de 6.7 para 7.0 — versão 6.8 foi pulada</dd>
         <dt>Relevância narrativa</dt><dd>Desfecho do arco dos Archons iniciado em 1.0 — a Tsaritsa revela seu plano e confronta Celestia</dd>
@@ -1535,12 +1538,12 @@
   </div>
 
   <!-- #10b FIRE EMBLEM: FORTUNE'S WEAVE -->
-  <div id="card-fe-fortunes" class="game-card status-playing">
+  <div id="card-fe-fortunes" class="game-card status-paused">
     <div class="card-header">
       <img class="card-cover" src="img/games/fire-emblem-fortunes-weave.webp" alt="Fire Emblem: Fortune's Weave" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#14 · Setembro · segue em 2027</div>
-        <h3 class="card-title">Fire Emblem: Fortune's Weave <span class="status-pill pill-playing">jogando</span></h3>
+        <h3 class="card-title">Fire Emblem: Fortune's Weave <span class="status-pill pill-paused">⏸ pausado</span></h3>
         <div class="card-subtitle">Intelligent Systems / Nintendo · 2026 · SRPG / Tactical RPG</div>
         <div class="card-meta">
           <span class="meta-chip">Lançamento <strong>17 Set 2026</strong></span>
@@ -1585,18 +1588,19 @@
 
   <!-- STAR FOX 64 — CLUBE DO GAME OUTUBRO -->
   <h2 class="section-label">Outubro</h2>
-  <div id="card-starfox64" class="game-card status-clube">
+  <div id="card-starfox64" class="game-card status-dropped status-clube">
     <div class="card-header">
       <img class="card-cover" src="img/games/star-fox-64.webp" alt="Star Fox 64" onerror="this.style.display='none'">
       <div class="card-info">
         <div class="card-number">#23 · Outubro — Clube do Game <span class="clube-badge">🎲 indicado por Danezi</span></div>
-        <h3 class="card-title">Star Fox 64</h3>
+        <h3 class="card-title">Star Fox 64 <span class="status-pill pill-dropped">✕ abandonado</span></h3>
         <div class="card-subtitle">Nintendo EAD · 1997 · Rail shooter / Arcade</div>
         <div class="card-meta">
           <span class="meta-chip">Metacritic <strong>90</strong></span>
           <span class="meta-chip">HLTB <strong>~4h uma rota / ~40h+ completionist</strong></span>
           <span class="meta-chip">Plataforma <strong>N64 / Switch Online</strong></span>
         </div>
+        <div class="progress-label">Abandonado em ~25% · <strong>Parou no chefe da 2ª fase, na chuva de meteoros</strong> · estrutura arcade: morreu, recomeça do zero</div>
       </div>
     </div>
     <div class="card-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleCard(this)">Detalhes <span class="arrow">▼</span></div>
