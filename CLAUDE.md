@@ -12,7 +12,8 @@ Pages:
 - `roadmap-teddy-2026.html` — a second person's separate game roadmap, same format, independent color palette.
 - `games-bucket-list.html` — "someday" games split out of the main roadmap; linked from both `index.html` and the roadmap's summary table.
 - `wishlist.html` — personal wishlist (purchases + concert tickets), grouped by category; linked from `index.html`.
-- `wishlist-cds-japoneses.html` — Japanese CDs wishlist, ranked by priority (the order is the user's, don't re-sort), each with a cover saved in `img/cds/` (originally sourced from the Cover Art Archive, iTunes, Bandcamp, RYM); linked from `wishlist.html` right after the Amazon CD wishlist card.
+- `wishlist-cds.html` — CDs wishlist (non-Japanese), ranked by priority via the Duelo de Posições tool (the order is the user's, don't re-sort), same layout as the Japanese CDs page, covers in `img/cds/` (mostly Cover Art Archive, some iTunes); linked from `wishlist.html` right before the Japanese CDs card.
+- `wishlist-cds-japoneses.html` — Japanese CDs wishlist, ranked by priority (the order is the user's, don't re-sort), each with a cover saved in `img/cds/` (originally sourced from the Cover Art Archive, iTunes, Bandcamp, RYM); linked from `wishlist.html` right after the Amazon CD wishlist and CDs cards.
 - `duelo-de-posicoes.html` — interactive tool: re-rank a pasted list via pairwise "duels" (merge sort), then compare against the original order. Listed under the home page's "Ferramentas" section (separate from "Páginas"); new tools go there too, restyled to the site's dark palette rather than kept in their original look.
 
 ## Editing workflow

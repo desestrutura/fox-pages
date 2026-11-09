@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDs | fox-pages</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f11;
+    --surface: #161a1f;
+    --surface-hover: #1c2127;
+    --border: #242a32;
+    --text: #e8e6e3;
+    --text-muted: #8b9098;
+    --accent: #7eb8da;
+    --accent-dim: #4a7a96;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .crumbs {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .crumbs a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  .crumbs a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  header p a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  header p a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  header { margin-bottom: 36px; }
+
+  header h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  .cd-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+
+  .cd-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.15s;
+  }
+
+  .cd-card:hover {
+    border-color: #3a424d;
+    background: var(--surface-hover);
+  }
+
+  .cd-cover-wrap {
+    position: relative;
+    aspect-ratio: 1;
+    background: var(--border);
+  }
+
+  .cd-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cd-rank {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(13, 15, 17, 0.82);
+    border: 1px solid rgba(126, 184, 218, 0.35);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    backdrop-filter: blur(4px);
+  }
+
+  .cd-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px 12px;
+  }
+
+  .cd-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .cd-artist {
+    font-size: 0.78rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .cd-year {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  footer {
+    margin-top: 56px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  footer p { margin-bottom: 6px; }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  footer a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  @media (max-width: 480px) {
+    .cd-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="crumbs"><a href="index.html">fox-pages</a> / <a href="wishlist.html">Wishlist</a> / CDs</div>
+
+  <header>
+    <h1>CDs</h1>
+    <p>Discos que eu gostaria de ter em CD, em ordem de importância: quanto mais no topo, mais eu quero. Os japoneses ficam numa <a href="wishlist-cds-japoneses.html">lista separada</a>.</p>
+  </header>
+
+  <ol class="cd-grid">
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deftones-koi-no-yokan.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">1</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Koi no Yokan</h2>
+          <div class="cd-artist">Deftones</div>
+          <div class="cd-year">2012</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-vulnicura.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">2</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Vulnicura</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">2015</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-mars-volta-the-bedlam-in-goliath.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">3</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Bedlam in Goliath</h2>
+          <div class="cd-artist">The Mars Volta</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/mew-and-the-glass-handed-kites.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">4</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">And the Glass Handed Kites</h2>
+          <div class="cd-artist">Mew</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/porcupine-tree-deadwing.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">5</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Deadwing</h2>
+          <div class="cd-artist">Porcupine Tree</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/system-of-a-down-hypnotize.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">6</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Hypnotize</h2>
+          <div class="cd-artist">System of a Down</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/chelsea-wolfe-hiss-spun.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">7</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Hiss Spun</h2>
+          <div class="cd-artist">Chelsea Wolfe</div>
+          <div class="cd-year">2017</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/radiohead-the-king-of-limbs.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">8</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The King of Limbs</h2>
+          <div class="cd-artist">Radiohead</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/chelsea-wolfe-abyss.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">9</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Abyss</h2>
+          <div class="cd-artist">Chelsea Wolfe</div>
+          <div class="cd-year">2015</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/slipknot-iowa.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">10</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Iowa</h2>
+          <div class="cd-artist">Slipknot</div>
+          <div class="cd-year">2001</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/slipknot-vol-3-the-subliminal-verses.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">11</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Vol. 3: (The Subliminal Verses)</h2>
+          <div class="cd-artist">Slipknot</div>
+          <div class="cd-year">2004</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/underoath-they-re-only-chasing-safety.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">12</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">They’re Only Chasing Safety</h2>
+          <div class="cd-artist">Underoath</div>
+          <div class="cd-year">2004</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/mitski-be-the-cowboy.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">13</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Be the Cowboy</h2>
+          <div class="cd-artist">Mitski</div>
+          <div class="cd-year">2018</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/massive-attack-blue-lines.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">14</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Blue Lines</h2>
+          <div class="cd-artist">Massive Attack</div>
+          <div class="cd-year">1991</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/tool-10-000-days.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">15</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">10,000 Days</h2>
+          <div class="cd-artist">Tool</div>
+          <div class="cd-year">2006</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/opeth-pale-communion.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">16</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Pale Communion</h2>
+          <div class="cd-artist">Opeth</div>
+          <div class="cd-year">2014</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/opeth-damnation.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">17</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Damnation</h2>
+          <div class="cd-artist">Opeth</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deftones-white-pony.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">18</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">White Pony</h2>
+          <div class="cd-artist">Deftones</div>
+          <div class="cd-year">2000</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-mars-volta-de-loused-in-the-comatorium.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">19</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">De-Loused in the Comatorium</h2>
+          <div class="cd-artist">The Mars Volta</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/massive-attack-mezzanine.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">20</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Mezzanine</h2>
+          <div class="cd-artist">Massive Attack</div>
+          <div class="cd-year">1998</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deftones-diamond-eyes.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">21</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Diamond Eyes</h2>
+          <div class="cd-artist">Deftones</div>
+          <div class="cd-year">2010</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/mew-no-more-stories-are-told-today-i-m-sorry-they-washed-away-no-more-stories-th.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">22</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">No More Stories / Are Told Today / I'm Sorry / They Washed Away // No More Stories / The World Is Grey / I'm Tired / Let's Wash Away</h2>
+          <div class="cd-artist">Mew</div>
+          <div class="cd-year">2009</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/slowdive-souvlaki.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">23</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Souvlaki</h2>
+          <div class="cd-artist">Slowdive</div>
+          <div class="cd-year">1993</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/team-sleep-team-sleep.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">24</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Team Sleep</h2>
+          <div class="cd-artist">Team Sleep</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/king-crimson-discipline.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">25</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Discipline</h2>
+          <div class="cd-artist">King Crimson</div>
+          <div class="cd-year">1981</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-cure-disintegration.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">26</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Disintegration</h2>
+          <div class="cd-artist">The Cure</div>
+          <div class="cd-year">1989</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deftones-saturday-night-wrist.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">27</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Saturday Night Wrist</h2>
+          <div class="cd-artist">Deftones</div>
+          <div class="cd-year">2006</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deafheaven-lonely-people-with-power.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">28</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Lonely People With Power</h2>
+          <div class="cd-artist">Deafheaven</div>
+          <div class="cd-year">2025</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-volta.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">29</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Volta</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/king-crimson-red.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">30</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Red</h2>
+          <div class="cd-artist">King Crimson</div>
+          <div class="cd-year">1974</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/cocteau-twins-treasure.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">31</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Treasure</h2>
+          <div class="cd-artist">Cocteau Twins</div>
+          <div class="cd-year">1984</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-homogenic.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">32</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Homogenic</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">1997</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/circa-survive-juturna.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">33</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Juturna</h2>
+          <div class="cd-artist">Circa Survive</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bloc-party-silent-alarm.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">34</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Silent Alarm</h2>
+          <div class="cd-artist">Bloc Party</div>
+          <div class="cd-year">2004</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/refused-the-shape-of-punk-to-come.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">35</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Shape of Punk to Come</h2>
+          <div class="cd-artist">Refused</div>
+          <div class="cd-year">1998</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/gojira-the-way-of-all-flesh.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">36</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Way of All Flesh</h2>
+          <div class="cd-artist">Gojira</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/underoath-define-the-great-line.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">37</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Define the Great Line</h2>
+          <div class="cd-artist">Underoath</div>
+          <div class="cd-year">2006</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/magdalena-bay-imaginal-disk.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">38</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Imaginal Disk</h2>
+          <div class="cd-artist">Magdalena Bay</div>
+          <div class="cd-year">2024</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/opeth-deliverance.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">39</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Deliverance</h2>
+          <div class="cd-artist">Opeth</div>
+          <div class="cd-year">2002</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/mew-frengers.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">40</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Frengers</h2>
+          <div class="cd-artist">Mew</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-cure-pornography.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">41</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Pornography</h2>
+          <div class="cd-artist">The Cure</div>
+          <div class="cd-year">1982</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/gojira-from-mars-to-sirius.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">42</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">From Mars to Sirius</h2>
+          <div class="cd-artist">Gojira</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deftones-private-music.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">43</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">private music</h2>
+          <div class="cd-artist">Deftones</div>
+          <div class="cd-year">2025</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deafheaven-sunbather.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">44</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Sunbather</h2>
+          <div class="cd-artist">Deafheaven</div>
+          <div class="cd-year">2013</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/radiohead-kid-a.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">45</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Kid A</h2>
+          <div class="cd-artist">Radiohead</div>
+          <div class="cd-year">2000</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-cure-wish.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">46</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Wish</h2>
+          <div class="cd-artist">The Cure</div>
+          <div class="cd-year">1992</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/circa-survive-on-letting-go.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">47</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">On Letting Go</h2>
+          <div class="cd-artist">Circa Survive</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/interpol-turn-on-the-bright-lights.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">48</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Turn On the Bright Lights</h2>
+          <div class="cd-artist">Interpol</div>
+          <div class="cd-year">2002</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/slowdive-pygmalion.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">49</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Pygmalion</h2>
+          <div class="cd-artist">Slowdive</div>
+          <div class="cd-year">1995</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/liturgy-aesthethica.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">50</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Aesthethica</h2>
+          <div class="cd-artist">Liturgy</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-utopia.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">51</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Utopia</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">2017</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/leprous-malina.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">52</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Malina</h2>
+          <div class="cd-artist">Leprous</div>
+          <div class="cd-year">2017</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-gathering-how-to-measure-a-planet.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">53</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">How to Measure a Planet?</h2>
+          <div class="cd-artist">The Gathering</div>
+          <div class="cd-year">1998</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/death-human.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">54</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Human</h2>
+          <div class="cd-artist">Death</div>
+          <div class="cd-year">1991</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/loathe-i-let-it-in-and-it-took-everything.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">55</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">I Let It In and It Took Everything</h2>
+          <div class="cd-artist">Loathe</div>
+          <div class="cd-year">2020</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/imperial-triumphant-goldstar.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">56</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Goldstar</h2>
+          <div class="cd-artist">Imperial Triumphant</div>
+          <div class="cd-year">2025</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/gojira-l-enfant-sauvage.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">57</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">L’Enfant sauvage</h2>
+          <div class="cd-artist">Gojira</div>
+          <div class="cd-year">2012</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/messa-the-spin.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">58</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Spin</h2>
+          <div class="cd-artist">Messa</div>
+          <div class="cd-year">2025</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/papangu-holoceno.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">59</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Holoceno</h2>
+          <div class="cd-artist">Papangu</div>
+          <div class="cd-year">2021</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/papangu-lampiao-rei.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">60</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Lampião Rei</h2>
+          <div class="cd-artist">Papangu</div>
+          <div class="cd-year">2024</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/porcupine-tree-fear-of-a-blank-planet.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">61</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Fear of a Blank Planet</h2>
+          <div class="cd-artist">Porcupine Tree</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-fall-of-troy-doppelganger.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">62</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Doppelgänger</h2>
+          <div class="cd-artist">The Fall of Troy</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/gojira-magma.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">63</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Magma</h2>
+          <div class="cd-artist">Gojira</div>
+          <div class="cd-year">2016</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/tool-lateralus.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">64</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Lateralus</h2>
+          <div class="cd-artist">Tool</div>
+          <div class="cd-year">2001</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/angra-temple-of-shadows.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">65</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Temple of Shadows</h2>
+          <div class="cd-artist">Angra</div>
+          <div class="cd-year">2004</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/underoath-lost-in-the-sound-of-separation.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">66</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Lost in the Sound of Separation</h2>
+          <div class="cd-artist">Underoath</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/angra-rebirth.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">67</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Rebirth</h2>
+          <div class="cd-artist">Angra</div>
+          <div class="cd-year">2001</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/angra-angels-cry.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">68</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Angels Cry</h2>
+          <div class="cd-artist">Angra</div>
+          <div class="cd-year">1993</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/cocteau-twins-heaven-or-las-vegas.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">69</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Heaven or Las Vegas</h2>
+          <div class="cd-artist">Cocteau Twins</div>
+          <div class="cd-year">1990</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/badbadnotgood-iv.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">70</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">IV</h2>
+          <div class="cd-artist">BADBADNOTGOOD</div>
+          <div class="cd-year">2016</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/badbadnotgood-iii.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">71</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">III</h2>
+          <div class="cd-artist">BADBADNOTGOOD</div>
+          <div class="cd-year">2014</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/charli-xcx-brat.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">72</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Brat</h2>
+          <div class="cd-artist">Charli xcx</div>
+          <div class="cd-year">2024</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-mars-volta-frances-the-mute.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">73</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Frances the Mute</h2>
+          <div class="cd-artist">The Mars Volta</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/death-symbolic.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">74</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Symbolic</h2>
+          <div class="cd-artist">Death</div>
+          <div class="cd-year">1995</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/alcest-les-chants-de-l-aurore.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">75</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Les Chants de l’aurore</h2>
+          <div class="cd-artist">Alcest</div>
+          <div class="cd-year">2024</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/agalloch-ashes-against-the-grain.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">76</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Ashes Against the Grain</h2>
+          <div class="cd-artist">Agalloch</div>
+          <div class="cd-year">2006</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/alcest-souvenirs-d-un-autre-monde.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">77</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Souvenirs d’un autre monde</h2>
+          <div class="cd-artist">Alcest</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/black-sabbath-sabbath-bloody-sabbath.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">78</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Sabbath Bloody Sabbath</h2>
+          <div class="cd-artist">Black Sabbath</div>
+          <div class="cd-year">1973</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/aphex-twin-come-to-daddy.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">79</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Come to Daddy</h2>
+          <div class="cd-artist">Aphex Twin</div>
+          <div class="cd-year">1997</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/black-sabbath-paranoid.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">80</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Paranoid</h2>
+          <div class="cd-artist">Black Sabbath</div>
+          <div class="cd-year">1970</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/alcest-kodama.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">81</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Kodama</h2>
+          <div class="cd-artist">Alcest</div>
+          <div class="cd-year">2016</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/between-the-buried-and-me-the-blue-nowhere.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">82</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Blue Nowhere</h2>
+          <div class="cd-artist">Between the Buried and Me</div>
+          <div class="cd-year">2025</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-cure-songs-of-a-lost-world.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">83</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Songs of a Lost World</h2>
+          <div class="cd-artist">The Cure</div>
+          <div class="cd-year">2024</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-medulla.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">84</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Medúlla</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">2004</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/underoath-o-disambiguation.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">85</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Ø (Disambiguation)</h2>
+          <div class="cd-artist">Underoath</div>
+          <div class="cd-year">2010</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/leprous-the-congregation.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">86</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Congregation</h2>
+          <div class="cd-artist">Leprous</div>
+          <div class="cd-year">2015</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/gorillaz-demon-days.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">87</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Demon Days</h2>
+          <div class="cd-artist">Gorillaz</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/leprous-bilateral.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">88</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Bilateral</h2>
+          <div class="cd-artist">Leprous</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/death-the-sound-of-perseverance.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">89</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Sound of Perseverance</h2>
+          <div class="cd-artist">Death</div>
+          <div class="cd-year">1998</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deafheaven-at-work-in-the-fields-of-the-bomb.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">90</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">At Work in the Fields of the Bomb</h2>
+          <div class="cd-artist">Deafheaven</div>
+          <div class="cd-year">2026</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/dream-theater-metropolis-pt-2-scenes-from-a-memory.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">91</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Metropolis Pt. 2: Scenes From a Memory</h2>
+          <div class="cd-artist">Dream Theater</div>
+          <div class="cd-year">1999</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/between-the-buried-and-me-alaska.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">92</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Alaska</h2>
+          <div class="cd-artist">Between the Buried and Me</div>
+          <div class="cd-year">2005</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-gathering-mandylion.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">93</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Mandylion</h2>
+          <div class="cd-artist">The Gathering</div>
+          <div class="cd-year">1995</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-gathering-if-then-else.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">94</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">if_then_else</h2>
+          <div class="cd-artist">The Gathering</div>
+          <div class="cd-year">2000</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/boards-of-canada-geogaddi.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">95</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Geogaddi</h2>
+          <div class="cd-artist">Boards of Canada</div>
+          <div class="cd-year">2002</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/boards-of-canada-music-has-the-right-to-children.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">96</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Music Has the Right to Children</h2>
+          <div class="cd-artist">Boards of Canada</div>
+          <div class="cd-year">1998</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-gathering-souvenirs.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">97</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Souvenirs</h2>
+          <div class="cd-artist">The Gathering</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/boards-of-canada-inferno.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">98</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Inferno</h2>
+          <div class="cd-artist">Boards of Canada</div>
+          <div class="cd-year">2026</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/radiohead-hail-to-the-thief.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">99</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Hail to the Thief</h2>
+          <div class="cd-artist">Radiohead</div>
+          <div class="cd-year">2003</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/system-of-a-down-toxicity.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">100</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Toxicity</h2>
+          <div class="cd-artist">System of a Down</div>
+          <div class="cd-year">2001</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/sepultura-chaos-a-d.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">101</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Chaos A.D.</h2>
+          <div class="cd-artist">Sepultura</div>
+          <div class="cd-year">1993</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/chelsea-wolfe-she-reaches-out-to-she-reaches-out-to-she.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">102</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">She Reaches Out to She Reaches Out to She</h2>
+          <div class="cd-artist">Chelsea Wolfe</div>
+          <div class="cd-year">2024</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/liturgy-93696.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">103</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">93696</h2>
+          <div class="cd-artist">Liturgy</div>
+          <div class="cd-year">2023</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/whirr-sway.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">104</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Sway</h2>
+          <div class="cd-artist">Whirr</div>
+          <div class="cd-year">2014</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/alcest-ecailles-de-lune.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">105</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Écailles de lune</h2>
+          <div class="cd-artist">Alcest</div>
+          <div class="cd-year">2010</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/placebo-black-market-music.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">106</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Black Market Music</h2>
+          <div class="cd-artist">Placebo</div>
+          <div class="cd-year">2000</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/american-football-american-football.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">107</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">American Football</h2>
+          <div class="cd-artist">American Football</div>
+          <div class="cd-year">1999</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/aphex-twin-drukqs.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">108</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Drukqs</h2>
+          <div class="cd-artist">Aphex Twin</div>
+          <div class="cd-year">2001</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/agalloch-the-mantle.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">109</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Mantle</h2>
+          <div class="cd-artist">Agalloch</div>
+          <div class="cd-year">2002</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/mastodon-marrow-deep.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">110</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Marrow Deep</h2>
+          <div class="cd-artist">Mastodon</div>
+          <div class="cd-year">2026</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/magdalena-bay-mercurial-world.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">111</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Mercurial World</h2>
+          <div class="cd-artist">Magdalena Bay</div>
+          <div class="cd-year">2021</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/between-the-buried-and-me-colors.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">112</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Colors</h2>
+          <div class="cd-artist">Between the Buried and Me</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/agalloch-marrow-of-the-spirit.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">113</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Marrow of the Spirit</h2>
+          <div class="cd-artist">Agalloch</div>
+          <div class="cd-year">2010</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/opeth-in-cauda-venenum.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">114</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">In Cauda Venenum</h2>
+          <div class="cd-artist">Opeth</div>
+          <div class="cd-year">2019</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bloc-party-a-weekend-in-the-city.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">115</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">A Weekend in the City</h2>
+          <div class="cd-artist">Bloc Party</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/papangu-celestial.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">116</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Celestial</h2>
+          <div class="cd-artist">Papangu</div>
+          <div class="cd-year">2026</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/between-the-buried-and-me-the-parallax-ii-future-sequence.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">117</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Parallax II: Future Sequence</h2>
+          <div class="cd-artist">Between the Buried and Me</div>
+          <div class="cd-year">2012</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/black-sabbath-black-sabbath.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">118</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Black Sabbath</h2>
+          <div class="cd-artist">Black Sabbath</div>
+          <div class="cd-year">1970</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/mitski-puberty-2.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">119</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Puberty 2</h2>
+          <div class="cd-artist">Mitski</div>
+          <div class="cd-year">2016</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/leprous-coal.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">120</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Coal</h2>
+          <div class="cd-artist">Leprous</div>
+          <div class="cd-year">2013</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/radiohead-the-bends.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">121</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Bends</h2>
+          <div class="cd-artist">Radiohead</div>
+          <div class="cd-year">1995</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/the-gathering-nighttime-birds.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">122</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Nighttime Birds</h2>
+          <div class="cd-artist">The Gathering</div>
+          <div class="cd-year">1997</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/alcest-shelter.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">123</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Shelter</h2>
+          <div class="cd-artist">Alcest</div>
+          <div class="cd-year">2014</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/radiohead-amnesiac.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">124</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Amnesiac</h2>
+          <div class="cd-artist">Radiohead</div>
+          <div class="cd-year">2001</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/deafheaven-new-bermuda.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">125</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">New Bermuda</h2>
+          <div class="cd-artist">Deafheaven</div>
+          <div class="cd-year">2015</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/porcupine-tree-in-absentia.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">126</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">In Absentia</h2>
+          <div class="cd-artist">Porcupine Tree</div>
+          <div class="cd-year">2002</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/sepultura-beneath-the-remains.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">127</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Beneath the Remains</h2>
+          <div class="cd-artist">Sepultura</div>
+          <div class="cd-year">1989</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/sepultura-roots.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">128</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Roots</h2>
+          <div class="cd-artist">Sepultura</div>
+          <div class="cd-year">1996</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/sepultura-arise.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">129</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Arise</h2>
+          <div class="cd-artist">Sepultura</div>
+          <div class="cd-year">1991</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/tool-aenima.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">130</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Ænima</h2>
+          <div class="cd-artist">Tool</div>
+          <div class="cd-year">1996</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/meshuggah-koloss.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">131</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Koloss</h2>
+          <div class="cd-artist">Meshuggah</div>
+          <div class="cd-year">2012</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/between-the-buried-and-me-colors-ii.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">132</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Colors II</h2>
+          <div class="cd-artist">Between the Buried and Me</div>
+          <div class="cd-year">2021</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/between-the-buried-and-me-automata-ii.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">133</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Automata II</h2>
+          <div class="cd-artist">Between the Buried and Me</div>
+          <div class="cd-year">2018</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/badbadnotgood-talk-memory.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">134</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Talk Memory</h2>
+          <div class="cd-artist">BADBADNOTGOOD</div>
+          <div class="cd-year">2021</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/between-the-buried-and-me-automata-i.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">135</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Automata I</h2>
+          <div class="cd-artist">Between the Buried and Me</div>
+          <div class="cd-year">2018</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/badbadnotgood-bbng2.jpg" alt="" loading="lazy">
+          <span class="cd-rank" aria-hidden="true">136</span>
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">BBNG2</h2>
+          <div class="cd-artist">BADBADNOTGOOD</div>
+          <div class="cd-year">2012</div>
+        </div>
+      </li>
+  </ol>
+
+  <footer>
+    <p>CDs · Atualizado em 9 de novembro de 2026</p>
+    <p><a href="wishlist.html">← Voltar para a Wishlist</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>

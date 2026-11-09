@@ -13,6 +13,7 @@ Páginas HTML estáticas pessoais: roadmaps de games, wishlists e algumas ferram
 | [`roadmap-teddy-2026.html`](roadmap-teddy-2026.html) | 🦑 Roadmap de 2026 da Teddy, no mesmo formato |
 | [`games-bucket-list.html`](games-bucket-list.html) | 🗂️ Jogos "um dia", sem prazo e fora do roadmap |
 | [`wishlist.html`](wishlist.html) | 🎁 Lista de desejos: compras, presentes e ingressos de shows |
+| [`wishlist-cds.html`](wishlist-cds.html) | 💿 Wishlist de CDs, por ordem de prioridade |
 | [`wishlist-cds-japoneses.html`](wishlist-cds-japoneses.html) | 💿 Wishlist de CDs japoneses, por ordem de prioridade |
 
 ### Ferramentas
