@@ -516,7 +516,7 @@
   </section>
 
   <footer>
-    <p>Duelo de Posições · Atualizado em 4 de novembro de 2026</p>
+    <p>Duelo de Posições · Atualizado em 8 de novembro de 2026</p>
     <p><a href="index.html">← Voltar para fox-pages</a></p>
   </footer>
 
@@ -571,14 +571,38 @@
   const active = () => items.map((_, k) => k).filter(k => !removed.has(k));
   const picks = () => history.filter(h => h.pick).length;
 
-  // Merge sort que "reproduz" os pares já respondidos; quando falta um, pede uma nova comparação.
-  // Como as respostas ficam por par (e não em sequência), remover um item não perde os outros duelos.
-  function run() {
-    const NEED = {};
+  // Merge sort que "reproduz" os pares já respondidos. Um par sem resposta direta ainda pode ser
+  // deduzido por transitividade (A > B e B > C ⇒ A > C), inclusive passando por itens já removidos:
+  // assim remover um item, que muda as divisões do merge sort, não joga fora o que já se sabe.
+  // A ordenação segue até o fim "chutando" os pares desconhecidos (chute fixo por par), o que dá
+  // o próximo duelo (o primeiro desconhecido) e uma estimativa de quantos ainda faltam.
+  function plan(its, memoMap, removedSet) {
+    const wins = new Map(); // vencedor -> Set de perdedores
+    const edge = (w, l) => { if (!wins.has(w)) wins.set(w, new Set()); wins.get(w).add(l); };
+    memoMap.forEach((w, k) => { const [x, y] = k.split("|").map(Number); edge(w, w === x ? y : x); });
+    function reaches(from, to) {
+      const seen = new Set([from]), stack = [from];
+      while (stack.length) {
+        for (const n of wins.get(stack.pop()) || []) {
+          if (n === to) return true;
+          if (!seen.has(n)) { seen.add(n); stack.push(n); }
+        }
+      }
+      return false;
+    }
+    let first = null, unknown = 0;
     function better(a, b) { // true se a deve ficar acima de b
       const k = pairKey(a, b);
-      if (!memo.has(k)) { NEED.pair = [a, b]; throw NEED; }
-      return memo.get(k) === a;
+      if (memoMap.has(k)) return memoMap.get(k) === a;
+      const ab = reaches(a, b), ba = reaches(b, a);
+      if (ab !== ba) return ab; // dedução sem contradição
+      // Desconhecido (ou respostas contraditórias): vira duelo. Para estimar o resto, chuta e segue.
+      if (!first) first = [a, b];
+      unknown++;
+      let h = 0; for (const c of k) h = (h * 31 + c.charCodeAt(0)) | 0;
+      const aWins = (h & 1) === 0;
+      edge(aWins ? a : b, aWins ? b : a);
+      return aWins;
     }
     function sort(arr) {
       if (arr.length < 2) return arr;
@@ -587,9 +611,10 @@
       while (a < L.length && b < R.length) out.push(better(L[a], R[b]) ? L[a++] : R[b++]);
       return out.concat(L.slice(a), R.slice(b));
     }
-    try { return { done: sort(active()) }; }
-    catch (e) { if (e === NEED) return { pair: NEED.pair }; throw e; }
+    const order = sort(its.map((_, k) => k).filter(k => !removedSet.has(k)));
+    return first ? { pair: first, remaining: unknown } : { done: order };
   }
+  const run = () => plan(items, memo, removed);
 
   function show(id) { ["setup", "duel", "result"].forEach(s => $(s).hidden = s !== id); }
 
@@ -610,8 +635,8 @@
     $("start").classList.toggle("primary", !s);
     if (!s) return;
     const done = s.history.filter(h => h.pick).length;
-    const left = s.items.length - s.removed.length;
-    $("resume").textContent = `Continuar duelo (${done} de ~${Math.max(estimate(left), done + 1)})`;
+    const r = plan(s.items, new Map(s.memo), new Set(s.removed));
+    $("resume").textContent = r.done ? `Ver resultado do duelo (${done} feitos)` : `Continuar duelo (${done} feitos · faltam ~${r.remaining})`;
   }
   updateResume();
 
@@ -626,9 +651,9 @@
       $(rid).setAttribute("aria-label", `Remover "${items[idx]}" da lista`);
     });
     const done = picks();
-    total = Math.max(estimate(active().length), done + 1);
-    $("counter").textContent = `duelo ${done + 1} · até ~${total}`;
-    $("progress").style.width = Math.min(96, done / total * 100) + "%";
+    total = done + r.remaining;
+    $("counter").textContent = `duelo ${done + 1} · faltam ~${r.remaining}`;
+    $("progress").style.width = done / total * 100 + "%";
     $("undo").disabled = history.length === 0;
     $("removedNote").textContent = removed.size
       ? `${removed.size} removido${removed.size > 1 ? "s" : ""} · ${active().length} itens na disputa`
