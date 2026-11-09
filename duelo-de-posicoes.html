@@ -572,14 +572,18 @@
   const picks = () => history.filter(h => h.pick).length;
 
   // Merge sort que "reproduz" os pares já respondidos. Um par sem resposta direta ainda pode ser
-  // deduzido por transitividade (A > B e B > C ⇒ A > C), inclusive passando por itens já removidos:
-  // assim remover um item, que muda as divisões do merge sort, não joga fora o que já se sabe.
+  // deduzido por transitividade (A > B e B > C ⇒ A > C) entre os itens que seguem na disputa.
+  // Votos envolvendo itens removidos são ignorados: remover costuma significar "não lembro/não quero",
+  // então esses votos podem ter sido no chute e não devem decidir a ordem dos outros.
   // A ordenação segue até o fim "chutando" os pares desconhecidos (chute fixo por par), o que dá
   // o próximo duelo (o primeiro desconhecido) e uma estimativa de quantos ainda faltam.
   function plan(its, memoMap, removedSet) {
     const wins = new Map(); // vencedor -> Set de perdedores
     const edge = (w, l) => { if (!wins.has(w)) wins.set(w, new Set()); wins.get(w).add(l); };
-    memoMap.forEach((w, k) => { const [x, y] = k.split("|").map(Number); edge(w, w === x ? y : x); });
+    memoMap.forEach((w, k) => {
+      const [x, y] = k.split("|").map(Number);
+      if (!removedSet.has(x) && !removedSet.has(y)) edge(w, w === x ? y : x);
+    });
     function reaches(from, to) {
       const seen = new Set([from]), stack = [from];
       while (stack.length) {
