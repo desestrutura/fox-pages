@@ -15,6 +15,7 @@ Pages:
 - `wishlist-cds.html` — CDs wishlist (non-Japanese), ranked by priority via the Duelo de Posições tool (the order is the user's, don't re-sort), same layout as the Japanese CDs page, covers in `img/cds/` (mostly Cover Art Archive, some iTunes); linked from `wishlist.html` right before the Japanese CDs card.
 - `wishlist-cds-japoneses.html` — Japanese CDs wishlist, ranked by priority (the order is the user's, don't re-sort), each with a cover saved in `img/cds/` (originally sourced from the Cover Art Archive, iTunes, Bandcamp, RYM); linked from `wishlist.html` right after the Amazon CD wishlist and CDs cards.
 - `duelo-de-posicoes.html` — interactive tool: re-rank a pasted list via pairwise "duels" (merge sort), then compare against the original order. Listed under the home page's "Ferramentas" section (separate from "Páginas"); new tools go there too, restyled to the site's dark palette rather than kept in their original look.
+- `chaveamento.html` — interactive tool: World Cup–style single-elimination bracket from a pasted list (random draw, byes spread by seed order, 3rd-place match), with an optional group stage (groups of 3–4, top 2 advance, 3-way cycles resolved by a manual tiebreak pick), W.O. removal, undo, and progress in `localStorage` (`chave:*`). The whole tournament is rebuilt from items + seed + picks, so undo just pops the last pick. Also under "Ferramentas".
 
 ## Editing workflow
 

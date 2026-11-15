@@ -21,6 +21,7 @@ Páginas HTML estáticas pessoais: roadmaps de games, wishlists e algumas ferram
 | Página | O que é |
 | --- | --- |
 | [`duelo-de-posicoes.html`](duelo-de-posicoes.html) | ⚔️ Reordena uma lista colada comparando dois itens por vez e depois compara com a ordem original |
+| [`chaveamento.html`](chaveamento.html) | 🏆 Mata-mata estilo Copa do Mundo a partir de uma lista colada, com fase de grupos opcional, W.O. e classificação final |
 
 ## Como funciona
 
