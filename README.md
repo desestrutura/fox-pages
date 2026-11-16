@@ -15,6 +15,7 @@ Páginas HTML estáticas pessoais: roadmaps de games, wishlists e algumas ferram
 | [`wishlist.html`](wishlist.html) | 🎁 Lista de desejos: compras, presentes e ingressos de shows |
 | [`wishlist-cds.html`](wishlist-cds.html) | 💿 Wishlist de CDs, por ordem de prioridade |
 | [`wishlist-cds-japoneses.html`](wishlist-cds-japoneses.html) | 💿 Wishlist de CDs japoneses, por ordem de prioridade |
+| [`colecao-cds.html`](colecao-cds.html) | 📀 Minha coleção de CDs, em ordem alfabética |
 
 ### Ferramentas
 

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coleção de CDs | fox-pages</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f11;
+    --surface: #161a1f;
+    --surface-hover: #1c2127;
+    --border: #242a32;
+    --text: #e8e6e3;
+    --text-muted: #8b9098;
+    --accent: #7eb8da;
+    --accent-dim: #4a7a96;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .crumbs {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .crumbs a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  .crumbs a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  header { margin-bottom: 36px; }
+
+  header h1 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, var(--text), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+
+  .cd-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+
+  .cd-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s, background 0.15s;
+  }
+
+  .cd-card:hover {
+    border-color: #3a424d;
+    background: var(--surface-hover);
+  }
+
+  .cd-cover-wrap {
+    position: relative;
+    aspect-ratio: 1;
+    background: var(--border);
+  }
+
+  .cd-cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cd-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px 12px 12px;
+  }
+
+  .cd-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .cd-artist {
+    font-size: 0.78rem;
+    color: var(--text);
+    line-height: 1.4;
+  }
+
+  .cd-year {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  footer {
+    margin-top: 56px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  footer p { margin-bottom: 6px; }
+
+  footer a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(126, 184, 218, 0.4);
+    text-underline-offset: 3px;
+  }
+
+  footer a:hover { text-decoration-color: rgba(126, 184, 218, 0.8); }
+
+  @media (max-width: 480px) {
+    .cd-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="crumbs"><a href="index.html">fox-pages</a> / Coleção de CDs</div>
+
+  <header>
+    <h1>Coleção de CDs</h1>
+    <p>Os CDs que já tenho na estante, em ordem alfabética de artista.</p>
+  </header>
+
+  <ul class="cd-grid">
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/alcest-spiritual-instinct.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Spiritual Instinct</h2>
+          <div class="cd-artist">Alcest</div>
+          <div class="cd-year">2019</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-debut.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Debut</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">1993</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-post.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Post</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">1995</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-vespertine.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Vespertine</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">2001</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/bjork-biophilia.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Biophilia</h2>
+          <div class="cd-artist">Björk</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/blind-guardian-imaginations-from-the-other-side.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Imaginations From the Other Side</h2>
+          <div class="cd-artist">Blind Guardian</div>
+          <div class="cd-year">1995</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/coldplay-a-rush-of-blood-to-the-head.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">A Rush of Blood to the Head</h2>
+          <div class="cd-artist">Coldplay</div>
+          <div class="cd-year">2002</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/dir-en-grey-the-marrow-of-a-bone.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Marrow of a Bone</h2>
+          <div class="cd-artist">Dir en Grey</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/dir-en-grey-uroboros.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Uroboros</h2>
+          <div class="cd-artist">Dir en Grey</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/dir-en-grey-dum-spiro-spero.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Dum Spiro Spero</h2>
+          <div class="cd-artist">Dir en Grey</div>
+          <div class="cd-year">2011</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/dir-en-grey-arche.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Arche</h2>
+          <div class="cd-artist">Dir en Grey</div>
+          <div class="cd-year">2014</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/fiction-lucifer-to-iu-na-no-oningyo.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Lucifer という名のお人形 [Lucifer to iu na no Oningyō]</h2>
+          <div class="cd-artist">Fiction</div>
+          <div class="cd-year">1997</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/masaharu-iwata-and-hitoshi-sakimoto-final-fantasy-tactics.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">ファイナル ファンタジー タクティクス [Final Fantasy Tactics]</h2>
+          <div class="cd-artist">岩田匡治 [Masaharu Iwata] &amp; 崎元仁 [Hitoshi Sakimoto]</div>
+          <div class="cd-year">1997</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/king-crimson-in-the-court-of-the-crimson-king.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">In the Court of the Crimson King</h2>
+          <div class="cd-artist">King Crimson</div>
+          <div class="cd-year">1969</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/malice-mizer-merveilles.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Merveilles</h2>
+          <div class="cd-artist">MALICE MIZER</div>
+          <div class="cd-year">1998</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/mastodon-crack-the-skye.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Crack the Skye</h2>
+          <div class="cd-artist">Mastodon</div>
+          <div class="cd-year">2009</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/opeth-blackwater-park.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Blackwater Park</h2>
+          <div class="cd-artist">Opeth</div>
+          <div class="cd-year">2001</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/opeth-watershed.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Watershed</h2>
+          <div class="cd-artist">Opeth</div>
+          <div class="cd-year">2008</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/opeth-the-last-will-and-testament.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The Last Will and Testament</h2>
+          <div class="cd-artist">Opeth</div>
+          <div class="cd-year">2024</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/placebo-placebo.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Placebo</h2>
+          <div class="cd-artist">Placebo</div>
+          <div class="cd-year">1996</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/placebo-without-you-im-nothing.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">Without You I'm Nothing</h2>
+          <div class="cd-artist">Placebo</div>
+          <div class="cd-year">1998</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/radiohead-in-rainbows.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">In Rainbows</h2>
+          <div class="cd-artist">Radiohead</div>
+          <div class="cd-year">2007</div>
+        </div>
+      </li>
+      <li class="cd-card">
+        <div class="cd-cover-wrap">
+          <img class="cd-cover" src="img/cds/shiro-sagisu-the-end-of-evangelion.jpg" alt="" loading="lazy">
+        </div>
+        <div class="cd-info">
+          <h2 class="cd-title">The End of Evangelion</h2>
+          <div class="cd-artist">鷺巣詩郎 [Shiro Sagisu]</div>
+          <div class="cd-year">1997</div>
+        </div>
+      </li>
+  </ul>
+
+  <footer>
+    <p>Coleção de CDs · Atualizado em 16 de novembro de 2026</p>
+    <p><a href="index.html">← Voltar para o início</a></p>
+  </footer>
+
+</div>
+
+</body>
+</html>
