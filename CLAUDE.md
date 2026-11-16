@@ -18,6 +18,8 @@ Pages:
 - `duelo-de-posicoes.html` — interactive tool: re-rank a pasted list via pairwise "duels" (merge sort), then compare against the original order. Listed under the home page's "Ferramentas" section (separate from "Páginas"); new tools go there too, restyled to the site's dark palette rather than kept in their original look.
 - `chaveamento.html` — interactive tool: World Cup–style single-elimination bracket from a pasted list (random draw, byes spread by seed order, 3rd-place match), with an optional group stage (groups of 3–4, top 2 advance, 3-way cycles resolved by a manual tiebreak pick), W.O. removal, undo, and progress in `localStorage` (`chave:*`). The whole tournament is rebuilt from items + seed + picks, so undo just pops the last pick. Also under "Ferramentas".
 
+Plain-text lists (one `Artista — Álbum` per line) live in `listas/` and are versioned: `cds-para-duelo.txt` and `cds-japoneses-para-duelo.txt` are the inputs pasted into the Duelo/Chaveamento tools for the two CD wishlists, and `albuns-pouco-ouvidos.txt` is the pool albums get moved out of. They're the user's working lists — edit them only when asked.
+
 ## Editing workflow
 
 - Edit the HTML file directly; there's nothing to compile. Verify visually in a browser before considering a change done (screenshot or open the file) — CSS/JS mistakes only show up visually, nothing will error at "build" time.

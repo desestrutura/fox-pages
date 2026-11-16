@@ -41,6 +41,7 @@ Depois acesse <http://localhost:8765>.
 ```
 .
 ├── *.html          # uma página por arquivo
+├── listas/        # listas em texto (Artista — Álbum) para colar no Duelo/Chaveamento
 └── img/
     ├── games/      # capas de jogos (IGDB, t_cover_big)
     ├── cds/        # capas de CDs (~400px)
